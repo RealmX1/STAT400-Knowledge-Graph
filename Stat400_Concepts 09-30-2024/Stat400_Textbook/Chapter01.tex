@@ -1,0 +1,1247 @@
+\chapter[Probability]{Probability}
+\section{Sets, Experiment, and Probability}
+\begin{defn}[Experiment]
+An \textbf{Experiment} is a repeatable task with well defined outcomes.
+\end{defn}
+
+\begin{defn} [Sample Space]
+The \textbf{Sample Space} for an experiment is the set of all possible outcomes of that experiment, usually denoted by $\mathcal{S}$
+\end{defn}
+
+\begin{defn}[Event]
+Any subset $E$ of the sample space $\mathcal{S}$ attached to an experiment will be called an \textbf{Event} associated to the experiment. 
+\end{defn}
+To say that \textbf{an event $E$ has happened} means "we performed the experiment, and the outcome of this experiment was in the set $E$". 
+
+\begin{defn}[Simple Event]
+An event is called a  simple event if it has exactly one outcome in it.  
+\end{defn}
+
+\begin{ex}
+    Experiments involving coin tosses:
+    \begin{enumerate}
+\item[(a).] Experiment: Toss a coin once. \\
+All possible outcomes are contained in the set $\{H,T\}$, with $H$ representing obtaining a head and $T$ representing obtaining a tail. The total number of outcomes is 2. 
+\item[(b).] Experiment: Toss the coin two times.\\
+All possible outcomes are contained in the set $\{HH, HT, TH, TT\}$. Number of outcomes is 4. 
+\item[(c).] Experiment: Toss the coin 10 times.\\
+All possible outcomes are contained in the set $\{HHH\cdots H,\ HTHH\cdots H,\ \cdots\}$. Number of outcomes is $2^{10}=1024$. 
+\end{enumerate}
+\end{ex}
+
+\begin{ex}
+        Experiments involving die rolls:
+\begin{enumerate}
+\item[(a).] Roll a six-sided die once. 
+Outcomes are in the set $\{1,2,3,4,5,6\}$.
+\item[(b).] Roll the die two times. Outcomes are in the set
+\begin{align*}
+\left\{
+\begin{matrix}
+(1,1), & (1,2), & (1,3), & \cdots , & (1,6),\\
+(2,1), & (2,2), & (2,3), & \cdots , & (2,6),\\
+\vdots & \vdots & \vdots & \ddots  & \vdots\\
+(6,1), & (6,2), & (6,3), & \cdots , & (6,6)
+\end{matrix}
+\right\}\ .
+\end{align*}
+\end{enumerate}
+\end{ex}
+
+
+
+
+
+\begin{ex}
+    Consider the following two step experiment: In step 1, we toss a coin; In step 2, we roll a 6-sided die. All possible outcomes are contained in the set
+\begin{align*}
+\left\{
+\begin{matrix}
+(H,1), &(H,2), &(H,3),& (H,4),& (H,5),& (H,6), \\
+(T,1),& (T,2), &(T,3), &(T,4),& (T,5), &(T,6) \\
+\end{matrix}
+\right\}\ .
+\end{align*}
+\end{ex} 
+
+\begin{ex}
+    We can perform an experiment where we pick a random student from campus, and ask if they have walked more than 3000 steps today. All possible outcomes of this experiment are contained in the set $\{``\text{Yes}",\,``\text{No}"\}$.
+\end{ex}
+
+\begin{ex}
+    We can perform an experiment where we pick a student from campus and measure their height. All possible outcomes are contained in the set of positive real numbers, that is $(0, \infty)$.
+\end{ex}
+ 
+
+
+Our goal is to assign probabilities or chance to events $E$ corresponding to an experiment. Since events and sample spaces are described as sets and subsets, we will first need to remind ourselves of how to work with these mathematical objects.  
+
+\section[Set Theory]{Basic Set Theory}
+We will need to understand some basics of sets and set operations. We define the operations along with the visual of the the operation using Venn Diagrams.
+
+\begin{defn}[Empty Set]
+    An an empty set is a set with nothing in it, usually denoted as $\emptyset$.
+\end{defn}
+
+Let $A,B$ be two sets.\\
+\begin{defn}[Containment/Subset]
+    We say $A$ is a \textbf{subset} of $B$ if \textit{$x\in A$ \textbf{implies} $x\in B$}, denoted as $A\subset B$.\\
+\end{defn}
+
+\begin{defn}[Equality]
+    We say $A$ \textbf{equals} to $B$ if \textit{$A\subset B$ \textbf{and} $B\subset A$}.  
+\end{defn}
+
+\begin{defn}[Complement]
+    The \textbf{complement} of A is the set $A^c:=\{x:x\notin A\}$
+    \begin{center}
+\begin{tikzpicture}
+    % Definition of circles
+    \def\firstcircle{(0,0) circle (1.5cm)}
+    \def\secondcircle{(0:2cm) circle (1.5cm)}
+    %
+    \colorlet{circle edge}{black!50}
+    \colorlet{circle area}{gray!20}
+    \begin{scope}[local bounding box = orScope]
+      \begin{scope}
+        \clip \secondcircle;
+        \fill[filled] \secondcircle;
+    \end{scope}
+    \draw[outline] \firstcircle node {$A$};
+    \draw[outline] \secondcircle node {$B$};
+    \node[anchor=south] at (orScope.north) {$U$};  
+    \end{scope}
+    \node[fit=(orScope), fill=gray!20] {};
+    \node[fit=(orScope), draw] {};
+     \begin{scope}
+        \clip \secondcircle;
+        \fill[filled] \secondcircle;
+    \end{scope}
+    \begin{scope}
+        \clip \firstcircle;
+        \fill[white] \firstcircle;
+    \end{scope}
+    \draw[outline] \firstcircle node {$A$};
+    \draw[outline] \secondcircle node {$B$};
+    \node[anchor=south] at (orScope.north) {$U$};  
+\end{tikzpicture}
+\end{center}
+\end{defn}
+
+\begin{defn}[Union]
+    The \textbf{union} of A and B is the set $A\cup B:=\{x:x\in A \text{ or }x\in B\}$
+    \begin{center}
+\begin{tikzpicture}
+    % Definition of circles
+    \def\firstcircle{(0,0) circle (1.5cm)}
+    \def\secondcircle{(0:2cm) circle (1.5cm)}
+    %
+    \colorlet{circle edge}{black!50}
+    \colorlet{circle area}{gray!20}
+    %
+    \begin{scope}[local bounding box = orScope]
+    \draw[filled] \firstcircle node {$A$}
+                  \secondcircle node {$B$};
+    \node[anchor=south] at (orScope.north){$U$};
+    \end{scope}
+    \node[fit=(orScope), draw] {};% The frame around the scope
+\end{tikzpicture}
+\end{center}
+\end{defn}
+
+\begin{defn}[Intersection]
+    The \textbf{intersection} of A and B is the set $A\cap B:=\{x:x\in A\text{ and }x\in B\}$
+    \begin{center}
+\begin{tikzpicture}
+    % Definition of circles
+    \def\firstcircle{(0,0) circle (1.5cm)}
+    \def\secondcircle{(0:2cm) circle (1.5cm)}
+    %
+    \colorlet{circle edge}{black!50}
+    \colorlet{circle area}{gray!20}
+    \begin{scope}[local bounding box = orScope]
+    \begin{scope}
+        \clip \firstcircle;
+        \fill[filled] \secondcircle;
+    \end{scope}
+    \draw[outline] \firstcircle node {$A$};
+    \draw[outline] \secondcircle node {$B$};
+    \node[anchor=south] at (orScope.north) {$U$};
+    \end{scope}
+    \node[fit=(orScope), draw] {};
+\end{tikzpicture}
+\end{center}
+\end{defn}
+
+\begin{defn}[Difference]
+   The \textbf{difference} of set $A$ from set $B$ is defined as $A\setminus B:=\{ x: x\in A\; \text{and}\; x\notin B\}$.
+   This is the same as $A\setminus B := A\cap B^c$. 
+    \begin{center}
+\begin{tikzpicture}
+    % Definition of circles
+    \def\firstcircle{(0,0) circle (1.5cm)}
+    \def\secondcircle{(0:2cm) circle (1.5cm)}
+    %
+    \colorlet{circle edge}{black!50}
+    \colorlet{circle area}{gray!20}
+    \begin{scope}[local bounding box = orScope]
+    \begin{scope}
+        \clip \firstcircle;
+        \fill[filled] \firstcircle;
+    \end{scope}
+    \begin{scope}
+        \clip \secondcircle;
+        \fill[white] \secondcircle;
+    \end{scope}
+    \draw[outline] \firstcircle node {$A$};
+    \draw[outline] \secondcircle node {$B$};
+    \node[anchor=south] at (orScope.north) {$U$};
+    \end{scope}
+    \node[fit=(orScope), draw] {};
+\end{tikzpicture}
+\end{center}
+\end{defn}
+
+
+
+
+
+
+
+
+
+\begin{defn}[Disjoint Sets/Mutually Exclusive]
+$A$ and $B$ are said to be \textbf{disjoint} if $A\cap B=\emptyset$.
+\end{defn}
+
+We will often have to work with an infinite collection of sets, to do so, we will first need to label the sets using an "indexing set". Given a set $\Gamma$, a collection of sets indexed by $\Gamma$ will be denoted by $\{A_\alpha\}_{\alpha\in \Gamma}$. 
+\\
+A set is \textbf{countable} if there is a one-to-one correspondence with its elements, and the set of natural number $\mathbb{N}= \{1, 2, 3, 4, \dots\}$. 
+\\
+
+Let $\{A_i\}_{i\in\mathbb{N}}$ be a countable collection of sets. 
+
+\begin{defn}[Pairwise Disjoint Collection]
+We say $\{A_i\}_{i\in\mathbb{N}}$ is a collection of pairwise disjoint sets if $A_i\cap A_j=\emptyset$ for all $i\neq j$
+\end{defn}
+
+\begin{defn}[Partition]
+A collection $\{A_i\}_{i\in\mathbb{N}}$ is said to be a \textbf{partition} of $\mathcal{S}$ if $\{A_i\}_{i\in\mathbb{N}}$ are pairwise disjoint \textbf{and} $\mathcal{S}=\bigcup_{i=1}^{\infty}A_i$
+\end{defn}
+
+\begin{defn}[Countable Union/Intersection]
+Let $\{A_i\}_{i\in\mathbb{N}}$ be a countable collection of subsets of $\mathcal{S}$.
+\\
+The \textbf{union} of $\{A_i: i \in \mathbb{N}\}$ is defined as \begin{align*}
+\bigcup_{i\in \mathbb{N}}A_i &:=\{x : x\in A_i \;\text{ for some }\; i  \in \mathbb{N}\}
+\end{align*}
+The \textbf{intersection} of $\{A_i: i \in \mathbb{N}\}$  is defined as \begin{align*}
+\bigcap_{i\in \mathbb{N}}A_i&=\{x : x\in A_i\; \text{ for all }\; i \in \mathbb{N}\}
+\end{align*}
+\end{defn}
+
+
+\subsection[Axioms of Probability]{Axioms of Probability}
+Let $\mathcal{S}$ be the sample space of an experiment and let $E\subset \mathcal{S}$ be and event. We are interested in assigning a number to $E$ that quantifies the chance/probability that $E$ occurs. We will denote the probability of $E$ as $P(E)$.
+\\
+The mathematical procedure to assign probabilities to events is to define a function on the "event space". Assigning probabilities to every possible event can be tedious, and in some case it might not be possible. As a result, we will first need to identify a collection of events that we consider "interesting" and to which we want to assign probabilities. Such a collection of events is called a "sigma algebra". 
+
+\begin{defn}[Sigma Algebra]
+Let $\mathcal{S}$ be a sample space of an experiment. A collection, $\mathcal{B}$, of subset of $\mathcal{S}$ is called a \textbf{sigma algebra} is it satisfies the following conditions:
+\begin{enumerate}
+    \item $\emptyset \in \mathcal{B}$
+    \item If $A \in \mathcal{B}$, then $A^c \in \mathcal{B}$
+    \item If $\{A_i: i \in \mathbb{N}\}$ is countable collection such that $A_i \in \mathcal{B}$ for all $i$, then $\bigcup_{i\in \mathbb{N}}A_i \in \mathcal{B}$
+\end{enumerate}
+\end{defn}
+Note that there are multiple sigma algebras that can be associated to a sample space. The trivial sigma algebra is $\{\emptyset, \mathcal{S}\}$ - the smallest possible sigma algebra. The power set $\mathcal{P}(\mathcal{S})$ of $\mathcal{S}$ also satisfies the axioms to be a sigma algebra, and this is the largest possible sigma algebra associated to $\mathcal{S}$. All other sigma algebra are somewhere in between these two extreme examples. We can use sub-setting as a natural way to define a partial order on all possible sigma algebras. 
+\\
+
+A probability function assigns probabilities to events in the sigma algebra as follows.
+
+\begin{defn}[Probability Function]
+    Consider the pair $(\mathcal{S}, \mathcal{B})$, where $\mathcal{S}$ is the sample space of an experiment and $\mathcal{B}$ is a sigma algebra associated to $\mathcal{S}$. 
+    \\
+    A probability function for the pair $(\mathcal{S}, \mathcal{B})$, is a function 
+    $$P: \mathcal{B} \longrightarrow \mathbb{R}$$
+    satisfying the following axioms:
+    \begin{enumerate}
+    \item (finite measure) $P(\mathcal{S})=1$
+    \item (positivity) $P(A)\geq 0$ for all $A \in \mathcal{B}$
+    \item (countable additivity) For $A_1,A_2,A_3,\cdots$, the collection of pairwise disjoint subsets of $\mathcal{S}$ in $\mathcal{B}$, we must have
+    $$P\left(\bigcup_{i\in \mathbb{N}}A_i\right)=\sum_{i=1}^{\infty}P(A_i)$$ 
+    \end{enumerate}  
+\end{defn}
+
+\begin{thm}[Properties of a Probability Function]
+Suppose $P$ is a probability function.
+\begin{enumerate}[itemsep=0pt, topsep=1pt, partopsep=0pt,label=(\roman*)]
+\item $P(\emptyset)=0$
+\item If $A \subset B$, then $P(A)\le P(B)$
+\item $P(A^c)=1-P(A)$
+\item $P(A\setminus B)=P(A)-P(A\cap B)$
+\item $P(A\cup B) =P(A)+P(B)-P(A\cap)B$
+\end{enumerate}
+\end{thm}
+Defining a probability function can often times be a tedious task, as the number of conditions needed to be checked grow exponentially (as a function of the sigma algebra). 
+\\
+When the sample space $\mathcal{S}$ is countable, it is possible to define a probability function on the power set of $\mathcal{S}$ using the following theorem.
+
+\begin{thm}
+    Suppose the sample space of an experiment is countable, listed as, $\mathcal{S} = \{s_i\}_{i\in \mathbb{N}} = \{s_1, s_2, s_3, \dots, \}$. Let $\mathcal{B}:=\mathcal{P}(\mathcal{S})$ be the powerset of $\mathcal{S}$. 
+    \\
+    Suppose $\{p_i\}_{i\in \mathbb{N}}$ is a sequence of real numbers satisfying:
+    $$ p_i \ge 0 \quad \forall i, \quad \quad \sum_{i=1}^\infty p_i = 1$$
+    define $P:\mathcal{B} \rightarrow [0,1]$
+    as follows:
+    \begin{enumerate}
+        \item For any $s_i \in \mathcal{S}$, $$P(\{s_i\}) = p_i$$
+        \item For any $E \in \mathcal{B}$
+        $$P(E) = \sum_{s\in E} P(\{s\})$$
+    \end{enumerate}
+    The function $P$ defines a probability function on $\mathcal{B}$. 
+\end{thm}
+
+Using the theorem above, we can assign probability functions experiments with countable sample space, by assigning probabilities just to the simple events. 
+
+\begin{ex}
+    Consider the experiment consisting of tossing a coin two times. The sample space is $S = \{HH, HT, TH, TT\}$. Take the largest possible sigma algebra, that is the power set of $S$, denoted as $\mathcal{P}(S)$, which contains $|\mathcal{P}(S)| = 2^4 = 16$ elements. In this experiment, if the coin is a fair coin, we can assign the following probability function $P: \mathcal{P}(S)\to \R$:
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline \rowcolor{lightgray}
+\textbf{event $E$} & $P(E)$\\
+\hline
+$\emptyset$ & 0 \\
+\hline
+$\{HH\}$ & 1/4\\
+\hline
+$\{HT\}$ & 1/4\\
+\hline
+$\{TT\}$ & 1/4\\
+\hline
+$\{TH\}$ & 1/4\\
+\hline
+$\{HH, HT\}$ & 1/4+1/4 = 1/2\\
+\hline
+\vdots & \vdots \\
+\hline
+$\{HH, HT, TH\}$ & 1/4+1/4+1/4 = 3/4\\
+\hline 
+\vdots & \vdots \\
+\hline
+$\{HH, HT, TH, TT\}$ & 1\\
+\hline
+\end{tabular}\,.
+\end{center}
+In the case where the coin is not a fair coin, the probability function can be defined in the following way:
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline \rowcolor{lightgray}
+\textbf{event $E$} & $P(E)$\\
+\hline
+$\emptyset$ & 0 \\
+\hline
+$\{HH\}$ & 1/3\\
+\hline
+$\{HT\}$ & 1/3\\
+\hline
+$\{TT\}$ & 1/3\\
+\hline
+$\{TH\}$ & 0\\
+\hline
+$\{HH, TH\}$ & 1/3+0 = 1/3\\
+\hline
+\vdots & \vdots \\
+\hline
+$\{HH, HT, TT\}$ & 1/3+1/3+1/3 = 1\\
+\hline 
+\vdots & \vdots \\
+\hline
+$\{HH, HT, TH, TT\}$ & 1\\
+\hline
+\end{tabular}\,.
+\end{center}
+Similarly, the following probability function is also allowed:
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline \rowcolor{lightgray}
+\textbf{event $E$} & $P(E)$\\
+\hline
+$\emptyset$ & 0 \\
+\hline
+$\{HH\}$ & 1/8\\
+\hline
+$\{HT\}$ & 1/8\\
+\hline
+$\{TT\}$ & 3/8\\
+\hline
+$\{TH\}$ & 3/8\\
+\hline
+$\{HH, TH\}$ & 1/8+3/8 = 1/2\\
+\hline
+\vdots & \vdots \\
+\hline
+$\{HH, HT, TT\}$ & 1/8+1/8+3/8 = 5/8\\
+\hline 
+\vdots & \vdots \\
+\hline
+$\{HH, HT, TH, TT\}$ & 1\\
+\hline
+\end{tabular}\,.
+\end{center}
+Notice that the probabilities of events like $\{HH, TH\}$ and $\{HH, HT, TT\}$ are completely determined by the probabilities of the four simple events $\{HH\}$, $\{HT\}$, $\{TH\}$ and $\{TT\}$. While for event $E$, we note that $P(E)$ must be non-negative. We also observe that $P(S) = 1$, and as $S = S\cup \emptyset$, then $P(S) = P(S\cup \emptyset) = P(S) + P(\emptyset) = 1$, from which we deduce that we must have $P(\emptyset) = 0$. The tables shown above are called the distribution tables, and we see that there can be different distribution tables for the same sample space. 
+\end{ex}
+
+\section{Conditional Probability and Independence}
+If the probability function attached to an experiments must be useful (say to draw some conclusions about events associated to the experiment), we will need to incorporate the features of the experiment as in our pursuit to calculate probability functions. 
+
+\begin{defn}[Conditional Event]
+    Suppose $E$ and $F$ are two events, the conditional event $E\mid F$ - verbalized as "E given F" - is the event that "E happens given that F has already happened"
+\end{defn}
+
+Given two events $E$ and $F$ we can consider the following events:
+\begin{enumerate}
+    \item $E\cap F$: both events $E$ and $F$ happen. 
+    \item $E\mid F$: $E$ happens given that $F$ has happened.
+    \item $F\mid E$: $F$ happens given that $E$ has happened.
+\end{enumerate}
+There is an interesting relationship between these events given by 
+\begin{defn}[Multiplication Principle]
+    Suppose $E$ and $F$ are two events then we define:
+    $$P(E\cap F) = \begin{cases} P(E)P(F\mid E) \\
+    P(F)P(E\mid F)
+    \end{cases}$$
+\end{defn}
+The term $P(F\mid E)$ is called the conditional probability of the event "F given E", in fact we use the multiplication principle to formally define conditional proability
+\begin{defn}[Conditional Probability]
+    Suppose $E$ and $F$ are two events then we define:
+    $$P(E\mid F) = \frac{P(E\cap F)}{P(F)} $$
+\end{defn}
+
+The multiplication principle informs us that the probability of the simultaneous occurrence of event $E$ and event $F$, that is $P(E\cap F)$, depends not only on information about the individual occurrence (with no additional information about the other event) of $E$ (that is $P(E)$) and $F$ (that is $P(F)$), \textbf{but} also the interaction/influence of how the event $E$ affects the occurrence of event $F$ (given by the conditional probability $P(F \mid E)$) or how the event $F$ affects the occurrence of event $E$ (given by the conditional probability $P(E \mid F)$).
+\\
+
+This naturally leads to the notion of independence, which gives the probabilistic description of what it means for the lack of interaction between two events. 
+\\
+
+\begin{defn}[Independent Events]
+    We say two events $E$ and $F$ are independent if $$P(E\cap F) = P(E) P(F)$$
+    Equivalently, $E$ and $F$ are independent if
+    $$ P(E\mid F) = E(E) \quad \text{or}\quad  P(F\mid E) = P(F)$$
+\end{defn}
+
+Observe that, $P(E \mid F) = E(E)$, tells us that the fact that $F$ happened did not affect the probability of $E$ happening. 
+\\
+
+
+An experiment that can be broken down into a sequence of steps can be represented as tree, where nodes at level $i$ are the outcomes of the $(i-1)$th step, and each node at level $i$ will emanate as many nodes as there are possible outcomes for the $i$th step at that node. Every edge emanating out of a node at level $i$ denotes the conditional event of the outcome at the tail of edge happens given that we are node at the head of the edge. 
+\\
+A unidirectional path from the top of the tree to one of its leaves will describe one outcome for the experiment. The sample space consists of all possible unidirectional paths from the top of the tree to it's leaves. 
+\\
+The multiplication principle can be used to assign probabilities to all simple events. 
+\begin{ex}
+    We revisit the experiment where we want to assign probabilities to the simple events associated to tossing a coin two times. 
+\begin{enumerate}
+\item Consider the experiment that we toss a fair coin two times. \\
+
+\begin{tikzpicture}[>=triangle 60,every node/.style={anchor=west}]
+\matrix (m) [matrix of nodes, row sep=0em, column sep=3em]
+{You\\};
+\draw (m-1-1.east) --+ (2.5,0) node[right] (h) {$H_1$};
+\draw (m-1-1.east) --+ (2.5,-2) node[right] (t) {$T_1$};
+\draw (h.east) --+ (2.5,0) node[right] (hh) {$H_2$};
+\draw (h.east) --+ (2.5,-1) node[right] (ht) {$T_2$};
+\draw (t.east) --+ (2.5,0) node[right] (th) {$H_2$};
+\draw (t.east) --+ (2.5,-1) node[right] (tt) {$T_2$};
+\dr{tt}{TT}{$P(TT)=1/4$}{2.5}{0}
+\dr{th}{TH}{$P(TH)=1/4$}{2.5}{0}
+\dr{ht}{HT}{$P(HT)=1/4$}{2.5}{0}
+\dr{hh}{HH}{$P(HH)=1/4$}{2.5}{0}         
+
+\node[xshift=3.5cm,text width=2.5cm,above=.5cm] at (m-1-1.north east) {\bf step 1};
+\node[xshift=7cm,text width=2.5cm,above=.5cm] at (m-1-1.north east) {\bf step 2};
+\node[xshift=11cm,text width=2.5cm,above=.5cm] at (m-1-1.north east) {$P(E)$};
+
+\draw (m-1-1.east) edge["1/2"] (h.west);
+\draw (m-1-1.east) edge node[below]{1/2} (t.west);
+\draw (h.east) edge["1/2"] (hh.west);
+\draw (h.east) edge node[below]{1/2} (ht.west);
+\draw (t.east) edge["1/2"] (th.west);
+\draw (t.east) edge node[below]{1/2} (tt.west) ;
+\end{tikzpicture}\\
+
+\qquad\qquad
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+ \cellcolor{lightgray} Event $E$ & $HH$ & $HT$ & $TH$ & $TT$\\
+\hline
+ \cellcolor{lightgray} $P(E)$ & $1/4$ & $1/4$ & $1/4$ &$1/4$\\
+\hline 
+\end{tabular}\\
+
+\item Now consider first we flip a fair coin, then an unfair coin. \\
+The second coin has probability $P(H_2) = 1/4$ and $P(T_2) = 3/4$. 
+
+\begin{tikzpicture}[>=triangle 60,every node/.style={anchor=west}]
+\matrix (m) [matrix of nodes, row sep=0em, column sep=3em]
+{You\\};
+\draw (m-1-1.east) --+ (2.5,0) node[right] (h) {$H_1$};
+\draw (m-1-1.east) --+ (2.5,-2) node[right] (t) {$T_1$};
+\draw (h.east) --+ (2.5,0) node[right] (hh) {$H_2$};
+\draw (h.east) --+ (2.5,-1) node[right] (ht) {$T_2$};
+\draw (t.east) --+ (2.5,0) node[right] (th) {$H_2$};
+\draw (t.east) --+ (2.5,-1) node[right] (tt) {$T_2$};
+\dr{tt}{TT}{$P(TT)=3/8$}{2.5}{0}
+\dr{th}{TH}{$P(TH)=1/8$}{2.5}{0}
+\dr{ht}{HT}{$P(HT)=3/8$}{2.5}{0}
+\dr{hh}{HH}{$P(HH)=1/8$}{2.5}{0}         
+
+\node[xshift=3.5cm,text width=2.5cm,above=.5cm] at (m-1-1.north east) {\bf step 1};
+\node[xshift=7cm,text width=2.5cm,above=.5cm] at (m-1-1.north east) {\bf step 2};
+\node[xshift=11cm,text width=2.5cm,above=.5cm] at (m-1-1.north east) {$P(E)$};
+
+\draw (m-1-1.east) edge["1/2"] (h.west);
+\draw (m-1-1.east) edge node[below]{1/2} (t.west);
+\draw (h.east) edge["1/4"] (hh.west);
+\draw (h.east) edge node[below]{3/4} (ht.west);
+\draw (t.east) edge["1/4"] (th.west);
+\draw (t.east) edge node[below]{3/4} (tt.west) ;
+\end{tikzpicture}\\
+
+\qquad\qquad
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+ \cellcolor{lightgray} Event $E$ & $HH$ & $HT$ & $TH$ & $TT$\\
+\hline
+ \cellcolor{lightgray} $P(E)$ & $1/8$ & $3/8$ & $1/8$ &$3/8$\\
+\hline 
+\end{tabular}\\
+
+
+
+\item Now consider first we flip an unfair coin, then a fair coin. \\
+The first coin has probability $P(H_1) = 1/4$ and $P(T_1) = 3/4$. 
+
+\begin{tikzpicture}[>=triangle 60,every node/.style={anchor=west}]
+\matrix (m) [matrix of nodes, row sep=0em, column sep=3em]
+{You\\};
+\draw (m-1-1.east) --+ (2.5,0) node[right] (h) {$H_1$};
+\draw (m-1-1.east) --+ (2.5,-2) node[right] (t) {$T_1$};
+\draw (h.east) --+ (2.5,0) node[right] (hh) {$H_2$};
+\draw (h.east) --+ (2.5,-1) node[right] (ht) {$T_2$};
+\draw (t.east) --+ (2.5,0) node[right] (th) {$H_2$};
+\draw (t.east) --+ (2.5,-1) node[right] (tt) {$T_2$};
+\dr{tt}{TT}{$P(TT)=3/8$}{2.5}{0}
+\dr{th}{TH}{$P(TH)=3/8$}{2.5}{0}
+\dr{ht}{HT}{$P(HT)=1/8$}{2.5}{0}
+\dr{hh}{HH}{$P(HH)=1/8$}{2.5}{0}         
+
+\node[xshift=3.5cm,text width=2.5cm,above=.5cm] at (m-1-1.north east) {\bf step 1};
+\node[xshift=7cm,text width=2.5cm,above=.5cm] at (m-1-1.north east) {\bf step 2};
+\node[xshift=11cm,text width=2.5cm,above=.5cm] at (m-1-1.north east) {$P(E)$};
+
+\draw (m-1-1.east) edge["1/4"] (h.west);
+\draw (m-1-1.east) edge node[below]{3/4} (t.west);
+\draw (h.east) edge["1/2"] (hh.west);
+\draw (h.east) edge node[below]{1/2} (ht.west);
+\draw (t.east) edge["1/2"] (th.west);
+\draw (t.east) edge node[below]{1/2} (tt.west) ;
+\end{tikzpicture}\\
+
+\qquad\qquad
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+ \cellcolor{lightgray} Event $E$ & $HH$ & $HT$ & $TH$ & $TT$\\
+\hline
+ \cellcolor{lightgray} $P(E)$ & $1/8$ & $1/8$ & $3/8$ &$3/8$\\
+\hline 
+\end{tabular}\\
+
+\item One might ask if it is possible to construct the following distribution table:\\
+
+\qquad\qquad
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+ \cellcolor{lightgray} Event $E$ & $HH$ & $HT$ & $TH$ & $TT$\\
+\hline
+ \cellcolor{lightgray} $P(E)$ & $1/8$ & $1/8$ & $4/8$ &$2/8$\\
+\hline 
+\end{tabular}\\
+
+To construct such a distribution table, we consider the following experiment: In step 1, we toss a coin with $P(H_1) = 1/4$; In step 2, if we got $H_1$ in step 1, then we toss a coin with $P(H_2) = 1/2$, if we got $T_1$ in step 1, then we toss a coin with $P(H_2) = 4/6$.
+
+
+\begin{tikzpicture}[>=triangle 60,every node/.style={anchor=west}]
+\matrix (m) [matrix of nodes, row sep=0em, column sep=3em]
+{You\\};
+\draw (m-1-1.east) --+ (2.5,0) node[right] (h) {$H_1$};
+\draw (m-1-1.east) --+ (2.5,-2) node[right] (t) {$T_1$};
+\draw (h.east) --+ (2.5,0) node[right] (hh) {$H_2$};
+\draw (h.east) --+ (2.5,-1) node[right] (ht) {$T_2$};
+\draw (t.east) --+ (2.5,0) node[right] (th) {$H_2$};
+\draw (t.east) --+ (2.5,-1) node[right] (tt) {$T_2$};
+\dr{hh}{HH}{$P(HH)=1/8$}{2.5}{0}         
+\dr{ht}{HT}{$P(HT)=1/8$}{2.5}{0}
+\dr{th}{TH}{$P(TH)=4/8$}{2.5}{0}
+\dr{tt}{TT}{$P(TT)=2/8$}{2.5}{0}
+
+\node[xshift=3.5cm,text width=2.5cm,above=.5cm] at (m-1-1.north east) {\bf step 1};
+\node[xshift=7cm,text width=2.5cm,above=.5cm] at (m-1-1.north east) {\bf step 2};
+\node[xshift=11cm,text width=2.5cm,above=.5cm] at (m-1-1.north east) {$P(E)$};
+
+\draw (m-1-1.east) edge["1/4"] (h.west);
+\draw (m-1-1.east) edge node[below]{3/4} (t.west);
+\draw (h.east) edge["1/2"] (hh.west);
+\draw (h.east) edge node[below]{1/2} (ht.west);
+\draw (t.east) edge["4/6"] (th.west);
+\draw (t.east) edge node[below]{2/6} (tt.west) ;
+\end{tikzpicture}\\
+
+We see that this experiment gives the desired distribution table.
+
+\item Now suppose we toss a two-headed coin two times, that is, $P(H_1) = P(H_2) = 1$.
+
+\begin{tikzpicture}[>=triangle 60,every node/.style={anchor=west}]
+\matrix (m) [matrix of nodes, row sep=0em, column sep=3em]
+{You\\};
+\draw (m-1-1.east) --+ (2.5,0) node[right] (h) {$H_1$};
+\draw (m-1-1.east) --+ (2.5,-2) node[right] (t) {$T_1$};
+\draw (h.east) --+ (2.5,0) node[right] (hh) {$H_2$};
+\draw (h.east) --+ (2.5,-1) node[right] (ht) {$T_2$};
+\draw (t.east) --+ (2.5,0) node[right] (th) {$H_2$};
+\draw (t.east) --+ (2.5,-1) node[right] (tt) {$T_2$};
+\dr{tt}{TT}{$P(TT)=0$}{2.5}{0}
+\dr{th}{TH}{$P(TH)=0$}{2.5}{0}
+\dr{ht}{HT}{$P(HT)=0$}{2.5}{0}
+\dr{hh}{HH}{$P(HH)=1$}{2.5}{0}         
+
+\node[xshift=3.5cm,text width=2.5cm,above=.5cm] at (m-1-1.north east) {\bf step 1};
+\node[xshift=7cm,text width=2.5cm,above=.5cm] at (m-1-1.north east) {\bf step 2};
+\node[xshift=11cm,text width=2.5cm,above=.5cm] at (m-1-1.north east) {$P(E)$};
+
+\draw (m-1-1.east) edge["1"] (h.west);
+\draw (m-1-1.east) edge node[below]{0} (t.west);
+\draw (h.east) edge["1"] (hh.west);
+\draw (h.east) edge node[below]{0} (ht.west);
+\draw (t.east) edge["1"] (th.west);
+\draw (t.east) edge node[below]{0} (tt.west) ;
+\end{tikzpicture}\\
+
+\qquad\qquad
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+ \cellcolor{lightgray} Event $E$ & $HH$ & $HT$ & $TH$ & $TT$\\
+\hline
+ \cellcolor{lightgray} $P(E)$ & $1$ & $0$ & $0$ & $0$\\
+\hline 
+\end{tabular}\\
+\end{enumerate}
+\hfill\break
+\hfill\break
+
+Observe that in the coin toss examples above, we can consider the the following two tree diagram\\
+\begin{center}
+\begin{tikzpicture}[>=triangle 60,every node/.style={anchor=west}]
+\matrix (m) [matrix of nodes, row sep=0em, column sep=3em]
+{Experimentor\\};
+\draw (m-1-1.east) --+ (1,0.7) node[right] (h) {$H_1$};
+\draw (m-1-1.east) --+ (1,-0.7) node[right] (t) {$T_1$};
+\draw (h.east) --+ (1,1) node[right] (hh) {$H_2$};
+\draw (h.east) --+ (1,0) node[right] (ht) {$T_2$};
+\draw (t.east) --+ (1.05,0) node[right] (th) {$H_2$};
+\draw (t.east) --+ (1.05,-1) node[right] (tt) {$T_2$};
+\dr{tt}{TT}{$T_1T_2$}{1}{0}
+\dr{th}{TH}{$T_1H_2$}{1}{0}
+\dr{ht}{HT}{$H_1T_2$}{1}{0}
+\dr{hh}{HH}{$H_1H_2$}{1}{0}
+\dr{HH}{ohh}{$H_1$}{1}{0}
+\dr{TH}{oth}{$T_1$}{1.15}{1.4}
+\dr{HT}{oht}{$H_1$}{1.15}{-1.4}         
+\dr{TT}{ott}{$T_1$}{1.4}{0}
+\dr{oth}{oh}{}{1.1}{0}         
+\dr{ohh}{oh}{$H_2$}{1}{-1}
+\dr{ott}{ot}{}{1}{1}
+\dr{oht}{ot}{$T_2$}{1}{0}         
+\dr{ot}{obs}{Observer}{1.1}{0.7}
+\dr{oh}{obs}{}{1}{-0.7}
+
+\node[xshift=5.3cm,text width=2.5cm,above=1.9cm] at (m-1-1.north east) {sample space};
+
+\draw (m-1-1.east) edge node[above, rotate=45]{\tiny $P(H_1)$ \normalsize} (h.west);
+\draw (m-1-1.east) edge node[below, rotate=-39]{\tiny $P(T_1)$ \normalsize} (t.west);
+\draw (h.east) edge node[above, rotate=50]{\tiny $P(H_2|H_1)$ \normalsize} (hh.west);
+\draw (h.east) edge node[below, rotate=0]{\tiny $P(T_2|H_1)$ \normalsize} (ht.west);
+\draw (t.east) edge node[above, rotate=0]{\tiny $P(H_2|T_1)$ \normalsize} (th.west);
+\draw (t.east) edge node[below, rotate=-45]{\tiny $P(T_2|T_1)$} (tt.west) ;
+\draw (ohh.east) edge node[above, rotate=-45]{\tiny $P(H_1|H_2)$} (oh.west) ;
+\draw (oth.east) edge node[below, rotate=0]{\tiny $P(T_1|H_2)$} (oh.west) ;
+\draw (oht.east) edge node[above, rotate=0]{\tiny $P(H_1|T_2)$} (ot.west) ;
+\draw (ott.east) edge node[below, rotate=45]{\tiny $P(T_1|T_2)$} (ot.west) ;
+\draw (ot.east) edge node[below, rotate=45]{\tiny $P(T_2)$} (obs.west) ;
+\draw (oh.east) edge node[above, rotate=-39]{\tiny $P(H_2)$} (obs.west) ;
+
+\draw[-latex] (0,-2.5) -- ++ (5cm,0) node[midway,below,align=center]{Experiment arrow of time};
+\draw[-latex] (15,-2.5) -- ++ (-5cm,0) node[midway,below,align=center]{Observer arrow of time};
+\end{tikzpicture}
+\end{center}
+The connecting piece between these two trees is the law of total probability and Bayes' theorem.
+\end{ex}
+
+\section{Bayes' Theorem}
+We are now ready to state the general theorems  
+\begin{thm}[Law of Total Probability]
+Suppose $\{A_1, A_2, \dots, A_k\}$ is a partition for the sample space and $B$ is any event, then
+\begin{eqnarray*}
+    P(B) &=& \sum_{j=1}^k P(B\cap A_j)\\
+    &=&\sum_{j=1}^k P(A_j) P(B \mid A_j)
+\end{eqnarray*}
+\end{thm}
+The last equation in the theorem is just the application of the multiplication principle. 
+
+
+\begin{thm}[Bayes' Theorem]
+    Suppose $\{A_1, A_2, \dots, A_k\}$ is a partition for the sample space and $B$ is any event, then
+\begin{eqnarray*}
+    P(A_i \mid B) = \frac{P(A_i)P(B\mid A_i)}{\sum_{j=1}^k P(A_j) P(B \mid A_j)}
+\end{eqnarray*}
+\end{thm}
+\begin{proof}
+Using the fact that $\{A_1, A_2, \dots, A_k\}$ is a partition and the law of total probability we have:
+    \begin{eqnarray*}
+    P(A_i \mid B) &=& \frac{P(A_i \cap B)}{P(B)}\\
+    &=& \frac{P(A_i \cap B) }{\sum_{j=1}^k P(B\cap A_j)}\\
+    &=&\frac{P(A_i)P(B\mid A_i)}{\sum_{j=1}^k P(A_j) P(B \mid A_j)}
+\end{eqnarray*}
+\end{proof}
+
+
+\begin{ex} %% Choosing a coin and tossing it two times
+A bag contains two coins, one is a fair coin denoted as $F$, and the other is a two headed coin denoted as $U$. \\
+We randomly choose a coin from the bag and toss it once, this can be described by the following tree diagram.\\
+\begin{center}
+\begin{tikzpicture}[grow=right, sloped]
+\node[bag] {}
+    child {
+        node[bag] {U}        
+            child {
+                node[end, label=right:
+                    {\text{H}}] {}
+                edge from parent
+                node[above]  {$P(H\mid U)=1$}
+                node[below] {\begin{scriptsize}\text{Note }$P(T\mid U)=0$ \end{scriptsize} }
+            }
+            edge from parent 
+            node[above] {$P(U)=\frac{1}{2}$}
+    }
+    child {
+        node[bag] {F}        
+        child {
+                node[end, label=right:
+                    {\text{T}}] {}
+                edge from parent
+                node[above] {$P(T\mid F)=\frac{1}{2}$}
+            }
+            child {
+                node[end, label=right:
+                    {\text{H}}] {}
+                edge from parent
+                nnode[above] {$P(T\mid F)=\frac{1}{2}$}
+            }
+        edge from parent         
+            node[above] {$P(F)=\frac{1}{2}$}
+    };
+\end{tikzpicture}
+\end{center}
+The sample space $\mathcal{S}=\{FH,FT,UH\}$, which is $F\cap H$, $F\cap T,U\cap H$ respectively.\\
+\hfill\\
+We can calculate the probability that the tossed coin lands heads as follows \begin{align*}
+P(H)&=P(F\cap H)+P(U\cap H)\\
+&=P(H\mid F)\cdot P(F)+P(H\mid U)\cdot P(U)\\
+&=\frac{1}{2}\cdot \frac{1}{2}+1\cdot \frac{1}{2}=\frac{1}{4}+\frac{1}{2}=\frac{3}{4}
+\end{align*}
+Observing that $P(H\mid F)=\frac{1}{2}\neq \frac{3}{4}=P(H)$, helps us conclude that observing a $H$ on the coin toss and choosing the fair coin $F$ are two events that are not \textbf{not} independent of each other. 
+\\
+
+We can also calculate the conditional probability
+\begin{align*}
+P(F|H)&=\frac{P(F\cap H)}{P(H)}\\
+&=\frac{P(H\mid F)\cdot P(F)}{P(H)}\\
+&=\frac{\frac{1}{2}\cdot \frac{1}{2}}{\frac{3}{4}}=\frac{1}{4}\cdot \frac{4}{3}=\frac{1}{3}
+\end{align*}
+Therefore, $P(F)=\frac{1}{2}>\frac{1}{3}=P(F|H)$. This makes intuitive sense, as $P(F) = P(\text{tossed coin is a fair coin})$ will be lowered after we observe the $H$ outcome.
+\end{ex}
+
+
+\begin{ex}
+Suppose we now randomly choose a coin from the bag containing a fair coin and a two headed coin, and toss it two times independently. 
+This experiment can be visualized in the following tree diagram:
+\begin{center}
+\begin{tikzpicture}[grow=right, sloped]
+\node[bag] {}
+    child {
+        node[bag] {U}        
+            child {
+                node[bag]{H}
+                child{
+                 node[end, label=right:
+                    {\text{H}}] {}
+                edge from parent
+                node[above]  {\begin{scriptsize}$P(H\mid H\cap U)=1$\end{scriptsize}}
+                }
+                edge from parent
+                node[above]  {$P(H\mid U)=1$}
+                node[below] {\begin{scriptsize}\text{Note }$P(T\mid U)=0$ \end{scriptsize} }
+            }
+            edge from parent 
+            node[above] {\begin{small}$P(U)=\frac{1}{2}$\end{small}}
+    }
+    child {
+        node[bag] {F}        
+        child {
+                node[bag] {T}
+                child{
+                 node[end, label=right:
+                    {\text{T}}] {}
+                edge from parent
+                node[above]  {\begin{scriptsize}$P(T\mid T\cap F)=\frac{1}{2}$\end{scriptsize}}
+                }
+                child{
+                 node[end, label=right:
+                    {\text{H}}] {}
+                edge from parent
+                node[above]  {\begin{scriptsize}$P(H\mid T\cap F)=\frac{1}{2}$\end{scriptsize}}
+                }
+                edge from parent
+                node[above] {\begin{small}$P(T\mid F)=\frac{1}{2}$\end{small}}
+            }
+            child {
+                node[bag] {H}
+                child{
+                 node[end, label=right:
+                    {\text{H}}] {}
+                edge from parent
+                node[above]  {\begin{scriptsize}$P(H\mid H\cap F)=\frac{1}{2}$\end{scriptsize}}
+                }
+                child{
+                 node[end, label=right:
+                    {\text{T}}] {}
+                edge from parent
+                node[above]  {\begin{scriptsize}$P(T\mid H\cap F)=\frac{1}{2}$\end{scriptsize}}
+                }
+                edge from parent
+                node[above] {\begin{small}$P(T\mid F)=\frac{1}{2}$\end{small}}
+            }
+        edge from parent         
+            node[above] {$P(F)=\frac{1}{2}$}
+    };
+\end{tikzpicture}
+\end{center}
+The sample space is $\mathcal{S}=\{FHT,FHH,FTH,FTT,UHH\}$. 
+
+We can calculate the probabilities of each of the simple events by taking products along the path to the given outcome, for example:
+\begin{eqnarray*}
+    P(HHF)&=& P(H\cap (H\cap F))\\
+        &=&P(H\mid H\cap F)\cdot P(H\cap F)\\
+        &=&P(H\mid H\cap F)\cdot P(H\mid F)\cdot P(F)\\
+        &=&\text{Product along path to $HHF$}
+\end{eqnarray*}
+
+Suppose we want to calculate $P(HH) = P(\text{the tossed coin lands heads both times})$, we do it as follows:
+\begin{eqnarray*}
+P(HH)&=&P(FHH)+P(UHH)\\
+&=&P(H\mid HF)\cdot P(HF)+P(H\mid HU)\cdot P(HU)\\
+&=&\frac{1}{2}\cdot \frac{1}{2}\cdot \frac{1}{2}+\frac{1}{2}\cdot 1\cdot 1\\
+&=&\frac{1}{8}+\frac{1}{2}=\frac{5}{8}
+\end{eqnarray*}
+
+We can also calculate the conditional probability 
+\begin{eqnarray*}
+    P(HH\mid F)&=& P(\text{observed two consecutive heads given that a fair coin was tossed}\\
+    &=&\frac{P(HHF)}{P(F)}\\
+    &=&\frac{\frac{1}{2}\cdot \frac{1}{2}\cdot \frac{1}{2}}{\frac{1}{2}}\\
+    &=&\frac{1}{4}
+\end{eqnarray*}
+
+Therefore, $P(HH)=\frac{5}{8}>\frac{1}{4}=P(HH\mid F)$, the information that we tossed a fair coin affected the probability of getting two consecutive heads - this information results in a lower probability. 
+
+We could also consider the probability  
+\begin{eqnarray*}
+P(F\mid HH) &=& P(\text{we tossed a fair coin given that $HH$ was observed})\\
+&=& \frac{P(FHH)}{P(HH)}=\frac{P(HH\mid F)\cdot P(F)}{P(HH)}\\
+&=&\frac{\frac{1}{4}\cdot \frac{1}{2}}{\frac{5}{8}}=\frac{1}{8}\cdot \frac{8}{5}\\
+&=&\frac{1}{5}
+\end{eqnarray*}
+
+Therefore, $P(F\mid HH)=\frac{1}{5}<\frac{1}{3}=P(F\mid H)<\frac{1}{2}=P(F)$, which aligns with the intuition that as more heads are observed, our confidence that a fair coin was tossed must decrease.
+\end{ex}
+
+\begin{ex}[Disease Testing]
+Suppose we consider a disease in a certain population, and 
+$$ D:= \{\text{randomly chosen individual has the disease}\}$$ 
+so that 
+$$D^c:= \{\text{randomly chosen individual does  not have the disease}\}$$
+Observe that $$D\cup D^c := \{ \text{entire population}\} = \mathcal{S}$$
+
+Additionally, we are given a test, which when administered will determine if the person has the disease or not. Suppose 
+$$ \text{Pos} := \{\text{test result is positive, i.e. test claims you have the disease}\}$$
+
+$$ \text{Neg} := \{\text{test result is negative, i.e. test claims you do not have the disease}\}$$
+\\
+If everyone in the population was administered the test, we can observe that $$\text{Pos}\cup \text{Neg} := \{ \text{entire population}\} = \mathcal{S}$$
+
+We now consider the following probabilities:
+\begin{eqnarray*}
+    P(D)&:=& P(\text{a randomly chosen individual from the population has the disease}) \\
+    &:=& p \in (0,1) 
+\end{eqnarray*}
+this is sometimes called the prevalence of the disease. Additionally, we are given 
+\begin{eqnarray*}
+    P(\text{test correctly identifies the disease})&:=& q \in (0,1) 
+\end{eqnarray*}
+
+This is sometimes called the accuracy of the test. Using this we can calculate the following conditional probabilities:
+\begin{eqnarray*}
+    P(\text{Pos}\mid D)&=& P(\text{Neg}\mid D^c) = q \\
+    P(\text{Pos} \mid D^c) &=& P(\text{Neg}\mid D) = 1-q
+\end{eqnarray*}
+
+Depending on the information that is available, we can consider two differently ordered experiments. 
+\\
+
+\begin{eqnarray*}
+    \text{Step 1} &:=& \text{Check if you have the disease} \\
+    \text{Step 2} &:=& \text{What is the test result?}
+\end{eqnarray*} 
+
+The tree that we get in this sequence is called the "Experimenter's Tree", as the experimenter testing the accuracy of the test needs to know the disease-status of the individual on whom the test is administered. This tree can be visualized as follows:
+
+\qquad\begin{tikzpicture}[>=triangle 60,every node/.style={anchor=west}]
+\matrix (m) [matrix of nodes, row sep=0em, column sep=3em]
+{Experimenter\\};
+\draw (m-1-1.east) --+ (1,0.7) node[right] (h) {$D$};
+\draw (m-1-1.east) --+ (1,-0.7) node[right] (t) {$D^c$};
+\draw (h.east) --+ (1.1,1) node[right] (hh) {$ \text{Pos} $};
+\draw (h.east) --+ (1.1,0) node[right] (ht) {$ \text{Neg} $};
+\draw (t.east) --+ (1,0) node[right] (th) {$ \text{Pos} $};
+\draw (t.east) --+ (1,-1) node[right] (tt) {$ \text{Neg} $};
+\dr{tt}{TT}{$(D^c,\, \text{Neg} )$}{1}{0}
+\dr{th}{TH}{$(D^c,\, \text{Pos} )$}{1}{0}
+\dr{ht}{HT}{$(D,\, \text{Neg} )$}{1}{0}
+\dr{hh}{HH}{$(D,\, \text{Pos} )$}{1}{0}
+
+\node[xshift=5.3cm,text width=2.5cm,above=1.9cm] at (m-1-1.north east) {sample space};
+
+\draw (m-1-1.east) edge node[above, rotate=45]{\tiny $p$ \normalsize} (h.west);
+\draw (m-1-1.east) edge node[below, rotate=-39]{\tiny $1-p$ \normalsize} (t.west);
+\draw (h.east) edge node[above, rotate=50]{\tiny $q$ \normalsize} (hh.west);
+\draw (h.east) edge node[below, rotate=0]{\tiny $1-q$ \normalsize} (ht.west);
+\draw (t.east) edge node[above, rotate=0]{\tiny $1-q$ \normalsize} (th.west);
+\draw (t.east) edge node[below, rotate=-45]{\tiny $q$} (tt.west) ;
+\end{tikzpicture}
+
+
+From the user's (of the test) point of view, we have the following steps
+\begin{eqnarray*}
+    \text{Step 1} &:=& \text{administer the test} \\
+    \text{Step 2} &:=& \text{Do I have the disease?}
+\end{eqnarray*} 
+We can see that the user's order of operation is exactly reverse of the experimenter. 
+\\
+The user of the test is aware of the test result, and based on that information wants to know their disease status. 
+\\
+
+We can put all of this information in the following two tree diagrams. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TREE DIAGRAMS %%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+\begin{tikzpicture}[>=triangle 60,every node/.style={anchor=west}]
+\matrix (m) [matrix of nodes, row sep=0em, column sep=3em]
+{Experimenter\\};
+\draw (m-1-1.east) --+ (1,0.7) node[right] (h) {$D$};
+\draw (m-1-1.east) --+ (1,-0.7) node[right] (t) {$D^c$};
+\draw (h.east) --+ (1.1,1) node[right] (hh) {$ \text{Pos} $};
+\draw (h.east) --+ (1.1,0) node[right] (ht) {$ \text{Neg} $};
+\draw (t.east) --+ (1,0) node[right] (th) {$ \text{Pos} $};
+\draw (t.east) --+ (1,-1) node[right] (tt) {$ \text{Neg} $};
+\dr{tt}{TT}{$(D^c,\, \text{Neg} )$}{1}{0}
+\dr{th}{TH}{$(D^c,\, \text{Pos} )$}{1}{0}
+\dr{ht}{HT}{$(D,\, \text{Neg} )$}{1}{0}
+\dr{hh}{HH}{$(D,\, \text{Pos} )$}{1}{0}
+\dr{HH}{ohh}{$D$}{1}{0}
+\dr{TH}{oth}{$D^c$}{1}{1.4}
+\dr{HT}{oht}{$D$}{1}{-1.4}         
+\dr{TT}{ott}{$D^c$}{1}{0}
+\dr{oth}{oh}{}{1}{0}         
+\dr{ohh}{oh}{$ \text{Pos} $}{1.5}{-1}
+\dr{ott}{ot}{}{1}{1}
+\dr{oht}{ot}{$ \text{Neg} $}{1.35}{0}         
+\dr{ot}{obs}{User}{1}{0.7}
+\dr{oh}{obs}{}{1}{-0.7}
+
+\node[xshift=5.3cm,text width=2.5cm,above=1.9cm] at (m-1-1.north east) {sample space};
+
+\draw (m-1-1.east) edge node[above, rotate=45]{\tiny $p$ \normalsize} (h.west);
+\draw (m-1-1.east) edge node[below, rotate=-39]{\tiny $1-p$ \normalsize} (t.west);
+\draw (h.east) edge node[above, rotate=50]{\tiny $q$ \normalsize} (hh.west);
+\draw (h.east) edge node[below, rotate=0]{\tiny $1-q$ \normalsize} (ht.west);
+\draw (t.east) edge node[above, rotate=0]{\tiny $1-q$ \normalsize} (th.west);
+\draw (t.east) edge node[below, rotate=-45]{\tiny $q$} (tt.west) ;
+\draw (ohh.east) edge node[above, rotate=-35]{\tiny $P(D| \text{Pos} )$} (oh.west) ;
+\draw (oth.east) edge node[below, rotate=0]{\tiny $P(D^c| \text{Pos} )$} (oh.west) ;
+\draw (oht.east) edge node[above, rotate=0]{\tiny $P(D| \text{Neg} )$} (ot.west) ;
+\draw (ott.east) edge node[below, rotate=45]{\tiny $P(D^c| \text{Neg} )$} (ot.west) ;
+\draw (ot.east) edge node[below, rotate=45]{\tiny $P( \text{Neg} )$} (obs.west) ;
+\draw (oh.east) edge node[above, rotate=-35]{\tiny $P( \text{Pos} )$} (obs.west) ;
+
+\draw[-latex] (0,-2.5) -- ++ (5cm,0) node[midway,below,align=center]{Experimenter's arrow of time};
+\draw[-latex] (15,-2.5) -- ++ (-5cm,0) node[midway,below,align=center]{User's arrow of time};
+\end{tikzpicture}
+\end{center}
+
+In this setting, the accuracy of the test relates to $P(\text{Pos}|D^c)$ and $P(\text{Neg}|D)$ being small, as they correspond to the probabilities of incorrectly identifying the disease using the test. On the other hand, $P(\text{Pos}|D)$ and $P(\text{Neg}|D^c)$ should be large as they correspond to the probabilities of correctly identifying the disease using the test. 
+\\
+
+For the observer, one expects $P(D|\text{Pos})$ and $P(D^c| \text{Neg})$ to be large, and $P(D^c|\text{Pos})$ and $P(D|\text{Neg})$ to be small.
+\\
+
+Observe that 
+\begin{enumerate}
+    \item The trees for the experimenter and the observer result in the same sample space.
+    \item Using the Law of Total Probability and the Bayes' theorem, we can calculate all the probabilities in the user's tree if the all the probabilities in the experimenter's tree are known. 
+\end{enumerate}
+
+We calculate as follows:
+
+\begin{align*}
+P(\text{Pos}) &= P(D, \text{Pos})+P(D^c, \text{Pos}) = p \cdot q + (1-p)\cdot (1-q)\,,
+\end{align*}
+Therefore, 
+\begin{align*}
+P(D|\text{Pos}) &= \frac{P(D, \text{Pos})}{P(\text{Pos})} = \frac{pq}{pq+(1-p)(1-q)}\,, 
+\end{align*}
+\begin{align*}
+P(D^c| \text{Pos}) = \frac{P(D^c, \text{Pos})}{P(\text{Pos})} = \frac{(1-p)(1-q)}{pq+(1-p)(1-q)}\,.
+\end{align*}
+Similarly, we can calculate
+\begin{align*}
+P(\text{Neg}) = p\cdot(1-q) + q\cdot (1-p)\,, 
+\end{align*}
+\begin{align*}
+P(D^c|\text{Neg}) = \frac{q(1-p)}{q(1-p)+p(1-q)}\,,\qquad
+P(D|\text{Neg}) = \frac{p(1-q)}{q(1-p) +p(1-q)}\,.
+\end{align*}
+This finishes the calculation of all the probabilities in the user's tree. 
+\\
+
+As mentioned before, we would like to have 
+\begin{align*}
+P(D|\text{Pos}) = \frac{pq}{pq+(1-p)(1-q)}\,,\qquad
+\text{and}\qquad P(D^c|\text{Neg}) = \frac{(1-p)q}{(1-p)q+p(1-q)}
+\end{align*}
+to be large.
+\\
+
+We can consider two special cases:
+\begin{enumerate}
+\item Suppose the disease is highly prevalent, for instance, $P(D) = p = 0.9999$. That is, 9999 out of 10000 people on average have the disease. Furthermore, let $P(\text{test correctly identifies the disease})= q = 0.9999$. That is, the test is on average correct 9999 times out of 10000 times. For the test to be useful, we want to have both $P(D|\text{Pos})$ and $P(D^c|\text{Neg})$ to be large. In this case, we compute their numerical values
+\begin{align*}
+P(D|\text{Pos}) = \frac{pq}{pq+(1-p)(1-q)}  = \frac{0.9999 \cdot 0.9999}{0.9999\cdot 0.9999 + 0.0001 \cdot 0.0001}\approx 1\,.
+\end{align*}
+However, we see that
+\begin{align*}
+P(D^c|\text{Neg}) = \frac{(1-p)q}{(1-p)q+p(1-q)} = \frac{0.0001 \cdot 0.9999}{0.0001\cdot 0.9999 + 0.9999\cdot 0.0001} = 0.5\,,
+\end{align*}
+from which we see that a negative test result will correctly identify the test with probability 0.5, perhaps the user is better off tossing a fair coin (instead of buying the test). The test is not very useful in this sense. 
+
+\item On the other hand, if we have a rare disease, say for instance $P(D) = p = 0.0001$. Suppose that the test accuracy is  $P(\text{test correctly identifies disease}) = 0.9999=q$. For the test to be useful, we again want to have both $P(D|\text{Pos})$ and $P(D^c|\text{Neg})$ to be large, but we again see that 
+\begin{align*}
+P(D|\text{Pos}) = \frac{pq}{pq+(1-p)(1-q)} = \frac{0.0001\cdot 0.9999}{0.0001 \cdot 0.9999 + 0.9999 \cdot 0.0001} = 0.5\,,
+\end{align*}
+which is again equivalent to tossing a fair coin toss. 
+\end{enumerate}
+
+
+\end{ex}
+
+
+
+
+\section[Probability and Counting]{Probability and Counting}
+Suppose we are in the setting where the sample space $\mathcal{S}$ satisfies the following two conditions:
+\begin{enumerate}
+\item $\mathcal{S}$ is a finite set. That is, $\mathcal{S}$ is the sample space of an experiment with finitely many outcomes.
+\item Every outcome in $\mathcal{S}$ is equally likely. That is, if $\mathcal{S}=\{s1,s_2,\cdots,s_n\}$ then $P(\{s_i\})=\frac{1}{n}$ for all $i=1,2,3,\cdots,n$
+\end{enumerate}
+Let $A\subset \mathcal{S}$ be an event. Since every outcome in $\mathcal{S}$ is equally likely 
+\begin{eqnarray*}
+P(A)&=&\text{Probability that A occurs}\\
+&=& \sum_{s\in A} P(\{s\})\\
+&=& \sum_{s\in A} \frac{1}{n}\\
+&=& \frac{n(A)}{n(S)}
+\end{eqnarray*}
+
+where $n(A)$ is the number of objects in $A$. 
+\\
+Therefore, when the sample space is finite and all outcomes in the sample space are equally likely, calculating the probability of an event $A$ is same as counting outcomes in $A$. In this scenario, we only need to be able to count! 
+\\
+
+We state the first important theorem of counting. 
+\begin{thm}[Fundamental Theorem of Counting]
+ Suppose there are $k$ tasks: $T_1,T_2,\cdots,T_k$ that can be performed in $n_1,n_2,\cdot,n_k$ ways respectively. Let $T$ be the task of performing $T_1,T_2,\cdot,T_k$ sequentially. Then the total number of ways to perform the task $T$ is 
+ $$n_1\times n_2 \times \cdots \times n_k$$ 
+\end{thm} 
+
+\begin{proof}
+    We prove this theorem using the principle of mathematical induction applied to the number of tasks. We can structure the task $T$ as a tree, with level $i$ in the tree corresponding to the $i$th task $T_i$. 
+\end{proof}
+
+\begin{ex}
+    Add examples of counting. 
+\end{ex}
+
+\subsection{Choosing from $n$ distinct objects}
+We will often want to count the number of ways of selecting $k$ objects from a set of $n$ distinct objects.
+\begin{ex}
+Suppose we want to count the total number of ways one can choose 4 digits from the set of 10 digits $\{0,1,2,3,4,5,6,7,8,9\}$.
+\\
+
+The answer to this we need to understand how the digits are selected. Do we place the digit back into the set before the subsequent choice (with/without replacement)? Does the order in which the 4 digits are selected matter?
+This is leads to the following 4 possibilities:
+
+\end{ex}\begin{center}
+\begin{tabular}{l|l|l|}
+\cline{2-3}
+                                                                                       & Without Replacement                                                                                    & With Replacement                                                                                   \\ \hline
+\multicolumn{1}{|l|}{Ordered}                                                    & \begin{tabular}[c]{@{}l@{}}(1,2,4,5) different from (1,5,2,4)\\ (1,1,2,5) is not possible\end{tabular} & \begin{tabular}[c]{@{}l@{}}(1,2,4,5) different from (1,5,2,4)\\ (1,1,2,5) is possible\end{tabular} \\ \hline
+\multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Unordered\end{tabular}} & \begin{tabular}[c]{@{}l@{}}(1,2,3,4) is same as (4,3,2,1)\\ (1,1,2,5) not possible\end{tabular}        & \begin{tabular}[c]{@{}l@{}}(1,2,3,4) is same as (4,3,2,1)\\ (1,1,2,4) is possible\end{tabular}     \\ \hline
+\end{tabular}
+\end{center}
+
+
+We use the Fundamental Theorem of Counting to count the number of ways we can choose $k$ objects from $n$ distinct objects as follows\\
+
+\begin{enumerate}
+    \item \textbf{Order matters and without replacement}\\
+    Let $T$ be the task of choosing $k$ objects from $n$ distinct objects, where order matters and without replacement.  The task $T$ is the same is filling $k$ ordered spaces, and can be broken into a sequence of sub-tasks
+    
+$$T:T_1\rightarrow T_2\rightarrow T_3 \rightarrow \cdots \rightarrow T_k$$
+where $T_i$ fills the $i$th spot in the $k$ ordered spaces. 
+
+Using the fundamental theorem of counting the total number of ways of doing the task $T$ is 
+$$n\times (n-1)\times (n-2) \times (n-3) \times \cdots \times (n-k+1)$$
+
+This number is called "$n$ permute $k$" and is denoted by
+
+$$\Perm{n}{k}=\frac{n!}{(n-k)!}$$
+
+\end{enumerate}
+
+(2) \textbf{Unordered Without Replacement}\\
+The first step is to calculate the ordered arrangements, which is \begin{align*}
+\Perm{n}{k}=\frac{n!}{(n-k)!}
+\end{align*}
+Note that each ordered arrangement can be rearranged $k!$ times since we select $k$ objects in total. Therefore, we need to get rid repeats by dividing by $k!$, which is \begin{align*}
+\frac{\Perm{n}{k}}{k!}=\frac{n!}{(n-k)!k!}
+\end{align*}
+So we got\begin{align*}
+\Comb{n}{k}=\binom nk:=\frac{n!}{(n-k)!k!}
+\end{align*}
+\hfill\\
+\hfill\\
+(3) \textbf{With Replacement}\\
+The number of ways if choose k objects where order does matter and with replacement in n different things is simply \begin{align*}
+&n\times n \times n \times \cdots\times n \\
+=&n^k
+\end{align*}
+\hfill\\
+\hfill\\
+(4) \textbf{ With replacement and order does not matter}\\
+We want number of unordered arrangements of size $k$ from $n$ objects with replacement. This can be reformulate as the number of ways to choose $k$ "walls" from $(n+k-1)$ choices, i.e \begin{align*}
+\Comb{n+k-1}{k}=\binom{n+k-1}{k} \text{ ways}
+\end{align*} 
+\begin{ex}
+We set $n=10,k=3,$ where $S=\{0,1,2,3,4,5,6,7,8,9\}$.\\
+Then we will have $n+k-1=12$ walls \begin{center}
+ \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+\hline
+ &  &  &  &  &  &  &  &  &  &  &  \\ \hline
+\end{tabular}
+\end{center}
+Then, for the event $(1,1,2)$, we will have (note that X means the wall that we choose) \begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+\hline
+ 1 & X & X & 2 & X & 3 & 4 & 5 & 6 & 7 & 8 & 9  \\ \hline
+\end{tabular}
+\end{center}
+For the event $(0,0,7)$, we will have \begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+\hline
+ X & X & 1 & 2 & 3 & 4 & 5 & 6 & 7 & X&8 & 9  \\ \hline
+\end{tabular}
+\end{center}
+for the event $(5,9,7)$, we will have \begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+\hline
+ 1  & 2  & 3 & 4 & 5&X & 6 & 7 &X& 8 & 9&X  \\ \hline
+\end{tabular}
+\end{center}
+\end{ex}
+
+The \textbf{number of possible arrangement of size k from n objects}
+\textbf{1. Without replacement and order matters} for each of the four possibilities is listed below \begin{center}
+\begin{tabular}{l|l|l|}
+\cline{2-3}
+                                & Without Replacement                                                                                     & With Replacement  \\ \hline
+\multicolumn{1}{|l|}{Ordered}   & \begin{tabular}[c]{@{}l@{}}$\Perm{n}{k}=\frac{n!}{n-k}$\\ is also called "n permute k"\end{tabular}     & $n^k$             \\ \hline
+\multicolumn{1}{|l|}{Unordered} & \begin{tabular}[c]{@{}l@{}}$\Comb{n}{k}=\frac{n!}{(n-k)!k!}$\\ is also called "n choose k"\end{tabular} & $\Comb{n+k-1}{k}$ \\ \hline
+\end{tabular}
+\end{center}
+
+
+
+
+\begin{ex}
+Consider choosing $3$ digits from the set $\{1,2,3,4,5\}$. 
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline \rowcolor{lightgray}
+ & order matters & order does not matter\\
+\hline
+\cellcolor{lightgray} with &(1,2,2) is allowed & (1,2,2) is allowed\\
+\cellcolor{lightgray} replacement &  but is different from (2,1,2) &  and is the same as (2,1,2)\\
+\hline
+\cellcolor{lightgray} without &(1,2,2) is not allowed, & (1,2,2) is not allowed,\\
+\cellcolor{lightgray} replacement & (1,2,3) is different from (1,3,2) &  (1,2,3) is the same as (1,3,2)\\
+\hline
+\end{tabular}
+\end{center}
+
+In this case, $n=5$ and $k=3$, and we can compute as follows
+\begin{align*}
+^n\text{P}_k = 
+{}^5\text{P}_3 = \frac{5!}{(5-3)!} = 5\cdot 4 \cdot 3 = 60\,, \qquad\quad
+^n\text{C}_k = {}^5\text{C}_3
+=\frac{5!}{(5-3)!\, 3!} = \frac{60}{3!} = 10\,,
+\end{align*}
+\begin{align*}
+n^k  = 5^3 = 125\,,
+\qquad\quad
+^{n+k-1}\text{C}_{n-1}=
+{}^{7}\text{C}_{4} = \frac{7!}{4!\,3!} = 35\,.
+\end{align*}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline \rowcolor{lightgray}
+ & order matters & order does not matter\\
+\hline
+\cellcolor{lightgray} with replacement & 125 & 35\\
+\hline
+\cellcolor{lightgray} without replacement & 60 & 10\\
+\hline
+\end{tabular}
+\end{center}
+
+\end{ex}
+
+

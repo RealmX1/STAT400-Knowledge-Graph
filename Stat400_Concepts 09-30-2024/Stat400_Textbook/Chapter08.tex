@@ -1,0 +1,135 @@
+\chapter{Confidence Intervals}
+
+In the previous chapter, we used a given sample $X_1, \ldots, X_n$ to construct estimates of various parameters of interest ($\overline{X}$ for $\mu$, $S^2$ for $\sigma^2$, etc.) In this chapter, we focus on using a sample to \textit{create intervals} that are likely to contain a parameter of interest.\\
+
+\note It is the \textit{interval being constructed} that depends on the sample, \textbf{not the value of the parameter} (which while unknown to us is \textbf{fixed} and does not depend on the sample).
+
+\defn{
+A $1-\alpha$ confidence interval (abbreviated as \textbf{CI}) for a parameter $\theta$ is an interval 
+\[
+I(X_1, \ldots, X_n) = \left((a(X_1,\ldots, X_n), b(X_1, \ldots, X_n)\right)
+\]
+such that the equality 
+\[
+P(\theta \in I(X_1,\ldots, X_n)) = 1-\alpha
+\]
+holds for all possible values of $\theta$.
+}
+
+\note
+\begin{itemize}
+    \item We could require $P(\theta \in I(X_1, \ldots, X_n)) \geq 1-\alpha$.
+    \item $\alpha$ is usually taken to be $0.01, 0.05$ or $0.1$.
+\end{itemize}
+
+\section{Constructing Confidence Intervals}
+
+Let's start with an example to get an idea of what the process might look like. 
+
+\ex{
+Suppose that we have a random sample $X_1, \ldots, X_n$ with $X_1 \sim \mathcal{N}(\mu, \sigma^2)$. $\sigma^2$ is known, but $\mu$ is not known. We want to construct an interval $I(X_1, \ldots, X_n) = \left((a(X_1,\ldots, X_n), b(X_1, \ldots, X_n)\right)$ such that
+\[
+P(\mu \in I(X_1, \ldots, X_n)) 
+=
+P\left(
+a(X_1, \ldots, X_n) 
+< \mu <
+b(X_1, \ldots, X_n)
+\right)
+= 0.99
+\]
+\label{example:CI_norm_knownSD}
+}
+
+It seems reasonable to try to use our knowledge of $\overline{X}$ in the construction. We start with the following fact:\\
+
+\textbf{Fact. }If $Y_1, \ldots, Y_m$ are independent random variables such that for each $i$ we have $Y_i \sim \mathcal{N}(\mu_i, \sigma^2_i)$, then we have that
+\[
+\sum_{i=1}^m a_i Y_i \sim 
+\mathcal{N}\left(
+    \sum_{i=1}^m a_i \mu_i,
+    \sum_{i=1}^m a_i^2 \sigma^2_i
+\right)
+\]\\
+
+A consequence of this fact is that $\overline{X} \sim \mathcal{N}(\mu, \frac{\sigma^2}{n})$.\\
+
+\note This is not an application of the CLT. This result is true even when the sample size is small $(n<30)$ and is exact (i.e, not an approximation) compared to our previous applications of the CLT.
+
+Now note that from our previous knowledge of normal random variables,
+\[
+\frac{\overline{X} - \mu}{\sigma / \sqrt{n}} \sim \mathcal{N}(0,1)
+\]
+
+Thus, we have that
+\begin{align*}
+    P\left(-z_{0.005} < \frac{\overline{X}-\mu}{\sigma/\sqrt{n}}< z_{0.005} \right ) &= 0.99 \\
+    P\left(-2.5758 < \frac{\overline{X} - \mu}{\sigma/\sqrt{n}} < 2.5758\right) &= 0.99
+\end{align*}
+
+\[
+P\left(\overline{X} - 2.5758 \frac{\sigma}{\sqrt{n}} < \mu < \overline{X} + 2.5758\frac{\sigma}{\sqrt{n}}\right) = 0.99
+\]
+
+So, it seems reasonable to have the interval be 
+\[
+I(X_1, \ldots, X_n) = 
+\left(
+\overline{X} - 2.5758 \frac{\sigma}{\sqrt{n}},
+\overline{X} + 2.5758 \frac{\sigma}{\sqrt{n}}
+\right)
+\]
+as we have that $P(\mu \in I) = 0.99$.
+
+Let's consider a more concrete example. 
+
+\ex{
+Take $n=10$ and $\sigma^2=4$, i.e we have a random sample $X_1, \ldots, X_{10}$ where $X_i \sim \mathcal{N}(\mu,4)$. Recall again that $\mu$ is fixed, but unknown to us. 
+
+Suppose that we carry out an experiment and obtain a realization of the random variables $x_1, \ldots, x_n$. We calculate the sample average $\overline{X} = \frac{1}{10}\sum_i x_i$ and find that $\overline{X}=10$.
+
+We can use the formula from the previous example (\ref{example:CI_norm_knownSD}) to calculate the CI (with confidence level $99\%$) for this realization:
+\[
+\left(
+10 - 2.5758 \frac{4}{\sqrt{10}},
+10 + 2.5758 \frac{4}{\sqrt{10}}
+\right)
+=
+(6.7418, 13.2582)
+\]
+\label{example:CI_norm_knownSD_numerical}
+}
+
+\note
+
+\begin{itemize}
+    \item The results above heavily depended on the fact that $\overline{X} \sim \mathcal{N}(\mu, \frac{\sigma^2}{n})$. This in turn came from the fact that $X_i \sim \mathcal{N}(\mu, \sigma^2)$, where $\sigma^2$ is known.
+    \item The value $0.99$ in the above equation gives us the \textit{confidence level}. In general we can specify the confidence level by $1- \alpha$ ($\alpha$ is called the \textit{significance level}). It is customary to choose $\alpha$ to be $0.01, 0.05$ or $1$ as was noted earlier.
+    \item Regarding Example \ref{example:CI_norm_knownSD_numerical}, it is \textbf{not correct} to say that 
+    \[
+    P(\mu \in (6.7418, 13.2582)) = 0.99
+    \]
+    In fact, since $\mu$ is fixed, this probability is either 0 or 1 depending on whether $\mu$ falls inside the given interval. Confidence intervals should be interpreted using long-run frequencies.
+\end{itemize}
+
+\subsection{Approximate Confidence Intervals}
+
+In the previous section we made two key assumptions.
+\begin{itemize}
+    \item The data is being generated from a normal distribution.
+    \item The variance for this distribution is known.
+\end{itemize}
+
+These assumptions place strong constraints on constructing confidence intervals, even for $\mu$. It turns out that we can address these issues if we are willing to allow for approximate confidence intervals.
+
+\defn{
+We say that $I(X_1, \ldots, X_n)$ is an $1-\alpha$ approximate confidence interval for $\theta$ if 
+\[
+\lim_n P(\theta \in I(X_1, \ldots, X_n)) = 1-\alpha
+\]
+}
+
+By setting
+\[
+
+\]

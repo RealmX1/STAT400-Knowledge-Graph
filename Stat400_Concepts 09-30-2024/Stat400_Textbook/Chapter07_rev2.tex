@@ -1,0 +1,461 @@
+\chapter[Statistical Inference]{Statistical Inference}
+
+Statistical inference is the process of using data to make inferences about the underlying distribution that generated the data. All of the following can be phrased in these terms.
+
+\ex{We are given a coin that comes up heads with some probability $p$. Estimate the value of $p$.
+\label{example:estimate_p_coin_flip}
+}
+
+\ex{Estimate the CDF of heights for male students (at a fixed point in time, say this current semester) at UMD.}
+
+\ex{A company claims that their new line of batteries last 100 hours under regular use. Is their claim accurate?}
+
+\ex{Four fertilizers are available for use that, on paper, look as good as each other. Is this really the case?}
+\hfill\\
+
+In the following chapters, we try to develop techniques that answer some of these questions. We start with point estimators.
+
+\section{Point estimators}
+
+Point estimators are an attempt at estimating a quantity of interest about the population. We have already seen this idea in play: the sample average is how we estimate the population mean (i.e the sample average is a point estimator for the population mean) and the sample variance is a point estimator for the population variance.
+
+\defn{
+    Suppose that $\theta$ is a parameter. An \textit{estimator} for $\theta$, denoted by $\hat{\theta}$ (and $\hat{\theta}_n$ if we want to emphasize the sample size) is a statistic (i.e a function defined on the random sample).
+}
+
+\ex{
+\[
+    \overline{X} = \frac{X_1 + \ldots + X_n}{n}
+\]
+\[
+T = \frac{X_1^2 + X_2^2 + \ldots + X_n^2}{n^2 + 1}
+\]
+$\overline{X}$ and $T$ are both statistics, and hence qualify as estimators for $E(X)$.
+}\\
+
+Once a \textit{random sample has been realized} (i.e once observations are made) we can use the observed values along with the estimator to \textit{create} an estimate. For example, suppose $n=3$, $x_1 = 1$, $x_2 = 2$, and $x_3 =3$ in the above. Then
+\begin{gather*}
+    \overline{x} = \frac{1 + 2 + 3}{3} \\
+    t = \frac{1^2 + 2^2 + 3^3}{3} = \frac{1+4+9}{3} = \frac{14}{3}
+\end{gather*}
+
+The above example seems a little strange. We know $\overline{X}$ has been used repeatedly to estimate $E(X)$ but we have never used $T$. The reason is that $\overline{X}$ has mathematical properties that make it \textit{useful} in estimating $E(X)$ while $T$ does not have these properties. This shows that simply being an estimator is likely not enough to be a \textit{useful} estimator. We need something more.
+
+\subsection{Unbiasedness, Consistency and Mean Squared Error}
+
+We now turn our attention towards what makes a good (useful) estimator. There are several notions that are interrelated. We look at a couple below.
+
+Let $X_1,...X_n$ be a sample of size $n$. Let $\hat{\theta}_n$ be an estimator for $\theta$ (i.e. $
+\hat\theta_n$ is a statistic). Now $\hat\theta_n$ is said to be: 
+\begin{enumerate}
+    \item is said to be \textit{unbiased} if $E(\hat\theta_n) = \theta$ for all possible values of $\theta$.
+    \item has a \textit{mean square error} (MSE) given by \[
+\text{MSE}(\hat{\theta}_n) = E\left((\hat{\theta}_n - \theta)^2\right)
+\]
+
+    \item is said to be \textit{consistent} if for every $\varepsilon > 0$, 
+    \[
+    \lim_{n\rightarrow \infty} P(|\hat{\theta}_n - \theta|> \varepsilon) = 0
+    \]
+
+\end{enumerate}
+
+\note
+\begin{itemize}
+    \item Unbiasedness indicates that we get the correct answer on average. 
+    \item Consistency means that as the sample size (denoted by $n$) increases, the probability of making a \textit{significant error} (measured by $\varepsilon$) decreases towards zero.  
+    \item The mean squared error measures how much the estimator deviates from the actual value on average. Given two (or more) estimators the one with the least mean squared error can be deemed to be ``good". 
+    \item In order to keep the notation somewhat simple, in many situations we will abuse notation slightly and drop the subscript $n$ which is used to emphasize the sample size. For example, we may talk about $\overline{X}$ being a consistent estimator for $\mu$ when it is more precise to talk about $\overline{X}_n$ being consistent for $\mu$.  
+    \item $\overline{X}$ is both an unbiased and consistent estimator for $E(X) = \mu$. The latter half of the statement relating to $\overline{X}$ being consistent is called the weak law of large numbers. 
+    \item $S^2$ (the sample variance) is an unbiased estimator for $\sigma^2$. In fact the (up to now mysterious) division by $n-1$ of $\sum_{i=1}^n (X_i - \overline{X})^2$ is related to this. However the more "natural estimator" $
+T = \frac{1}{n} \sum_{i=1}^n \left(X_i - \overline{X}\right)^2
+$ for $\sigma^2$ is a biased estimator.
+    \item The principle of unbiased estimation states that we prefer unbiased estimators over once that are not.
+\end{itemize}
+
+Let $X_1, \ldots, X_n$ be a random sample with $E(X_1) = \mu$ and $V(X_1) = \sigma^2$. Let's show that $\overline{X}$ is an unbiased estimator for $\mu$.
+
+\begin{align*}
+    E(\overline{X}) 
+    &= E\left(\frac{1}{n} \sum_{i=1}^n X_i\right) \\
+    &= \frac{1}{n} E\left( \sum_{i=1}^n X_i\right) \\
+    &= \frac{1}{n} \sum_{i=1}^nE\left(  X_i\right) \\
+    &= \frac{1}{n} n \mu = \mu
+\end{align*}
+
+However, this is not the only unbiased estimator. \\
+
+\exercise Show that $X_1$ and $\frac{3X_1 + 4X_2}{7}$ are also all unbiased estimators of $\mu$.\\
+
+To determine which of these estimators is better, we can turn towards comparing their mean squared errors. But before we look at the details, it helps to develop a little bit more terminology and results that relate the concepts of unbiasedness and mean squared error together. 
+
+\defn{The quantity
+$E(\hat{\theta}) - \theta$
+is called the \textit{bias} of the estimator $\hat{\theta}$. We will denote it by $\text{bias}(\hat{\theta})$.
+}\\
+
+We can now rewrite the mean squared error as follows:
+
+\[
+\text{MSE}(\hat{\theta}) = 
+(\text{bias}(\hat{\theta}))^2 + V(\hat{\theta})
+\]
+
+For unbiased estimators which have a bias of $0$, the equation becomes
+\[
+\text{MSE}(\hat{\theta}) = 
+V(\hat\theta) 
+\]
+
+So computing the mean squared errors we obtain: 
+\begin{align*}
+    V(\overline{X}) 
+    &= V\left(\frac{1}{n}\sum_{i=1}^n X_i\right) \\
+    &= \frac{1}{n^2} V\left(\sum_{i=1}^n X_i\right) \\
+    &= \frac{1}{n^2} \sum_{i=1}^n V(X_i) \text{ (as } X_i \text{ are independent)} \\
+    &= \frac{1}{n^2} n\sigma^2 = \frac{\sigma^2}{n}\\
+    \\
+    V(X_1) &= \sigma^2 \\
+    \\
+    V\left(\frac{3X_1 + 4X_2}{7}\right) &=
+    \frac{1}{49} \left(9V(X_1) + 16 V(X_2)\right) \\
+    &= \frac{25}{49} \sigma^2 \approx \frac{\sigma^2}{2}
+\end{align*}
+
+So, for a larger sample (in fact, for $n\geq 3$ in this example), 
+\[
+V(\overline{X}) < V\left(\frac{3X_1 + 4X_2}{7}  \right) < V(X_1)
+\]
+
+Thus $V(\overline{X})$ seems like the better choice.
+
+\defn{
+The \textit{MVUE (minimum variance unbiased estimator)} tells us that When we have multiple unbiased estimators, we should pick the one with the lowest variance. 
+}\\
+
+
+
+\section{Constructing Estimators}
+
+So far we have discussed what makes a point estimator good. What we have not done is discuss how to construct a point estimator. In this section, we talk about how to construct point estimators that under certain technical conditions have good properties.\\
+
+\textit{The setup:} We have a random sample $X_1, \ldots, X_n$ with the common probability mass function/probability density function $f(x; \theta)$.
+
+\subsection{The method of moments}
+
+We start our discussion with the method of moments (abbreviated as \textbf{MM}). The method of moments relies on:
+\begin{enumerate}
+    \item $\frac{1}{n}\sum_{i=1}^n X_i^k$ being a good point estimator for the \textit{$k$th moment} $E(X^k)$, where $X$ is an R.V with the population distribution. This is due to the law of large numbers.
+    \item Exploiting various relationships between the parameters and the moments.
+\end{enumerate}
+
+\ex{
+Suppose $X_1, \ldots, X_n$ is a random sample with $X_i \sim Ber(p)$. $p$ is a fixed but unknown number. Construct a point estimator $\hat{p}_{MM}$ using the method of moments.\\
+
+Let $X$ be a random variable with the same population distribution as the $X_is$, i.e $X \sim Ber(p)$. Now $E(X) = p $. Also, $\frac{1}{n}\sum_{i=1}^n X_i$ is a point estimator for $E(X)$, thus the first moment $E(X)$ can be estimated by $\frac{1}{n}\sum_{i=1}^n X_i$. But since $p = E(X)$, then $p$ can be estimated by
+\[
+\hat{p}_{MM} = \frac{1}{n} \sum_{i=1}^n X_i
+\]
+}
+
+\ex{
+Let $X_1, \ldots, X_n$ be a random sample with $X_i \sim \mathcal{N}(\mu,\sigma^2)$, where $\mu$ and $\sigma^2$ are fixed but unknown numbers. Construct point estimators $\hat{\mu}_{MM}$ and $\hat{\sigma}^2_{MM}$ for $\sigma^2$.\\
+
+Let $X \sim \mathcal{N}(\mu, \sigma^2)$. Now $E(X) = \mu$ and $V(X) = \sigma^2$. But $V(X) = E(X^2) - [E(X)]^2$. Note that $\frac{1}{n}\sum X_i$ is a point estimator for $E(X)$, and $\frac{1}{n} \sum X_i^2$ is a point estimator for $E(X^2)$. Thus we can construct the method of moments estimators
+\begin{gather*}
+    \hat{\mu}_{MM} = \frac{1}{n} \sum_{i=1}^n X_i \\
+    \hat{\sigma}^2_{MM} = \frac{1}{n} \sum_{i=1}^n X_i^2 - \left(\frac{1}{n} \sum_{i=1}^n X_i\right)^2
+\end{gather*}
+\label{example:norm_MM}
+}
+
+In algorithmic form, the method of moments can be written down as:
+
+\begin{enumerate}
+\item Step 1: Given parameters $\theta_1, \ldots, \theta_k$, write as many moments $E(X), \ldots, E(X^m)$ as needed as functions of the parameters $\theta_i$.
+
+\iffalse	\begin{center}
+	\begin{tabular}{ c c c }
+	 $E(X)$ & = & $h_1(\theta_1, \ldots, \theta_k)$\\ 
+	 $E(X^2)$ & =& $h_2(\theta_1, \ldots, \theta_k)$\\  
+	 $\vdots$ & & \\
+	 $E(X^k)$ & = & $h_k(\theta_1, \ldots, \theta_k)$
+	\end{tabular}
+	\end{center} \fi
+
+\item Step 2: Solve for $\theta_i$ in terms of the moments. \iffalse
+	\begin{center}
+	\begin{tabular}{ c c c }
+	 $\theta_1$ & = & $\ell_1(E(X_1), \ldots, E(X^k))$\\
+	 $\vdots$ & & \\
+	 $\theta_k$ & = & $\ell_k(E(X), \ldots, E(X^k))$
+	\end{tabular}
+	\end{center} \fi
+
+\item Step 3: Form the estimators $\hat{{\theta_i}}_{MM}$. \iffalse
+	\[
+		\hat{\theta_i}_{MM} = \ell_i\left(
+			\frac{1}{n} \sum_{j=1}^n X_j,
+			\frac{1}{n} \sum_{j=1}^n X_j^2,
+			\ldots,
+			\frac{1}{n} \sum_{j=1}^n X_j^k
+		\right)
+	\] \fi
+\end{enumerate}
+
+Based on our examples so far, it is tempting to conclude that $k=m$. However, this is not the case: If $X_1, \ldots, X_n$ be a random sample with $X_i \sim U[-\theta, \theta]$, then $E(X_i)=0$ so we actually need to consider $E(X_i^2)$ in order to construct an estimator for $\theta$.
+
+\note
+\begin{enumerate}
+	\item Our example with a random sample $X_1, \ldots, X_n$ with $X_1 \sim Ber(p)$ is related to our example in the previous section of attempting to determine the probability with which a coin comes up heads (Example \ref{example:estimate_p_coin_flip}). A natural approach to estimating such a probability would be tossing the coin multiple times and then computing the estimate as
+		\[
+			\frac{
+				\text{\# of heads}
+			}{
+				\text{\# of tosses}
+			}
+		\]
+		This is exactly what the $\hat{p}_{MM}$ suggests that you do!
+	\item The method of moments can yield biased estimators (for example, $\hat{\sigma}^2_{MM}$ in Example \ref{example:norm_MM} is biased).
+	\item Under certain technical conditions, the method of moments gives a consistent estimator. These topics are beyond the scope of this class.
+\end{enumerate}
+
+\subsection{Maximum likelihood estimation}
+
+We now turn our attention to maximum likelihood estimation (abbreviated as \textbf{MLE}). The idea behind maximum likelihood estimators is to find an estimator $\hat{\theta}$ that maximizes the probability of the observed sample.
+
+Maximum likelihood has two steps.
+
+\begin{itemize}
+	\item \textit{Step I}: Given a random sample $X_1, \ldots, X_n$ with a common probability mass/probability density function $f(x;\theta)$, compute the joint probability mass/probability density function. We typically write:
+	\[
+			\prod_{i=1}^n f(x; \theta)
+	\]
+	Here, we are using the independence of the $X_i$'s to write the joint pmf/joint pdf as a product of the invidual pmfs/pdfs.
+
+	\item \textit{Step II}: Define the likelihood function:
+	\[
+		\mathcal{L}(\underline{\theta}) = \prod_{i=1}^n f(x_i;\underline{\theta})
+	\]
+	Find the $\hat{\underline{\theta}}$ which maximizes $\mathcal{L}(\underline{\theta})$.
+\end{itemize}
+
+Notice that we are thinking of the joint pmf/joint pdf as a function of $\underline{\theta}$. The idea is that when we are given observations $x_1, \ldots, x_n$ \textit{they are fixed} values. We seek to find the $\underline{\theta}$ that maximizes $\mathcal{L}(\underline{\theta})$, where $\underline{\theta}$ is the parameter (or collection of parameters) with values which are unknown to us. Further, step II requires us to optimize $\mathcal{L}(\underline{\theta})$. This suggests that calculus techniques will come into play.
+
+\ex{
+	Let $X_1, \ldots, X_n$ be a random sample with $X_1 \sim Ber(p)$. We find the MLE for $p$.
+
+	Note that given $X\sim Ber(p)$, the probability mass is given by
+	\[
+		f(x;p) = p^x (1-p)^{1-x}
+	\]
+	for $x=0,1$ and 0 otherwise.
+
+	Let's take $\theta = p$. Now we have
+	\[
+		\mathcal{L}(\theta) = \prod_{i=1}^n \theta^{x_i} (1-\theta)^{1-x_i}
+	\]
+
+	We want to find the value of $p$ that maximizes the above. A natural way to do this is by using calculus: Find the critical value for $\mathcal{L}(p)$. However, we will run into some computational difficulties if we try to compute $\mathcal{L}'(p)$ (we would need to use the product rule multiple times). We now pause the example for the moment and introduce the log-likelihood function that allows us to tackle this problem:
+}
+	\defn{
+	The log-likelihood function $\ell(\underline{\theta})$ is defined as $\ell(\underline{\theta}) = \ln \mathcal{L} (\underline{\theta})$.
+	}
+
+	Note that: 
+	\[
+	\ell(\underline{\theta}) = 
+	\ln \prod_{i=1}^n f(x_i, \underline{\theta}) =
+	\sum_{i=1}^n \ln f(x_i;\theta)
+	\]
+
+	Thus, the \textit{log-likelihood is far easier to differentiate}, since the derivative of a sum is easier to compute than that of a product.\\
+
+	\exercise Explain why finding a $\underline{\theta}$ that maximizes $\mathcal{L}(\underline{\theta})$ is equivalent to finding a $\underline{\theta}$ that maximizes $\ell(\underline{\theta})$. (Hint: $\ln(x)$ is an increasing function).\\
+
+\textbf{Example continued. }
+
+Now, we will write out the log-likelihood, take the derivative, and complete the derivation.
+\begin{align*}
+	\mathcal{L}(\theta) &= \prod_{i=1}^n \theta^{x_i} (1-\theta)^{1-x_i} \\
+			    & \\
+	\ell(\theta) 
+	&= \ln \prod_{i=1}^n \theta^{x_i} (1-\theta)^{1-x_i} \\
+	&= \sum_{i=1}^n \ln\left( \theta^{x_i} (1-\theta)^{1-x_i} \right)\\
+	&= \sum_{i=1}^n \left( \ln\theta^{x_i}  + \ln (1-\theta)^{1-x_i} \right)\\
+	&= \sum_{i=1}^n \left( x_i \ln\theta  +  (1-x_i)\ln (1-\theta) \right)\\
+	& \\
+	\ell'(\theta) 
+	&= \frac{d}{d\theta} \left[\sum_{i=1}^n \left( x_i \ln\theta  +  (1-x_i)\ln (1-\theta) \right)\right]\\
+	&= \sum_{i=1}^n \left(
+		\frac{d}{d\theta}\left(
+			x_i \ln\theta  +  (1-x_i)\ln (1-\theta)
+		\right)
+	\right)\\
+	&= \sum_{i=1}^n \left(
+			\frac{x_i}{\theta}  +  \frac{1-x_i}{1-\theta}(-1)
+	\right)\\
+	&= \sum_{i=1}^n \left(
+			\frac{(1-\theta)x_i - \theta(1-x_i)}{\theta(1-\theta)}  
+	\right)\\
+	&= \sum_{i=1}^n \left(
+			\frac{(1-\theta)x_i - \theta(1-x_i)}{\theta(1-\theta)}  
+	\right)\\
+	&= \sum_{i=1}^n \left(
+			\frac{x_i - \theta x_i - \theta + \theta x_i}{\theta(1-\theta)}  
+	\right)\\
+	&= \sum_{i=1}^n \left(
+			\frac{x_i - \theta}{\theta(1-\theta)}  
+	\right)
+\end{align*}
+
+Setting $\mathcal{L}'(\theta)=0$ we obtain
+
+\begin{gather*}
+	\frac{1}{\hat{\theta}(1 - \hat{\theta})} \sum_{i=1}^n (x_i -\hat{\theta}) = 0 \\
+	\left(\sum_{i=1}^n x_i\right) - n \hat{\theta} = 0 \\
+	\hat{\theta} = \frac{1}{n} \sum_{i=1}^n x_i
+\end{gather*}
+
+Thus, the maximum likelihood estimate is $\hat{p}_{MLE} = \frac{1}{n} \sum_{i=1}^n x_i$ and the maximum likelihood estimator is
+\[
+	\hat{p}_{MLE} = \frac{1}{n} \sum_{i=1}^n X_i
+\]
+
+\ex{
+	Suppose that $X_1, \ldots, X_n$ is an (iid) random sample with $X_1 \sim \mathcal{N}(\mu, \sigma^2)$ where both $\mu, \sigma^2$ are fixed but unknown. Find the MLEs for $\mu, \sigma^2$.\\
+
+	Take $\theta_1 = \mu, \theta_2 = \sigma^2$. Then the pdf of a single random variable $X_i$ is given by:
+	\[
+		\frac{1}{\sqrt{2 \pi \theta_2}} e^{-\frac{(x - \theta_1)^2}{2\theta_2}}
+	\]
+	Now, we proceed to write the likelihood and log-likelihood.
+	\begin{align*}
+		\mathcal{L}(\theta_1, \theta_2) 
+		&= \prod_{i=1}^n \frac{1}{\sqrt{2 \pi \theta_2}} e^{-\frac{(x_i-\theta_1)^2}{2\theta_2}}\\
+		&\\
+		\ell(\theta_1, \theta_2)
+		&=
+		\sum_{i=1}^n \ln\left(
+			\frac{1}{\sqrt{2 \pi \theta_2}}e^{-\frac{(x_i-\theta_1)^2}{2\theta_2}}
+		\right) \\
+		&=
+		\sum_{i=1}^n \left[
+			-\frac{1}{2}\ln(2\pi\theta_2)
+			+
+			\ln e^{-\frac{(x_i-\theta_1)^2}{2\theta_2}}
+		\right] \\
+		&=
+		\sum_{i=1}^n
+			-\frac{1}{2}\ln(2\pi) 
+			-\frac{1}{2}\ln(\theta_2)
+			-\frac{(x_i-\theta_1)^2}{2\theta_2} \\
+		&=
+			-\frac{n}{2}\ln(2\pi) 
+			-\frac{n}{2}\ln(\theta_2)
+			-\frac{1}{2\theta_2}  \sum_{i=1}^n (x_i-\theta_1)^2
+	\end{align*}
+	Next, the critical points $(\hat{\theta_1}, \hat{\theta_2})$ of $\ell(\theta_1,\theta_2)$ should satisfy the equations
+	\begin{gather*}
+	\frac{\partial \ell}{\partial \theta_1} 
+	\bigg \rvert_{(\theta_1, \theta_2) = (\hat{\theta_1},\hat{\theta_2})} = 0 \\
+	\frac{\partial \ell}{\partial \theta_2} 
+	\bigg \rvert_{(\theta_1, \theta_2) = (\hat{\theta_1},\hat{\theta_2})} = 0
+	\end{gather*}
+	Writing out the derivatives, we get
+	\begin{align*}
+		\frac{\partial \ell}{\partial \theta_1} 
+		&= -\frac{1}{2\theta_2} \sum_{i=1}^n 2(x_i - \theta_1)(-1) \\
+		&= \frac{1}{\theta_2} \sum_{i=1}^n (x_i - \theta_1) \\
+		& \\
+		\frac{\partial \ell}{\partial \theta_2}
+		&= -\frac{n}{2\theta_2} + \frac{1}{2\theta_2^2} \sum_{i=1}^n (x_i - \theta_1)^2
+	\end{align*}
+
+	Solving for $(\hat{\theta}_1, \hat{\theta}_2)$ that simultaneously make $\frac{\partial\ell_1}{\partial \theta_1}$, $\frac{\partial \ell_2}{\partial \theta_2}$ equal 0 we obtain:
+	\begin{gather*}
+		\hat{\theta_1} = \frac{1}{n} \sum_{i=1}^n x_i \\
+		\hat{\theta_2} = \frac{1}{n} \sum_{i=1}^n (x_i - \hat{\theta}_1)^2 = \frac{1}{n} \sum_{i=1}^n (x_i - \overline{x})^2
+	\end{gather*}
+}
+
+So far, the method of moments and maximum likelihood estimators have both given us the same estimators. The following example illustrates this is not always the case.
+
+\ex{
+	Let $X_1, \ldots, X_n$ be a random sample with $X_1 \sim U[0,\theta]$ where $\theta > 0$ is fixed but unknown. Now
+	\[\hat{\theta}_{MM} = \frac{2}{n} \sum_{i=1}^n X_i\]
+	but on the other hand,
+	\[
+		\hat{\theta}_{MLE} = \max\{X_1, \ldots, X_n\}
+	\]
+}
+
+\section{}
+Under suitable conditions, maximum likelihood estimators are consistent as well. In addition, they are:
+\begin{enumerate}
+	\item Invariant: Given a function $g$, the MLE for $g(\theta)$ is $g(\hat{MLE})$.
+	\item Asymptotically unbiased: Even if the MLE is biased, as the sample size increases, the bias goes to zero.
+\end{enumerate}
+
+There are further properties that we do not discuss here.
+
+\section{A quick look back}
+
+Now that we have discussed point estimators, here are some important facts about how we approached the topics.
+
+\begin{enumerate}
+	\item Values of parameters are \textit{fixed} but they are not known to us.
+	\item When constructing estimators we took a \textit{parametric approach}, i.e we assumed that we knew the distribution of the population but not the value of the parameters. If these assumptions are incorrect, the information given by the estimators will not be useful.
+ \item Notions of good for estimators depend on having good long run properties: on average, over a large sample (i.e. over a large number of observations from repeated repetitions). 
+\end{enumerate}
+
+
+
+\thischapterexercises
+
+\exerciseitem Show that $S^2$ is an unbiased estimator for $\sigma^2$, but $T = \frac{1}{n} \sum (X_i - \overline{X})^2$ is not. \textit{Hint: $T= \frac{n}{n-1} S^2$, so $E(T)$ is easy to compute. The hard work goes into showing $S^2$ is unbiased.}\\
+
+\exerciseitem Compute the bias, variance and mean squared error for $T= \frac{n}{n-1} S^2$. 
+
+\exerciseitem Chebychev's inequality tells us that given any random variable $X$ with $E(X) = \mu$ and $V(X) = \sigma^2$, we have (for any $c > 0$)
+\[
+P\left(|X - \mu| \geq c\right) \leq \frac{\sigma^2}{c^2}
+\]
+
+Let $X_1, \ldots, X_n$,\ldots be i.i.d random variables that have the same distribution as $X$. Use this to prove the \textit{weak law of large numbers} for all such random variables. \\
+
+\exerciseitem Consider Example \ref{example:estimate_p_coin_flip} where you are attempting to determine the probability $p$ of a coin coming up heads. Suggest an experiment to approximate the value of $p$. \\
+
+\exerciseitem The following 10,000 numbers (hosted on ELMS) were generated from a Uniform distribution on $[0,\theta]$. Suggest an estimator $\hat{\theta}$ to estimate $\theta$ \textit{and} use $R$ to obtain the estimate based on the data. \\
+
+\exerciseitem  The following 10,000 numbers (hosted on ELMS) were generated from an Exponential distribution, i.e random samples of the random variable $X \sim \text{Exp}(\lambda)$. Suggest an estimator $\hat{\lambda}$ to estimate $\lambda$ \textit{and} use $R$ to obtain the estimate based on the data.\\
+
+\exerciseitem Consider a random variable $X$ with $E(X) = \mu$ and $V(X) = \sigma^2$. Let $X_1, \ldots, X_n$ be i.i.d, with each $X_i \sim X$ (i.e, a random sample of the variable $X$). Let
+\[
+T = k \sum_{i=1}^n i X_i
+\]
+You are given that $T$ is unbiased. What is the value of $k$?
+
+
+\exerciseitem Suppose that $X_1, \ldots, X_n$ is a random sample with $X_1 \sim exp(\lambda)$. Compute the MM estimator and the MLE for $\lambda$. \\
+
+\exerciseitem Suppose that $X_1, \ldots, X_n$ is a random sample where the pdf of $X_1$ is given by $f$ (defined below).
+\[
+	f(x;\theta) = 
+	\begin{cases}
+		\theta x^{\theta-1} & 0\leq x \leq 1 \\
+		0 & \text{o.w}
+	\end{cases}
+\]
+Let $\theta > 1$ be fixed. Compute the MM estimator and MLE for $\theta$.\\
+
+\exerciseitem Let $X_1, \ldots, X_n$ be a random sample with $X_1 \sim U[0,\theta]$ where $\theta > 0$ is fixed but unknown.
+\begin{enumerate}
+	\item Compute $\hat{\theta}_{MM}$.
+	\item Compute $\hat{\theta}_{MLE}$. 
+	
+	\textit{Hint: $\mathcal{L}(\theta) = \frac{1}{\theta^n}$. 
+	To obtain the estimator, explain why $\theta \geq \max\{x_1, \ldots, x_n\}$. Also, explain why if we have $\theta_1 < \theta_2$, then we have $\mathcal{L}(\theta_1) > \mathcal{L}(\theta_2)$.} 
+
+\item Which do you think is better in this case, $\hat{\theta}_{MM}$ or $\hat{\theta}_{MLE}$? Verify your guess empirically by writing a suitable program in $R$.
+\end{enumerate}

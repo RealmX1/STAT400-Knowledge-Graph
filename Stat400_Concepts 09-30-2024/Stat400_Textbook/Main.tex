@@ -1,0 +1,275 @@
+\documentclass[11pt,oneside]{book}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%[itemsep=0pt, topsep=1pt, partopsep=0pt,label=(\alph*)]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%Include Packages%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{xcolor}
+\usepackage{tikz,xcolor,color}
+\usepackage{mathtools}
+\usepackage[legalpaper, margin=0.8in]{geometry}
+\usetikzlibrary{fit}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{paralist}
+\usepackage{rsfso}
+\usepackage{amsthm}
+\usepackage{wasysym}
+\usepackage[inline]{enumitem}   
+\usepackage{hyperref}
+\usepackage{tocloft}
+\usepackage{wrapfig}
+\usepackage{titlesec}
+\usepackage[makeroom]{cancel}
+\usepackage [english]{babel}
+\usepackage [autostyle, english = american]{csquotes}
+\usetikzlibrary{trees}
+\usepackage[latin1]{inputenc}
+\tikzstyle{level 1}=[level distance=3.5cm, sibling distance=4cm]
+\tikzstyle{level 2}=[level distance=3.5cm, sibling distance=3cm]
+\usepackage{eucal}
+\usepackage[T1]{fontenc}
+\usepackage{mathtools}
+\usepackage[thinc]{esdiff}
+\usepackage[toc,page]{appendix} %---------------%%%%%%%%%%
+% Define styles for bags and leafs
+\tikzstyle{bag} = [text width=3em, text centered]
+\tikzstyle{end} = [circle, minimum width=3pt,fill, inner sep=0pt]
+\MakeOuterQuote{"}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%% FOR EXAMPLES %%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%Include Packages%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{tikz}
+\usepackage{mathtools}
+\usepackage[legalpaper, margin=0.8in]{geometry}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{rsfso}
+\usepackage{wasysym}
+\usepackage{hyperref}
+\usetikzlibrary{matrix, calc, arrows,
+                arrows.meta, fit,
+                positioning, quotes,
+                shapes.geometric}
+
+
+%%%%%%%%%%%%%%%Color%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{gray75}{gray}{0.75}
+\definecolor{yellow}{RGB}{255,255,177}
+\definecolor{pink}{RGB}{250,204,224}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%Theorem environments%%%%%%%%%%%%%%%%%%%
+\newtheoremstyle{break}
+  {\topsep}{\topsep}%
+  {\itshape}{}%
+  {\bfseries}{}%
+  {\newline}{}%
+\newtheoremstyle{newStyle}
+  {\topsep}{\topsep}%
+  {\rmfamily}{}%
+  {\bfseries}{}%
+  {\newline}{}%             % Theorem head spec
+  \theoremstyle{newStyle}
+\newtheorem{thm}{Theorem}[chapter]
+\newtheorem{lem}{Lemma}[thm]
+\newtheorem{axiom}[thm]{Axiom}
+\newtheorem{prop}[lem]{Proposition}
+\newtheorem{cor}[lem]{Corollary}
+\newtheorem{defn}[thm]{Definition}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\spa}{\text{span}}
+\newcommand{\pd}{\partial}
+\newcommand{\that}[1]{\widetilde{#1}}
+\newcommand{\vmat}[1]{\begin{vmatrix} #1 \end{vmatrix}}
+\newcommand{\bmat}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+\newcommand{\pmat}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+\newcommand*{\Perm}[2]{{}^{#1}\!P_{#2}}
+\newcommand*{\Comb}[2]{{}^{#1}C_{#2}}
+\newcommand*{\dr}[5]{\draw ({#1}.east) --+ ({#4},{#5}) node[right] ({#2}) {{#3}};}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\newcommand{\note}{\color{red}Note: \color{black}}
+\newcommand{\remark}{\color{blue}Remark: \color{black}}
+\newcommand{\example}{\color{purple}Example: \color{black}}
+\newcommand{\exercise}{\color{cyan}Exercise: \color{black}}
+
+
+
+
+
+%%%%%%%%%%%%%%%Chapter Setting%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{gray75}{gray}{0.75}
+\newcommand{\hsp}{\hspace{20pt}}
+\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp\textcolor{gray75}{$\mid$}\hsp}{0pt}{\Huge\bfseries}
+\definecolor{yellow}{RGB}{255,255,177}
+\definecolor{pink}{RGB}{250,204,224}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%Theorem environments%%%%%%%%%%%%%%%%%%%
+\newtheoremstyle{break}
+  {\topsep}{\topsep}%
+  {\itshape}{}%
+  {\bfseries}{}%
+  {\newline}{}%
+\newtheoremstyle{newStyle}
+  {\topsep}{\topsep}%
+  {\rmfamily}{}%
+  {\bfseries}{}%
+  {\newline}{}%             % Theorem head spec
+  \theoremstyle{newStyle}
+
+\newtheorem{corL}{Corollary}[lem]
+\newtheorem{corT}[lem]{Corollary}
+
+
+\newtheorem{ex}{Example}[section]
+\newenvironment{indEnv}[1][Proof]
+  {\proof[#1]\leftskip=1cm\rightskip=1cm}
+  {\endproof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%Integral%%%%%%%%%%%%%%%%%%%%%%%
+\def\upint{\mathchoice%
+    {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+  \int}
+\def\lowint{\mkern3mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu\int}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\J}{\mathcal{J}}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\Td}{\mathcal{T}_d}
+\newcommand{\X}{\mathcal{X}}
+\newcommand{\Complex}{\mathbb{C}}
+\newcommand{\Power}{\mathcal{P}}
+\newcommand{\ee}{\cdot 10}
+
+\newcommand{\rref}{\xrightarrow{\text{row\ reduce}}}
+
+
+
+
+%%%%%%%%%%%%table of contents%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\cftchapindent}{0em}
+\setlength{\cftsecindent}{2em}
+
+
+\renewcommand\cfttoctitlefont{\hfill\Large\bfseries}
+\renewcommand\cftaftertoctitle{\hfill\mbox{}}
+
+\setcounter{tocdepth}{2}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%Footnotes%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeatletter
+\def\@seccntformat#1{%
+  \expandafter\ifx\csname c@#1\endcsname\c@section\else
+  \csname the#1\endcsname\quad
+  \fi}
+\makeatother
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Enumerate%%%%%%%%%%%%%%
+\makeatletter
+% This command ignores the optional argument 
+% for itemize and enumerate lists
+\newcommand{\inlineitem}[1][]{%
+\ifnum\enit@type=\tw@
+    {\descriptionlabel{#1}}
+  \hspace{\labelsep}%
+\else
+  \ifnum\enit@type=\z@
+       \refstepcounter{\@listctr}\fi
+    \quad\@itemlabel\hspace{\labelsep}%
+\fi}
+\makeatother
+\parindent=0pt
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tikzset{filled/.style={fill=circle area, draw=circle edge, thick},
+    outline/.style={draw=circle edge, thick}}
+
+%%%%%%%%%% Typesetting end-of-chapter exercises %%%%%%%%%%%
+% Typesetting exercises
+\newcounter{exercisenumber}
+% Begin exercises
+\newcommand{\thischapterexercises}{
+    \section{Exercises for Chapter \thechapter}
+    \setcounter{exercisenumber}{1}
+}
+% Exercise item
+\newcommand{\exerciseitem}{
+    \textbf{Exercise \thechapter.\arabic{exercisenumber}.}
+    \stepcounter{exercisenumber}
+}
+\title{\Huge \textbf{Introduction to Probability and Statistics} 
+\vspace{0.5in}
+
+\Large Textbook for STAT/DATA 400 at University of Maryland, College Park
+\footnote{Supported by UMD TLTC 2024 Teaching Innovation Grant\\
+\url{https://tltc.umd.edu/2024-teaching-innovation-grant-awardees}}}
+
+
+\date{}
+\author{\textsc{Jonathan Fernandes} and  \textsc{Mestiyage Gunatilleka}}
+%\subtitle{A Text for STAT/DATA400 at University of Maryland}
+
+\begin{document}
+\newpage
+
+\maketitle
+\tableofcontents
+\addtocontents{toc}{~\hfill\textbf{Page}\par}
+
+\vspace*{\fill}
+
+\newpage
+\input{Chapter01}
+\input{Chapter02}
+\input{Chapter03}
+%\input{Chapter04}
+%\input{Chapter05}
+%\input{Chapter06}
+%\input{Chapter07_rev1}
+\input{Chapter07_rev2}
+%\input{Chapter08}
+%\input{Chapter09}
+\input{Appendices}
+
+
+
+\end{document}

@@ -1,0 +1,251 @@
+\chapter[Point Estimation]{Point Estimation}
+\section[Introduction to Point Estimation]{Introduction to Point Estimation}
+One goal of statistic is to draw insights/inference about certain aspects of the population using sample data. For example, we might want to estimate the following \begin{enumerate}
+\item Average GPA of students on campus
+\item Average time spent on recreational activities by students at UMD
+\item Median age of everybody affiliated to UMD
+\item The median yearly income of people in the USA
+\end{enumerate}
+In each these situations, we need to identify\begin{enumerate}
+\item \colorbox{pink}{population of interest}
+\item a \colorbox{yellow}{characteristic of the population} that we are interested in
+\end{enumerate}
+\begin{defn}
+Suppose \begin{align*}
+\{X_1,X_2,X_3,\cdots,X_n\}
+\end{align*}
+to be a random sample coming from a fixed population. Then, a \textbf{point estimator} for the population is any statistic $\widehat{\theta}$ for the random sample $\{X_1,X_2,\cdots,X_n\}$, i.e \begin{align*}
+\widehat{\theta}:\X^n\to \R,\text{\qquad}\X:=\text{ values of }X_i
+\end{align*}
+We typically expect the values of $\widehat{\theta}$ to be a sensible value of a certain population characteristic, which is a \textbf{population parameter} denoted by $\theta$
+\end{defn}
+\note \begin{enumerate}
+\item The population parameter $\theta$ is fixed once we fix the population
+\item If we have population data, i.e a census, then we can calculate the exact value of $\theta$
+\item Usually the population is intractable, which means we need to resort the sample data to get an estimate for $\theta$
+\item Suppose $\theta$ is a parameter of interest. Given an estimator $\widehat{\theta}$ for $\theta$, $\widehat{\theta}$ is a statistic depending on the random sample $\{X_1,X_2,\cdots,X_n\}$. Therefore, the estimate $\widehat{\theta}$ will change everytime sample data changes
+\end{enumerate}
+\begin{defn}
+If $\widehat{\theta}$ is a point estimator for the population parameter $\theta$, then the relation of average value of $\widehat{\theta}$ and true value $\theta$, or \textbf{Bias of $\widehat{\theta}$} is \begin{align*}
+\text{Bias}(\widehat{\theta})=E(\widehat{\theta}-\theta)
+\end{align*}
+It is also the \textbf{expected error} when we use $\widehat{\theta}$ to estimate $\theta$ using a random sample of size $n$
+\end{defn}
+\begin{defn}
+We say $\widehat{\theta}$ is an \textbf{unbiased estimator} for $\theta$ if \begin{align*}
+\text{Bias}(\widehat{\theta})=0\text{\qquad for all possible choices of }\theta 
+\end{align*}
+i.e $E(\widehat{\theta}-\theta)=0$ for every possible $\theta$
+\end{defn}
+\exercise Suppose we have estimators $\widehat{\theta_1},\widehat{\theta_2},\cdots,\widehat{\theta_k}$ estimating $\theta$. Among all the $\widehat{\theta_i},$ is there a notion of one estimator being better than theothers?
+\section[Principle of Unbiased Estimation]{Principle of Unbiased Estimation}
+\begin{ex}
+Let population be $\{0,1\}$ and the population distribution be $\text{Bernolli}(p)$, i.e $P(X=1)=p$. Let $\{X_1,X_2,\cdots,X_n\}$ be a random sample. Recall that \begin{align*}
+T_o:&=\text{ sample total}\\
+&=X_1+X_2+\cdots+X_n\\
+T_o&\sim \text{Bin}(n,p)
+\end{align*}
+Let's define \begin{align*}
+\hat{p}:=\frac{T_o}{n}
+\end{align*}
+This is the sample proportion of successes in a sample of size $n$. And $\widehat{p}$ is an estimator for $p$, the true probability of getting a success in a single Bernoulli trial.\\
+\hfill\\
+Now, \begin{align*}
+E(\widehat{p})&=E\left(\frac{T_o}{n} \right)=\frac{E(T_o)}{n}=\frac{n\cdot p}{n}=p
+\end{align*}
+Therefore, $\widehat{p}$ is an unbiased estimator for $p$
+\end{ex}
+\begin{ex}
+Suppose $\{X_1,X_2,\cdots,X_n\}$ is a random sample from a population with mean $\mu$ and variance $\sigma^2$. Then, we define the following: \begin{align*}
+\widehat{\theta_1}&:=\overline{X}=\frac{\sum_{i=1}^nX_i}{n} &\text{sample mean}\\
+\widehat{\theta_2}&:=\overline{X}+X_1-X_m& \text{sample mean plus 1st and second random sample}
+\end{align*}
+Then, \begin{align*}
+E(\widehat{\theta_1})&:=E(\overline{X})=\mu\\
+E(\widehat{\theta_2})&:=E(\overline{X}+X_1-X_m)\\
+&=\mu+\mu-\mu = \mu
+\end{align*}
+Therefore, both $\widehat{\theta_1}$ and $\widehat{\theta_2}$ are biased estimations for he population mean $\mu$. Therefore, unbiased estimation does not guarantee a unique choice of estimator.
+\end{ex}
+\begin{defn}
+Suppose $\widehat{\theta}$ is a statistic for a random sample $\{X_1,X_2,\cdots,X_n\}$ such that \begin{align*}
+E(\widehat{\theta})=\theta \text{\qquad for all possible choices of }\theta 
+\end{align*}
+Then, $\sigma_{\theta}^2:=$ \textbf{variance of the sampling distribution of }$\widehat{\theta}$
+\end{defn}
+\begin{thm}
+\textbf{Principle of Minimum Variance Unbiased Estimation:}\\
+Among all unbaised estimators of $\theta$,  the one that has the minimum variance is called the \textbf{Minimum Variance Unbiased Estimator} of $\theta$
+\end{thm}
+\begin{ex}
+We know that $\widehat{\theta_1}=\overline{X}$ and $\widehat{\theta_2}=\overline{X}+X_1-X_n$ are both unbiased estimators of $\mu$\\
+To rank them, we calculate $V(\widehat{\theta_1})$ and $V(\widehat{\theta_2})$. \begin{align*}
+V(\widehat{\theta_1})&=V\left(\frac{X_1+X_2+\cdots+X_n}{n} \right)\\
+&=V\left(\frac{X_1}{n}+\frac{X_2}{n}+\cdots+\frac{X_n}{n}\right)\\
+&=\frac{1}{n^2}\left(\sigma^2+\sigma^2+\cdots+\sigma^2 \right)\\
+&=\frac{n\sigma^2}{n^2}=\frac{\sigma^2}{n}
+\end{align*}
+Similarly, we can show that \begin{align*}
+V(\widehat{\theta_2})&=V(\overline{X}+X_1-X_n)\\
+&=\frac{\sigma^2}{n}+2\sigma^2\\
+&=\frac{2n+1}{n}\sigma^2
+\end{align*}
+Since $\frac{2n+1}{n}>\frac{1}{n}$ for all $n\in \N$, therefore, $V(\widehat{\theta_2})>V(\widehat{\theta_1})$. Therefore, if we were to choose only between $\widehat{\theta_1}$ and $\widehat{\theta_1}$, we would go with $\widehat{\theta_1}$. However, this does not prove that $\overline{X}$ is the Minimum Variance Unbiased Estimator
+\end{ex}
+\begin{thm}
+If $\{X_1,X_2,\cdots,X_n\}$ is a random sample from a normally distributed population, i.e N$(\mu,\sigma^2)$. Then the estimator $\overline{X}$ is the  Minimum Variance Unbiased Estimator for $\mu$.\\
+And the \textbf{standard error} of a point estimator $\widehat{\theta}$ is $\sigma_{\widehat{\theta}}=\sqrt{V(\widehat{\theta})}$, which provides a measure or precision of the point estimator $\widehat{\theta}$, i.e the standard deviation of the sampling distribution of $\widehat{\theta}$
+\end{thm}
+\note \begin{enumerate}
+\item If $\widehat{\theta}$ has a continuous distribution, then \begin{align*}
+P(\widehat{\theta}=\theta)&=P(\text{The estimator }\widehat{\theta}\text{ takes the value }\theta \text{ the true parameter value})\\
+&=0
+\end{align*}
+Even so, the point-estimator provides an exact estimate for $\theta,$ we have zero confidence that the calculated point estimate will equal $\theta$
+\end{enumerate}
+\section[Methods of Point Estimation]{Methods of Point Estimation}
+Suppose Population has distribution $X$ and probability mass function or probability density function of $X$ is $f(x)$.\\
+Let $\{X_1,X_2,\cdots,X_n\}$ be a random sample of size $n$ from population.\\
+\hfill\\
+Then for $k=1,2,3,\cdots$\begin{enumerate}
+\item The $k$th population moment or the $k$th distribution moment is the expected values of the random variable $X^k$, i.e $E(X^k)$
+\item The $k$th sample moment for the random sample $\{X_1,X_2,\cdots,X_n\}$ is \begin{align*}
+\frac{X_1^k+X_2^k+\cdots+X_n^k}{n} \text{\qquad i.e\quad}\frac{\sum_{i=1}^nX_i^k}{n}
+\end{align*}
+\end{enumerate}
+\subsection[The Method of Moments]{The Method of Moments}
+If there are $m$ parameters: $\theta_1,\theta_2,\theta_3,\cdots,\theta_m$ tand we want to estimate using $\{X_1,X_2,\cdots,X_n\}$. It is the same to get $m$-equations by equating the first $m$ population moments to the first $m$ sample moments and pray we can solve these equations to get estimators $\widehat{\theta_1},\widehat{\theta_2},\cdots \widehat{\theta_n}$ for $\theta_1,\theta_2,\cdots,\theta_m$ respectively.\\
+\begin{ex}
+\textbf{Sampling From Exponential Distribution}\\
+Suppose $\{X_1,X_2,X_3,\cdots,X_n\}$ be a random sample from $\text{exp}(\lambda)$. Note that there is only one parameter to estimate and therefore only need to calculate first moments.\\
+\hfill\\
+Then, the first population moment is $$E(X)=\frac{1}{\lambda}$$ and the first sample moment is $$\frac{1}{n}\left(\sum_{i=1}^nX_i \right)=\overline{X}$$, the sample mean. Then, equating the population moments to sample moments, we got \begin{align*}
+\frac{1}{\lambda}=\overline{X} \implies \lambda=\frac{1}{\overline{X}}
+\end{align*}
+Therefore, method of moment estimator for $\lambda$ is $$\widehat{\lambda}=\frac{1}{\overline{X}}$$
+\end{ex}
+\begin{ex}
+\textbf{Sampling From Normal Distribution}\\
+Suppose $\{X_1,X_2,X_3,\cdots,X_n\}$ be a random sample from $N(\mu,\sigma^2)$. We want to estimate $\mu$ and $\sigma^2$ (i.e $k=2$)\\
+First, calculate the $k$th population moments:\begin{align*}
+k=1&\to E(X)=\mu\\
+k=2&\to E(X^2)
+\end{align*}
+Recall that the identity $\sigma^2=V(X)=E(X^2)-(E(X))^2$, therefore, we got \begin{align*}
+E(X^2)=\sigma^2+\mu^2
+\end{align*}
+Then,equating the population moments to sample moments:\begin{align*}
+E(X)&=\mu =\frac{1}{n}\sum_{i=1}^nX_i=\overline{X}\\
+E(X^2)&=\sigma^2+\mu^2=\frac{1}{n}\sum_{i=1}^n X_i^2
+\end{align*}
+Therefore, we got the moment estimators as the following \begin{align*}
+\widehat{\mu}&=\overline{X}\\
+\widehat{\sigma^2}&=\frac{1}{n}\sum_{i=1}^n X_i^2-\left( \frac{1}{n}\sum_{i=1}^nX_i\right)^2
+\end{align*}
+\end{ex}
+\begin{ex}
+\textbf{Sampling From Gamma Distribution}\\
+Suppose $\{X_1,X_2,X_3,\cdots,X_n\}$ be a random sample from $\text{Gamma}(\alpha,\beta)$, i.e $\alpha$ is the shape and $\beta$ is the scale.\\
+Recall that $E(X)=\alpha \beta,$ $V(X)=\alpha \beta^2$. Since $E(X^2)-E(X)^2=\alpha \beta^2$, then $E(X^2)=\alpha \beta^2+(E(X))^2$. Therefore, we got the following population moments:\begin{align*}
+E(X)&=\alpha \beta\\
+E(X^2)&=\alpha \beta^2+(\alpha \beta)^2\\
+&=\alpha \beta^2(1+\alpha)
+\end{align*}
+Evaluating sample moments to population moments, we get\begin{align*}
+\overline{X}&=\alpha \beta\\
+\frac{\sum_{i=1}^nX_i^2}{n}&=\alpha \beta^2(1+\alpha)
+\end{align*}
+Then let $A=\overline{X}$ and $B=\frac{1}{n}\sum_{i=1}^nX_i^2$, we need to solve the following for $\alpha,\beta$\begin{align*}
+A&=\alpha \beta\\
+B&=\alpha \beta^2(1+\alpha)
+\end{align*}
+set $\beta =\frac{A}{\alpha}$, then \begin{align*}
+B&=\alpha \cdot \left(\frac{A}{\alpha} \right)^2(1+\alpha)\\
+&=\frac{A^2(1+\alpha)}{\alpha}
+\end{align*}
+Therefore, \begin{align*}
+&\alpha \beta =A^2+A^2\alpha\\
+\implies &\alpha(B-A^2)=A^2\\
+\implies &\alpha =\frac{A^2}{(B-A^2)}
+\end{align*}
+Therefore, the method of moment estimators are \begin{align*}
+\widehat{\alpha}&=\frac{\overline{X}^2}{\frac{1}{n}\sum_{i=1}^nX_i^2-\overline{X}^2}\\
+\widehat{\beta}&=\frac{\overline{X}}{\widehat{\alpha}}
+\end{align*}
+\end{ex}
+\subsection[Maximum Likelihood Estimation]{Maximum Likelihood Estimation}
+\begin{defn}
+Suppose $\{X_1,X_2,\cdots,X_n\}$, a random sample from population with probability density function/probability mass function $f(x)$.\\
+Let $f(x_1,x_2,\cdots,x_n)$ be the joint probability density function/probability mass function of $X_1,X_2,\cdots,X_n$. Suppose $X_i$'s are independent, then \begin{align*}
+f(x_1,x_2,\cdots,x_n)&=\prod_{i=1}^nf(x_i)
+\end{align*} 
+Now, given sample data $\{x_1,x_2,\cdots,x_n\}$, we want to estimate parameters $\theta_1,\theta_2,\cdots,\theta_n$. Then, the \textbf{Likehood Function} for sample data $\{x_1,x_2,\cdots,x_n\}$ is defined as \begin{align*}
+f(x_1,x_2,\cdots,x_n;\theta_1,\theta_2,\cdots,\theta_n)
+\end{align*}
+\hfill\\
+And \textbf{Maximum Likelihood Estimation} is finding choices of parameters $\widehat{\theta_1},\cdots,\widehat{\theta_n}$ which maximize the likehood function for the observed sample data $\{x_1,x_2,x_3,\cdots,x_n\}$. That is, find $\widehat{\theta_1},\cdots,\widehat{\theta_n}$ such that \begin{align*}
+f(x_1,x_2,\cdots,x_n;\widehat{\sigma_1},\widehat{\sigma_2},\cdots,\widehat{\sigma_n})\geq f(x_1,x_2,\cdots,x_n;\theta_1,\theta_2,\cdots,\theta_n)
+\end{align*}
+for all possible values of $\theta_1,\theta_2,\cdots,\theta_n$.\\
+\hfill\\
+Then, $\widehat{\theta_1},\cdots,\widehat{\theta_n}$ is the \textbf{maximum likelihood estimators} for $\theta_1,\cdots,\theta_n$ respectively, using $\{x_1,x_2,\cdots,x_n\}$. If we substitute $X_i$ for $x_i$, we will get maximum likelihood estimators $\widehat{\theta_1},\cdots,\widehat{\theta_n}$ for $\theta_1,\theta_2,\cdots,\theta_n$ respectively.
+\end{defn}
+\begin{thm}
+\textbf{Properties of Maximum Likelihood Estimators}:\begin{enumerate}
+\item \textbf{Invariance Principle}: If $\widehat{\sigma_1},\widehat{\sigma_2},\cdots, \widehat{\sigma_n}$ are maximum likelihood estimators for $\sigma_1,\cdots,\sigma_n$, then $h(\widehat{\sigma_1},\cdots,\widehat{\sigma_n})$ is an maximum likelihood estimators for $h(\sigma_1,\cdots,\sigma_n)$
+\item \textbf{Large Sample Behavior}: When sample size is large, the maximum likelihood estimators $\widehat{\sigma}$ for $\sigma$ is atleast approximate unbiased, i.e $\widehat{\sigma}\approx \sigma$ and has variance that is either small as (or nearly as small as) can be achieved by any estimator.
+\end{enumerate}
+\end{thm}
+\begin{ex}
+\textbf{Sampling From Exponential Distribution}:\\
+Suppose $\{X_1,X_2,X_3,\cdots,X_n\}$ be a random sample from $\text{exp}(\lambda)$. Then the probability density function of $X_i$ is $f(x_i;\lambda)=\lambda e^{-\lambda x_i}$.\\
+\hfill\\
+Then the likelihood function is \begin{align*}
+f(x_1,x_2,\cdots,x_n;\lambda)&=\prod_{i=1}^n f(x_i;\lambda)\\
+&=\lambda e^{-\lambda x_1}\cdot \lambda e^{-\lambda x_2}\cdots \lambda e^{-\lambda x_n}\\
+&=\lambda^n e^{-\lambda(x_1+x_2+\cdots+x_n)}
+\end{align*}
+Therefore, \begin{align*}
+f(x_1,x_2,\cdots,x_n;\lambda)&=\lambda^n \text{ exp}(-\lambda \sum_{i=1}^nx_i)
+\end{align*}
+Then, we want to maximize this as a function of $\lambda$'s. \\
+If $g(\lambda)=\lambda^n \text{ exp}(-\lambda \sum_{i=1}^nx_i)$, then \begin{align*}
+\ln(g(\lambda))&=\ln(\lambda^n\text{ exp}(-\lambda \sum_{i=1}^nx_i))\\
+&=\ln(\lambda^n)+\ln(\text{exp}(-\lambda\sum_{i=1}^nx_i))\\
+&=n\ln (\lambda)-\lambda\sum_{i=1}^n x_i
+\end{align*}
+This is log likelihood function, which is easier to maximize.\\
+Let $h(\lambda)=\ln (g(\lambda))$, then \begin{align*}
+h'(\lambda)&=\frac{d}{d\lambda}\left(n\ln (\lambda)-\lambda \sum_{i=1}^n x_i \right)\\
+&=n\cdot  \frac{1}{\lambda}-\sum_{i=1}^n x_i
+\end{align*} 
+Therefore, \begin{align*}
+h'(\lambda)=0\implies n\cdot \frac{1}{\lambda}=\sum_{i=1}^n x_i\implies \lambda =\frac{1}{\frac{1}{n}\sum_{i=1}^n x_i}
+\end{align*}
+Also, $h''(\lambda)=\frac{-n}{\lambda^2}<0\implies \lambda =\frac{1}{\frac{1}{n}\sum_{i=1}^n x_i}$ is a point of local maxima.\\
+\hfill\\
+Since $\ln$ is an increasing function, then $\lambda =\left(\frac{1}{n}\sum_{i=1}^nx_i \right)^{-1}$ maximizes $h(\lambda)\implies \lambda = \left(\frac{1}{n}\sum_{i=1}^nx_i \right)^{-1}$ maximizes the likelihood function $g(\lambda)$. Therefore, the maximum likelihood estimator for $\lambda$ is $\widehat{\lambda}=\frac{1}{\overline{X}}$, and this is the same as the moment estimator for $\lambda$
+\end{ex}
+\begin{ex}
+\textbf{Sampling From Normal Distribution}\\
+Suppose $\{X_1,X_2,X_3,\cdots,X_n\}$ be a random sample from $N(\mu,\sigma^2)$. Then $X_i$ has the following probability density function \begin{align*}
+f(x_i;\mu,\sigma^2)&=\frac{1}{\sqrt{2\pi} \sigma}\cdot e^{-\frac{(x_i-\mu)^2}{2\sigma^2}}
+\end{align*} 
+Then, the likelihood function is given as \begin{align*}
+f(x_1,x_2,\cdots,x_n;\mu, \sigma^2)&=\prod_{i=1}^n f(x_i;\mu, \sigma^2)\\
+&=\left(\frac{1}{\sqrt{2\pi}\sigma} \right)^n\cdot e^{-\sum_{i=1}^n\left(\frac{(x_i-\mu)^2}{2\sigma^2} \right)}
+\end{align*}
+So that the log-likelihood function is \begin{align*}
+\ln(f(x_1,x_2,\cdots,x_n;\mu,\sigma^2))&=\ln\left(\frac{1}{\sqrt{2\pi}\sigma} \right)^n+\ln \left( e^{-\sum_{i=1}^n\left(\frac{(x_i-\mu)^2}{2\sigma^2}\right)}\right)\\
+&=\frac{n}{2}\ln \left(\frac{1}{2\pi \sigma^2} \right)-\frac{1}{2\sigma^2}\sum_{i=1}^n(x_i-\mu)^2
+\end{align*}
+Therefore, \begin{align*}
+h(\mu, \sigma^2)&=\frac{n}{2}\ln\left(\frac{1}{2\pi \sigma^2} \right)-\frac{1}{2\sigma^2}\sum_{i=1}^n(x_i-\mu)^2
+\end{align*}
+Then, we need to maximize $h(\mu,\sigma^2)$ to calculate critical values, i.e calculate critical value where $\diffp{h}{\mu}=0 $ and $\diffp{h}{{{\sigma^2}}}=0 $. We can use Hessian matrix to show that these are max.\\
+Then, we can show that the maximum likehood estimators are \begin{align*}
+\widehat{\mu}&=\overline{X}\\
+\widehat{\sigma^2}&=\frac{1}{n}\sum_{i=1}^n\left(X_i-\overline{X} \right)^2
+\end{align*}
+Note that while $\widehat{\mu}$ is unbiased, $\widehat{\sigma^2}$ is biased!
+\end{ex}
