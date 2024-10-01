@@ -1,4 +1,4 @@
-1 Probability 2
+1 Probability
     1.1 Sets, Experiment, and Probability 
     1.2 Set Theory 
         1.2.1 Axioms of Probability 
