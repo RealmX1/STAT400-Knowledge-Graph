@@ -6,20 +6,23 @@ block_name_mapping = {
     'defn': 'definition',
     'ex': 'example',
     'thm': 'theorem',
+    'proof': 'proof',
     'general': 'general description'
 }
+
+
+chapter_pattern = r'\\chapter(?:\[(.*?)\])?\{(.*?)\}'
+section_pattern = r'\\section(?:\[([^\]]+)\])?\{([^}]+)\}'
+subsection_pattern = r'\\subsection(?:\[([^\]]+)\])?\{([^}]+)\}'
+block_pattern = r'\\begin\{(defn|ex|thm|proof)\}(.*?)\\end\{\1\}|\\(defn|ex|thm|proof)\{([^}]+)\}'
 
 def extract_tex_info(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
         content = file.read()
 
-    chapter_pattern = r'\\chapter\[([^\]]+)\]'
-    section_pattern = r'\\section(?:\[([^\]]+)\])?\{([^}]+)\}'
-    subsection_pattern = r'\\subsection(?:\[([^\]]+)\])?\{([^}]+)\}'
-    block_pattern = r'\\begin\{(defn|ex|thm)\}(.*?)\\end\{\1\}'
 
     chapter_name = re.search(chapter_pattern, content)
-    chapter_name = chapter_name.group(1) if chapter_name else "Unknown Chapter"
+    chapter_name = chapter_name.group(2) if chapter_name else "Unknown Chapter"
 
     data = []
 
@@ -55,7 +58,6 @@ def extract_tex_info(file_path):
     return data, remaining_content
 
 def process_content(content, data, chapter_name, section_name, subsection_name):
-    block_pattern = r'\\begin\{(defn|ex|thm)\}(.*?)\\end\{\1\}'
     matches = list(re.finditer(block_pattern, content, re.DOTALL))
 
     prev_end = 0
@@ -74,13 +76,18 @@ def process_content(content, data, chapter_name, section_name, subsection_name):
             })
 
         # Extract the block
-        block_type = match.group(1)
-        block_content = match.group(2).strip()
+        if match.group(1):  # \begin{...}...\end{...} format
+            block_type = match.group(1)
+            block_content = match.group(2).strip()
+        else:  # \em{...}, \defn{...}, or \thm{...} format
+            block_type = match.group(3)
+            block_content = match.group(4).strip()
+
         data.append({
             'chapter_name': chapter_name,
             'section_name': section_name,
             'subsection_name': subsection_name,
-            'block_type': block_name_mapping[block_type],
+            'block_type': block_name_mapping.get(block_type, block_type),
             'block_content': block_content
         })
 
@@ -117,7 +124,7 @@ def main():
             # print(f"Remaining content saved to {remaining_file}")
 
     df = pd.DataFrame(all_data)
-    df.to_csv(output_file, index=False)
+    df.to_csv(output_file, index=True)
     print(f"Data saved to {output_file}")
 
 if __name__ == "__main__":
