@@ -1,0 +1,56 @@
+\chapter[Point Estimation]{Point Estimation}
+\section[Introduction to Point Estimation]{Introduction to Point Estimation}
+One goal of statistic is to draw insights/inference about certain aspects of the population using sample data. For example, we might want to estimate the following \begin{enumerate}
+\item Average GPA of students on campus
+\item Average time spent on recreational activities by students at UMD
+\item Median age of everybody affiliated to UMD
+\item The median yearly income of people in the USA
+\end{enumerate}
+In each these situations, we need to identify\begin{enumerate}
+\item \colorbox{pink}{population of interest}
+\item a \colorbox{yellow}{characteristic of the population} that we are interested in
+\end{enumerate}
+
+\note \begin{enumerate}
+\item The population parameter $\theta$ is fixed once we fix the population
+\item If we have population data, i.e a census, then we can calculate the exact value of $\theta$
+\item Usually the population is intractable, which means we need to resort the sample data to get an estimate for $\theta$
+\item Suppose $\theta$ is a parameter of interest. Given an estimator $\widehat{\theta}$ for $\theta$, $\widehat{\theta}$ is a statistic depending on the random sample $\{X_1,X_2,\cdots,X_n\}$. Therefore, the estimate $\widehat{\theta}$ will change everytime sample data changes
+\end{enumerate}
+
+
+\exercise Suppose we have estimators $\widehat{\theta_1},\widehat{\theta_2},\cdots,\widehat{\theta_k}$ estimating $\theta$. Among all the $\widehat{\theta_i},$ is there a notion of one estimator being better than theothers?
+\section[Principle of Unbiased Estimation]{Principle of Unbiased Estimation}
+
+
+
+
+
+
+\note \begin{enumerate}
+\item If $\widehat{\theta}$ has a continuous distribution, then \begin{align*}
+P(\widehat{\theta}=\theta)&=P(\text{The estimator }\widehat{\theta}\text{ takes the value }\theta \text{ the true parameter value})\\
+&=0
+\end{align*}
+Even so, the point-estimator provides an exact estimate for $\theta,$ we have zero confidence that the calculated point estimate will equal $\theta$
+\end{enumerate}
+\section[Methods of Point Estimation]{Methods of Point Estimation}
+Suppose Population has distribution $X$ and probability mass function or probability density function of $X$ is $f(x)$.\\
+Let $\{X_1,X_2,\cdots,X_n\}$ be a random sample of size $n$ from population.\\
+\hfill\\
+Then for $k=1,2,3,\cdots$\begin{enumerate}
+\item The $k$th population moment or the $k$th distribution moment is the expected values of the random variable $X^k$, i.e $E(X^k)$
+\item The $k$th sample moment for the random sample $\{X_1,X_2,\cdots,X_n\}$ is \begin{align*}
+\frac{X_1^k+X_2^k+\cdots+X_n^k}{n} \text{\qquad i.e\quad}\frac{\sum_{i=1}^nX_i^k}{n}
+\end{align*}
+\end{enumerate}
+\subsection[The Method of Moments]{The Method of Moments}
+If there are $m$ parameters: $\theta_1,\theta_2,\theta_3,\cdots,\theta_m$ tand we want to estimate using $\{X_1,X_2,\cdots,X_n\}$. It is the same to get $m$-equations by equating the first $m$ population moments to the first $m$ sample moments and pray we can solve these equations to get estimators $\widehat{\theta_1},\widehat{\theta_2},\cdots \widehat{\theta_n}$ for $\theta_1,\theta_2,\cdots,\theta_m$ respectively.\\
+
+
+
+\subsection[Maximum Likelihood Estimation]{Maximum Likelihood Estimation}
+
+
+
+

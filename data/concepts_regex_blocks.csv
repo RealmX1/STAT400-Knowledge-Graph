@@ -1,13 +1,14 @@
-chapter_name,section_name,block_type,block_content
-Probability,"Sets, Experiment, and Probability",defn,"[Experiment]
+chapter_name,section_name,subsection_name,block_type,block_content
+Probability,"Sets, Experiment, and Probability",,definition,"[Experiment]
 An \textbf{Experiment} is a repeatable task with well defined outcomes."
-Probability,"Sets, Experiment, and Probability",defn,"[Sample Space]
+Probability,"Sets, Experiment, and Probability",,definition,"[Sample Space]
 The \textbf{Sample Space} for an experiment is the set of all possible outcomes of that experiment, usually denoted by $\mathcal{S}$"
-Probability,"Sets, Experiment, and Probability",defn,"[Event]
+Probability,"Sets, Experiment, and Probability",,definition,"[Event]
 Any subset $E$ of the sample space $\mathcal{S}$ attached to an experiment will be called an \textbf{Event} associated to the experiment."
-Probability,"Sets, Experiment, and Probability",defn,"[Simple Event]
+Probability,"Sets, Experiment, and Probability",,general description,"To say that \textbf{an event $E$ has happened} means ""we performed the experiment, and the outcome of this experiment was in the set $E$""."
+Probability,"Sets, Experiment, and Probability",,definition,"[Simple Event]
 An event is called a  simple event if it has exactly one outcome in it."
-Probability,"Sets, Experiment, and Probability",ex,"Experiments involving coin tosses:
+Probability,"Sets, Experiment, and Probability",,example,"Experiments involving coin tosses:
     \begin{enumerate}
 \item[(a).] Experiment: Toss a coin once. \\
 All possible outcomes are contained in the set $\{H,T\}$, with $H$ representing obtaining a head and $T$ representing obtaining a tail. The total number of outcomes is 2. 
@@ -16,7 +17,7 @@ All possible outcomes are contained in the set $\{HH, HT, TH, TT\}$. Number of o
 \item[(c).] Experiment: Toss the coin 10 times.\\
 All possible outcomes are contained in the set $\{HHH\cdots H,\ HTHH\cdots H,\ \cdots\}$. Number of outcomes is $2^{10}=1024$. 
 \end{enumerate}"
-Probability,"Sets, Experiment, and Probability",ex,"Experiments involving die rolls:
+Probability,"Sets, Experiment, and Probability",,example,"Experiments involving die rolls:
 \begin{enumerate}
 \item[(a).] Roll a six-sided die once. 
 Outcomes are in the set $\{1,2,3,4,5,6\}$.
@@ -32,7 +33,7 @@ Outcomes are in the set $\{1,2,3,4,5,6\}$.
 \right\}\ .
 \end{align*}
 \end{enumerate}"
-Probability,"Sets, Experiment, and Probability",ex,"Consider the following two step experiment: In step 1, we toss a coin; In step 2, we roll a 6-sided die. All possible outcomes are contained in the set
+Probability,"Sets, Experiment, and Probability",,example,"Consider the following two step experiment: In step 1, we toss a coin; In step 2, we roll a 6-sided die. All possible outcomes are contained in the set
 \begin{align*}
 \left\{
 \begin{matrix}
@@ -41,15 +42,18 @@ Probability,"Sets, Experiment, and Probability",ex,"Consider the following two s
 \end{matrix}
 \right\}\ .
 \end{align*}"
-Probability,"Sets, Experiment, and Probability",ex,"We can perform an experiment where we pick a random student from campus, and ask if they have walked more than 3000 steps today. All possible outcomes of this experiment are contained in the set $\{``\text{Yes}"",\,``\text{No}""\}$."
-Probability,"Sets, Experiment, and Probability",ex,"We can perform an experiment where we pick a student from campus and measure their height. All possible outcomes are contained in the set of positive real numbers, that is $(0, \infty)$."
-Probability,"Sets, Experiment, and Probability",defn,"[Empty Set]
+Probability,"Sets, Experiment, and Probability",,example,"We can perform an experiment where we pick a random student from campus, and ask if they have walked more than 3000 steps today. All possible outcomes of this experiment are contained in the set $\{``\text{Yes}"",\,``\text{No}""\}$."
+Probability,"Sets, Experiment, and Probability",,example,"We can perform an experiment where we pick a student from campus and measure their height. All possible outcomes are contained in the set of positive real numbers, that is $(0, \infty)$."
+Probability,"Sets, Experiment, and Probability",,general description,"Our goal is to assign probabilities or chance to events $E$ corresponding to an experiment. Since events and sample spaces are described as sets and subsets, we will first need to remind ourselves of how to work with these mathematical objects."
+Probability,Set Theory,,general description,We will need to understand some basics of sets and set operations. We define the operations along with the visual of the the operation using Venn Diagrams.
+Probability,Set Theory,,definition,"[Empty Set]
     An an empty set is a set with nothing in it, usually denoted as $\emptyset$."
-Probability,"Sets, Experiment, and Probability",defn,"[Containment/Subset]
+Probability,Set Theory,,general description,"Let $A,B$ be two sets.\\"
+Probability,Set Theory,,definition,"[Containment/Subset]
     We say $A$ is a \textbf{subset} of $B$ if \textit{$x\in A$ \textbf{implies} $x\in B$}, denoted as $A\subset B$.\\"
-Probability,"Sets, Experiment, and Probability",defn,"[Equality]
+Probability,Set Theory,,definition,"[Equality]
     We say $A$ \textbf{equals} to $B$ if \textit{$A\subset B$ \textbf{and} $B\subset A$}."
-Probability,"Sets, Experiment, and Probability",defn,"[Complement]
+Probability,Set Theory,,definition,"[Complement]
     The \textbf{complement} of A is the set $A^c:=\{x:x\notin A\}$
     \begin{center}
 \begin{tikzpicture}
@@ -83,7 +87,7 @@ Probability,"Sets, Experiment, and Probability",defn,"[Complement]
     \node[anchor=south] at (orScope.north) {$U$};  
 \end{tikzpicture}
 \end{center}"
-Probability,"Sets, Experiment, and Probability",defn,"[Union]
+Probability,Set Theory,,definition,"[Union]
     The \textbf{union} of A and B is the set $A\cup B:=\{x:x\in A \text{ or }x\in B\}$
     \begin{center}
 \begin{tikzpicture}
@@ -102,7 +106,7 @@ Probability,"Sets, Experiment, and Probability",defn,"[Union]
     \node[fit=(orScope), draw] {};% The frame around the scope
 \end{tikzpicture}
 \end{center}"
-Probability,"Sets, Experiment, and Probability",defn,"[Intersection]
+Probability,Set Theory,,definition,"[Intersection]
     The \textbf{intersection} of A and B is the set $A\cap B:=\{x:x\in A\text{ and }x\in B\}$
     \begin{center}
 \begin{tikzpicture}
@@ -124,7 +128,7 @@ Probability,"Sets, Experiment, and Probability",defn,"[Intersection]
     \node[fit=(orScope), draw] {};
 \end{tikzpicture}
 \end{center}"
-Probability,"Sets, Experiment, and Probability",defn,"[Difference]
+Probability,Set Theory,,definition,"[Difference]
    The \textbf{difference} of set $A$ from set $B$ is defined as $A\setminus B:=\{ x: x\in A\; \text{and}\; x\notin B\}$.
    This is the same as $A\setminus B := A\cap B^c$. 
     \begin{center}
@@ -151,13 +155,19 @@ Probability,"Sets, Experiment, and Probability",defn,"[Difference]
     \node[fit=(orScope), draw] {};
 \end{tikzpicture}
 \end{center}"
-Probability,"Sets, Experiment, and Probability",defn,"[Disjoint Sets/Mutually Exclusive]
+Probability,Set Theory,,definition,"[Disjoint Sets/Mutually Exclusive]
 $A$ and $B$ are said to be \textbf{disjoint} if $A\cap B=\emptyset$."
-Probability,"Sets, Experiment, and Probability",defn,"[Pairwise Disjoint Collection]
+Probability,Set Theory,,general description,"We will often have to work with an infinite collection of sets, to do so, we will first need to label the sets using an ""indexing set"". Given a set $\Gamma$, a collection of sets indexed by $\Gamma$ will be denoted by $\{A_\alpha\}_{\alpha\in \Gamma}$. 
+\\
+A set is \textbf{countable} if there is a one-to-one correspondence with its elements, and the set of natural number $\mathbb{N}= \{1, 2, 3, 4, \dots\}$. 
+\\
+
+Let $\{A_i\}_{i\in\mathbb{N}}$ be a countable collection of sets."
+Probability,Set Theory,,definition,"[Pairwise Disjoint Collection]
 We say $\{A_i\}_{i\in\mathbb{N}}$ is a collection of pairwise disjoint sets if $A_i\cap A_j=\emptyset$ for all $i\neq j$"
-Probability,"Sets, Experiment, and Probability",defn,"[Partition]
+Probability,Set Theory,,definition,"[Partition]
 A collection $\{A_i\}_{i\in\mathbb{N}}$ is said to be a \textbf{partition} of $\mathcal{S}$ if $\{A_i\}_{i\in\mathbb{N}}$ are pairwise disjoint \textbf{and} $\mathcal{S}=\bigcup_{i=1}^{\infty}A_i$"
-Probability,"Sets, Experiment, and Probability",defn,"[Countable Union/Intersection]
+Probability,Set Theory,,definition,"[Countable Union/Intersection]
 Let $\{A_i\}_{i\in\mathbb{N}}$ be a countable collection of subsets of $\mathcal{S}$.
 \\
 The \textbf{union} of $\{A_i: i \in \mathbb{N}\}$ is defined as \begin{align*}
@@ -166,14 +176,21 @@ The \textbf{union} of $\{A_i: i \in \mathbb{N}\}$ is defined as \begin{align*}
 The \textbf{intersection} of $\{A_i: i \in \mathbb{N}\}$  is defined as \begin{align*}
 \bigcap_{i\in \mathbb{N}}A_i&=\{x : x\in A_i\; \text{ for all }\; i \in \mathbb{N}\}
 \end{align*}"
-Probability,"Sets, Experiment, and Probability",defn,"[Sigma Algebra]
+Probability,Set Theory,Axioms of Probability,general description,"Let $\mathcal{S}$ be the sample space of an experiment and let $E\subset \mathcal{S}$ be and event. We are interested in assigning a number to $E$ that quantifies the chance/probability that $E$ occurs. We will denote the probability of $E$ as $P(E)$.
+\\
+The mathematical procedure to assign probabilities to events is to define a function on the ""event space"". Assigning probabilities to every possible event can be tedious, and in some case it might not be possible. As a result, we will first need to identify a collection of events that we consider ""interesting"" and to which we want to assign probabilities. Such a collection of events is called a ""sigma algebra""."
+Probability,Set Theory,Axioms of Probability,definition,"[Sigma Algebra]
 Let $\mathcal{S}$ be a sample space of an experiment. A collection, $\mathcal{B}$, of subset of $\mathcal{S}$ is called a \textbf{sigma algebra} is it satisfies the following conditions:
 \begin{enumerate}
     \item $\emptyset \in \mathcal{B}$
     \item If $A \in \mathcal{B}$, then $A^c \in \mathcal{B}$
     \item If $\{A_i: i \in \mathbb{N}\}$ is countable collection such that $A_i \in \mathcal{B}$ for all $i$, then $\bigcup_{i\in \mathbb{N}}A_i \in \mathcal{B}$
 \end{enumerate}"
-Probability,"Sets, Experiment, and Probability",defn,"[Probability Function]
+Probability,Set Theory,Axioms of Probability,general description,"Note that there are multiple sigma algebras that can be associated to a sample space. The trivial sigma algebra is $\{\emptyset, \mathcal{S}\}$ - the smallest possible sigma algebra. The power set $\mathcal{P}(\mathcal{S})$ of $\mathcal{S}$ also satisfies the axioms to be a sigma algebra, and this is the largest possible sigma algebra associated to $\mathcal{S}$. All other sigma algebra are somewhere in between these two extreme examples. We can use sub-setting as a natural way to define a partial order on all possible sigma algebras. 
+\\
+
+A probability function assigns probabilities to events in the sigma algebra as follows."
+Probability,Set Theory,Axioms of Probability,definition,"[Probability Function]
     Consider the pair $(\mathcal{S}, \mathcal{B})$, where $\mathcal{S}$ is the sample space of an experiment and $\mathcal{B}$ is a sigma algebra associated to $\mathcal{S}$. 
     \\
     A probability function for the pair $(\mathcal{S}, \mathcal{B})$, is a function 
@@ -185,7 +202,7 @@ Probability,"Sets, Experiment, and Probability",defn,"[Probability Function]
     \item (countable additivity) For $A_1,A_2,A_3,\cdots$, the collection of pairwise disjoint subsets of $\mathcal{S}$ in $\mathcal{B}$, we must have
     $$P\left(\bigcup_{i\in \mathbb{N}}A_i\right)=\sum_{i=1}^{\infty}P(A_i)$$ 
     \end{enumerate}"
-Probability,"Sets, Experiment, and Probability",thm,"[Properties of a Probability Function]
+Probability,Set Theory,Axioms of Probability,theorem,"[Properties of a Probability Function]
 Suppose $P$ is a probability function.
 \begin{enumerate}[itemsep=0pt, topsep=1pt, partopsep=0pt,label=(\roman*)]
 \item $P(\emptyset)=0$
@@ -194,7 +211,10 @@ Suppose $P$ is a probability function.
 \item $P(A\setminus B)=P(A)-P(A\cap B)$
 \item $P(A\cup B) =P(A)+P(B)-P(A\cap)B$
 \end{enumerate}"
-Probability,"Sets, Experiment, and Probability",thm,"Suppose the sample space of an experiment is countable, listed as, $\mathcal{S} = \{s_i\}_{i\in \mathbb{N}} = \{s_1, s_2, s_3, \dots, \}$. Let $\mathcal{B}:=\mathcal{P}(\mathcal{S})$ be the powerset of $\mathcal{S}$. 
+Probability,Set Theory,Axioms of Probability,general description,"Defining a probability function can often times be a tedious task, as the number of conditions needed to be checked grow exponentially (as a function of the sigma algebra). 
+\\
+When the sample space $\mathcal{S}$ is countable, it is possible to define a probability function on the power set of $\mathcal{S}$ using the following theorem."
+Probability,Set Theory,Axioms of Probability,theorem,"Suppose the sample space of an experiment is countable, listed as, $\mathcal{S} = \{s_i\}_{i\in \mathbb{N}} = \{s_1, s_2, s_3, \dots, \}$. Let $\mathcal{B}:=\mathcal{P}(\mathcal{S})$ be the powerset of $\mathcal{S}$. 
     \\
     Suppose $\{p_i\}_{i\in \mathbb{N}}$ is a sequence of real numbers satisfying:
     $$ p_i \ge 0 \quad \forall i, \quad \quad \sum_{i=1}^\infty p_i = 1$$
@@ -206,7 +226,8 @@ Probability,"Sets, Experiment, and Probability",thm,"Suppose the sample space of
         $$P(E) = \sum_{s\in E} P(\{s\})$$
     \end{enumerate}
     The function $P$ defines a probability function on $\mathcal{B}$."
-Probability,"Sets, Experiment, and Probability",ex,"Consider the experiment consisting of tossing a coin two times. The sample space is $S = \{HH, HT, TH, TT\}$. Take the largest possible sigma algebra, that is the power set of $S$, denoted as $\mathcal{P}(S)$, which contains $|\mathcal{P}(S)| = 2^4 = 16$ elements. In this experiment, if the coin is a fair coin, we can assign the following probability function $P: \mathcal{P}(S)\to \R$:
+Probability,Set Theory,Axioms of Probability,general description,"Using the theorem above, we can assign probability functions experiments with countable sample space, by assigning probabilities just to the simple events."
+Probability,Set Theory,Axioms of Probability,example,"Consider the experiment consisting of tossing a coin two times. The sample space is $S = \{HH, HT, TH, TT\}$. Take the largest possible sigma algebra, that is the power set of $S$, denoted as $\mathcal{P}(S)$, which contains $|\mathcal{P}(S)| = 2^4 = 16$ elements. In this experiment, if the coin is a fair coin, we can assign the following probability function $P: \mathcal{P}(S)\to \R$:
 \begin{center}
 \begin{tabular}{|c|c|}
 \hline \rowcolor{lightgray}
@@ -291,21 +312,44 @@ $\{HH, HT, TH, TT\}$ & 1\\
 \end{tabular}\,.
 \end{center}
 Notice that the probabilities of events like $\{HH, TH\}$ and $\{HH, HT, TT\}$ are completely determined by the probabilities of the four simple events $\{HH\}$, $\{HT\}$, $\{TH\}$ and $\{TT\}$. While for event $E$, we note that $P(E)$ must be non-negative. We also observe that $P(S) = 1$, and as $S = S\cup \emptyset$, then $P(S) = P(S\cup \emptyset) = P(S) + P(\emptyset) = 1$, from which we deduce that we must have $P(\emptyset) = 0$. The tables shown above are called the distribution tables, and we see that there can be different distribution tables for the same sample space."
-Probability,Conditional Probability and Independence,defn,"[Conditional Event]
+Probability,Conditional Probability and Independence,,general description,"If the probability function attached to an experiments must be useful (say to draw some conclusions about events associated to the experiment), we will need to incorporate the features of the experiment as in our pursuit to calculate probability functions."
+Probability,Conditional Probability and Independence,,definition,"[Conditional Event]
     Suppose $E$ and $F$ are two events, the conditional event $E\mid F$ - verbalized as ""E given F"" - is the event that ""E happens given that F has already happened"""
-Probability,Conditional Probability and Independence,defn,"[Multiplication Principle]
+Probability,Conditional Probability and Independence,,general description,"Given two events $E$ and $F$ we can consider the following events:
+\begin{enumerate}
+    \item $E\cap F$: both events $E$ and $F$ happen. 
+    \item $E\mid F$: $E$ happens given that $F$ has happened.
+    \item $F\mid E$: $F$ happens given that $E$ has happened.
+\end{enumerate}
+There is an interesting relationship between these events given by"
+Probability,Conditional Probability and Independence,,definition,"[Multiplication Principle]
     Suppose $E$ and $F$ are two events then we define:
     $$P(E\cap F) = \begin{cases} P(E)P(F\mid E) \\
     P(F)P(E\mid F)
     \end{cases}$$"
-Probability,Conditional Probability and Independence,defn,"[Conditional Probability]
+Probability,Conditional Probability and Independence,,general description,"The term $P(F\mid E)$ is called the conditional probability of the event ""F given E"", in fact we use the multiplication principle to formally define conditional proability"
+Probability,Conditional Probability and Independence,,definition,"[Conditional Probability]
     Suppose $E$ and $F$ are two events then we define:
     $$P(E\mid F) = \frac{P(E\cap F)}{P(F)} $$"
-Probability,Conditional Probability and Independence,defn,"[Independent Events]
+Probability,Conditional Probability and Independence,,general description,"The multiplication principle informs us that the probability of the simultaneous occurrence of event $E$ and event $F$, that is $P(E\cap F)$, depends not only on information about the individual occurrence (with no additional information about the other event) of $E$ (that is $P(E)$) and $F$ (that is $P(F)$), \textbf{but} also the interaction/influence of how the event $E$ affects the occurrence of event $F$ (given by the conditional probability $P(F \mid E)$) or how the event $F$ affects the occurrence of event $E$ (given by the conditional probability $P(E \mid F)$).
+\\
+
+This naturally leads to the notion of independence, which gives the probabilistic description of what it means for the lack of interaction between two events. 
+\\"
+Probability,Conditional Probability and Independence,,definition,"[Independent Events]
     We say two events $E$ and $F$ are independent if $$P(E\cap F) = P(E) P(F)$$
     Equivalently, $E$ and $F$ are independent if
     $$ P(E\mid F) = E(E) \quad \text{or}\quad  P(F\mid E) = P(F)$$"
-Probability,Conditional Probability and Independence,ex,"We revisit the experiment where we want to assign probabilities to the simple events associated to tossing a coin two times. 
+Probability,Conditional Probability and Independence,,general description,"Observe that, $P(E \mid F) = E(E)$, tells us that the fact that $F$ happened did not affect the probability of $E$ happening. 
+\\
+
+
+An experiment that can be broken down into a sequence of steps can be represented as tree, where nodes at level $i$ are the outcomes of the $(i-1)$th step, and each node at level $i$ will emanate as many nodes as there are possible outcomes for the $i$th step at that node. Every edge emanating out of a node at level $i$ denotes the conditional event of the outcome at the tail of edge happens given that we are node at the head of the edge. 
+\\
+A unidirectional path from the top of the tree to one of its leaves will describe one outcome for the experiment. The sample space consists of all possible unidirectional paths from the top of the tree to it's leaves. 
+\\
+The multiplication principle can be used to assign probabilities to all simple events."
+Probability,Conditional Probability and Independence,,example,"We revisit the experiment where we want to assign probabilities to the simple events associated to tossing a coin two times. 
 \begin{enumerate}
 \item Consider the experiment that we toss a fair coin two times. \\
 
@@ -550,18 +594,28 @@ Observe that in the coin toss examples above, we can consider the the following 
 \end{tikzpicture}
 \end{center}
 The connecting piece between these two trees is the law of total probability and Bayes' theorem."
-Probability,Bayes' Theorem,thm,"[Law of Total Probability]
+Probability,Bayes' Theorem,,general description,We are now ready to state the general theorems
+Probability,Bayes' Theorem,,theorem,"[Law of Total Probability]
 Suppose $\{A_1, A_2, \dots, A_k\}$ is a partition for the sample space and $B$ is any event, then
 \begin{eqnarray*}
     P(B) &=& \sum_{j=1}^k P(B\cap A_j)\\
     &=&\sum_{j=1}^k P(A_j) P(B \mid A_j)
 \end{eqnarray*}"
-Probability,Bayes' Theorem,thm,"[Bayes' Theorem]
+Probability,Bayes' Theorem,,general description,The last equation in the theorem is just the application of the multiplication principle.
+Probability,Bayes' Theorem,,theorem,"[Bayes' Theorem]
     Suppose $\{A_1, A_2, \dots, A_k\}$ is a partition for the sample space and $B$ is any event, then
 \begin{eqnarray*}
     P(A_i \mid B) = \frac{P(A_i)P(B\mid A_i)}{\sum_{j=1}^k P(A_j) P(B \mid A_j)}
 \end{eqnarray*}"
-Probability,Bayes' Theorem,ex,"%% Choosing a coin and tossing it two times
+Probability,Bayes' Theorem,,general description,"\begin{proof}
+Using the fact that $\{A_1, A_2, \dots, A_k\}$ is a partition and the law of total probability we have:
+    \begin{eqnarray*}
+    P(A_i \mid B) &=& \frac{P(A_i \cap B)}{P(B)}\\
+    &=& \frac{P(A_i \cap B) }{\sum_{j=1}^k P(B\cap A_j)}\\
+    &=&\frac{P(A_i)P(B\mid A_i)}{\sum_{j=1}^k P(A_j) P(B \mid A_j)}
+\end{eqnarray*}
+\end{proof}"
+Probability,Bayes' Theorem,,example,"%% Choosing a coin and tossing it two times
 A bag contains two coins, one is a fair coin denoted as $F$, and the other is a two headed coin denoted as $U$. \\
 We randomly choose a coin from the bag and toss it once, this can be described by the following tree diagram.\\
 \begin{center}
@@ -615,7 +669,7 @@ P(F|H)&=\frac{P(F\cap H)}{P(H)}\\
 &=\frac{\frac{1}{2}\cdot \frac{1}{2}}{\frac{3}{4}}=\frac{1}{4}\cdot \frac{4}{3}=\frac{1}{3}
 \end{align*}
 Therefore, $P(F)=\frac{1}{2}>\frac{1}{3}=P(F|H)$. This makes intuitive sense, as $P(F) = P(\text{tossed coin is a fair coin})$ will be lowered after we observe the $H$ outcome."
-Probability,Bayes' Theorem,ex,"Suppose we now randomly choose a coin from the bag containing a fair coin and a two headed coin, and toss it two times independently. 
+Probability,Bayes' Theorem,,example,"Suppose we now randomly choose a coin from the bag containing a fair coin and a two headed coin, and toss it two times independently. 
 This experiment can be visualized in the following tree diagram:
 \begin{center}
 \begin{tikzpicture}[grow=right, sloped]
@@ -715,7 +769,7 @@ P(F\mid HH) &=& P(\text{we tossed a fair coin given that $HH$ was observed})\\
 \end{eqnarray*}
 
 Therefore, $P(F\mid HH)=\frac{1}{5}<\frac{1}{3}=P(F\mid H)<\frac{1}{2}=P(F)$, which aligns with the intuition that as more heads are observed, our confidence that a fair coin was tossed must decrease."
-Probability,Bayes' Theorem,ex,"[Disease Testing]
+Probability,Bayes' Theorem,,example,"[Disease Testing]
 Suppose we consider a disease in a certain population, and 
 $$ D:= \{\text{randomly chosen individual has the disease}\}$$ 
 so that 
@@ -900,16 +954,90 @@ P(D|\text{Pos}) = \frac{pq}{pq+(1-p)(1-q)} = \frac{0.0001\cdot 0.9999}{0.0001 \c
 \end{align*}
 which is again equivalent to tossing a fair coin toss. 
 \end{enumerate}"
-Probability,Bayes' Theorem,thm,"[Fundamental Theorem of Counting]
+Probability,Probability and Counting,,general description,"Suppose we are in the setting where the sample space $\mathcal{S}$ satisfies the following two conditions:
+\begin{enumerate}
+\item $\mathcal{S}$ is a finite set. That is, $\mathcal{S}$ is the sample space of an experiment with finitely many outcomes.
+\item Every outcome in $\mathcal{S}$ is equally likely. That is, if $\mathcal{S}=\{s1,s_2,\cdots,s_n\}$ then $P(\{s_i\})=\frac{1}{n}$ for all $i=1,2,3,\cdots,n$
+\end{enumerate}
+Let $A\subset \mathcal{S}$ be an event. Since every outcome in $\mathcal{S}$ is equally likely 
+\begin{eqnarray*}
+P(A)&=&\text{Probability that A occurs}\\
+&=& \sum_{s\in A} P(\{s\})\\
+&=& \sum_{s\in A} \frac{1}{n}\\
+&=& \frac{n(A)}{n(S)}
+\end{eqnarray*}
+
+where $n(A)$ is the number of objects in $A$. 
+\\
+Therefore, when the sample space is finite and all outcomes in the sample space are equally likely, calculating the probability of an event $A$ is same as counting outcomes in $A$. In this scenario, we only need to be able to count! 
+\\
+
+We state the first important theorem of counting."
+Probability,Probability and Counting,,theorem,"[Fundamental Theorem of Counting]
  Suppose there are $k$ tasks: $T_1,T_2,\cdots,T_k$ that can be performed in $n_1,n_2,\cdot,n_k$ ways respectively. Let $T$ be the task of performing $T_1,T_2,\cdot,T_k$ sequentially. Then the total number of ways to perform the task $T$ is 
  $$n_1\times n_2 \times \cdots \times n_k$$"
-Probability,Bayes' Theorem,ex,Add examples of counting.
-Probability,Bayes' Theorem,ex,"Suppose we want to count the total number of ways one can choose 4 digits from the set of 10 digits $\{0,1,2,3,4,5,6,7,8,9\}$.
+Probability,Probability and Counting,,general description,"\begin{proof}
+    We prove this theorem using the principle of mathematical induction applied to the number of tasks. We can structure the task $T$ as a tree, with level $i$ in the tree corresponding to the $i$th task $T_i$. 
+\end{proof}"
+Probability,Probability and Counting,,example,Add examples of counting.
+Probability,Probability and Counting,Choosing from $n$ distinct objects,general description,We will often want to count the number of ways of selecting $k$ objects from a set of $n$ distinct objects.
+Probability,Probability and Counting,Choosing from $n$ distinct objects,example,"Suppose we want to count the total number of ways one can choose 4 digits from the set of 10 digits $\{0,1,2,3,4,5,6,7,8,9\}$.
 \\
 
 The answer to this we need to understand how the digits are selected. Do we place the digit back into the set before the subsequent choice (with/without replacement)? Does the order in which the 4 digits are selected matter?
 This is leads to the following 4 possibilities:"
-Probability,Bayes' Theorem,ex,"We set $n=10,k=3,$ where $S=\{0,1,2,3,4,5,6,7,8,9\}$.\\
+Probability,Probability and Counting,Choosing from $n$ distinct objects,general description,"\begin{center}
+\begin{tabular}{l|l|l|}
+\cline{2-3}
+                                                                                       & Without Replacement                                                                                    & With Replacement                                                                                   \\ \hline
+\multicolumn{1}{|l|}{Ordered}                                                    & \begin{tabular}[c]{@{}l@{}}(1,2,4,5) different from (1,5,2,4)\\ (1,1,2,5) is not possible\end{tabular} & \begin{tabular}[c]{@{}l@{}}(1,2,4,5) different from (1,5,2,4)\\ (1,1,2,5) is possible\end{tabular} \\ \hline
+\multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Unordered\end{tabular}} & \begin{tabular}[c]{@{}l@{}}(1,2,3,4) is same as (4,3,2,1)\\ (1,1,2,5) not possible\end{tabular}        & \begin{tabular}[c]{@{}l@{}}(1,2,3,4) is same as (4,3,2,1)\\ (1,1,2,4) is possible\end{tabular}     \\ \hline
+\end{tabular}
+\end{center}
+
+
+We use the Fundamental Theorem of Counting to count the number of ways we can choose $k$ objects from $n$ distinct objects as follows\\
+
+\begin{enumerate}
+    \item \textbf{Order matters and without replacement}\\
+    Let $T$ be the task of choosing $k$ objects from $n$ distinct objects, where order matters and without replacement.  The task $T$ is the same is filling $k$ ordered spaces, and can be broken into a sequence of sub-tasks
+    
+$$T:T_1\rightarrow T_2\rightarrow T_3 \rightarrow \cdots \rightarrow T_k$$
+where $T_i$ fills the $i$th spot in the $k$ ordered spaces. 
+
+Using the fundamental theorem of counting the total number of ways of doing the task $T$ is 
+$$n\times (n-1)\times (n-2) \times (n-3) \times \cdots \times (n-k+1)$$
+
+This number is called ""$n$ permute $k$"" and is denoted by
+
+$$\Perm{n}{k}=\frac{n!}{(n-k)!}$$
+
+\end{enumerate}
+
+(2) \textbf{Unordered Without Replacement}\\
+The first step is to calculate the ordered arrangements, which is \begin{align*}
+\Perm{n}{k}=\frac{n!}{(n-k)!}
+\end{align*}
+Note that each ordered arrangement can be rearranged $k!$ times since we select $k$ objects in total. Therefore, we need to get rid repeats by dividing by $k!$, which is \begin{align*}
+\frac{\Perm{n}{k}}{k!}=\frac{n!}{(n-k)!k!}
+\end{align*}
+So we got\begin{align*}
+\Comb{n}{k}=\binom nk:=\frac{n!}{(n-k)!k!}
+\end{align*}
+\hfill\\
+\hfill\\
+(3) \textbf{With Replacement}\\
+The number of ways if choose k objects where order does matter and with replacement in n different things is simply \begin{align*}
+&n\times n \times n \times \cdots\times n \\
+=&n^k
+\end{align*}
+\hfill\\
+\hfill\\
+(4) \textbf{ With replacement and order does not matter}\\
+We want number of unordered arrangements of size $k$ from $n$ objects with replacement. This can be reformulate as the number of ways to choose $k$ ""walls"" from $(n+k-1)$ choices, i.e \begin{align*}
+\Comb{n+k-1}{k}=\binom{n+k-1}{k} \text{ ways}
+\end{align*}"
+Probability,Probability and Counting,Choosing from $n$ distinct objects,example,"We set $n=10,k=3,$ where $S=\{0,1,2,3,4,5,6,7,8,9\}$.\\
 Then we will have $n+k-1=12$ walls \begin{center}
  \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
 \hline
@@ -934,7 +1062,16 @@ for the event $(5,9,7)$, we will have \begin{center}
  1  & 2  & 3 & 4 & 5&X & 6 & 7 &X& 8 & 9&X  \\ \hline
 \end{tabular}
 \end{center}"
-Probability,Bayes' Theorem,ex,"Consider choosing $3$ digits from the set $\{1,2,3,4,5\}$. 
+Probability,Probability and Counting,Choosing from $n$ distinct objects,general description,"The \textbf{number of possible arrangement of size k from n objects}
+\textbf{1. Without replacement and order matters} for each of the four possibilities is listed below \begin{center}
+\begin{tabular}{l|l|l|}
+\cline{2-3}
+                                & Without Replacement                                                                                     & With Replacement  \\ \hline
+\multicolumn{1}{|l|}{Ordered}   & \begin{tabular}[c]{@{}l@{}}$\Perm{n}{k}=\frac{n!}{n-k}$\\ is also called ""n permute k""\end{tabular}     & $n^k$             \\ \hline
+\multicolumn{1}{|l|}{Unordered} & \begin{tabular}[c]{@{}l@{}}$\Comb{n}{k}=\frac{n!}{(n-k)!k!}$\\ is also called ""n choose k""\end{tabular} & $\Comb{n+k-1}{k}$ \\ \hline
+\end{tabular}
+\end{center}"
+Probability,Probability and Counting,Choosing from $n$ distinct objects,example,"Consider choosing $3$ digits from the set $\{1,2,3,4,5\}$. 
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline \rowcolor{lightgray}
@@ -973,7 +1110,8 @@ n^k  = 5^3 = 125\,,
 \hline
 \end{tabular}
 \end{center}"
-Random Variables,Random Variables: Examples and Definitions,ex,"Suppose we toss a two sided coin three times. The sample space of this experiment is given by: 
+Random Variables,Random Variables: Examples and Definitions,,general description,In practical applications we are typically interested in numerical features associated to an outcome of an experiment.
+Random Variables,Random Variables: Examples and Definitions,,example,"Suppose we toss a two sided coin three times. The sample space of this experiment is given by: 
     $$\mathcal{S} := \begin{Bmatrix}
          HHH, & HHT, & HTT, &TTT  \\
             & HTH, & THT,& \\
@@ -989,7 +1127,7 @@ Random Variables,Random Variables: Examples and Definitions,ex,"Suppose we toss 
         \item Is the last toss a tails?
         \item How many tails till the first head?
     \end{enumerate}"
-Random Variables,Random Variables: Examples and Definitions,ex,"Suppose we randomly sample a student from the campus. The sample space for this experiment is given by:
+Random Variables,Random Variables: Examples and Definitions,,example,"Suppose we randomly sample a student from the campus. The sample space for this experiment is given by:
     $$\mathcal{S} : = \{ \text{All students on campus}\}$$
     We can consider numerical features of an outcome (a student from the campus) in the sample space, for example:
     \begin{enumerate}
@@ -1000,14 +1138,40 @@ Random Variables,Random Variables: Examples and Definitions,ex,"Suppose we rando
         \item Average number of people the student interacts with on a given day?
         \item Is the student an athlete?
     \end{enumerate}"
-Random Variables,Random Variables: Examples and Definitions,defn,"[Random Variable]
+Random Variables,Random Variables: Examples and Definitions,,general description,These questions provide answers to very specific numeric/quantitative features of the student.
+Random Variables,Random Variables: Examples and Definitions,,definition,"[Random Variable]
     A random variable $X$ is a real valued function on the sample space $\mathcal{S}$. That is, 
     \begin{eqnarray*}
         X :& \mathcal{S} &\longrightarrow \mathbb{R}\\
         & \omega &\mapsto X(\omega)
     \end{eqnarray*}
     The range of $X$, that is the set of all possible values that $X$ can take will be denoted as $\mathcal{X}$"
-Random Variables,Random Variables: Examples and Definitions,defn,"[Events Associated to a Random Variable]
+Random Variables,Random Variables: Examples and Definitions,,general description,"Intuitively, a random variable measures a specific quantitative feature of the sample space outcome. Here is a schematic to consider: 
+\begin{center}
+\begin{tikzpicture}
+\tikzset{every node/.style={font=\footnotesize}}
+
+% Function arrow and labels
+\node at (-1.5, 0) (domain) {$X : S$};
+\node at (2.5, 0) (codomain) {$\mathcal{X} \subseteq \mathbb{R}$};
+\draw[->, thick, violet] (-0.2, 0) -- (1.2, 0);
+
+% Left note
+\node at (-1.5, -1.5) [align=center] {\textbf{Original Sample Space} \\ abstract object \\ the elements/outcomes \\ might not be comparable};
+
+% Right note
+\node at (2.5, -2.2) [align=center] {\textbf{New Sample Space} \\ is a subset of the \\ set of real numbers \\ \\ 1. can use the order relationship in real numbers, \\ 2. can also use properties like \\ addition, multiplication, \\ calculus etc.};
+
+% Braces
+
+% Arrows from notes to labels
+\draw[->,green] (-1.2, -0.3) -- (-1.2, -0.7);
+\draw[->,cyan] (2.2, -0.3) -- (2.2, -0.7);
+\draw[->,cyan] (2.2, -1.8) -- (2.2, -2.2);
+
+\end{tikzpicture}
+\end{center}"
+Random Variables,Random Variables: Examples and Definitions,,definition,"[Events Associated to a Random Variable]
     Given a random variable $$X: \mathcal{S} \longrightarrow \mathbb{R}$$
     we can use the order relationship of $\mathbb{R}$ to consider the following ""interesting events"" for $X$:
     \begin{eqnarray*}
@@ -1018,7 +1182,7 @@ Random Variables,Random Variables: Examples and Definitions,defn,"[Events Associ
     We can also allow for strict inequalities, countable unions, complements, and countable intersections. 
     \\
     We will assume that we are able to calculate the probabilities associated to these events, and these will be denoted by $P(a\le X \le b), P(a \le X), P(X \le b)$, etc"
-Random Variables,Random Variables: Examples and Definitions,ex,"Suppose the sample space $\mathcal{S}$ is all students on campus.
+Random Variables,Random Variables: Examples and Definitions,,example,"Suppose the sample space $\mathcal{S}$ is all students on campus.
 
 For $ \omega \in \mathcal{S}$, we define:
 \[
@@ -1041,7 +1205,8 @@ Some ""interesting events"" corresponding to $X$ can be:
     \{X \ge 72\} &:=& \{ \omega \in S \mid X(\omega) \in [72, \infty) \}\\
     &=&\{\text{all students whose height is greater than or equal to 72 inches}\} 
 \end{eqnarray*}"
-Random Variables,Random Variables: Examples and Definitions,ex,"Suppose we toss a coin three times, and we want to know if the first toss was a head?
+Random Variables,Random Variables: Examples and Definitions,,general description,%%%%%%%%%%%%%%%%%%%% Example: toss a coin three times %%%%%%%%%%%%%%%%
+Random Variables,Random Variables: Examples and Definitions,,example,"Suppose we toss a coin three times, and we want to know if the first toss was a head?
     \begin{equation*}
     X(\omega) =
     \begin{cases}
@@ -1104,7 +1269,7 @@ Similarly,
     S := \{ & \{ \text{HHH, HTH, HHT, HTT} \} \mapsto \{1\}, \{ \text{THH, THT, TTH, TTT} \} \mapsto \{ 0 \} \}
 \end{aligned}
 \end{equation*}"
-Random Variables,Random Variables: Examples and Definitions,ex,"Suppose we tossed a coin three times, and we were interested in counting the number of heads in three tosses. We can work through this as follows:
+Random Variables,Random Variables: Examples and Definitions,,example,"Suppose we tossed a coin three times, and we were interested in counting the number of heads in three tosses. We can work through this as follows:
 
 \begin{equation*}
 X(\omega) := \# \text{ of heads in three tosses.}
@@ -1209,7 +1374,8 @@ X(\omega) := \# \text{ of heads in three tosses.}
 
 \end{tikzpicture}
 \end{center}"
-Random Variables,Random Variables: Examples and Definitions,defn,"[Cumulative Distribution Function]
+Random Variables,Random Variables: Examples and Definitions,,general description,%%%%%%%%%%%%%%%%%%%%%%%%% end of example %%%%%%%%%%%%%%
+Random Variables,Random Variables: Examples and Definitions,,definition,"[Cumulative Distribution Function]
     The cummulative distribution function associated to a random variable $$X: \mathcal{S} \longrightarrow \mathbb{R}$$
     is defined as 
     \begin{eqnarray*}
@@ -1220,7 +1386,8 @@ Random Variables,Random Variables: Examples and Definitions,defn,"[Cumulative Di
     \begin{eqnarray*}
         F_X(x) := P(\text{$X$ takes values less than or equal to $x$}) 
     \end{eqnarray*}"
-Random Variables,Random Variables: Examples and Definitions,ex,"Suppose we toss a coin with $P(H) = p \in (0,1)$ once. Let $X$ be the random variable that tracks the outcome of the coint toss, that is 
+Random Variables,Random Variables: Examples and Definitions,,general description,%%%%% Example: Toss a coin once
+Random Variables,Random Variables: Examples and Definitions,,example,"Suppose we toss a coin with $P(H) = p \in (0,1)$ once. Let $X$ be the random variable that tracks the outcome of the coint toss, that is 
     $$X(\omega) = \begin{cases}
         1 \quad \text{if $\omega = H$}\\
         0 \quad \text{if $\omega = T$}
@@ -1317,7 +1484,7 @@ The plot of $F_X(x)$:
     % \draw[decorate, decoration={brace, amplitude=10pt}] (-0.1,3) -- (-0.1, 1.5) node [black, midway, xshift=-0.6cm] {$p$};
 
 \end{tikzpicture}"
-Random Variables,Random Variables: Examples and Definitions,ex,"Suppose we toss a fair coin ($P(H) = \frac{1}{2}$) three times, and let 
+Random Variables,Random Variables: Examples and Definitions,,example,"Suppose we toss a fair coin ($P(H) = \frac{1}{2}$) three times, and let 
 $$X(\omega) := \text{number of heads in $\omega$}$$
 Values that $X$ can take are 
 $$ \X \coloneq \{0,1,2,3\}$$ 
@@ -1449,15 +1616,16 @@ The plot of $F_X$ is given below
     \node at (3, -0.1) [anchor=north] {$3$};
 \end{tikzpicture}
 \end{center}"
-Random Variables,Random Variables: Examples and Definitions,thm,"[Classification of CDFs]
+Random Variables,Random Variables: Examples and Definitions,,general description,It is possible to classify all functions that can arise as cumulative distribution functions of random variable as follows:
+Random Variables,Random Variables: Examples and Definitions,,theorem,"[Classification of CDFs]
 A function $F(x)$ is a cumulative density function if and only if the following three conditions are satisifies: \begin{enumerate}
 \item $\lim_{x\to -\infty}F(x)=0,$  $\lim_{x\to \infty}F(x)=1$
 \item $F(x)$ is a non decreasing function
 \item $F(x)$ is right continuous. i.e $\lim_{x\to x_o^+}F(x)=F(x_o),$ $\forall x_o\in \R$
 \end{enumerate}"
-Random Variables,Discrete Random Variables,defn,"[Discrete Random Variable]
+Random Variables,Discrete Random Variables,,definition,"[Discrete Random Variable]
     We say a random variable $X: \mathcal{S} \longrightarrow \mathbb{R}$ is \textbf{discrete} if the cumulative distribution function of $X$, $F_X$ is a step function."
-Random Variables,Discrete Random Variables,defn,"[Probability Mass Function]
+Random Variables,Discrete Random Variables,,definition,"[Probability Mass Function]
     If $X$ is a discrete random variable, the probability mass function associated to $X$ is defined as 
     \begin{eqnarray*}
         p_X :& \mathbb{R} &\longrightarrow \mathbb{R}\\
@@ -1465,7 +1633,8 @@ Random Variables,Discrete Random Variables,defn,"[Probability Mass Function]
     \end{eqnarray*}
     that is, 
     $$p_X(x) := P(\text{$X$ takes the value $x$})$$"
-Random Variables,Discrete Random Variables,defn,"[Parameters for Discrete Variables]
+Random Variables,Discrete Random Variables,,general description,"It is easy to observe that the only points where $p_X$ can be non-zero are the values, $\mathcal{X}$, that $X$ can take."
+Random Variables,Discrete Random Variables,,definition,"[Parameters for Discrete Variables]
 Suppose $X$ is a discrete random variable with probability mass function $p_X$ and taking values in the set $\mathcal{X}$. We can consider the following parameters associated to $X$
 \begin{enumerate}
     \item \textbf{Expected Value:}
@@ -1479,12 +1648,12 @@ Suppose $X$ is a discrete random variable with probability mass function $p_X$ a
     \end{eqnarray*}
     
 \end{enumerate}"
-Random Variables,Continuous Random Variables,defn,"[Continuous Random Variable]
+Random Variables,Continuous Random Variables,,definition,"[Continuous Random Variable]
 We say a random variable $X: \mathcal{S} \longrightarrow \mathbb{R}$ is \textbf{continuous} if the cumulative distribution function of $X$, $F_X$ is a continuous function."
-Random Variables,Continuous Random Variables,defn,"[Probability Density Function]
+Random Variables,Continuous Random Variables,,definition,"[Probability Density Function]
     We say that the function $f_X: \mathbb{R}\longrightarrow \mathbb{R}$ is the probability density function of the continuous random variable $X$ (with cdf $F_X$) if $f_X$ satisfies the following:
     $$ F_X(x) = \int_{-\infty}^x f_X(t) dt$$"
-Random Variables,Continuous Random Variables,defn,"[Parameters for Continuous Variables]
+Random Variables,Continuous Random Variables,,definition,"[Parameters for Continuous Variables]
     Suppose $X$ is a continuous random variable with probability density function $f_X$. We can consider the following parameters associated to $X$
 \begin{enumerate}
     \item \textbf{Expected Value:}
@@ -1497,13 +1666,140 @@ Random Variables,Continuous Random Variables,defn,"[Parameters for Continuous Va
         =& \int_{-\infty}^\infty (x-\mu_X)^2\; f_X(x)\rm{dx}
     \end{eqnarray*}
 \end{enumerate}"
-Random Variables,Continuous Random Variables,defn,"[Identically Distributed Random Variables]
+Random Variables,Continuous Random Variables,,definition,"[Identically Distributed Random Variables]
     We say two random variables $X$ and $Y$ are identically distributed if the corresponding cdfs $F_X$ and $F_Y$ are pointwise equal (almost) everywhere."
-Random Variables,Continuous Random Variables,ex,"Suppose we toss a fair coin five times, and $X$ tracks the number of heads in five tosses, and $Y$ tracks the number of tails in five tosses. Then, it is possible to show that even though $X$ and $Y$ are not equal as functions on the sample space, the cdfs $F_X$ and $F_Y$ are exactly the same. As a result $X$ and $Y$ will be identically distributed. 
+Random Variables,Continuous Random Variables,,example,"Suppose we toss a fair coin five times, and $X$ tracks the number of heads in five tosses, and $Y$ tracks the number of tails in five tosses. Then, it is possible to show that even though $X$ and $Y$ are not equal as functions on the sample space, the cdfs $F_X$ and $F_Y$ are exactly the same. As a result $X$ and $Y$ will be identically distributed. 
     \\
 
     Would we be able to conclude the same if we were to toss an unfair coin?"
-Discrete Random Variables,Hypergeometric Distribution,defn,"[Hypergeometric Distribution]
+Discrete Random Variables,Uniform Discrete Random Variable,,definition,"The random variable $X$ has \textbf{uniform discrete distribution} with parameter $N\in \N$ if it is supported on
+
+$$\X:=\{1,2,3,\cdots,N\}$$
+and probability mass function of $X$ is given by:
+
+$$p_X(x)=P(X=x)=\frac{1}{N} \quad \quad \text{for all $x\in \X$}$$"
+Discrete Random Variables,Uniform Discrete Random Variable,,theorem,"[Parameters associated to the Uniform Distribution]
+    Suppose $X$ has the Uniform distribution on $\{1, 2, 3, \dots, N\}$ then,
+    \begin{enumerate}
+        \item The expected value of $X$ is given by:
+        $$E(X) = \frac{N+1}{2}$$
+        \item The variance of $X$ is given by:
+        $$V(X) = \frac{(N+1)(N-1)}{12}$$
+    \end{enumerate}"
+Discrete Random Variables,Bernoulli Distribution,,general description,"The Bernoulli distribution simulates a ""trial"" whose outcome is either a success or a failure."
+Discrete Random Variables,Bernoulli Distribution,,definition,"[Bernoulli Trial]
+An experiment is called a Bernoulli trial if it has exactly two outcomes, a success or a failure."
+Discrete Random Variables,Bernoulli Distribution,,definition,"[Bernoulli Distribution]
+    We say that $X$ has the Bernoulli distribution with parameter $p\in (0,1)$, typically denoted by $X \sim \text{Bernoulli}(p)$ if $X$ takes values $\mathcal{X}:= \{0,1\}$ and the probability mass function of $X$ is given as
+    $$p_X(x) = \begin{cases}
+        1-p \quad \text{if $x=0$}\\
+        p \quad \text{if $x=1$}
+    \end{cases}$$
+    The pmf can also be written as
+    $$p_X(x) = p^x(1-p)^{(1-x)}\quad \quad x\in \{0,1\}$$"
+Discrete Random Variables,Bernoulli Distribution,,general description,"Events associated to the Bernoulli distribution are of the form:
+\begin{enumerate}
+    \item $\{X = 0\}$: the trial was a failure.
+    \item $\{X =1\}$: the trial was a success. 
+\end{enumerate}"
+Discrete Random Variables,Bernoulli Distribution,,theorem,"[Parameters associated to the Bernoulli Distribution]
+    Suppose $X\sim \text{Bernoulli}(p)$ then,
+    \begin{enumerate}
+        \item The expected value of $X$ is given by:
+        $$E(X) = p$$
+        \item The variance of $X$ is given by:
+        $$V(X) = p(1-p)$$
+    \end{enumerate}"
+Discrete Random Variables,Bernoulli Distribution,,general description,"Examples of Bernoulli distribution in applications:
+\begin{enumerate}
+    \item Suppose we sample a random student from campus and check if the height of the student is less than or equal to 60inches. 
+    \\
+    This experiment can be modelled by $X\sim \text{Bernoulli}(p)$ distribution, where the event 
+    $$\{X=1\} := \{\text{a randomly chosen student has height $\le 60$ inches}\}$$
+    \\
+    In this setting, $p_X(1) = P(X=1) = p$, is the proportion of students on campus whose height is less than or equal to 60inches. 
+    \item  Suppose we sample a random student from campus and check if they have taken a statistics course. 
+    \\
+    This experiment can be modelled by $X\sim \text{Bernoulli}(p)$ distribution, where the event 
+    $$\{X=1\} := \{\text{a randomly chosen student has taken a statistics course}\}$$
+    \\
+    In this setting, $p_X(0) = P(X=0) = (1-p)$, is the proportion of students on campus who have never taken a statistics class. 
+    \item  Suppose we choose a potato at a supermarket, and we put it into our cart if it has no blemishes.  
+    \\
+    This experiment can be modelled by $X\sim \text{Bernoulli}(p)$ distribution, where the event 
+    $$\{X=1\} := \{\text{a randomly chosen potato has no blemishes}\}$$
+    \\
+    In this setting, $p_X(1) = P(X=1) = p$, is the proportion of potatoes without blemishes in the supermarket aisle. 
+\end{enumerate}"
+Discrete Random Variables,Binomial Distribution,,general description,"Suppose an experiment involves performing $n$ independent $\text{Bernoulli}(p)$ trials. An outcome for this experiment is a sequence of length $n$, with the $i$th entry in the sequence tracking if the $i$th trial was a success or a failure. In this setting, we might be interested in knowing the number of success in the outcome, and the Binomial random variable does exactly that. 
+\\"
+Discrete Random Variables,Binomial Distribution,,definition,"[Binomial Distribution]
+    We say that $X$ has the Binomial distribution with parameters
+    \begin{itemize}
+        \item $n\in \mathbb{N}$ : the number of trials
+        \item $p\in (0,1)$: $P(\text{Success})$, the probability of a success. 
+    \end{itemize}
+    typically denoted by $X \sim \text{Binomial}(n, p)$ if $X$ takes values $\mathcal{X}:= \{0,1, 2, 3, \dots, n\}$ and the probability mass function of $X$ is given as
+    $$p_X(x) = {n \choose x} p^x(1-p)^{(n-x)}\quad \quad x\in \{0,1, 2, 3, \dots, n\}$$"
+Discrete Random Variables,Binomial Distribution,,theorem,"[Binomial Experiment]
+    Suppose $n\in \mathbb{N}$. The experiment involves performing $n$ independent $\text{Bernoulli}(p)$ trials. 
+    \\
+    Let $\omega$ be an outcome for this experiment, and $$X(\omega) := \text{number of successes in $\omega$}$$
+    Then, 
+    $$X \sim \text{Binomial}(n, p)$$"
+Discrete Random Variables,Binomial Distribution,,general description,"\begin{proof}
+The proof involves explicitly calculating the pmf of $X$ and showing that it is the same as the pmf of the Binomial distribution with the given parameters. We leave this as an exercise for the reader. 
+\end{proof}
+
+
+Events associated to the Binomial distribution are of the form:
+\begin{enumerate}
+    \item $\{X = k \}$: there are exactly $k$ successes in $n$ trials. 
+    \item $\{a < X < b\}$: the number of successes in $n$ trials are greater  than $a$ but less than $b$.
+    \item $\{a \le X\}$: there are more than $a$ successes in $n$ trials.
+\end{enumerate}"
+Discrete Random Variables,Binomial Distribution,,theorem,"[Parameters associated to the Binomial Distribution]
+    Suppose $X\sim \text{Binomial}(n, p)$ then,
+    \begin{enumerate}
+        \item The expected value of $X$ is given by:
+        $$E(X) = np$$
+        \item The variance of $X$ is given by:
+        $$V(X) = np(1-p)$$
+    \end{enumerate}"
+Discrete Random Variables,Binomial Distribution,,general description,"Examples of Binomial distribution in applications:
+\begin{enumerate}
+    \item Suppose we sample $n$ students (with replacement) from campus and check if their height of the chosen student is less than or equal to 60inches. 
+    \\
+    Since the sampling is with replacement, the result of a given trial is independent of the other trials. Therefore this experiment can be modelled by $X\sim \text{Binom}(n, p)$ distribution, where the event 
+    $$\{X= k \} := \{\text{there are exactly $k$ students with height $\le 60$ inches among the $n$ chosen students}\}$$
+    \\
+    In this setting, $p_X(k) = P(X=k)$, is probability of finding exactly $k$ students with height $\le 60$ among $n$ randomly chosen students. 
+    \\
+    Also, $P(X \ge k)$, is probability of finding at least  $k$ students with height $\le 60$ among $n$ randomly chosen students. 
+    \item  Suppose we sample $n$ students (with replacement) from campus and check if they have taken a statistics course. 
+    \\
+    This experiment can be modelled by $X\sim \text{Binom}(n, p)$ distribution, where the event 
+    $$\{X=k\} := \{\text{there are exactly $k$ students who have taken a statistics class among the $n$ chosen students}\}$$
+    \\
+    In this setting, $p_X(k) = P(X=k)$, is the probability that of finding exactly $k$ students who have taken a statistics class among the $n$ chosen students. 
+    
+    \item  Suppose we choose $n$ potatoes (with replacement, even though that does not really make sense), a potato is a success if it does not have any blemishes. 
+    \\
+    This experiment can be modelled by $X\sim \text{Binom}(n, p)$ distribution, where the event 
+    $$\{X=k\} := \{\text{there are exactly $k$ good potatoes among $n$ randomly chosen potatoes}\}$$
+    \\
+    In this setting, $p_X(k) = P(X=k)$, is the probability of finding exactly $k$ potatoes without blemishes among $n$ randomly chosen potatoes. 
+\end{enumerate}
+Note that we have be emphasizing that the sampling be with replacement, this ensures that trials are independent of each other.
+\\
+
+In many applications, where the population is large and $n$ is small (in comparison to the population), sampling without replacement can still result in ""approximately"" independent trials.
+\\
+
+When we are sampling from a population without replacement, the random variable that tracks the number of successes actually has the ""Hypergeometric Distribution"""
+Discrete Random Variables,Hypergeometric Distribution,,general description,"Fix $N,M,n\in \N$. Suppose we have population of size $N$ with exactly $M$ successes in it. Suppose an experiment involves choosing $n$ objects from the population (without replacement). Given $\omega$ an outcome for this experiment, let
+$$X(\omega) := \text{number of successes in $\omega$}$$, in this setting $X$ is said to have the H/ypergeometeric distribution."
+Discrete Random Variables,Hypergeometric Distribution,,definition,"[Hypergeometric Distribution]
     We say that $X$ has the Hypergeometric distribution with parameters
     \begin{itemize}
         \item $N\in \mathbb{N}$ : population size
@@ -1512,7 +1808,7 @@ Discrete Random Variables,Hypergeometric Distribution,defn,"[Hypergeometric Dist
     \end{itemize}
     typically denoted by $X \sim \text{Hyper}(N, M, n)$ if $X$ takes values $\mathcal{X}:= \{0,1, 2, 3, \dots, \min(n, M)\}$ and the probability mass function of $X$ is given as
     $$p_X(x) = \frac{{N \choose x} {N-M \choose n-x}}{{N \choose n}}\quad \quad x\in \{0,1, 2, 3, \dots, \min(n, M)\}$$"
-Discrete Random Variables,Hypergeometric Distribution,thm,"[Parameters associated to the Hypergeometric Distribution]
+Discrete Random Variables,Hypergeometric Distribution,,theorem,"[Parameters associated to the Hypergeometric Distribution]
     Suppose $X\sim \text{Hyper}(N, M, n)$ then,
     \begin{enumerate}
         \item The expected value of $X$ is given by:
@@ -1520,20 +1816,27 @@ Discrete Random Variables,Hypergeometric Distribution,thm,"[Parameters associate
         \item The variance of $X$ is given by:
         $$V(X) = \left(\frac{N-n}{N-1} \right)\cdot n\cdot \left(\frac{M}{N}\right)\cdot \left(1-\frac{M}{N} \right) $$
     \end{enumerate}"
-Discrete Random Variables,Geometric Distribution,defn,"[Geometric Distribution]
+Discrete Random Variables,Geometric Distribution,,general description,"The geometric random variable models phenomena that involve ""waiting""."
+Discrete Random Variables,Geometric Distribution,,definition,"[Geometric Distribution]
     We say that $X$ has the Geometric distribution with parameters
     \begin{itemize}
         \item $p\in (0,1)$: $P(\text{Success})$, the probability of a success. 
     \end{itemize}
     typically denoted by $X \sim \text{Geom}(p)$ if $X$ takes values $\mathcal{X}:= \{1, 2, 3, \dots, \} = \mathbb{N}$ and the probability mass function of $X$ is given as
     $$p_X(x) = p^x(1-p)^{(x-1)}\quad \quad x\in \{0,1, 2, 3, \dots, \}$$"
-Discrete Random Variables,Geometric Distribution,thm,"[Geometric Experiment]
+Discrete Random Variables,Geometric Distribution,,theorem,"[Geometric Experiment]
     The experiment involves performing independent $\text{Bernoulli}(p)$ trials until the first success is observed.  
     \\  
     Let $\omega$ be an outcome for this experiment, and $$X(\omega) := \text{number of trials in $\omega$}$$
     Then, 
     $$X \sim \text{Geom}(p)$$"
-Discrete Random Variables,Geometric Distribution,thm,"[Parameters associated to the Geometric Distribution]
+Discrete Random Variables,Geometric Distribution,,general description,"\begin{proof}
+We first observe that the sample space for this experiment looks like:
+$$ \mathcal{S} = \{S, FS, FFS, FFFS, FFFFS, \dots, \}$$
+From here, the proof involves explicitly calculating the pmf of $X$ and showing that it is the same as the pmf of the Geometric distribution with parameter $p$. We leave this as an exercise for the reader. 
+\end{proof}
+The above theorem shows that the Geometric distribution models phenomena that involve waiting for one success."
+Discrete Random Variables,Geometric Distribution,,theorem,"[Parameters associated to the Geometric Distribution]
     Suppose $X\sim \text{Geom}(p)$ then,
     \begin{enumerate}
         \item The expected value of $X$ is given by:
@@ -1541,7 +1844,42 @@ Discrete Random Variables,Geometric Distribution,thm,"[Parameters associated to 
         \item The variance of $X$ is given by:
         $$V(X) = \frac{1-p}{p^2}$$
     \end{enumerate}"
-Discrete Random Variables,Negative Binomial Distribution,defn,"[Negative Binomial Distribution]
+Discrete Random Variables,Geometric Distribution,,general description,"Examples of Geometric distribution in applications:
+\begin{enumerate}
+    \item Suppose we sample students (with replacement) from campus until a student with height is less than or equal to 60inches is found. 
+    \\
+    Since the sampling is with replacement, the result of a given trial is independent of the other trials. Therefore this experiment can be modelled by $X\sim \text{Geom}(p)$ distribution, where $$P(\text{Success}) = P(\text{finding a student with height less than or equal to 60 inchex})$$ 
+    and  event
+    $$\{X= k \} := \{\text{we find $k$ students before the first student with height less than or equal to 60 inches}\}$$
+    \\
+    In this setting, $p_X(k) = P(X=k)$, is probability of picking exactly $k$ students before finding a student with height less than or equal to 60inches.  
+    \\
+    Also, $P(X \ge k)$, picking more than or equal to $k$ students before finding a student with height less than or equal to 60inches.
+    \item  Suppose we sample students (with replacement) from campus until we find one that has taken a statistics course. 
+    \\
+    This experiment can be modelled by $X\sim \text{Geom}(p)$ distribution, 
+    where
+    $$P(\text{Success}) = P(\text{finding a student who has taken a statistics course})$$
+    and the event 
+    $$\{X= k \} := \{\text{we pick $k$ students before finding the first student who has taken at least one statistics class}\}$$
+    \\
+    In this setting, $p_X(k) = P(X=k)$,  is the probability of picking exactly $k$ students before finding a student who has taken at least one statistics class. 
+    
+    \item  Suppose we choose potatoes (with replacement, even though that does not really make sense) until we find a potato that does not have a blemish. 
+    \\
+    
+    In this setting, a potato is a success if it does not have any blemishes. 
+    \\
+    This experiment can be modelled by $X\sim \text{Geom}(p)$ distribution, 
+    $$P(\text{Success}) = P(\text{finding a potato without any blemishes})$$
+    
+    and the event 
+    $$\{X=k\} := \{\text{we pick $k$ potatoes before finding the first potato without any blemishes}\}$$
+    \\
+    In this setting, $p_X(k) = P(X=k)$, is the probability of picking exactly $k$  potatoes before finding the first potato without any blemishes. 
+\end{enumerate}"
+Discrete Random Variables,Negative Binomial Distribution,,general description,"The Negative Binomial random variable also models phenomena that involve ""waiting""."
+Discrete Random Variables,Negative Binomial Distribution,,definition,"[Negative Binomial Distribution]
     We say that $X$ has the Negative Binomial distribution with parameters
     \begin{itemize}
     \item $r \in \mathbb{N}$: number of successes we are waiting for.
@@ -1549,13 +1887,22 @@ Discrete Random Variables,Negative Binomial Distribution,defn,"[Negative Binomia
     \end{itemize}
     typically denoted by $X \sim \text{NegBinom}(r, p)$ if $X$ takes values $\mathcal{X}:= \{0, 1, 2, 3, \dots, \} = \mathbb{N}$ and the probability mass function of $X$ is given as
     $$p_X(x) = {x+r-1 \choose x}p^r(1-p)^x\quad \quad x\in \{0,1, 2, 3, \dots, \}$$"
-Discrete Random Variables,Negative Binomial Distribution,thm,"[Negative Binomial Experiment]
+Discrete Random Variables,Negative Binomial Distribution,,theorem,"[Negative Binomial Experiment]
     The experiment involves performing independent $\text{Bernoulli}(p)$ trials until $r$ successes are observed.  
     \\  
     Let $\omega$ be an outcome for this experiment, and $$X(\omega) := \text{number of failures in $\omega$}$$
     Then, 
     $$X \sim \text{NegBinom}(r, p)$$"
-Discrete Random Variables,Negative Binomial Distribution,thm,"[Parameters associated to the Negative Binomial Distribution]
+Discrete Random Variables,Negative Binomial Distribution,,general description,"\begin{proof}
+We first observe that the sample space for this experiment is infinite, and looks like
+$$ \mathcal{S} = \{SS\dots S, FSS\dots S, SFS\dots S, \dots , \}$$
+
+The proof involves explicitly counting the outcomes in the sets 
+$$\{X = k\} = \{\text{exactly $k$ failures observed before the $r$th success}\}$$ 
+and using this to calculate the pmf of $X$, and showing that it is the same as the pmf of the Negative Binomial distribution with parameters $r$ and $p$. We leave this as an exercise for the reader. 
+\end{proof}
+The above theorem shows that the Negative Binomial distribution models phenomena that involve waiting for $r$ successes."
+Discrete Random Variables,Negative Binomial Distribution,,theorem,"[Parameters associated to the Negative Binomial Distribution]
     Suppose $X\sim \text{NegBinom}(r, p)$ then,
     \begin{enumerate}
         \item The expected value of $X$ is given by:
@@ -1563,14 +1910,51 @@ Discrete Random Variables,Negative Binomial Distribution,thm,"[Parameters associ
         \item The variance of $X$ is given by:
         $$V(X) = \frac{r(1-p)}{p^2}$$
     \end{enumerate}"
-Discrete Random Variables,Poisson Distribution,defn,"[Poisson Distribution]
+Discrete Random Variables,Negative Binomial Distribution,,general description,"Examples of Negative Binomial distribution in applications:
+\begin{enumerate}
+    \item Suppose we sample students (with replacement) from campus until we find $r$ students with height is less than or equal to 60inches is found. 
+    \\
+    Since the sampling is with replacement, the result of a given trial is independent of the other trials. Therefore this experiment can be modelled by $X\sim \text{NegBinom}(r, p)$ distribution, where $$P(\text{Success}) = P(\text{finding a student with height less than or equal to 60 inchex})$$ 
+    and  event
+    $$\{X= k \} := \{\text{we find $k$ students of height greater than 60inches before the finding the $r$th student with height less than or equal to 60 inches}\}$$
+    \\
+    In this setting, $p_X(k) = P(X=k)$, is probability of finding exactly $k$ students with height greater than 60inches before finding the $r$th student with height less than or equal to 60inches.  
+    \\
+    Also, $P(X \ge k)$, finding more than or equal to $k$ students with height greater than 60inches before finding $r$th student with height less than or equal to 60inches.
+    \item  Suppose we sample students (with replacement) from campus until we find $r$ students that have taken a statistics course. 
+    \\
+    This experiment can be modelled by $X\sim \text{NegBinom}(r, p)$ distribution, 
+    where
+    $$P(\text{Success}) = P(\text{finding a student who has taken a statistics course})$$
+    and the event 
+    $$\{X= k \} := \{\text{we find $k$ students who have never taken a statistics class before finding $r$th student who has taken at least one statistics class}\}$$
+    \\
+    In this setting, $p_X(k) = P(X=k)$,  is the probability of finding exactly $k$ students who have never taken a statistics class before finding $r$th student who has taken at least one statistics class. 
+    
+    \item  Suppose we choose potatoes (with replacement, even though that does not really make sense) until we find $r$ potatoes that do not have a blemish. 
+    \\
+    
+    In this setting, a potato is a success if it does not have any blemishes. 
+    \\
+    This experiment can be modelled by $X\sim \text{NegBinom}(r, p)$ distribution, 
+    $$P(\text{Success}) = P(\text{finding a potato without any blemishes})$$
+    
+    and the event 
+    $$\{X=k\} := \{\text{find exactly $k$ potatoes with blemishes before finding the $r$th potato without any blemishes}\}$$
+    \\
+    In this setting, $p_X(k) = P(X=k)$, is the probability of finding exactly $k$ potatoes with blemishes before finding the $r$th potato without any blemishes. 
+\end{enumerate}"
+Discrete Random Variables,Poisson Distribution,,general description,"The Poisson is distribution is a very useful distribution that shows up in many applications, especially in the context of Poisson Processes."
+Discrete Random Variables,Poisson Distribution,,definition,"[Poisson Distribution]
     We say that $X$ has the Poisson  distribution with parameters
     \begin{itemize}
     \item $\lambda \in \mathbb{R}_{+}$: rate parameter
     \end{itemize}
     typically denoted by $X \sim \text{Pois}(\lambda)$ if $X$ takes values $\mathcal{X}:= \{0, 1, 2, 3, \dots, \} = \mathbb{N}$ and the probability mass function of $X$ is given as
     $$p_X(x) = e^{-\lambda} \frac{\lambda^k}{k!}$$"
-Discrete Random Variables,Poisson Distribution,thm,"[Parameters associated to the Poisson Distribution]
+Discrete Random Variables,Poisson Distribution,,general description,"To show that $p_X$ is indeed a pmf, we observe the series expansion 
+$$e^{\lambda}= \sum_{k=0}^\infty \frac{\lambda^k}{k!}$$"
+Discrete Random Variables,Poisson Distribution,,theorem,"[Parameters associated to the Poisson Distribution]
     Suppose $X\sim \text{Pois}(\lambda)$ then,
     \begin{enumerate}
         \item The expected value of $X$ is given by:
@@ -1578,3 +1962,774 @@ Discrete Random Variables,Poisson Distribution,thm,"[Parameters associated to th
         \item The variance of $X$ is given by:
         $$V(X) = \lambda$$
     \end{enumerate}"
+Discrete Random Variables,Relationships Between Discrete Distributions,Binomial and Hypergeometric,general description,"Let $N,M,n\in \N$ be given and set $p=\frac{M}{N}$. Suppose,
+\begin{enumerate}[itemsep=0pt, topsep=1pt, partopsep=0pt,label=(\alph*)]
+\item bin$(x;n,p)$ is the probability mas function for binomial distribution with parameters: \begin{align*}
+n&=\text{ sample size}\\
+p&=\text{ probability of success}
+\end{align*}
+\item hyper$(x;N,M,n)$ is the probability mass function for hypergeometric distribution with parameters\begin{align*}
+n&=\text{ sample size}\\
+M&=\text{number of successes}\\
+N&=\text{population size}
+\end{align*}
+Then, if $N,M\to \infty$, and $\frac{M}{N}\to p$, then hyper$(x;N,M,n)\to$bin$(x;n,p)$. 
+\\
+
+An alternate way to state this is to say that if sample size N is small compared to population size $N$, we can assume that samples are approximately independent.
+\end{enumerate}"
+Discrete Random Variables,Relationships Between Discrete Distributions,Binomial and Poisson,general description,"Suppose \begin{enumerate}[itemsep=0pt, topsep=1pt, partopsep=0pt,label=(\alph*)]
+\item bin$(x;n,p)$ is the probability mas function for binomial Distribution with parameters: \begin{align*}
+n&=\text{ sample size}\\
+p&=\text{ probability of success}
+\end{align*}
+\item pois$(x;\lambda)$ is the probability mass function for Poisson Distribution with parameters $\lambda>-$
+\end{enumerate}
+Then, if $n\to \infty$ and $p\to 0$ such that $n\cdot p\to \lambda$, then then bin$(x;N,M,n)\to$ pois$(x;n,p)$. 
+\\
+
+If $n$ is large and $p$ is small, bin$(x;N,M,n)\approx$ pois$(x;n,p)$, this is sometimes stated by saying that the Poisson Distribution is approximately the Binomial Distribution for rare events."
+Point Estimation,Introduction to Point Estimation,,general description,"One goal of statistic is to draw insights/inference about certain aspects of the population using sample data. For example, we might want to estimate the following \begin{enumerate}
+\item Average GPA of students on campus
+\item Average time spent on recreational activities by students at UMD
+\item Median age of everybody affiliated to UMD
+\item The median yearly income of people in the USA
+\end{enumerate}
+In each these situations, we need to identify\begin{enumerate}
+\item \colorbox{pink}{population of interest}
+\item a \colorbox{yellow}{characteristic of the population} that we are interested in
+\end{enumerate}"
+Point Estimation,Introduction to Point Estimation,,definition,"Suppose \begin{align*}
+\{X_1,X_2,X_3,\cdots,X_n\}
+\end{align*}
+to be a random sample coming from a fixed population. Then, a \textbf{point estimator} for the population is any statistic $\widehat{\theta}$ for the random sample $\{X_1,X_2,\cdots,X_n\}$, i.e \begin{align*}
+\widehat{\theta}:\X^n\to \R,\text{\qquad}\X:=\text{ values of }X_i
+\end{align*}
+We typically expect the values of $\widehat{\theta}$ to be a sensible value of a certain population characteristic, which is a \textbf{population parameter} denoted by $\theta$"
+Point Estimation,Introduction to Point Estimation,,general description,"\note \begin{enumerate}
+\item The population parameter $\theta$ is fixed once we fix the population
+\item If we have population data, i.e a census, then we can calculate the exact value of $\theta$
+\item Usually the population is intractable, which means we need to resort the sample data to get an estimate for $\theta$
+\item Suppose $\theta$ is a parameter of interest. Given an estimator $\widehat{\theta}$ for $\theta$, $\widehat{\theta}$ is a statistic depending on the random sample $\{X_1,X_2,\cdots,X_n\}$. Therefore, the estimate $\widehat{\theta}$ will change everytime sample data changes
+\end{enumerate}"
+Point Estimation,Introduction to Point Estimation,,definition,"If $\widehat{\theta}$ is a point estimator for the population parameter $\theta$, then the relation of average value of $\widehat{\theta}$ and true value $\theta$, or \textbf{Bias of $\widehat{\theta}$} is \begin{align*}
+\text{Bias}(\widehat{\theta})=E(\widehat{\theta}-\theta)
+\end{align*}
+It is also the \textbf{expected error} when we use $\widehat{\theta}$ to estimate $\theta$ using a random sample of size $n$"
+Point Estimation,Introduction to Point Estimation,,definition,"We say $\widehat{\theta}$ is an \textbf{unbiased estimator} for $\theta$ if \begin{align*}
+\text{Bias}(\widehat{\theta})=0\text{\qquad for all possible choices of }\theta 
+\end{align*}
+i.e $E(\widehat{\theta}-\theta)=0$ for every possible $\theta$"
+Point Estimation,Introduction to Point Estimation,,general description,"\exercise Suppose we have estimators $\widehat{\theta_1},\widehat{\theta_2},\cdots,\widehat{\theta_k}$ estimating $\theta$. Among all the $\widehat{\theta_i},$ is there a notion of one estimator being better than theothers?"
+Point Estimation,Principle of Unbiased Estimation,,example,"Let population be $\{0,1\}$ and the population distribution be $\text{Bernolli}(p)$, i.e $P(X=1)=p$. Let $\{X_1,X_2,\cdots,X_n\}$ be a random sample. Recall that \begin{align*}
+T_o:&=\text{ sample total}\\
+&=X_1+X_2+\cdots+X_n\\
+T_o&\sim \text{Bin}(n,p)
+\end{align*}
+Let's define \begin{align*}
+\hat{p}:=\frac{T_o}{n}
+\end{align*}
+This is the sample proportion of successes in a sample of size $n$. And $\widehat{p}$ is an estimator for $p$, the true probability of getting a success in a single Bernoulli trial.\\
+\hfill\\
+Now, \begin{align*}
+E(\widehat{p})&=E\left(\frac{T_o}{n} \right)=\frac{E(T_o)}{n}=\frac{n\cdot p}{n}=p
+\end{align*}
+Therefore, $\widehat{p}$ is an unbiased estimator for $p$"
+Point Estimation,Principle of Unbiased Estimation,,example,"Suppose $\{X_1,X_2,\cdots,X_n\}$ is a random sample from a population with mean $\mu$ and variance $\sigma^2$. Then, we define the following: \begin{align*}
+\widehat{\theta_1}&:=\overline{X}=\frac{\sum_{i=1}^nX_i}{n} &\text{sample mean}\\
+\widehat{\theta_2}&:=\overline{X}+X_1-X_m& \text{sample mean plus 1st and second random sample}
+\end{align*}
+Then, \begin{align*}
+E(\widehat{\theta_1})&:=E(\overline{X})=\mu\\
+E(\widehat{\theta_2})&:=E(\overline{X}+X_1-X_m)\\
+&=\mu+\mu-\mu = \mu
+\end{align*}
+Therefore, both $\widehat{\theta_1}$ and $\widehat{\theta_2}$ are biased estimations for he population mean $\mu$. Therefore, unbiased estimation does not guarantee a unique choice of estimator."
+Point Estimation,Principle of Unbiased Estimation,,definition,"Suppose $\widehat{\theta}$ is a statistic for a random sample $\{X_1,X_2,\cdots,X_n\}$ such that \begin{align*}
+E(\widehat{\theta})=\theta \text{\qquad for all possible choices of }\theta 
+\end{align*}
+Then, $\sigma_{\theta}^2:=$ \textbf{variance of the sampling distribution of }$\widehat{\theta}$"
+Point Estimation,Principle of Unbiased Estimation,,theorem,"\textbf{Principle of Minimum Variance Unbiased Estimation:}\\
+Among all unbaised estimators of $\theta$,  the one that has the minimum variance is called the \textbf{Minimum Variance Unbiased Estimator} of $\theta$"
+Point Estimation,Principle of Unbiased Estimation,,example,"We know that $\widehat{\theta_1}=\overline{X}$ and $\widehat{\theta_2}=\overline{X}+X_1-X_n$ are both unbiased estimators of $\mu$\\
+To rank them, we calculate $V(\widehat{\theta_1})$ and $V(\widehat{\theta_2})$. \begin{align*}
+V(\widehat{\theta_1})&=V\left(\frac{X_1+X_2+\cdots+X_n}{n} \right)\\
+&=V\left(\frac{X_1}{n}+\frac{X_2}{n}+\cdots+\frac{X_n}{n}\right)\\
+&=\frac{1}{n^2}\left(\sigma^2+\sigma^2+\cdots+\sigma^2 \right)\\
+&=\frac{n\sigma^2}{n^2}=\frac{\sigma^2}{n}
+\end{align*}
+Similarly, we can show that \begin{align*}
+V(\widehat{\theta_2})&=V(\overline{X}+X_1-X_n)\\
+&=\frac{\sigma^2}{n}+2\sigma^2\\
+&=\frac{2n+1}{n}\sigma^2
+\end{align*}
+Since $\frac{2n+1}{n}>\frac{1}{n}$ for all $n\in \N$, therefore, $V(\widehat{\theta_2})>V(\widehat{\theta_1})$. Therefore, if we were to choose only between $\widehat{\theta_1}$ and $\widehat{\theta_1}$, we would go with $\widehat{\theta_1}$. However, this does not prove that $\overline{X}$ is the Minimum Variance Unbiased Estimator"
+Point Estimation,Principle of Unbiased Estimation,,theorem,"If $\{X_1,X_2,\cdots,X_n\}$ is a random sample from a normally distributed population, i.e N$(\mu,\sigma^2)$. Then the estimator $\overline{X}$ is the  Minimum Variance Unbiased Estimator for $\mu$.\\
+And the \textbf{standard error} of a point estimator $\widehat{\theta}$ is $\sigma_{\widehat{\theta}}=\sqrt{V(\widehat{\theta})}$, which provides a measure or precision of the point estimator $\widehat{\theta}$, i.e the standard deviation of the sampling distribution of $\widehat{\theta}$"
+Point Estimation,Principle of Unbiased Estimation,,general description,"\note \begin{enumerate}
+\item If $\widehat{\theta}$ has a continuous distribution, then \begin{align*}
+P(\widehat{\theta}=\theta)&=P(\text{The estimator }\widehat{\theta}\text{ takes the value }\theta \text{ the true parameter value})\\
+&=0
+\end{align*}
+Even so, the point-estimator provides an exact estimate for $\theta,$ we have zero confidence that the calculated point estimate will equal $\theta$
+\end{enumerate}"
+Point Estimation,Methods of Point Estimation,,general description,"Suppose Population has distribution $X$ and probability mass function or probability density function of $X$ is $f(x)$.\\
+Let $\{X_1,X_2,\cdots,X_n\}$ be a random sample of size $n$ from population.\\
+\hfill\\
+Then for $k=1,2,3,\cdots$\begin{enumerate}
+\item The $k$th population moment or the $k$th distribution moment is the expected values of the random variable $X^k$, i.e $E(X^k)$
+\item The $k$th sample moment for the random sample $\{X_1,X_2,\cdots,X_n\}$ is \begin{align*}
+\frac{X_1^k+X_2^k+\cdots+X_n^k}{n} \text{\qquad i.e\quad}\frac{\sum_{i=1}^nX_i^k}{n}
+\end{align*}
+\end{enumerate}"
+Point Estimation,Methods of Point Estimation,The Method of Moments,general description,"If there are $m$ parameters: $\theta_1,\theta_2,\theta_3,\cdots,\theta_m$ tand we want to estimate using $\{X_1,X_2,\cdots,X_n\}$. It is the same to get $m$-equations by equating the first $m$ population moments to the first $m$ sample moments and pray we can solve these equations to get estimators $\widehat{\theta_1},\widehat{\theta_2},\cdots \widehat{\theta_n}$ for $\theta_1,\theta_2,\cdots,\theta_m$ respectively.\\"
+Point Estimation,Methods of Point Estimation,The Method of Moments,example,"\textbf{Sampling From Exponential Distribution}\\
+Suppose $\{X_1,X_2,X_3,\cdots,X_n\}$ be a random sample from $\text{exp}(\lambda)$. Note that there is only one parameter to estimate and therefore only need to calculate first moments.\\
+\hfill\\
+Then, the first population moment is $$E(X)=\frac{1}{\lambda}$$ and the first sample moment is $$\frac{1}{n}\left(\sum_{i=1}^nX_i \right)=\overline{X}$$, the sample mean. Then, equating the population moments to sample moments, we got \begin{align*}
+\frac{1}{\lambda}=\overline{X} \implies \lambda=\frac{1}{\overline{X}}
+\end{align*}
+Therefore, method of moment estimator for $\lambda$ is $$\widehat{\lambda}=\frac{1}{\overline{X}}$$"
+Point Estimation,Methods of Point Estimation,The Method of Moments,example,"\textbf{Sampling From Normal Distribution}\\
+Suppose $\{X_1,X_2,X_3,\cdots,X_n\}$ be a random sample from $N(\mu,\sigma^2)$. We want to estimate $\mu$ and $\sigma^2$ (i.e $k=2$)\\
+First, calculate the $k$th population moments:\begin{align*}
+k=1&\to E(X)=\mu\\
+k=2&\to E(X^2)
+\end{align*}
+Recall that the identity $\sigma^2=V(X)=E(X^2)-(E(X))^2$, therefore, we got \begin{align*}
+E(X^2)=\sigma^2+\mu^2
+\end{align*}
+Then,equating the population moments to sample moments:\begin{align*}
+E(X)&=\mu =\frac{1}{n}\sum_{i=1}^nX_i=\overline{X}\\
+E(X^2)&=\sigma^2+\mu^2=\frac{1}{n}\sum_{i=1}^n X_i^2
+\end{align*}
+Therefore, we got the moment estimators as the following \begin{align*}
+\widehat{\mu}&=\overline{X}\\
+\widehat{\sigma^2}&=\frac{1}{n}\sum_{i=1}^n X_i^2-\left( \frac{1}{n}\sum_{i=1}^nX_i\right)^2
+\end{align*}"
+Point Estimation,Methods of Point Estimation,The Method of Moments,example,"\textbf{Sampling From Gamma Distribution}\\
+Suppose $\{X_1,X_2,X_3,\cdots,X_n\}$ be a random sample from $\text{Gamma}(\alpha,\beta)$, i.e $\alpha$ is the shape and $\beta$ is the scale.\\
+Recall that $E(X)=\alpha \beta,$ $V(X)=\alpha \beta^2$. Since $E(X^2)-E(X)^2=\alpha \beta^2$, then $E(X^2)=\alpha \beta^2+(E(X))^2$. Therefore, we got the following population moments:\begin{align*}
+E(X)&=\alpha \beta\\
+E(X^2)&=\alpha \beta^2+(\alpha \beta)^2\\
+&=\alpha \beta^2(1+\alpha)
+\end{align*}
+Evaluating sample moments to population moments, we get\begin{align*}
+\overline{X}&=\alpha \beta\\
+\frac{\sum_{i=1}^nX_i^2}{n}&=\alpha \beta^2(1+\alpha)
+\end{align*}
+Then let $A=\overline{X}$ and $B=\frac{1}{n}\sum_{i=1}^nX_i^2$, we need to solve the following for $\alpha,\beta$\begin{align*}
+A&=\alpha \beta\\
+B&=\alpha \beta^2(1+\alpha)
+\end{align*}
+set $\beta =\frac{A}{\alpha}$, then \begin{align*}
+B&=\alpha \cdot \left(\frac{A}{\alpha} \right)^2(1+\alpha)\\
+&=\frac{A^2(1+\alpha)}{\alpha}
+\end{align*}
+Therefore, \begin{align*}
+&\alpha \beta =A^2+A^2\alpha\\
+\implies &\alpha(B-A^2)=A^2\\
+\implies &\alpha =\frac{A^2}{(B-A^2)}
+\end{align*}
+Therefore, the method of moment estimators are \begin{align*}
+\widehat{\alpha}&=\frac{\overline{X}^2}{\frac{1}{n}\sum_{i=1}^nX_i^2-\overline{X}^2}\\
+\widehat{\beta}&=\frac{\overline{X}}{\widehat{\alpha}}
+\end{align*}"
+Point Estimation,Methods of Point Estimation,Maximum Likelihood Estimation,definition,"Suppose $\{X_1,X_2,\cdots,X_n\}$, a random sample from population with probability density function/probability mass function $f(x)$.\\
+Let $f(x_1,x_2,\cdots,x_n)$ be the joint probability density function/probability mass function of $X_1,X_2,\cdots,X_n$. Suppose $X_i$'s are independent, then \begin{align*}
+f(x_1,x_2,\cdots,x_n)&=\prod_{i=1}^nf(x_i)
+\end{align*} 
+Now, given sample data $\{x_1,x_2,\cdots,x_n\}$, we want to estimate parameters $\theta_1,\theta_2,\cdots,\theta_n$. Then, the \textbf{Likehood Function} for sample data $\{x_1,x_2,\cdots,x_n\}$ is defined as \begin{align*}
+f(x_1,x_2,\cdots,x_n;\theta_1,\theta_2,\cdots,\theta_n)
+\end{align*}
+\hfill\\
+And \textbf{Maximum Likelihood Estimation} is finding choices of parameters $\widehat{\theta_1},\cdots,\widehat{\theta_n}$ which maximize the likehood function for the observed sample data $\{x_1,x_2,x_3,\cdots,x_n\}$. That is, find $\widehat{\theta_1},\cdots,\widehat{\theta_n}$ such that \begin{align*}
+f(x_1,x_2,\cdots,x_n;\widehat{\sigma_1},\widehat{\sigma_2},\cdots,\widehat{\sigma_n})\geq f(x_1,x_2,\cdots,x_n;\theta_1,\theta_2,\cdots,\theta_n)
+\end{align*}
+for all possible values of $\theta_1,\theta_2,\cdots,\theta_n$.\\
+\hfill\\
+Then, $\widehat{\theta_1},\cdots,\widehat{\theta_n}$ is the \textbf{maximum likelihood estimators} for $\theta_1,\cdots,\theta_n$ respectively, using $\{x_1,x_2,\cdots,x_n\}$. If we substitute $X_i$ for $x_i$, we will get maximum likelihood estimators $\widehat{\theta_1},\cdots,\widehat{\theta_n}$ for $\theta_1,\theta_2,\cdots,\theta_n$ respectively."
+Point Estimation,Methods of Point Estimation,Maximum Likelihood Estimation,theorem,"\textbf{Properties of Maximum Likelihood Estimators}:\begin{enumerate}
+\item \textbf{Invariance Principle}: If $\widehat{\sigma_1},\widehat{\sigma_2},\cdots, \widehat{\sigma_n}$ are maximum likelihood estimators for $\sigma_1,\cdots,\sigma_n$, then $h(\widehat{\sigma_1},\cdots,\widehat{\sigma_n})$ is an maximum likelihood estimators for $h(\sigma_1,\cdots,\sigma_n)$
+\item \textbf{Large Sample Behavior}: When sample size is large, the maximum likelihood estimators $\widehat{\sigma}$ for $\sigma$ is atleast approximate unbiased, i.e $\widehat{\sigma}\approx \sigma$ and has variance that is either small as (or nearly as small as) can be achieved by any estimator.
+\end{enumerate}"
+Point Estimation,Methods of Point Estimation,Maximum Likelihood Estimation,example,"\textbf{Sampling From Exponential Distribution}:\\
+Suppose $\{X_1,X_2,X_3,\cdots,X_n\}$ be a random sample from $\text{exp}(\lambda)$. Then the probability density function of $X_i$ is $f(x_i;\lambda)=\lambda e^{-\lambda x_i}$.\\
+\hfill\\
+Then the likelihood function is \begin{align*}
+f(x_1,x_2,\cdots,x_n;\lambda)&=\prod_{i=1}^n f(x_i;\lambda)\\
+&=\lambda e^{-\lambda x_1}\cdot \lambda e^{-\lambda x_2}\cdots \lambda e^{-\lambda x_n}\\
+&=\lambda^n e^{-\lambda(x_1+x_2+\cdots+x_n)}
+\end{align*}
+Therefore, \begin{align*}
+f(x_1,x_2,\cdots,x_n;\lambda)&=\lambda^n \text{ exp}(-\lambda \sum_{i=1}^nx_i)
+\end{align*}
+Then, we want to maximize this as a function of $\lambda$'s. \\
+If $g(\lambda)=\lambda^n \text{ exp}(-\lambda \sum_{i=1}^nx_i)$, then \begin{align*}
+\ln(g(\lambda))&=\ln(\lambda^n\text{ exp}(-\lambda \sum_{i=1}^nx_i))\\
+&=\ln(\lambda^n)+\ln(\text{exp}(-\lambda\sum_{i=1}^nx_i))\\
+&=n\ln (\lambda)-\lambda\sum_{i=1}^n x_i
+\end{align*}
+This is log likelihood function, which is easier to maximize.\\
+Let $h(\lambda)=\ln (g(\lambda))$, then \begin{align*}
+h'(\lambda)&=\frac{d}{d\lambda}\left(n\ln (\lambda)-\lambda \sum_{i=1}^n x_i \right)\\
+&=n\cdot  \frac{1}{\lambda}-\sum_{i=1}^n x_i
+\end{align*} 
+Therefore, \begin{align*}
+h'(\lambda)=0\implies n\cdot \frac{1}{\lambda}=\sum_{i=1}^n x_i\implies \lambda =\frac{1}{\frac{1}{n}\sum_{i=1}^n x_i}
+\end{align*}
+Also, $h''(\lambda)=\frac{-n}{\lambda^2}<0\implies \lambda =\frac{1}{\frac{1}{n}\sum_{i=1}^n x_i}$ is a point of local maxima.\\
+\hfill\\
+Since $\ln$ is an increasing function, then $\lambda =\left(\frac{1}{n}\sum_{i=1}^nx_i \right)^{-1}$ maximizes $h(\lambda)\implies \lambda = \left(\frac{1}{n}\sum_{i=1}^nx_i \right)^{-1}$ maximizes the likelihood function $g(\lambda)$. Therefore, the maximum likelihood estimator for $\lambda$ is $\widehat{\lambda}=\frac{1}{\overline{X}}$, and this is the same as the moment estimator for $\lambda$"
+Point Estimation,Methods of Point Estimation,Maximum Likelihood Estimation,example,"\textbf{Sampling From Normal Distribution}\\
+Suppose $\{X_1,X_2,X_3,\cdots,X_n\}$ be a random sample from $N(\mu,\sigma^2)$. Then $X_i$ has the following probability density function \begin{align*}
+f(x_i;\mu,\sigma^2)&=\frac{1}{\sqrt{2\pi} \sigma}\cdot e^{-\frac{(x_i-\mu)^2}{2\sigma^2}}
+\end{align*} 
+Then, the likelihood function is given as \begin{align*}
+f(x_1,x_2,\cdots,x_n;\mu, \sigma^2)&=\prod_{i=1}^n f(x_i;\mu, \sigma^2)\\
+&=\left(\frac{1}{\sqrt{2\pi}\sigma} \right)^n\cdot e^{-\sum_{i=1}^n\left(\frac{(x_i-\mu)^2}{2\sigma^2} \right)}
+\end{align*}
+So that the log-likelihood function is \begin{align*}
+\ln(f(x_1,x_2,\cdots,x_n;\mu,\sigma^2))&=\ln\left(\frac{1}{\sqrt{2\pi}\sigma} \right)^n+\ln \left( e^{-\sum_{i=1}^n\left(\frac{(x_i-\mu)^2}{2\sigma^2}\right)}\right)\\
+&=\frac{n}{2}\ln \left(\frac{1}{2\pi \sigma^2} \right)-\frac{1}{2\sigma^2}\sum_{i=1}^n(x_i-\mu)^2
+\end{align*}
+Therefore, \begin{align*}
+h(\mu, \sigma^2)&=\frac{n}{2}\ln\left(\frac{1}{2\pi \sigma^2} \right)-\frac{1}{2\sigma^2}\sum_{i=1}^n(x_i-\mu)^2
+\end{align*}
+Then, we need to maximize $h(\mu,\sigma^2)$ to calculate critical values, i.e calculate critical value where $\diffp{h}{\mu}=0 $ and $\diffp{h}{{{\sigma^2}}}=0 $. We can use Hessian matrix to show that these are max.\\
+Then, we can show that the maximum likehood estimators are \begin{align*}
+\widehat{\mu}&=\overline{X}\\
+\widehat{\sigma^2}&=\frac{1}{n}\sum_{i=1}^n\left(X_i-\overline{X} \right)^2
+\end{align*}
+Note that while $\widehat{\mu}$ is unbiased, $\widehat{\sigma^2}$ is biased!"
+Statistical Inference,Point estimators,,general description,"Point estimators are an attempt at estimating a quantity of interest about the population. We have already seen this idea in play: the sample average is how we estimate the population mean (i.e the sample average is a point estimator for the population mean) and the sample variance is a point estimator for the population variance.
+
+\defn{
+    Suppose that $\theta$ is a parameter. An \textit{estimator} for $\theta$, denoted by $\hat{\theta}$ (and $\hat{\theta}_n$ if we want to emphasize the sample size) is a statistic (i.e a function defined on the random sample).
+}
+
+\ex{
+\[
+    \overline{X} = \frac{X_1 + \ldots + X_n}{n}
+\]
+\[
+T = \frac{X_1^2 + X_2^2 + \ldots + X_n^2}{n^2 + 1}
+\]
+$\overline{X}$ and $T$ are both statistics, and hence qualify as estimators for $E(X)$.
+}\\
+
+Once a \textit{random sample has been realized} (i.e once observations are made) we can use the observed values along with the estimator to \textit{create} an estimate. For example, suppose $n=3$, $x_1 = 1$, $x_2 = 2$, and $x_3 =3$ in the above. Then
+\begin{gather*}
+    \overline{x} = \frac{1 + 2 + 3}{3} \\
+    t = \frac{1^2 + 2^2 + 3^3}{3} = \frac{1+4+9}{3} = \frac{14}{3}
+\end{gather*}
+
+The above example seems a little strange. We know $\overline{X}$ has been used repeatedly to estimate $E(X)$ but we have never used $T$. The reason is that $\overline{X}$ has mathematical properties that make it \textit{useful} in estimating $E(X)$ while $T$ does not have these properties. This shows that simply being an estimator is likely not enough to be a \textit{useful} estimator. We need something more."
+Statistical Inference,Point estimators,"Unbiasedness, Consistency and Mean Squared Error",general description,"We now turn our attention towards what makes a good (useful) estimator. There are several notions that are interrelated. We look at a couple below.
+
+Let $X_1,...X_n$ be a sample of size $n$. Let $\hat{\theta}_n$ be an estimator for $\theta$ (i.e. $
+\hat\theta_n$ is a statistic). Now $\hat\theta_n$ is said to be: 
+\begin{enumerate}
+    \item is said to be \textit{unbiased} if $E(\hat\theta_n) = \theta$ for all possible values of $\theta$.
+    \item has a \textit{mean square error} (MSE) given by \[
+\text{MSE}(\hat{\theta}_n) = E\left((\hat{\theta}_n - \theta)^2\right)
+\]
+
+    \item is said to be \textit{consistent} if for every $\varepsilon > 0$, 
+    \[
+    \lim_{n\rightarrow \infty} P(|\hat{\theta}_n - \theta|> \varepsilon) = 0
+    \]
+
+\end{enumerate}
+
+\note
+\begin{itemize}
+    \item Unbiasedness indicates that we get the correct answer on average. 
+    \item Consistency means that as the sample size (denoted by $n$) increases, the probability of making a \textit{significant error} (measured by $\varepsilon$) decreases towards zero.  
+    \item The mean squared error measures how much the estimator deviates from the actual value on average. Given two (or more) estimators the one with the least mean squared error can be deemed to be ``good"". 
+    \item In order to keep the notation somewhat simple, in many situations we will abuse notation slightly and drop the subscript $n$ which is used to emphasize the sample size. For example, we may talk about $\overline{X}$ being a consistent estimator for $\mu$ when it is more precise to talk about $\overline{X}_n$ being consistent for $\mu$.  
+    \item $\overline{X}$ is both an unbiased and consistent estimator for $E(X) = \mu$. The latter half of the statement relating to $\overline{X}$ being consistent is called the weak law of large numbers. 
+    \item $S^2$ (the sample variance) is an unbiased estimator for $\sigma^2$. In fact the (up to now mysterious) division by $n-1$ of $\sum_{i=1}^n (X_i - \overline{X})^2$ is related to this. However the more ""natural estimator"" $
+T = \frac{1}{n} \sum_{i=1}^n \left(X_i - \overline{X}\right)^2
+$ for $\sigma^2$ is a biased estimator.
+    \item The principle of unbiased estimation states that we prefer unbiased estimators over once that are not.
+\end{itemize}
+
+Let $X_1, \ldots, X_n$ be a random sample with $E(X_1) = \mu$ and $V(X_1) = \sigma^2$. Let's show that $\overline{X}$ is an unbiased estimator for $\mu$.
+
+\begin{align*}
+    E(\overline{X}) 
+    &= E\left(\frac{1}{n} \sum_{i=1}^n X_i\right) \\
+    &= \frac{1}{n} E\left( \sum_{i=1}^n X_i\right) \\
+    &= \frac{1}{n} \sum_{i=1}^nE\left(  X_i\right) \\
+    &= \frac{1}{n} n \mu = \mu
+\end{align*}
+
+However, this is not the only unbiased estimator. \\
+
+\exercise Show that $X_1$ and $\frac{3X_1 + 4X_2}{7}$ are also all unbiased estimators of $\mu$.\\
+
+To determine which of these estimators is better, we can turn towards comparing their mean squared errors. But before we look at the details, it helps to develop a little bit more terminology and results that relate the concepts of unbiasedness and mean squared error together. 
+
+\defn{The quantity
+$E(\hat{\theta}) - \theta$
+is called the \textit{bias} of the estimator $\hat{\theta}$. We will denote it by $\text{bias}(\hat{\theta})$.
+}\\
+
+We can now rewrite the mean squared error as follows:
+
+\[
+\text{MSE}(\hat{\theta}) = 
+(\text{bias}(\hat{\theta}))^2 + V(\hat{\theta})
+\]
+
+For unbiased estimators which have a bias of $0$, the equation becomes
+\[
+\text{MSE}(\hat{\theta}) = 
+V(\hat\theta) 
+\]
+
+So computing the mean squared errors we obtain: 
+\begin{align*}
+    V(\overline{X}) 
+    &= V\left(\frac{1}{n}\sum_{i=1}^n X_i\right) \\
+    &= \frac{1}{n^2} V\left(\sum_{i=1}^n X_i\right) \\
+    &= \frac{1}{n^2} \sum_{i=1}^n V(X_i) \text{ (as } X_i \text{ are independent)} \\
+    &= \frac{1}{n^2} n\sigma^2 = \frac{\sigma^2}{n}\\
+    \\
+    V(X_1) &= \sigma^2 \\
+    \\
+    V\left(\frac{3X_1 + 4X_2}{7}\right) &=
+    \frac{1}{49} \left(9V(X_1) + 16 V(X_2)\right) \\
+    &= \frac{25}{49} \sigma^2 \approx \frac{\sigma^2}{2}
+\end{align*}
+
+So, for a larger sample (in fact, for $n\geq 3$ in this example), 
+\[
+V(\overline{X}) < V\left(\frac{3X_1 + 4X_2}{7}  \right) < V(X_1)
+\]
+
+Thus $V(\overline{X})$ seems like the better choice.
+
+\defn{
+The \textit{MVUE (minimum variance unbiased estimator)} tells us that When we have multiple unbiased estimators, we should pick the one with the lowest variance. 
+}\\"
+Statistical Inference,Constructing Estimators,,general description,"So far we have discussed what makes a point estimator good. What we have not done is discuss how to construct a point estimator. In this section, we talk about how to construct point estimators that under certain technical conditions have good properties.\\
+
+\textit{The setup:} We have a random sample $X_1, \ldots, X_n$ with the common probability mass function/probability density function $f(x; \theta)$."
+Statistical Inference,Constructing Estimators,The method of moments,general description,"We start our discussion with the method of moments (abbreviated as \textbf{MM}). The method of moments relies on:
+\begin{enumerate}
+    \item $\frac{1}{n}\sum_{i=1}^n X_i^k$ being a good point estimator for the \textit{$k$th moment} $E(X^k)$, where $X$ is an R.V with the population distribution. This is due to the law of large numbers.
+    \item Exploiting various relationships between the parameters and the moments.
+\end{enumerate}
+
+\ex{
+Suppose $X_1, \ldots, X_n$ is a random sample with $X_i \sim Ber(p)$. $p$ is a fixed but unknown number. Construct a point estimator $\hat{p}_{MM}$ using the method of moments.\\
+
+Let $X$ be a random variable with the same population distribution as the $X_is$, i.e $X \sim Ber(p)$. Now $E(X) = p $. Also, $\frac{1}{n}\sum_{i=1}^n X_i$ is a point estimator for $E(X)$, thus the first moment $E(X)$ can be estimated by $\frac{1}{n}\sum_{i=1}^n X_i$. But since $p = E(X)$, then $p$ can be estimated by
+\[
+\hat{p}_{MM} = \frac{1}{n} \sum_{i=1}^n X_i
+\]
+}
+
+\ex{
+Let $X_1, \ldots, X_n$ be a random sample with $X_i \sim \mathcal{N}(\mu,\sigma^2)$, where $\mu$ and $\sigma^2$ are fixed but unknown numbers. Construct point estimators $\hat{\mu}_{MM}$ and $\hat{\sigma}^2_{MM}$ for $\sigma^2$.\\
+
+Let $X \sim \mathcal{N}(\mu, \sigma^2)$. Now $E(X) = \mu$ and $V(X) = \sigma^2$. But $V(X) = E(X^2) - [E(X)]^2$. Note that $\frac{1}{n}\sum X_i$ is a point estimator for $E(X)$, and $\frac{1}{n} \sum X_i^2$ is a point estimator for $E(X^2)$. Thus we can construct the method of moments estimators
+\begin{gather*}
+    \hat{\mu}_{MM} = \frac{1}{n} \sum_{i=1}^n X_i \\
+    \hat{\sigma}^2_{MM} = \frac{1}{n} \sum_{i=1}^n X_i^2 - \left(\frac{1}{n} \sum_{i=1}^n X_i\right)^2
+\end{gather*}
+\label{example:norm_MM}
+}
+
+In algorithmic form, the method of moments can be written down as:
+
+\begin{enumerate}
+\item Step 1: Given parameters $\theta_1, \ldots, \theta_k$, write as many moments $E(X), \ldots, E(X^m)$ as needed as functions of the parameters $\theta_i$.
+
+\iffalse	\begin{center}
+	\begin{tabular}{ c c c }
+	 $E(X)$ & = & $h_1(\theta_1, \ldots, \theta_k)$\\ 
+	 $E(X^2)$ & =& $h_2(\theta_1, \ldots, \theta_k)$\\  
+	 $\vdots$ & & \\
+	 $E(X^k)$ & = & $h_k(\theta_1, \ldots, \theta_k)$
+	\end{tabular}
+	\end{center} \fi
+
+\item Step 2: Solve for $\theta_i$ in terms of the moments. \iffalse
+	\begin{center}
+	\begin{tabular}{ c c c }
+	 $\theta_1$ & = & $\ell_1(E(X_1), \ldots, E(X^k))$\\
+	 $\vdots$ & & \\
+	 $\theta_k$ & = & $\ell_k(E(X), \ldots, E(X^k))$
+	\end{tabular}
+	\end{center} \fi
+
+\item Step 3: Form the estimators $\hat{{\theta_i}}_{MM}$. \iffalse
+	\[
+		\hat{\theta_i}_{MM} = \ell_i\left(
+			\frac{1}{n} \sum_{j=1}^n X_j,
+			\frac{1}{n} \sum_{j=1}^n X_j^2,
+			\ldots,
+			\frac{1}{n} \sum_{j=1}^n X_j^k
+		\right)
+	\] \fi
+\end{enumerate}
+
+Based on our examples so far, it is tempting to conclude that $k=m$. However, this is not the case: If $X_1, \ldots, X_n$ be a random sample with $X_i \sim U[-\theta, \theta]$, then $E(X_i)=0$ so we actually need to consider $E(X_i^2)$ in order to construct an estimator for $\theta$.
+
+\note
+\begin{enumerate}
+	\item Our example with a random sample $X_1, \ldots, X_n$ with $X_1 \sim Ber(p)$ is related to our example in the previous section of attempting to determine the probability with which a coin comes up heads (Example \ref{example:estimate_p_coin_flip}). A natural approach to estimating such a probability would be tossing the coin multiple times and then computing the estimate as
+		\[
+			\frac{
+				\text{\# of heads}
+			}{
+				\text{\# of tosses}
+			}
+		\]
+		This is exactly what the $\hat{p}_{MM}$ suggests that you do!
+	\item The method of moments can yield biased estimators (for example, $\hat{\sigma}^2_{MM}$ in Example \ref{example:norm_MM} is biased).
+	\item Under certain technical conditions, the method of moments gives a consistent estimator. These topics are beyond the scope of this class.
+\end{enumerate}"
+Statistical Inference,Constructing Estimators,Maximum likelihood estimation,general description,"We now turn our attention to maximum likelihood estimation (abbreviated as \textbf{MLE}). The idea behind maximum likelihood estimators is to find an estimator $\hat{\theta}$ that maximizes the probability of the observed sample.
+
+Maximum likelihood has two steps.
+
+\begin{itemize}
+	\item \textit{Step I}: Given a random sample $X_1, \ldots, X_n$ with a common probability mass/probability density function $f(x;\theta)$, compute the joint probability mass/probability density function. We typically write:
+	\[
+			\prod_{i=1}^n f(x; \theta)
+	\]
+	Here, we are using the independence of the $X_i$'s to write the joint pmf/joint pdf as a product of the invidual pmfs/pdfs.
+
+	\item \textit{Step II}: Define the likelihood function:
+	\[
+		\mathcal{L}(\underline{\theta}) = \prod_{i=1}^n f(x_i;\underline{\theta})
+	\]
+	Find the $\hat{\underline{\theta}}$ which maximizes $\mathcal{L}(\underline{\theta})$.
+\end{itemize}
+
+Notice that we are thinking of the joint pmf/joint pdf as a function of $\underline{\theta}$. The idea is that when we are given observations $x_1, \ldots, x_n$ \textit{they are fixed} values. We seek to find the $\underline{\theta}$ that maximizes $\mathcal{L}(\underline{\theta})$, where $\underline{\theta}$ is the parameter (or collection of parameters) with values which are unknown to us. Further, step II requires us to optimize $\mathcal{L}(\underline{\theta})$. This suggests that calculus techniques will come into play.
+
+\ex{
+	Let $X_1, \ldots, X_n$ be a random sample with $X_1 \sim Ber(p)$. We find the MLE for $p$.
+
+	Note that given $X\sim Ber(p)$, the probability mass is given by
+	\[
+		f(x;p) = p^x (1-p)^{1-x}
+	\]
+	for $x=0,1$ and 0 otherwise.
+
+	Let's take $\theta = p$. Now we have
+	\[
+		\mathcal{L}(\theta) = \prod_{i=1}^n \theta^{x_i} (1-\theta)^{1-x_i}
+	\]
+
+	We want to find the value of $p$ that maximizes the above. A natural way to do this is by using calculus: Find the critical value for $\mathcal{L}(p)$. However, we will run into some computational difficulties if we try to compute $\mathcal{L}'(p)$ (we would need to use the product rule multiple times). We now pause the example for the moment and introduce the log-likelihood function that allows us to tackle this problem:
+}
+	\defn{
+	The log-likelihood function $\ell(\underline{\theta})$ is defined as $\ell(\underline{\theta}) = \ln \mathcal{L} (\underline{\theta})$.
+	}
+
+	Note that: 
+	\[
+	\ell(\underline{\theta}) = 
+	\ln \prod_{i=1}^n f(x_i, \underline{\theta}) =
+	\sum_{i=1}^n \ln f(x_i;\theta)
+	\]
+
+	Thus, the \textit{log-likelihood is far easier to differentiate}, since the derivative of a sum is easier to compute than that of a product.\\
+
+	\exercise Explain why finding a $\underline{\theta}$ that maximizes $\mathcal{L}(\underline{\theta})$ is equivalent to finding a $\underline{\theta}$ that maximizes $\ell(\underline{\theta})$. (Hint: $\ln(x)$ is an increasing function).\\
+
+\textbf{Example continued. }
+
+Now, we will write out the log-likelihood, take the derivative, and complete the derivation.
+\begin{align*}
+	\mathcal{L}(\theta) &= \prod_{i=1}^n \theta^{x_i} (1-\theta)^{1-x_i} \\
+			    & \\
+	\ell(\theta) 
+	&= \ln \prod_{i=1}^n \theta^{x_i} (1-\theta)^{1-x_i} \\
+	&= \sum_{i=1}^n \ln\left( \theta^{x_i} (1-\theta)^{1-x_i} \right)\\
+	&= \sum_{i=1}^n \left( \ln\theta^{x_i}  + \ln (1-\theta)^{1-x_i} \right)\\
+	&= \sum_{i=1}^n \left( x_i \ln\theta  +  (1-x_i)\ln (1-\theta) \right)\\
+	& \\
+	\ell'(\theta) 
+	&= \frac{d}{d\theta} \left[\sum_{i=1}^n \left( x_i \ln\theta  +  (1-x_i)\ln (1-\theta) \right)\right]\\
+	&= \sum_{i=1}^n \left(
+		\frac{d}{d\theta}\left(
+			x_i \ln\theta  +  (1-x_i)\ln (1-\theta)
+		\right)
+	\right)\\
+	&= \sum_{i=1}^n \left(
+			\frac{x_i}{\theta}  +  \frac{1-x_i}{1-\theta}(-1)
+	\right)\\
+	&= \sum_{i=1}^n \left(
+			\frac{(1-\theta)x_i - \theta(1-x_i)}{\theta(1-\theta)}  
+	\right)\\
+	&= \sum_{i=1}^n \left(
+			\frac{(1-\theta)x_i - \theta(1-x_i)}{\theta(1-\theta)}  
+	\right)\\
+	&= \sum_{i=1}^n \left(
+			\frac{x_i - \theta x_i - \theta + \theta x_i}{\theta(1-\theta)}  
+	\right)\\
+	&= \sum_{i=1}^n \left(
+			\frac{x_i - \theta}{\theta(1-\theta)}  
+	\right)
+\end{align*}
+
+Setting $\mathcal{L}'(\theta)=0$ we obtain
+
+\begin{gather*}
+	\frac{1}{\hat{\theta}(1 - \hat{\theta})} \sum_{i=1}^n (x_i -\hat{\theta}) = 0 \\
+	\left(\sum_{i=1}^n x_i\right) - n \hat{\theta} = 0 \\
+	\hat{\theta} = \frac{1}{n} \sum_{i=1}^n x_i
+\end{gather*}
+
+Thus, the maximum likelihood estimate is $\hat{p}_{MLE} = \frac{1}{n} \sum_{i=1}^n x_i$ and the maximum likelihood estimator is
+\[
+	\hat{p}_{MLE} = \frac{1}{n} \sum_{i=1}^n X_i
+\]
+
+\ex{
+	Suppose that $X_1, \ldots, X_n$ is an (iid) random sample with $X_1 \sim \mathcal{N}(\mu, \sigma^2)$ where both $\mu, \sigma^2$ are fixed but unknown. Find the MLEs for $\mu, \sigma^2$.\\
+
+	Take $\theta_1 = \mu, \theta_2 = \sigma^2$. Then the pdf of a single random variable $X_i$ is given by:
+	\[
+		\frac{1}{\sqrt{2 \pi \theta_2}} e^{-\frac{(x - \theta_1)^2}{2\theta_2}}
+	\]
+	Now, we proceed to write the likelihood and log-likelihood.
+	\begin{align*}
+		\mathcal{L}(\theta_1, \theta_2) 
+		&= \prod_{i=1}^n \frac{1}{\sqrt{2 \pi \theta_2}} e^{-\frac{(x_i-\theta_1)^2}{2\theta_2}}\\
+		&\\
+		\ell(\theta_1, \theta_2)
+		&=
+		\sum_{i=1}^n \ln\left(
+			\frac{1}{\sqrt{2 \pi \theta_2}}e^{-\frac{(x_i-\theta_1)^2}{2\theta_2}}
+		\right) \\
+		&=
+		\sum_{i=1}^n \left[
+			-\frac{1}{2}\ln(2\pi\theta_2)
+			+
+			\ln e^{-\frac{(x_i-\theta_1)^2}{2\theta_2}}
+		\right] \\
+		&=
+		\sum_{i=1}^n
+			-\frac{1}{2}\ln(2\pi) 
+			-\frac{1}{2}\ln(\theta_2)
+			-\frac{(x_i-\theta_1)^2}{2\theta_2} \\
+		&=
+			-\frac{n}{2}\ln(2\pi) 
+			-\frac{n}{2}\ln(\theta_2)
+			-\frac{1}{2\theta_2}  \sum_{i=1}^n (x_i-\theta_1)^2
+	\end{align*}
+	Next, the critical points $(\hat{\theta_1}, \hat{\theta_2})$ of $\ell(\theta_1,\theta_2)$ should satisfy the equations
+	\begin{gather*}
+	\frac{\partial \ell}{\partial \theta_1} 
+	\bigg \rvert_{(\theta_1, \theta_2) = (\hat{\theta_1},\hat{\theta_2})} = 0 \\
+	\frac{\partial \ell}{\partial \theta_2} 
+	\bigg \rvert_{(\theta_1, \theta_2) = (\hat{\theta_1},\hat{\theta_2})} = 0
+	\end{gather*}
+	Writing out the derivatives, we get
+	\begin{align*}
+		\frac{\partial \ell}{\partial \theta_1} 
+		&= -\frac{1}{2\theta_2} \sum_{i=1}^n 2(x_i - \theta_1)(-1) \\
+		&= \frac{1}{\theta_2} \sum_{i=1}^n (x_i - \theta_1) \\
+		& \\
+		\frac{\partial \ell}{\partial \theta_2}
+		&= -\frac{n}{2\theta_2} + \frac{1}{2\theta_2^2} \sum_{i=1}^n (x_i - \theta_1)^2
+	\end{align*}
+
+	Solving for $(\hat{\theta}_1, \hat{\theta}_2)$ that simultaneously make $\frac{\partial\ell_1}{\partial \theta_1}$, $\frac{\partial \ell_2}{\partial \theta_2}$ equal 0 we obtain:
+	\begin{gather*}
+		\hat{\theta_1} = \frac{1}{n} \sum_{i=1}^n x_i \\
+		\hat{\theta_2} = \frac{1}{n} \sum_{i=1}^n (x_i - \hat{\theta}_1)^2 = \frac{1}{n} \sum_{i=1}^n (x_i - \overline{x})^2
+	\end{gather*}
+}
+
+So far, the method of moments and maximum likelihood estimators have both given us the same estimators. The following example illustrates this is not always the case.
+
+\ex{
+	Let $X_1, \ldots, X_n$ be a random sample with $X_1 \sim U[0,\theta]$ where $\theta > 0$ is fixed but unknown. Now
+	\[\hat{\theta}_{MM} = \frac{2}{n} \sum_{i=1}^n X_i\]
+	but on the other hand,
+	\[
+		\hat{\theta}_{MLE} = \max\{X_1, \ldots, X_n\}
+	\]
+}
+
+\section{}
+Under suitable conditions, maximum likelihood estimators are consistent as well. In addition, they are:
+\begin{enumerate}
+	\item Invariant: Given a function $g$, the MLE for $g(\theta)$ is $g(\hat{MLE})$.
+	\item Asymptotically unbiased: Even if the MLE is biased, as the sample size increases, the bias goes to zero.
+\end{enumerate}
+
+There are further properties that we do not discuss here."
+Statistical Inference,A quick look back,,general description,"Now that we have discussed point estimators, here are some important facts about how we approached the topics.
+
+\begin{enumerate}
+	\item Values of parameters are \textit{fixed} but they are not known to us.
+	\item When constructing estimators we took a \textit{parametric approach}, i.e we assumed that we knew the distribution of the population but not the value of the parameters. If these assumptions are incorrect, the information given by the estimators will not be useful.
+ \item Notions of good for estimators depend on having good long run properties: on average, over a large sample (i.e. over a large number of observations from repeated repetitions). 
+\end{enumerate}
+
+
+
+\thischapterexercises
+
+\exerciseitem Show that $S^2$ is an unbiased estimator for $\sigma^2$, but $T = \frac{1}{n} \sum (X_i - \overline{X})^2$ is not. \textit{Hint: $T= \frac{n}{n-1} S^2$, so $E(T)$ is easy to compute. The hard work goes into showing $S^2$ is unbiased.}\\
+
+\exerciseitem Compute the bias, variance and mean squared error for $T= \frac{n}{n-1} S^2$. 
+
+\exerciseitem Chebychev's inequality tells us that given any random variable $X$ with $E(X) = \mu$ and $V(X) = \sigma^2$, we have (for any $c > 0$)
+\[
+P\left(|X - \mu| \geq c\right) \leq \frac{\sigma^2}{c^2}
+\]
+
+Let $X_1, \ldots, X_n$,\ldots be i.i.d random variables that have the same distribution as $X$. Use this to prove the \textit{weak law of large numbers} for all such random variables. \\
+
+\exerciseitem Consider Example \ref{example:estimate_p_coin_flip} where you are attempting to determine the probability $p$ of a coin coming up heads. Suggest an experiment to approximate the value of $p$. \\
+
+\exerciseitem The following 10,000 numbers (hosted on ELMS) were generated from a Uniform distribution on $[0,\theta]$. Suggest an estimator $\hat{\theta}$ to estimate $\theta$ \textit{and} use $R$ to obtain the estimate based on the data. \\
+
+\exerciseitem  The following 10,000 numbers (hosted on ELMS) were generated from an Exponential distribution, i.e random samples of the random variable $X \sim \text{Exp}(\lambda)$. Suggest an estimator $\hat{\lambda}$ to estimate $\lambda$ \textit{and} use $R$ to obtain the estimate based on the data.\\
+
+\exerciseitem Consider a random variable $X$ with $E(X) = \mu$ and $V(X) = \sigma^2$. Let $X_1, \ldots, X_n$ be i.i.d, with each $X_i \sim X$ (i.e, a random sample of the variable $X$). Let
+\[
+T = k \sum_{i=1}^n i X_i
+\]
+You are given that $T$ is unbiased. What is the value of $k$?
+
+
+\exerciseitem Suppose that $X_1, \ldots, X_n$ is a random sample with $X_1 \sim exp(\lambda)$. Compute the MM estimator and the MLE for $\lambda$. \\
+
+\exerciseitem Suppose that $X_1, \ldots, X_n$ is a random sample where the pdf of $X_1$ is given by $f$ (defined below).
+\[
+	f(x;\theta) = 
+	\begin{cases}
+		\theta x^{\theta-1} & 0\leq x \leq 1 \\
+		0 & \text{o.w}
+	\end{cases}
+\]
+Let $\theta > 1$ be fixed. Compute the MM estimator and MLE for $\theta$.\\
+
+\exerciseitem Let $X_1, \ldots, X_n$ be a random sample with $X_1 \sim U[0,\theta]$ where $\theta > 0$ is fixed but unknown.
+\begin{enumerate}
+	\item Compute $\hat{\theta}_{MM}$.
+	\item Compute $\hat{\theta}_{MLE}$. 
+	
+	\textit{Hint: $\mathcal{L}(\theta) = \frac{1}{\theta^n}$. 
+	To obtain the estimator, explain why $\theta \geq \max\{x_1, \ldots, x_n\}$. Also, explain why if we have $\theta_1 < \theta_2$, then we have $\mathcal{L}(\theta_1) > \mathcal{L}(\theta_2)$.} 
+
+\item Which do you think is better in this case, $\hat{\theta}_{MM}$ or $\hat{\theta}_{MLE}$? Verify your guess empirically by writing a suitable program in $R$.
+\end{enumerate}"
+Unknown Chapter,Constructing Confidence Intervals,,general description,"Let's start with an example to get an idea of what the process might look like. 
+
+\ex{
+Suppose that we have a random sample $X_1, \ldots, X_n$ with $X_1 \sim \mathcal{N}(\mu, \sigma^2)$. $\sigma^2$ is known, but $\mu$ is not known. We want to construct an interval $I(X_1, \ldots, X_n) = \left((a(X_1,\ldots, X_n), b(X_1, \ldots, X_n)\right)$ such that
+\[
+P(\mu \in I(X_1, \ldots, X_n)) 
+=
+P\left(
+a(X_1, \ldots, X_n) 
+< \mu <
+b(X_1, \ldots, X_n)
+\right)
+= 0.99
+\]
+\label{example:CI_norm_knownSD}
+}
+
+It seems reasonable to try to use our knowledge of $\overline{X}$ in the construction. We start with the following fact:\\
+
+\textbf{Fact. }If $Y_1, \ldots, Y_m$ are independent random variables such that for each $i$ we have $Y_i \sim \mathcal{N}(\mu_i, \sigma^2_i)$, then we have that
+\[
+\sum_{i=1}^m a_i Y_i \sim 
+\mathcal{N}\left(
+    \sum_{i=1}^m a_i \mu_i,
+    \sum_{i=1}^m a_i^2 \sigma^2_i
+\right)
+\]\\
+
+A consequence of this fact is that $\overline{X} \sim \mathcal{N}(\mu, \frac{\sigma^2}{n})$.\\
+
+\note This is not an application of the CLT. This result is true even when the sample size is small $(n<30)$ and is exact (i.e, not an approximation) compared to our previous applications of the CLT.
+
+Now note that from our previous knowledge of normal random variables,
+\[
+\frac{\overline{X} - \mu}{\sigma / \sqrt{n}} \sim \mathcal{N}(0,1)
+\]
+
+Thus, we have that
+\begin{align*}
+    P\left(-z_{0.005} < \frac{\overline{X}-\mu}{\sigma/\sqrt{n}}< z_{0.005} \right ) &= 0.99 \\
+    P\left(-2.5758 < \frac{\overline{X} - \mu}{\sigma/\sqrt{n}} < 2.5758\right) &= 0.99
+\end{align*}
+
+\[
+P\left(\overline{X} - 2.5758 \frac{\sigma}{\sqrt{n}} < \mu < \overline{X} + 2.5758\frac{\sigma}{\sqrt{n}}\right) = 0.99
+\]
+
+So, it seems reasonable to have the interval be 
+\[
+I(X_1, \ldots, X_n) = 
+\left(
+\overline{X} - 2.5758 \frac{\sigma}{\sqrt{n}},
+\overline{X} + 2.5758 \frac{\sigma}{\sqrt{n}}
+\right)
+\]
+as we have that $P(\mu \in I) = 0.99$.
+
+Let's consider a more concrete example. 
+
+\ex{
+Take $n=10$ and $\sigma^2=4$, i.e we have a random sample $X_1, \ldots, X_{10}$ where $X_i \sim \mathcal{N}(\mu,4)$. Recall again that $\mu$ is fixed, but unknown to us. 
+
+Suppose that we carry out an experiment and obtain a realization of the random variables $x_1, \ldots, x_n$. We calculate the sample average $\overline{X} = \frac{1}{10}\sum_i x_i$ and find that $\overline{X}=10$.
+
+We can use the formula from the previous example (\ref{example:CI_norm_knownSD}) to calculate the CI (with confidence level $99\%$) for this realization:
+\[
+\left(
+10 - 2.5758 \frac{4}{\sqrt{10}},
+10 + 2.5758 \frac{4}{\sqrt{10}}
+\right)
+=
+(6.7418, 13.2582)
+\]
+\label{example:CI_norm_knownSD_numerical}
+}
+
+\note
+
+\begin{itemize}
+    \item The results above heavily depended on the fact that $\overline{X} \sim \mathcal{N}(\mu, \frac{\sigma^2}{n})$. This in turn came from the fact that $X_i \sim \mathcal{N}(\mu, \sigma^2)$, where $\sigma^2$ is known.
+    \item The value $0.99$ in the above equation gives us the \textit{confidence level}. In general we can specify the confidence level by $1- \alpha$ ($\alpha$ is called the \textit{significance level}). It is customary to choose $\alpha$ to be $0.01, 0.05$ or $1$ as was noted earlier.
+    \item Regarding Example \ref{example:CI_norm_knownSD_numerical}, it is \textbf{not correct} to say that 
+    \[
+    P(\mu \in (6.7418, 13.2582)) = 0.99
+    \]
+    In fact, since $\mu$ is fixed, this probability is either 0 or 1 depending on whether $\mu$ falls inside the given interval. Confidence intervals should be interpreted using long-run frequencies.
+\end{itemize}"
+Unknown Chapter,Constructing Confidence Intervals,Approximate Confidence Intervals,general description,"In the previous section we made two key assumptions.
+\begin{itemize}
+    \item The data is being generated from a normal distribution.
+    \item The variance for this distribution is known.
+\end{itemize}
+
+These assumptions place strong constraints on constructing confidence intervals, even for $\mu$. It turns out that we can address these issues if we are willing to allow for approximate confidence intervals.
+
+\defn{
+We say that $I(X_1, \ldots, X_n)$ is an $1-\alpha$ approximate confidence interval for $\theta$ if 
+\[
+\lim_n P(\theta \in I(X_1, \ldots, X_n)) = 1-\alpha
+\]
+}
+
+By setting
+\[
+
+\]"
