@@ -1,68 +1,37 @@
+// Load CSV data
 LOAD CSV WITH HEADERS FROM 'file:///concepts_regex_blocks.csv' AS row
+
+// Create or match Chapter node
 MERGE (c:Chapter {name: row.chapter_name})
 
-LOAD CSV WITH HEADERS FROM 'file:///concepts_regex_blocks.csv' AS row
-WHERE row.section_name IS NOT NULL
+// Create or match Section node and connect to Chapter
 MERGE (s:Section {name: row.section_name})
-WITH s, row
-MATCH (c:Chapter {name: row.chapter_name})
-MERGE (c)-[:CONTAINS]->(s)
+MERGE (c)-[:HAS_SECTION]->(s)
 
-LOAD CSV WITH HEADERS FROM 'file:///concepts_regex_blocks.csv' AS row
-WHERE row.subsection_name IS NOT NULL
-MERGE (ss:Subsection {name: row.subsection_name})
-WITH ss, row
-MATCH (s:Section {name: row.section_name})
-MERGE (s)-[:CONTAINS]->(ss)
+// Create Subsection node if it exists and connect to Section
+WITH row, c, s
+OPTIONAL MATCH (ss:Subsection {name: row.subsection_name})
+FOREACH (_ IN CASE WHEN row.subsection_name IS NOT NULL AND row.subsection_name <> '' THEN [1] ELSE [] END |
+  MERGE (ss:Subsection {name: row.subsection_name})
+  MERGE (s)-[:HAS_SUBSECTION]->(ss)
+)
 
-LOAD CSV WITH HEADERS FROM 'file:///concepts_regex_blocks.csv' AS row
-CALL {
-  WITH row
-  CASE row.block_type
-    WHEN 'definition' THEN
-      MERGE (d:Definition {content: row.block_content})
-      WITH d, row
-      MATCH (parent)
-      WHERE (parent:Section AND parent.name = row.section_name)
-         OR (parent:Subsection AND parent.name = row.subsection_name)
-      MERGE (parent)-[:DEFINES]->(d)
-    WHEN 'example' THEN
-      MERGE (e:Example {content: row.block_content})
-      WITH e, row
-      MATCH (parent)
-      WHERE (parent:Section AND parent.name = row.section_name)
-         OR (parent:Subsection AND parent.name = row.subsection_name)
-      MERGE (parent)-[:ILLUSTRATES]->(e)
-    WHEN 'theorem' THEN
-      MERGE (t:Theorem {content: row.block_content})
-      WITH t, row
-      MATCH (parent)
-      WHERE (parent:Section AND parent.name = row.section_name)
-         OR (parent:Subsection AND parent.name = row.subsection_name)
-      MERGE (parent)-[:STATES]->(t)
-    WHEN 'general description' THEN
-      MERGE (gd:GeneralDescription {content: row.block_content})
-      WITH gd, row
-      MATCH (parent)
-      WHERE (parent:Section AND parent.name = row.section_name)
-         OR (parent:Subsection AND parent.name = row.subsection_name)
-      MERGE (parent)-[:DESCRIBES]->(gd)
-    ELSE NULL
-  END
-}
+// Determine the parent node (Subsection if exists, else Section)
+WITH row, c, s, CASE WHEN ss IS NOT NULL THEN ss ELSE s END AS parent
 
-MATCH (c:Chapter)-[:CONTAINS]->(s:Section)
-WITH c, s
-ORDER BY id(s)
-WITH c, collect(s) as sections
-UNWIND range(0, size(sections)-2) as i
-WITH sections[i] as s1, sections[i+1] as s2
-MERGE (s1)-[:PRECEDES]->(s2)
+// Determine the block label based on block_type
+WITH parent, row,
+     CASE row.block_type
+         WHEN 'definition' THEN 'Definition'
+         WHEN 'example' THEN 'Example'
+         WHEN 'theorem' THEN 'Theorem'
+         WHEN 'proof' THEN 'Proof'
+         WHEN 'general description' THEN 'GeneralDescription'
+         ELSE 'Block'
+     END AS blockLabel
 
-MATCH (s:Section)-[:CONTAINS]->(ss:Subsection)
-WITH s, ss
-ORDER BY id(ss)
-WITH s, collect(ss) as subsections
-UNWIND range(0, size(subsections)-2) as i
-WITH subsections[i] as ss1, subsections[i+1] as ss2
-MERGE (ss1)-[:PRECEDES]->(ss2)
+// Create the Block node with appropriate label and content
+CALL apoc.merge.node([blockLabel], {content: row.block_content}) YIELD node AS b
+
+// Connect the Block to the parent node
+MERGE (parent)-[:HAS_BLOCK]->(b);
