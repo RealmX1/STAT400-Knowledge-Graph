@@ -76,7 +76,3 @@ Section:{Uniform Discrete Distribution}
 - **has_application** → **Random Number Generation**, **Simulation**, **Statistical Modeling**
 
 - **implies_property** → **Mean and Variance of Discrete Uniform Distribution**
-
----
-
-*Note*: Understanding these parameters helps in analyzing and interpreting data modeled by a uniform discrete distribution, which is common in simulations and randomized algorithms where each outcome is equally likely.
