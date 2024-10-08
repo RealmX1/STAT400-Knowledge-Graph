@@ -47,12 +47,12 @@
   - Properties that are illustrated through the application.
   - *Example*: "Law of Total Probability"
 
-- **related_to** → *Application Example* (the reverse of **is_related_to**)
+- **related_to** ←→ *Application Example* (the reverse of **is_related_to**)
   - Other application examples that are related.
   - *Example*: "Spam Filtering using Bayes' Theorem"
 
-- **has_exercise** → *Exercise* (the reverse of **is_exercise_for**)
-  - Exercises related to the application example.
+- **derives_exercise** → *Exercise* (the reverse of **is_exercise_for**)
+  - Exercises derived from the application example.
   - *Example*: "Exercise 4.3.2"
 
 ## Information to be additionally Rendered When Student Zooms In on Node
