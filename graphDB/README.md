@@ -5,3 +5,8 @@ import folder can be accessed here: ![alt text](image.png)
 Then open neo4j browser: ![alt text](image-1.png)
 
 Run the cypher script in `graphDB/cypher_script.md`
+
+To show all the nodes:
+```cypher
+MATCH (n) RETURN n;
+```

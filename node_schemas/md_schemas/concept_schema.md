@@ -21,7 +21,7 @@
   - **Description**: *Text*
     - Additional explanations, background information, or context about the concept.
     - *Example*: "Conditional probability quantifies the likelihood of an event A occurring when event B is known."
-  > NEED TO mark SOURCE for the information used here. By default we will use `Stat400 teaching material - Jonathan Fernandez`
+  > NEED TO MARK SOURCE for the information used here. By default we will use `Stat400 teaching material - Jonathan Fernandez`
 
 - **Tags/Categories**: *List of Strings*
   - Keywords that provide information other than dependency relation... may not be necessary.
@@ -72,3 +72,5 @@
 
 ## Additional information to render for Student who zoomin
 For sake of maintaining only one copy of any information, info related to other nodes would be presented with reference link, that only get rendered out when user zoom in to the node in the interface.
+
+> "Sibling of" relation; Look for hiearchical parent and mark siblings of current node on different axis. Rendered real time not stored in node. Or rerendered whenever db is changed after initialization.
