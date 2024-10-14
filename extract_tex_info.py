@@ -124,7 +124,7 @@ def main():
             # print(f"Remaining content saved to {remaining_file}")
 
     df = pd.DataFrame(all_data)
-    df.to_csv(output_file, index=True)
+    df.to_csv(output_file, index=False)
     print(f"Data saved to {output_file}")
 
 if __name__ == "__main__":
