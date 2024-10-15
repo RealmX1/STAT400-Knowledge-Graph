@@ -44,10 +44,10 @@
   - Properties that describe attributes or characteristics of the concept.
   - *Example*: Links to properties like "Non-negativity" or "Normalization"
 
-- **involved_in** → *Theorem* (the reverse of **involves_concept**) similar to **is_prerequisite_of**; should it be combined?
+- **involved_in_theorem** → *Theorem* (the reverse of **involves_concept**) similar to **is_prerequisite_of**; should it be combined?
   - Theorems where the concept plays a crucial role as part of hypothesis/assumption.
   - *Example*: "Conditional Probability" is involved in "Bayes' Theorem"
-- **concludes_from** ← *Theorem* (the reverse of **concludes**)
+- **concludes_from_theorem** ← *Theorem* (the reverse of **concludes**)
   - Theorems that concludes with the concept as result.
   - *Example*: "Bayes' Theorem" concludes with "Bayes' Rule"
 

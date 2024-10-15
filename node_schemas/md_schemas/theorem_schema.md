@@ -1,6 +1,6 @@
 # Theorem Node Schema
 
-## Properties (Attributes)
+## Attributes
 
 - **Name**: *String*
   - The official name of the theorem.

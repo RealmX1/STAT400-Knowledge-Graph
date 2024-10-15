@@ -4,7 +4,7 @@
 
 
 
-## Properties (Attributes)
+## Attributes
 
 - **Title**: *String*
   - A brief title or identifier for the exercise.
