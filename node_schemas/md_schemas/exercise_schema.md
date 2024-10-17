@@ -4,7 +4,7 @@
 
 
 
-## Properties (Attributes)
+## Attributes
 
 - **Title**: *String*
   - A brief title or identifier for the exercise.
@@ -52,9 +52,12 @@
   - Concepts, theorems, or properties that the exercise is about.
   - *Example*: "Conditional Probability"
 
-- **requires_concept** → *Concept* (the reverse of **required_by_exercise**)
+- **involves_concept** → *Concept* (the reverse of **involved_in_exercise**)
   - Concepts that are prerequisites for solving the exercise.
   - *Example*: "Joint Probability", "Marginal Probability"
+- **involves_theorem** → *Theorem* (the reverse of **involved_in_exercise**)
+  - Theorems that are prerequisites for solving the exercise.
+  - *Example*: "Bayes' Theorem"
 
 - **uses_theorem** → *Theorem* (the reverse of **used_in_exercise**)
   - Theorems needed to solve the exercise.
@@ -64,7 +67,7 @@
   - Other exercises that are related.
   - *Example*: "Exercise 3.2.2"
 
-- **has_application** → *Application Example* (the reverse of **is_exercise_for_application**)
+- **is_exercise_for** → *Application Example* (the reverse of **derives_exercise**)
   - Application examples that the exercise is based on or related to.
   - *Example*: "Medical Diagnosis using Conditional Probability"
 

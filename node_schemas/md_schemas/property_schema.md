@@ -1,6 +1,6 @@
 # Property Node Schema
 
-## Properties (Attributes)
+## Attributes
 
 - **Name**: *String*
   - The official name of the property.
@@ -15,6 +15,9 @@
   - **Notation**: *String/Text* (LaTeX)
     - Symbols or mathematical notation associated with the property. Show LaTeX code and rendered LaTeX side by side.
     - *Example*: "f(x) ≥ 0" $f(x) \geq 0$
+    - **Range**: *String/Text* (LaTeX) (?)
+      - The range of the property.
+      - *Example*: "f(x) ≥ 0" $f(x) \geq 0$
   - **Alias Notation**: *String/Text* (LaTeX)
     - Alternative notations for the property. Show LaTeX code and rendered LaTeX side by side.
     - *Example*: "f ≥ 0" $f \geq 0$
@@ -38,21 +41,23 @@
   - Concepts or theorems that possess this property.
   - *Example*: "Non-negativity" is a property of "Probability Mass Function"
 
-- **related_to** → *Property* (the reverse of **is_related_to**)
-  - Properties that are related or frequently associated.
-  - *Example*: "Non-negativity" is related to "Normalization"
+- **related_to** ←→ *Property* (the reverse of **is_related_to**)
+  - Properties that are related or frequently associated. (? very optional)
+  - *Example*: ?
 
-- **implied_by** → *Theorem* (the reverse of **implies_property**)
+- **implied_by** ← *Theorem* (the reverse of **concludes**)
   - Theorems that imply this property.
   - *Example*: "Kolmogorov's Axioms" imply "Non-negativity"
 
-- **depends_on** → *Property* (the reverse of **is_prerequisite_of**)
-  - Other properties that are prerequisites for understanding this property.
-  - *Example*: "Non-negativity" depends on "Real-valued Functions"
+<!-- - **is_prerequisite_of** → *Property* (the reverse of **depends_on**)
+  - This property is part of prerequisites for understanding another property.
+  - *Example*: "Probability" is part of prerequisites for understanding "Conditional Probability" -->
+> **NOTE**: Should have been modeled in concept nodes. Can't think of a way in which this can apply to property of a concept... still might be useful in the future.
 
 - **has_subproperty** → *Property* (the reverse of **is_subproperty_of**)
   - More specific properties derived from the current property.
   - *Example*: "Strict Positivity" is a subproperty of "Non-negativity"
+  - SAME AS IMPLIES
 
 - **has_application** → *Application Example* (the reverse of **is_application_of**)
   - Real-world applications where the property is relevant.
@@ -65,6 +70,9 @@
 - **related_to** → *Concept*/*Theorem* (the reverse of **is_related_to**)
   - Non-hierarchical connections to concepts or theorems that are related.
   - *Example*: "Non-negativity" related to "Probability Distribution"
+
+- **is_prerequisite_of** → *Theorem* (the reverse of **depends_on**)
+  - used to create hypothesis or proof of theorem
 
 ## Information to be additionally Rendered When Student Zooms In on Node
 
