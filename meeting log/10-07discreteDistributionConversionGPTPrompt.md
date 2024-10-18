@@ -5,7 +5,9 @@ Write down rigorous mathematical proof on using Geometric distribution to constr
 Remember to use `$` for wrapping equation on left and right instead of `\[` and `\]`
 > (not part of prompt) note that here I used notation from Statistical Inference book, for sake of having GPT interpret the notation on the relation graph later.
 > after GPT reply, find respective notation in `stat400_concepts.../Chapter03.md` and ask GPT to convert its reply that.
-## Reply from GPT:
+
+
+# Reply from GPT:
 
 **Proof: Constructing the Negative Binomial Distribution Using the Geometric Distribution**
 
