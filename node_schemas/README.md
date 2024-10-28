@@ -1,5 +1,5 @@
 ## Node Types
-
+**There are 5 types of nodes - Concept Node, Property Node, Theorem Node, Exercise Node, and Application Example Node.**
 - **Concept Node** 
   - self-explanatory
   - Examples: 
@@ -36,6 +36,8 @@
 
 
 ## Description used in Prompting
+
+**There are 5 types of nodes - Concept Node, Property Node, Theorem Node, Exercise Node, and Application Example Node.**
 ## Node Types
 
 - **Concept Node** 

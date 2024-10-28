@@ -26,15 +26,7 @@
     - *Example*: "Non-negativity ensures that certain quantities, like probabilities or variances, are always zero or positive."
   > NEED TO mark SOURCE for the information used here. By default we will use `Stat400 teaching material - Jonathan Fernandez`
 
-- **Tags/Categories**: *List of Strings*
-  - Keywords that categorize the property.
-  - *Example*: ["Probability", "Function Properties"]
-
-- **Knowledge**
-  - Specific or rare knowledge about the property that doesn't fit into other sections.
-  - Will be represented in terms of properties with relation links.
-  - This part might need further specification after labeling more nodes.
-
+  
 ## Relationships (Edges)
 
 - **is_property_of** → *Concept*/*Theorem* (the reverse of **has_property**)

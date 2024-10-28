@@ -13,7 +13,7 @@
 - **Statement**: *Text*
   - The formal and precise statement of the theorem.
   - *Example*: "P(A|B) = [P(B|A) * P(A)] / P(B)"
-  - **Predicates/Conditions**: *List of Text*
+  - **Axioms/Premises**: *List of Text*
     - Conditions or premises under which the theorem holds true.
     - *Example*: ["P(B) > 0", "All probabilities are defined over the same probability space"]  
   - **Conclusion**: *Text*
