@@ -44,13 +44,23 @@
   - Properties that describe attributes or characteristics of the concept.
   - *Example*: Links to properties like "Non-negativity" or "Normalization"
 
-- **involved_in** → *Theorem* (the reverse of **involves_concept**) similar to **is_prerequisite_of**; should it be combined?
-  - Theorems where the concept plays a crucial role as part of hypothesis/assumption.
+### Relation regarding theorem
+- **involved_in** → *Theorem* (the reverse of **involves_concept**)
+  - Theorems where the concept plays a crucial role as part of hypothesis/assumption, yet not as part of hypothesis/assumption.
   - *Example*: "Conditional Probability" is involved in "Bayes' Theorem"
+#### More specific version of relation with theorem:
+- **is_prerequisite_of** → *Theorem* (the reverse of **depends_on**)
+  - Theorems that the concept is a prerequisite of.
+  - *Example*: "Time" is a prerequisite of "Speed".
 - **concludes_from** ← *Theorem* (the reverse of **concludes**)
   - Theorems that concludes with the concept as result.
   - *Example*: "Bayes' Theorem" concludes with "Bayes' Rule"
 
+### Relation regarding exercise/application
+- **involved_in** (optional) (less strict than **has_application/has_exercise**) → *Exercise/Application Example* (the reverse of **involves_concept**; Is less strict than other relation like **is_exercise_for** or **is_application_of**)
+  - Exercises where the concept is involved as part of solving the exercise;
+  - *Example*: "Conditional Probability" is involved in "Exercise 3.2.1" (not the main focus of the exercise, but it is used to solve it)
+#### More specific version of relation with exercise:
 - **has_application** → *Application Example* (the reverse of **is_application_of**)
   - Real-world applications, instances, or use-cases where the concept is applied.
   - *Example*: Applications in "Spam Filtering" or "Risk Assessment"
@@ -58,10 +68,6 @@
   - Exercises that require the concept.
   - *Example*: "Exercise 3.2.1"
 
-
-- **involved_in** (optional) (less strict than **has_application/has_exercise**) → *Exercise/Application Example* (the reverse of **involves_concept**; Is less strict than other relation like **is_exercise_for** or **is_application_of**)
-  - Exercises where the concept is involved as part of solving the exercise;
-  - *Example*: "Conditional Probability" is involved in "Exercise 3.2.1" (not the main focus of the exercise, but it is used to solve it)
 
 - **related_to** → *Concept* (the reverse of **is_related_to**)
   - Non-hierarchical connections to concepts that are related or frequently associated.

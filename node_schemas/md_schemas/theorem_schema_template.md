@@ -28,14 +28,7 @@
   - A logical argument establishing the truth of the theorem from the hypotheses, including step-by-step deductions.
   - *Example*: Detailed derivation using definitions of conditional probability
 
-- **Tags/Categories**: *List of Strings*
-  - Keywords that provide information other than dependency relation... may not be necessary.
-  - *Example*: ["Probability Theory", "Statistics"]
 
-- **Knowledge**
-  - Knowledge that are so specific/rare as to no qualify the use of separate property/relation section.
-  - Will be represetned in terms of properties with relation link.
-  - This part might need to be further specified after labeling some nodes to create more generalized sections in schema.
 
 ## Relationships (Edges)
 - **involves_concept** ← *Concept* (the reverse of **involved_in_theorem**)
@@ -59,10 +52,6 @@
   - Concepts that are derived from the theorem.
   - *Example*: "Negative Binomial Distribution"
 
-### Other Relations
-- **is_generalization_of** → *Theorem* (the reverse of **is_specialization_of**)
-  - Links to more specific cases or special instances of the theorem.
-  - *Example*: Connecting "Bayes' Theorem for Continuous Variables"
 
 - **has_application** → *Application Example* (the reverse of **is_application_of**)
   - Examples where the theorem is applied to solve problems.
@@ -70,16 +59,6 @@
 - **has_exercise** → *Exercise* (the reverse of **is_exercise_for**)
   - Exercises that apply the theorem.
   - *Example*: "Exercise 3.2.1"
-
-- **involved_in** → *Exercise/Application Example* (the reverse of **involves_theorem**; Is less strict than other relation like **is_exercise_for** or **is_application_of**)
-  - Exercises where the concept is involved as part of solving the exercise.
-  - *Example*: "Conditional Probability" is involved in "Exercise 3.2.1" (not the main focus of the exercise, but it is used to solve it)
-
-- **non-directional relation** ←→ *Concept* (the reverse of **is_related_to**)
-  - I can't think of any generalized non-directional relation yet, other than the one mentioned by Fernandez about the conversion between one probability distribution and another under certain conditions. But that is probably better of modeled by two theorems going from either side to the other.
-  - Serve as a placeholder for general non-directional relation between concept and other nodes.
-  - *Example*: "Conditional Probability" related to "Bayes' Theorem"
-  - This part might need to be further specified after labeling some nodes; so as to create more generalized sections in schema.
 
 
 

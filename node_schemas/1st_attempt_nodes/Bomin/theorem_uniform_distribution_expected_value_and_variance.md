@@ -22,7 +22,7 @@ Section:{Uniform Discrete Distribution}
   - $N$ is a positive integer ($N \in \mathbb{N}$).
 
 - **Proof**:
-> put proof/computation as a separate node type
+> put proof/computation as a separate node type ??
 
   **Proof of Expected Value**:
   
