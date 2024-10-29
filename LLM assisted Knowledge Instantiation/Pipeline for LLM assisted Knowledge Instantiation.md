@@ -15,6 +15,10 @@ For Each Chapter,
       5. Manually inspect the added node and information in neo4j, and modify the node if necessary.
 
 ### LLM refined process:
+
+#### When adding existing node_name:node_type pairs as context for input to LLM, also provide the notation for the node.
+
+
 **For Each Chapter:**
 
 ## 1. **Generate list of new nodes**

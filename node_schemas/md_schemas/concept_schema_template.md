@@ -9,14 +9,16 @@
     - *Example*: ["Marginal Probability", "Posterior Probability"]
 
 - **Definition**: *Text*
-  - A precise and formal definition of the concept.
-  - *Example*: "The probability of an event occurring given that another event has already occurred."
   - **Notation**: *String/Text* (Latex)
     - Symbols or mathematical notation associated with the concept. Show latex code and rendered latex side by side.
-    - *Example*: "P(A|B)" $P(A|B)$
+    - *Example*: 
+      - "Pois(\lambda)" $Pois(\lambda)$
+      - $\lambda$ 
+        - Range: $\lambda \in \{0, \infty\}$
+        - Description:represent average rate or mean number of occurrences of the event being modeled. 
   - **Description**: *Text*
     - Additional explanations, background information, or context about the concept.
-    - *Example*: "Conditional probability quantifies the likelihood of an event A occurring when event B is known."
+    - *Example*: "Poisson Distribution is a discrete probability distribution that describes the number of times an event occurs within a fixed interval of time or space. It assumes that events occur with a constant mean rate and are independent of the time since the last event."
   > NEED TO MARK SOURCE for the information used here. By default we will use `Stat400 teaching material - Jonathan Fernandez`
 
 

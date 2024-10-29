@@ -7,14 +7,6 @@ You will be given the content of the chapter (or whole book) for the topic "{top
 - If some information doesn't fit into the schema or doesn't correspond to the node, note it down separately in a markdown file.
 
 
-Here is an example of prompt and reply:
-<Example>
-    <Input>
-    </Input>
-    <Reply>
-    </Reply>
-</Example>
-
 
 Now provide your reply for the following input:
 <Input>
@@ -23,3 +15,15 @@ Now provide your reply for the following input:
 - **Existing `node_name:node_type` Pairs in the Graph:** {List of Existing Nodes}
 - **Node Name:** {Node Name}
 </Input>
+
+
+
+
+
+<!-- Here is an example of prompt and reply:
+<Example>
+    <Input>
+    </Input>
+    <Reply>
+    </Reply>
+</Example> --> ignore this when copying the prompt

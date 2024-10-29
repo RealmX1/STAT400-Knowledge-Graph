@@ -31,7 +31,7 @@
 - **Exercise Node**:
   - self-explanatory
 - **Application Example Node**:
-  - self-explanatory
+  - Instance of a concept/theorem/property that is applied in a real-world scenario.
 
 
 
