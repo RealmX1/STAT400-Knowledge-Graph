@@ -1,0 +1,2 @@
+Improve upon the automation pipeline for knowledge instantiation.
+Improve the three prompts `generate_nodes_list_prompt.md`, `context2node-md_prompt.md`, `node-md2cypher_prompt.md`. Right now the generate_nodes_list_prompt.md is not tested yet.

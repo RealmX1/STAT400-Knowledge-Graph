@@ -9,22 +9,24 @@
     - Alternative names or references for the theorem.
     - *Example*: ["Bayes' Rule", "Bayes' Law"]
 
-- **Hypotheses/Assumptions**: *List of Text*
-  - Conditions or premises under which the theorem holds true.
-  - *Example*: ["P(B) > 0", "All probabilities are defined over the same probability space"]  
 
 - **Statement**: *Text*
   - The formal and precise statement of the theorem.
   - *Example*: "P(A|B) = [P(B|A) * P(A)] / P(B)"
+  - **Axioms/Premises**: *List of Text*
+    - Conditions or premises under which the theorem holds true.
+    - *Example*: ["P(B) > 0", "All probabilities are defined over the same probability space"]  
+  - **Conclusion**: *Text*
+    - The result or conclusion of the theorem.
+    - *Example*: "P(A|B) = [P(B|A) * P(A)] / P(B)"
 
 - **Description**: *Text*
   - Additional context, such as historical background or significance.
   - *Example*: "Bayes' Theorem provides a way to update probabilities based on new evidence."
 
-- **Proof**: *Text*
+- **Proof**: *Text & Latex*
   - A logical argument establishing the truth of the theorem from the hypotheses, including step-by-step deductions.
   - *Example*: Detailed derivation using definitions of conditional probability
-
 
 - **Tags/Categories**: *List of Strings*
   - Keywords that provide information other than dependency relation... may not be necessary.
@@ -36,28 +38,26 @@
   - This part might need to be further specified after labeling some nodes to create more generalized sections in schema.
 
 ## Relationships (Edges)
-### Inbound Relations/Prerequisites (? a better name for this section?)
 - **involves_concept** ← *Concept* (the reverse of **involved_in_theorem**)
-  - Concepts that are essential components of the theorem.
+  - Concepts not part of hypothesis/assumption, but used in proof.
   - *Example*: Links to "Conditional Probability", "Marginal Probability"
+### Inbound Relations/Prerequisites (? a better name for this section?)
+- **depends_on** ← *Concept* (the reverse of **is_prerequisite_of**)
 - **needs_property** ← *Property* (the reverse of **has_property**)
   - Properties that are necessary for the theorem which doesn't fit in any concept involved in the theorem.
   - *Example*: (?) may not be necessary. can't quite think of any examples yet.
-- **uses_theorem** ← *Theorem* (the reverse of **is_basis_for**)
-  - Other theorems referenced or utilized within the proof.
-  - *Example*: "Law of Total Probability"
-  - **is_corollary_of** ← *Theorem* (the reverse of **is_basis_for**, more specific than **uses_theorem**)
-    - Indicates if the theorem is a corollary derived from another theorem.
-    - *Example*: A corollary of "Bayes' Theorem" might be linked here
+
+- **uses_theorem** ← *Theorem* (the reverse of **used_to_prove**)
+  - Other theorems referenced or utilized within the proof, but not as part of hypothesis/assumption.
+  - *Example*: 
+- **is_corollary_of** ← *Theorem* (the reverse of **is_basis_for**, more specific than **uses_theorem**)
+  - Indicates if the theorem is a corollary derived from another theorem.
+  - *Example*: A corollary of "Bayes' Theorem" is "Law of Total Probability"
 
 ### Outbound Relations/Results
 - **concludes** → *List ofProperty*/*Concept* (the reverse of **derived_from(theorem)**)
-  - **implies_property** → *Property* (the reverse of **derived_from(theorem)**)
-    - Properties or principles that are derived from the theorem.
-    - *Example*: "Inverse Probability" property
-  - **concludes** → *Concept* (the reverse of **derived_from(theorem)**)
-    - Concepts that are derived from the theorem.
-    - *Example*: "Negative Binomial Distribution"
+  - Concepts that are derived from the theorem.
+  - *Example*: "Negative Binomial Distribution"
 
 ### Other Relations
 - **is_generalization_of** → *Theorem* (the reverse of **is_specialization_of**)
