@@ -1,0 +1,37 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\title{Binomial to Poisson}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Conversion from Binomial to Poisson Distribution}
+\textbf{Aliases}: None
+
+\section*{Hypotheses/Assumptions}
+\begin{itemize}
+    \item The binomial distribution models the number of successes in a fixed number of independent Bernoulli trials.
+    \item The Poisson distribution is a limiting case of the binomial distribution when the number of trials is large, and the success probability is small, while keeping the expected number of successes constant.
+\end{itemize}
+
+\section*{Statement}
+\begin{itemize}
+    \item The binomial distribution $B(n, p)$ converges to the Poisson distribution $P(\lambda)$ as $n \to \infty$ and $p \to 0$ such that $np = \lambda$, where $\lambda$ is the expected number of successes.
+\end{itemize}
+
+\section*{Explanation}
+When the number of trials $n$ is very large and the probability of success $p$ is very small, the binomial probability mass function
+\[
+P(X = k) = \binom{n}{k} p^k (1 - p)^{n - k}
+\]
+can be approximated by the Poisson probability mass function
+\[
+P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}
+\]
+where $\lambda = np$.
+
+\end{document}

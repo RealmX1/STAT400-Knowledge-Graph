@@ -1,0 +1,33 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\title{Poisson to Self}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Poisson to Self Transformation}
+In the diagram, there is a self-relation for the \textbf{Poisson} distribution indicated by the transformation:
+\[
+\sum X_i
+\]
+This implies that the \textbf{sum of independent and identically distributed (i.i.d.) Poisson random variables} also follows a Poisson distribution.
+
+\section*{Explanation}
+If \( X_1, X_2, \dots, X_n \) are independent Poisson random variables with parameters \( \lambda_1, \lambda_2, \dots, \lambda_n \), then the sum \( X = X_1 + X_2 + \dots + X_n \) is also a Poisson random variable with parameter:
+\[
+\lambda = \lambda_1 + \lambda_2 + \dots + \lambda_n.
+\]
+
+In the special case where all the \( X_i \)'s have the same parameter \( \lambda \), the sum:
+\[
+X = X_1 + X_2 + \dots + X_n
+\]
+follows a Poisson distribution with parameter \( n\lambda \).
+
+This property is a key characteristic of the Poisson distribution, and it is represented in the diagram by the notation \( \sum X_i \), indicating that the sum of i.i.d. Poisson random variables is still Poisson-distributed.
+
+\end{document}

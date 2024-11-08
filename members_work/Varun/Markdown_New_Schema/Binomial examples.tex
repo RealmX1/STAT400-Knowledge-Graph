@@ -1,0 +1,30 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\section*{Binomial Distribution}
+
+\section*{Examples}
+
+\begin{enumerate}
+    \item Suppose we flip a fair coin \( n \) times. Let \( X \) represent the number of times we get heads. This experiment can be modeled by \( X \sim \text{Binom}(n, p) \), where
+    \[
+    p = 0.5
+    \]
+    and \( p_X(k) = P(X = k) \) represents the probability of obtaining exactly \( k \) heads in \( n \) flips.
+
+    \item Suppose a factory produces light bulbs, and each bulb has a probability \( p \) of being defective. Let \( X \) represent the number of defective bulbs in a sample of \( n \) bulbs. This scenario can be modeled by \( X \sim \text{Binom}(n, p) \), where
+    \[
+    p = \text{probability that a bulb is defective}.
+    \]
+    In this setting, \( p_X(k) = P(X = k) \) is the probability of finding exactly \( k \) defective bulbs in a sample of \( n \) bulbs.
+
+    \item Suppose a survey asks \( n \) people whether they prefer tea over coffee, with each person having an independent probability \( p \) of preferring tea. Let \( X \) represent the number of people who prefer tea. This can be modeled by \( X \sim \text{Binom}(n, p) \), where
+    \[
+    p = \text{probability of a person preferring tea}.
+    \]
+    In this setting, \( p_X(k) = P(X = k) \) is the probability of exactly \( k \) people preferring tea out of \( n \) surveyed.
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,30 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+
+\title{Negative Binomial distribution}
+
+\begin{document}
+
+\maketitle
+
+\textbf{Definition:} \\
+The Negative Binomial random variable also models phenomena that involve "waiting."
+
+\textbf{Negative Binomial Distribution:} We say that \( X \) has the Negative Binomial distribution with parameters:
+\begin{itemize}
+    \item \( r \in \mathbb{N} \): the number of successes we are waiting for.
+    \item \( p \in (0, 1) \): \( P(\text{Success}) \), the probability of a success.
+\end{itemize}
+
+\textbf{Notation:} \\
+\( X \sim \text{NegBinom}(r, p) \) if \( X \) takes values \( X := \{0, 1, 2, 3, \ldots\} = \mathbb{N} \)
+and the probability mass function of \( X \) is given as
+\[
+p_X(x) = \binom{x + r - 1}{x} p^r (1 - p)^x, \quad x \in \{0, 1, 2, 3, \ldots\}
+\]
+
+\textbf{Aliases:} \\
+Pascal Distribution
+
+\end{document}

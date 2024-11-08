@@ -1,0 +1,44 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\textbf{Examples:}
+\begin{enumerate}
+    \item Suppose we sample students (with replacement) from campus until we find \( r \) students with height less than or equal to 60 inches. \\\\
+    Since the sampling is with replacement, the result of a given trial is independent of the other trials. Therefore, this experiment can be modeled by \( X \sim \text{NegBinom}(r, p) \) distribution, where
+    \[
+    P(\text{Success}) = P(\text{finding a student with height less than or equal to 60 inches})
+    \]
+    and the event
+    \[
+    \{ X = k \} := \{\text{we find $k$ students of height greater than 60 inches before finding the $r$th student with height less than or equal to 60 inches}\}
+    \]
+    In this setting, \( p_X(k) = P(X = k) \), is the probability of finding exactly \( k \) students with height greater than 60 inches before finding the \( r \)th student with height less than or equal to 60 inches. \\\\
+    Also, \( P(X \ge k) \) represents the probability of finding more than or equal to \( k \) students with height greater than 60 inches before finding the \( r \)th student with height less than or equal to 60 inches.
+
+    \item Suppose we sample students (with replacement) from campus until we find \( r \) students that have taken a statistics course. \\\\
+    This experiment can be modeled by \( X \sim \text{NegBinom}(r, p) \) distribution, where
+    \[
+    P(\text{Success}) = P(\text{finding a student who has taken a statistics course})
+    \]
+    and the event
+    \[
+    \{ X = k \} := \{\text{we find $k$ students who have never taken a statistics class before finding the $r$th student who has taken at least one statistics class}\}
+    \]
+    In this setting, \( p_X(k) = P(X = k) \), is the probability of finding exactly \( k \) students who have never taken a statistics class before finding the \( r \)th student who has taken at least one statistics class.
+
+    \item Suppose we choose potatoes (with replacement, even though that does not really make sense) until we find \( r \) potatoes that do not have a blemish. \\\\
+    In this setting, a potato is a success if it does not have any blemishes. \\\\
+    This experiment can be modeled by \( X \sim \text{NegBinom}(r, p) \) distribution, where
+    \[
+    P(\text{Success}) = P(\text{finding a potato without any blemishes})
+    \]
+    and the event
+    \[
+    \{ X = k \} := \{\text{find exactly $k$ potatoes with blemishes before finding the $r$th potato without any blemishes}\}
+    \]
+    In this setting, \( p_X(k) = P(X = k) \), is the probability of finding exactly \( k \) potatoes with blemishes before finding the \( r \)th potato without any blemishes.
+\end{enumerate}
+
+\end{document}

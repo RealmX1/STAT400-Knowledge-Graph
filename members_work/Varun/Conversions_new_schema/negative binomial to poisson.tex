@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\title{Negative Binomial to Poisson}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Conversion from Negative Binomial to Poisson Distribution}
+\textbf{Aliases}: None
+
+\section*{Hypotheses/Assumptions}
+\begin{itemize}
+    \item The negative binomial distribution models the number of failures before achieving \( n \) successes in a sequence of Bernoulli trials.
+    \item The Poisson distribution can be seen as the limiting case of the negative binomial distribution when the number of trials increases to infinity while keeping the mean constant.
+\end{itemize}
+
+\section*{Statement}
+\begin{itemize}
+    \item The negative binomial distribution \( NB(r, p) \) converges to the Poisson distribution \( P(\lambda) \) as the number of trials tends to infinity, with a small success probability, provided that \( r \times p = \lambda \), where \( \lambda \) represents the expected number of events.
+\end{itemize}
+
+\section*{Explanation}
+The probability mass function of the negative binomial distribution for achieving \( n \) successes is
+\[
+P(X = k) = \binom{k + n - 1}{k} (1 - p)^k p^n,
+\]
+where \( k \) represents the number of failures, \( n \) is the required number of successes, and \( p \) is the probability of success in each trial.
+
+As \( n \to \infty \) and \( p \to 0 \), with \( \lambda = n \cdot p \), this distribution converges to the Poisson distribution:
+\[
+P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}.
+\]
+
+\end{document}

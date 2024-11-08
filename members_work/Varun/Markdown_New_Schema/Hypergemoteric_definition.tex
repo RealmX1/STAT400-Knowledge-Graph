@@ -1,0 +1,28 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+
+\title{Hypergeometric distribution}
+
+\begin{document}
+
+\maketitle
+
+\section{Concept Node}
+
+\textbf{Name:} Hypergeometric Distribution
+
+\textbf{Definition:} \\
+Fix \( N \), \( M \), \( n \in \mathbb{N} \). Suppose we have a population of size \( N \) with exactly \( M \) successes in it. Suppose an experiment involves choosing \( n \) objects from the population (without replacement). Given \( \omega \), an outcome for this experiment, let
+\[
+X(\omega) := \text{number of successes in } \omega.
+\]
+
+\textbf{Notation:} \\
+\( X \sim \text{Hyper}(N, M, n) \) if \( X \) takes values \( X := \{0, 1, 2, 3, \ldots, \min(n, M)\} \)
+and the probability mass function of \( X \) is given as
+\[
+p_X(x) = \frac{\binom{M}{x} \binom{N - M}{n - x}}{\binom{N}{n}}, \quad x \in \{0, 1, 2, 3, \ldots, \min(n, M)\}
+\]
+
+\end{document}

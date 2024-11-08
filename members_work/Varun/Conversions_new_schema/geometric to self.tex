@@ -1,0 +1,46 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\title{Proof: Minimum of i.i.d. Geometric Random Variables is Geometric}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Introduction}
+We want to prove that the minimum of independent and identically distributed (i.i.d.) Geometric random variables is also Geometrically distributed.
+
+Let \( X_1, X_2, \dots, X_n \) be i.i.d. Geometric random variables with parameter \( p \), which represents the probability of success in each Bernoulli trial. The goal is to show that the minimum of these random variables, 
+\[
+X_{\text{min}} = \min(X_1, X_2, \dots, X_n),
+\]
+is also Geometrically distributed.
+
+\section*{Proof}
+The probability that \( X_{\text{min}} \) is greater than or equal to some integer \( k \) is given by the probability that all \( X_i \) are greater than or equal to \( k \):
+\[
+P(X_{\text{min}} \geq k) = P(X_1 \geq k) P(X_2 \geq k) \dots P(X_n \geq k).
+\]
+Since \( X_i \) are i.i.d. Geometric random variables with parameter \( p \),
+\[
+P(X_i \geq k) = (1 - p)^{k - 1}.
+\]
+Therefore,
+\[
+P(X_{\text{min}} \geq k) = \left( (1 - p)^{k - 1} \right)^n = (1 - p)^{n(k - 1)}.
+\]
+
+Now, we calculate \( P(X_{\text{min}} = k) \) as follows:
+\[
+P(X_{\text{min}} = k) = P(X_{\text{min}} \geq k) - P(X_{\text{min}} \geq k + 1).
+\]
+Substituting the values, we get
+\[
+P(X_{\text{min}} = k) = (1 - p)^{n(k - 1)} - (1 - p)^{n k}.
+\]
+
+Thus, \( X_{\text{min}} \) is also a Geometric random variable with parameter \( p' = 1 - (1 - p)^n \), which completes the proof.
+
+\end{document}
