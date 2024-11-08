@@ -27,7 +27,11 @@
       - I've thought through the question "whether there exist situation where a node with "has-a"/"is" relationship also serve major unambiguous functionality as a "concept" node; I couldn't find any. IF there exist a large amount of such node, then it would be a good idea to model "property" not as parallel node type of "concept" but solely model it as concept receiving "has-a"/"is" relationship.
       - The "Raven" is "Black" seem to be a good example of the opposite; black is a concept, and it doesn't make much sense to create a "black of raven" property specifically for this (i.e., "black" itself is also acting as a property of raven)
 - **Theorem Node**:
-  - self-explanatory
+  - Composition of Theorem:
+  1. Statement
+    1. Axiom
+    2. Conclusion
+  2. Proof
 - **Exercise Node**:
   - self-explanatory
 - **Application Example Node**:

@@ -35,6 +35,10 @@
   - Concepts that are involved in the application.
   - *Example*: "Conditional Probability", "Prior Probability"
 
+- **has_exercise** → *Exercise* (the reverse of **is_exercise_for**)
+  - Exercises derived from the application example.
+  - *Example*: "Exercise 4.3.2"
+
 ## Information to be additionally Rendered When Student Zooms In on Node
 
 For the sake of maintaining only one copy of any information, info related to other nodes would be presented with a reference link that only gets rendered out when the user zooms in to the node in the interface.
