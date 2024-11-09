@@ -37,7 +37,7 @@
 
 
 
-> LOG IN THE OTHER SIDE OF THE FOLLOWING RELATIONSHIPS
+> LOG IN THE OTHER SIDE OF ALL FOLLOWING RELATIONSHIPS
 - **related_to** → *Concept*/*Theorem* (the reverse of **is_related_to**)
   - used in theorem, but isn't part of axioms or conclusions.
   - *Example*: "Non-negativity" related to "Probability Distribution"

@@ -25,7 +25,7 @@
 
 
 ## Relationships (Edges)
-
+slack
 ### Relation regarding concept
 - **related_to** -- *Concept* (the reverse of **is_related_to**) (VERY OPTIONAL)
   - Most general (non-specific) relation type regarding other concept 

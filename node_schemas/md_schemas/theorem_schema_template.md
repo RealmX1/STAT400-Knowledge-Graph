@@ -31,6 +31,7 @@
 
 
 ## Relationships (Edges)
+
 - **involves_concept** ← *Concept* (the reverse of **involved_in_theorem**)
   - Concepts not part of hypothesis/assumption, but used in proof.
   - *Example*: Links to "Conditional Probability", "Marginal Probability"
