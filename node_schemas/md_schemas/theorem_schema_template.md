@@ -45,7 +45,7 @@
   - *Example*: 
 - **is_corollary_of** ← *Theorem* (the reverse of **is_basis_for**, more specific than **uses_theorem**)
   - Indicates if the theorem is a corollary derived from another theorem.
-  - *Example*: A corollary of "Bayes' Theorem" is "Law of Total Probability"
+  - *Example*: "Bayes' Theorem" is a corollary of "conditional Probability"
 
 ### Outbound Relations/Results
 - **concludes** → *List ofProperty*/*Concept* (the reverse of **derived_from(theorem)**)
