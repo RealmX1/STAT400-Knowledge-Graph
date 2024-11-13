@@ -25,7 +25,6 @@
 
 
 ## Relationships (Edges)
-slack
 ### Relation regarding concept
 - **related_to** -- *Concept* (the reverse of **is_related_to**) (VERY OPTIONAL)
   - Most general (non-specific) relation type regarding other concept 
@@ -40,9 +39,6 @@ slack
   - Indicates prerequisite concepts required for understanding the current concept. (not as strong as "subconcept of")
   - *Example*: "Time" is a prerequisite of "Speed".
 
-
-
-> LOG IN THE OTHER SIDE OF ALL FOLLOWING RELATIONSHIPS
 - **has_property** → *Property* (the reverse of **is_property_of**)
   - Properties that describe attributes or characteristics of the concept.
   - *Example*:"Poisson Random Variable" has property "Variance of Poisson Random Variable"; "Variance of Poisson Random Variable" is a child concept of "Variance of random variable" 

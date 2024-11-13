@@ -31,7 +31,6 @@
 
 
 ## Relationships (Edges)
-
 - **involves_concept** ← *Concept* (the reverse of **involved_in_theorem**)
   - Concepts not part of hypothesis/assumption, but used in proof.
   - *Example*: Links to "Conditional Probability", "Marginal Probability"
@@ -46,14 +45,14 @@
   - *Example*: 
 - **is_corollary_of** ← *Theorem* (the reverse of **is_basis_for**, more specific than **uses_theorem**)
   - Indicates if the theorem is a corollary derived from another theorem.
-  - *Example*: "Bayes' Theorem" is a corollary of "conditional Probability"
+  - *Example*: A corollary of "Bayes' Theorem" is "Law of Total Probability"
 
 ### Outbound Relations/Results
-- **concludes** → *List of Properties*/*Concepts* (the reverse of **derived_from(theorem)**)
+- **concludes** → *List ofProperty*/*Concept* (the reverse of **derived_from(theorem)**)
   - Concepts that are derived from the theorem.
   - *Example*: "Negative Binomial Distribution"
 
-> LOG IN THE OTHER SIDE OF ALL FOLLOWING RELATIONSHIPS
+
 - **has_application** → *Application Example* (the reverse of **is_application_of**)
   - Examples where the theorem is applied to solve problems.
   - *Example*: "Medical Diagnosis Probability Calculation"

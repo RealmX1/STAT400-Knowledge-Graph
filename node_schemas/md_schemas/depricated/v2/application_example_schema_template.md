@@ -35,7 +35,6 @@
   - Concepts that are involved in the application.
   - *Example*: "Conditional Probability", "Prior Probability"
 
-> LOG IN THE OTHER SIDE OF ALL FOLLOWING RELATIONSHIPS
 - **has_exercise** → *Exercise* (the reverse of **is_exercise_for**)
   - Exercises derived from the application example.
   - *Example*: "Exercise 4.3.2"

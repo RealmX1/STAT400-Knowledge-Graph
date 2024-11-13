@@ -26,7 +26,6 @@
 
   
 ## Relationships (Edges)
-
 - **is_property_of** ← *Concept*/*Theorem* (the reverse of **has_property**)
   - Concepts or theorems that possess this property.
   - *Example*: "Expected Value of Poisson Distribution" is a property of "Poisson Distribution"
@@ -34,10 +33,6 @@
   - Properties that are derived from the concept.
   - *Example*: "Variance of Poisson Distribution" is a child concept of "Variance of random variable"
 
-
-
-
-> LOG IN THE OTHER SIDE OF ALL FOLLOWING RELATIONSHIPS
 - **related_to** → *Concept*/*Theorem* (the reverse of **is_related_to**)
   - used in theorem, but isn't part of axioms or conclusions.
   - *Example*: "Non-negativity" related to "Probability Distribution"
