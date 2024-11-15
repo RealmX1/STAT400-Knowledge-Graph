@@ -31,5 +31,8 @@
 
 ## Relationships (Edges)
 
+### Inbound Relations/Prerequisites
+- **depends_on** ← *binomial distribution*
+
 ### Outbound Relations/Results
-- **concludes** → discrete_bernoulli_concept
+- **concludes** → *bernoulli distribution*

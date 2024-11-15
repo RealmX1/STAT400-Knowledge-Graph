@@ -44,15 +44,15 @@
 
 ## Relationships (Edges)
 
-- **is_exercise_for** → *Concept*/*Theorem*/*Property*/*Application Example* (the reverse of **has_exercise**) 
+- **is_exercise_for** <= *Concept*/*Theorem*/*Property*/*Application Example* (the reverse of **has_exercise**) 
   - A list of all nodes that the exercise is about. Concepts, theorems, properties, or application examples that the exercise is about.
   - *Example*: ["Conditional Probability",]
 
-- **involves_concept** → *Concept*/*Theorem*/*Property* (the reverse of **involved_in_exercise**)
+- **involves_concept** => *Concept*/*Theorem*/*Property* (the reverse of **involved_in_exercise**)
   - Involves concept/theorem/property, but not as built as an exercise for it.
   - *Example*: ["Joint Probability", "Marginal Probability", "Bayes' Theorem", "Non-negativity"]
 
-- **related_to** → *Exercise* (the reverse of **is_related_to**) (optional)
+- **related_to** <=> *Exercise* (the reverse of **is_related_to**) (optional)
   - Other exercises that are related. For helping student get similar (but different) exercise.
   - *Example*: "Exercise 3.2.2"
 

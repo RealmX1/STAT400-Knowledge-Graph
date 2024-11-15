@@ -1,4 +1,4 @@
-You will be given the content of the chapter (or whole book) for the topic "{topic}" in "{chapter_name}" of a textbook, a schema for the respective node type, a list of existing `node_name:node_type` pairs in the graph, and the specific node name. Based on this information, you should generate a markdown-formatted node for the given `node_name` according to the schema provided.
+You will be given the content of the chapter (or whole book) for the topic "{topic}" in "{chapter_name}" of a textbook, a schema for the respective node type, a list of existing `node_type;node_name` pairs in the graph, and the specific node name. Based on this information, you should generate a markdown-formatted node for the given `node_name` according to the schema provided.
 
 - Use the content provided to fill out the schema on {topic}.
 - For any relevant information that isn't part of the context but is important for the schema, add it in italics (*additional information*).
@@ -12,7 +12,7 @@ Now provide your reply for the following input:
 <Input>
 - **Chapter Content:** {Chapter Content}
 - **Node Type Schema:** {Node Schema}
-- **Existing `node_name:node_type` Pairs in the Graph:** {List of Existing Nodes}
+- **Existing `node_type;node_name` Pairs in the Graph:** {List of Existing Nodes}
 - **Node Name:** {Node Name}
 </Input>
 

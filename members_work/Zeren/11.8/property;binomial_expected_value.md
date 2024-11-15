@@ -3,7 +3,7 @@
 ## Attributes
 
 - **Name**:
-  expectation of Binomial Distribution
+  expected value of binomial distribution
 
 - **Definition**:
   given
@@ -57,4 +57,4 @@
 ## Relationships (Edges)
 
 - **is_property_of** ← *Binomial Distribution*
-- **is_child_concept_of** ← *mean of random variable*
+- **is_child_concept_of** ← *expected value of random variable*

@@ -69,3 +69,4 @@
 
 - **is_property_of** ← *Bernoulli Distribution*
 - **is_child_concept_of** ← *variance of random variable*
+- **depends_on** ← *expected value of bernoulli distribution*

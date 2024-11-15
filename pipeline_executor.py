@@ -55,7 +55,8 @@ class KnowledgeGraphPipeline:
     def save_output(self, stage_name: str, file_name: str, content: str):
         """Save LLM output to a file"""
         stage_dir = os.path.join(self.runtime_dir, stage_name)
-        os.makedirs(stage_dir, exist_ok=self.overwrite)
+        if not os.path.exists(stage_dir):
+            os.makedirs(stage_dir, exist_ok=self.overwrite)
         
         output_path = os.path.join(stage_dir, f"{file_name}.md")
         with open(output_path, "w", encoding="utf-8") as f:
@@ -150,7 +151,7 @@ class KnowledgeGraphPipeline:
             return False
         
         for node_name, node_type in self.new_nodes:
-            print(f"\nProcessing node: {node_name} ({node_type})")
+            print(f"\nProcessing node: ({node_type}) {node_name}")
             
             # Prepare input for LLM
             user_input = {
@@ -167,7 +168,7 @@ class KnowledgeGraphPipeline:
             #     continue
                 
             # # Save output
-            # output_path = self.save_output(stage_names[1], f"{node_name}", response)
+            # output_path = self.save_output(stage_names[1], f"{node_type};{node_name}", response)
             # print(f"Generated markdown saved to: {output_path}")
             
             # # Wait for user verification
@@ -183,13 +184,20 @@ class KnowledgeGraphPipeline:
         
         prompt = self.load_prompt(f"{stage_names[2]}_prompt.md")
         
-        markdown_dir = self.runtime_dir / "markdown_nodes"
+        markdown_dir = self.runtime_dir / stage_names[1]
         if not markdown_dir.exists():
             print("Error: No markdown nodes found")
             return False
             
         for markdown_file in markdown_dir.glob("*.md"):
             print(f"\nProcessing markdown file: {markdown_file.name}")
+            file_name = markdown_file.stem
+            output_file_name = f"cypher;{file_name}"
+            
+            # if output file already exists, and overwrite is false, skip.
+            if not self.overwrite and os.path.exists(os.path.join(self.runtime_dir, stage_names[2], f"{output_file_name}.md")):
+                print(f"Cypher script already exists at {os.path.join(self.runtime_dir, stage_names[2], f'{output_file_name}.md')}. Skipping...")
+                continue
             
             # Read markdown content
             with open(markdown_file, "r", encoding="utf-8") as f:
@@ -207,13 +215,13 @@ class KnowledgeGraphPipeline:
                 continue
                 
             # Save output
-            output_path = self.save_output(stage_names[2], markdown_file.stem, response)
+            output_path = self.save_output(stage_names[2], output_file_name, response)
             print(f"Generated Cypher script saved to: {output_path}")
             
-            # Wait for user verification
-            proceed = input("\nReview the generated Cypher script. Enter 'Y' to continue: ")
-            if proceed.upper() != 'Y':
-                return False
+            # # Wait for user verification
+            # proceed = input("\nReview the generated Cypher script. Enter 'Y' to continue: ")
+            # if proceed.upper() != 'Y':
+            #     return False
                 
         return True
 
@@ -233,6 +241,8 @@ def main():
     print(f"\nExecuting Stage {2}...")
     pipeline.stage2_generate_markdown_nodes()
     
+    print(f"\nExecuting Stage {3}...")
+    pipeline.stage3_generate_cypher()
     
     print("\nPipeline execution completed")
 

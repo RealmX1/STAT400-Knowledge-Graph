@@ -26,4 +26,4 @@
 
 ## Relationships (Edges)
 
-- **is_exercise_for** → *discrete_hypergeometric_concept*
+- **is_exercise_for** → *hypergeometric distribution*

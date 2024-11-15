@@ -3,7 +3,7 @@
 ## Attributes
 
 - **Name**: 
-  Expected Value of bernoulli Distribution
+  expected value of bernoulli distribution
   - **Aliases**: 
     mean of bernoulli Distribution
 
@@ -63,4 +63,4 @@ $
 ## Relationships (Edges)
 
 - **is_property_of** ← *Bernoulli Distribution*
-- **is_child_concept_of** ← *Mean of random variable*
+- **is_child_concept_of** ← *expected value of random variable*

@@ -33,7 +33,9 @@
 - **is_child_concept_of** ← *Concept* (the reverse of **is_parent_concept_of**)
   - Properties that are derived from the concept.
   - *Example*: "Variance of Poisson Distribution" is a child concept of "Variance of random variable"
-
+- **depends_on** ← *Property* (the reverse of **is_prerequisite_of**)
+  - Properties that are prerequisites for this property.
+  - *Example*: "Variance of Poisson Distribution" depends on "Expected Value of Poisson Distribution"
 
 
 

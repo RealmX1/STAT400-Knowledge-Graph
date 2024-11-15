@@ -24,4 +24,4 @@ Find PMF of a fair six-sided die.
 
 ## Relationships (Edges)
 
-- **is_exercise_for** → *discrete_uniform_concept*
+- **is_exercise_for** → *uniform discrete distribution*

@@ -2,7 +2,7 @@
 
 ## Attributes
 
-- **Name**: uniform distribution
+- **Name**: uniform discrete distribution
 
 - **Definition**:
   Let $X$ be a random variable that can take on one of $n$ distinct values, $x_1, x_2, \ldots, x_n$, with each value having the same probability of occurring. Then $X$ is said to be a Uniform discrete random variable.

@@ -3,7 +3,7 @@
 ## Attributes
 
 - **Name**:
-  variance of Binomial Distribution
+  expected value of binomial distribution
 
 - **Definition**:
   given
@@ -12,8 +12,9 @@
   $
   where:
   $X$ is a random variable following the Binomial distribution. Then we will have
+
   $
-  \text{Var}(X) = np(1 - p)
+  \mathbb{E}[X] = np
   $
 
 - **Proof**: 
@@ -30,41 +31,30 @@
 
   Then, $X$ represents the number of successes in $n$ trials.
 
-  ### Step 2: Variance of $X$
+  ### Step 2: Expected Value of $X$
 
-  Since $X = X_1 + X_2 + \dots + X_n$ and each $X_i$ is independent, we can use the property that the **variance of the sum of independent variables is the sum of their variances**:
-
-  $
-  \text{Var}(X) = \text{Var}(X_1 + X_2 + \dots + X_n) = \text{Var}(X_1) + \text{Var}(X_2) + \dots + \text{Var}(X_n).
-  $
-
-  ### Step 3: Variance of Each $X_i$
-
-  Each $X_i$ is a Bernoulli random variable with variance:
+  By the **linearity of expectation**,
 
   $
-  \text{Var}(X_i) = p(1 - p).
+  E(X) = E(X_1 + X_2 + \dots + X_n) = E(X_1) + E(X_2) + \dots + E(X_n).
   $
 
-  ### Step 4: Substitute into the Variance of $X$
-
-  Since there are $n$ identical terms,
+  Since each $X_i$ is Bernoulli with expected value $E(X_i) = p$,
 
   $
-  \text{Var}(X) = n \cdot p(1 - p).
+  E(X) = np.
   $
 
-  Thus, the **variance of a binomial distribution** is:
+  Thus, the **mean of a binomial distribution** is:
 
   $
-  \sigma^2 = np(1 - p).
+  \mu = np.
   $
-
 
     From `Stat400 teaching material - Jonathan Fernandez`
 
-  
+    
 ## Relationships (Edges)
 
 - **is_property_of** ← *Binomial Distribution*
-- **is_child_concept_of** ← *variance of random variable*
+- **is_child_concept_of** ← *expected value of random variable*
