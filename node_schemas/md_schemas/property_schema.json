@@ -1,0 +1,144 @@
+{
+  "name": "property_node_schema",
+  "strict": true,
+  "schema": {
+    "type": "object",
+    "properties": {
+      "attributes": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The official name of the property."
+          },
+          "aliases": {
+            "type": ["array", "null"],
+            "items": {
+              "type": "string"
+            },
+            "description": "Alternative names or synonyms for the property."
+          },
+          "definition": {
+            "type": "object",
+            "properties": {
+              "notation": {
+                "type": "object",
+                "properties": {
+                  "latex_code": {
+                    "type": "string",
+                    "description": "LaTeX code for the notation."
+                  },
+                  "rendered_latex": {
+                    "type": "string",
+                    "description": "Rendered LaTeX."
+                  },
+                  "range": {
+                    "type": ["string", "null"],
+                    "description": "The range of the property in LaTeX format."
+                  }
+                },
+                "required": ["latex_code", "rendered_latex", "range"],
+                "additionalProperties": false
+              },
+              "description": {
+                "type": "string",
+                "description": "Additional explanations, background information, or context about the property."
+              }
+            },
+            "required": ["notation", "description"],
+            "additionalProperties": false
+          },
+          "proof": {
+            "type": ["string", "null"],
+            "description": "Step by step proof of the property. Source: Stat400 teaching material - Jonathan Fernandez."
+          }
+        },
+        "required": ["name", "aliases", "definition", "proof"],
+        "additionalProperties": false
+      },
+      "relationships": {
+        "type": "object",
+        "properties": {
+          "is_property_of": {
+            "type": ["object", "null"],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the concept or theorem that possesses this property."
+              },
+              "direction": {
+                "type": "string",
+                "enum": ["from"],
+                "description": "Direction of the relationship."
+              }
+            },
+            "required": ["name", "direction"],
+            "additionalProperties": false,
+            "description": "Concepts or theorems that possess this property."
+          },
+          "is_child_concept_of": {
+            "type": ["object", "null"],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the concept from which this property is derived."
+              },
+              "direction": {
+                "type": "string",
+                "enum": ["from"],
+                "description": "Direction of the relationship."
+              }
+            },
+            "required": ["name", "direction"],
+            "additionalProperties": false,
+            "description": "Properties that are derived from the concept."
+          },
+          "depends_on": {
+            "type": ["object", "null"],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the property that is a prerequisite for this property."
+              },
+              "direction": {
+                "type": "string",
+                "enum": ["from"],
+                "description": "Direction of the relationship."
+              }
+            },
+            "required": ["name", "direction"],
+            "additionalProperties": false,
+            "description": "Properties that are prerequisites for this property."
+          },
+          "has_subproperty": {
+            "type": ["object", "null"],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the subproperty derived from this property."
+              },
+              "direction": {
+                "type": "string",
+                "enum": ["to"],
+                "description": "Direction of the relationship."
+              }
+            },
+            "required": ["name", "direction"],
+            "additionalProperties": false,
+            "description": "More specific properties derived from the current property."
+          }
+        },
+        "required": [
+          "is_property_of",
+          "is_child_concept_of",
+          "depends_on",
+          "has_subproperty"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": ["attributes", "relationships"],
+    "additionalProperties": false
+  }
+}
+  

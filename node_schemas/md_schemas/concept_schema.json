@@ -1,0 +1,157 @@
+{
+  "name": "concept_node_schema",
+  "strict": true,
+  "schema": {
+    "type": "object",
+    "properties": {
+      "attributes": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Uniform discrete distribution"
+          },
+          "aliases": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Synonyms or alternative names for the concept"
+          },
+          "definition": {
+            "type": "object",
+            "properties": {
+              "notation": {
+                "type": "string",
+                "description": "Symbols or mathematical notations associated with the concept in latex format"
+              },
+              "explanation": {
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "part": {
+                      "type": "string"
+                    },
+                    "range": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "The range of the respective part, if applicable"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "Description of the respective part"
+                    }
+                  },
+                  "required": [
+                    "part",
+                    "range",
+                    "description"
+                  ],
+                  "additionalProperties": false
+                },
+                "description": "Dissects the notation and explains each part"
+              },
+              "description": {
+                "type": "string",
+                "description": "Additional explanations, background information, or context about the concept"
+              }
+            },
+            "required": [
+              "notation",
+              "explanation",
+              "description"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "name",
+          "aliases",
+          "definition"
+        ],
+        "additionalProperties": false
+      },
+      "relationships": {
+        "type": "object",
+        "properties": {
+          "related_to": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of end node that this concept is related to."
+              },
+              "direction": {
+                "type": "string",
+                "enum": ["bidirectional"],
+                "description": "Direction of the relationship."
+              }
+            },
+            "required": ["name", "direction"],
+            "additionalProperties": false,
+            "description": "Most general (non-specific) relation type regarding other concepts."
+          },
+          "has_subconcept": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of end node that is a subconcept derived from this concept."
+              },
+              "direction": {
+                "type": "string",
+                "enum": ["to"],
+                "description": "Direction of the relationship."
+              }
+            },
+            "required": ["name", "direction"],
+            "additionalProperties": false,
+            "description": "Points to more specific or narrower concepts derived from the current concept."
+          },
+          "is_prerequisite_of": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of end node that require the current concept as a prerequisite."
+              },
+              "direction": {
+                "type": "string",
+                "enum": ["to"],
+                "description": "Direction of the relationship."
+              }
+            },
+            "required": ["name", "direction"],
+            "additionalProperties": false,
+            "description": "Indicates prerequisite concepts required for understanding the current concept."
+          }
+        },
+        "required": ["related_to", "has_subconcept", "is_prerequisite_of"],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "attributes",
+      "relationships"
+    ],
+    "additionalProperties": false
+  }
+}

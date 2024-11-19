@@ -25,7 +25,7 @@
   > NEED TO mark SOURCE for the information used here. By default we will use `Stat400 teaching material - Jonathan Fernandez`
 
   
-## Relationships (Edges)
+## Relationships
 
 - **is_property_of** ← *Concept*/*Theorem* (the reverse of **has_property**)
   - Concepts or theorems that possess this property.
@@ -36,7 +36,9 @@
 - **depends_on** ← *Property* (the reverse of **is_prerequisite_of**)
   - Properties that are prerequisites for this property.
   - *Example*: "Variance of Poisson Distribution" depends on "Expected Value of Poisson Distribution"
-
+- **has_subproperty** → *Property* (the reverse of **is_subproperty_of**) (likely won't encounter, optional)
+  - More specific properties derived from the current property. SAME AS IMPLIES.
+  - *Example*: "Strict Positivity" has "Non-negativity" as a subproperty
 
 
 > LOG IN THE OTHER SIDE OF ALL FOLLOWING RELATIONSHIPS
@@ -55,13 +57,6 @@
 - **has_exercise** → *Exercise* (the reverse of **is_exercise_for**)
   - Exercises that involve the property.
   - *Example*: "Exercise 2.1.5"
-
-
-
-- **has_subproperty** → *Property* (the reverse of **is_subproperty_of**) (likely won't encounter, optional)
-  - More specific properties derived from the current property.
-  - *Example*: "Strict Positivity" is a subproperty of "Non-negativity"
-  - SAME AS IMPLIES
 
 ## Information to be additionally Rendered When Student Zooms In on Node
 Hiearchical inheritance, from "parent concept" -- both directly from the concept node, and indirectly from the property of the concepet nodes.

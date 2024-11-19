@@ -1,8 +1,10 @@
 import os
 import json
+import re
 from typing import List, Dict, Tuple
 import time
 from openai import OpenAI
+import pandas as pd
 
 client = OpenAI()
 from pathlib import Path
@@ -16,28 +18,35 @@ class KnowledgeGraphPipeline:
         self.chapter_name = Path(chapter_path).stem
         self.overwrite = overwrite
         
+        self.chapter_content = self.load_chapter_content()
+        
         # Paths configuration
         self.schema_dir = "node_schemas/md_schemas"
         self.prompt_dir = "LLM assisted Knowledge Instantiation"
-        self.runtime_dir = Path(f"LLM assisted Knowledge Instantiation/runtime/{self.chapter_name}")
+        self.runtime_dir = "LLM assisted Knowledge Instantiation/runtime"
+        self.chapter_runtime_dir = Path(f"{self.runtime_dir}/{self.chapter_name}")
         
         # Delete and recreate runtime directory if overwrite is True
         if self.overwrite:
-            os.rmdir(self.runtime_dir)
-            self.runtime_dir.mkdir(parents=True, exist_ok=True)
+            os.rmdir(self.chapter_runtime_dir)
+            self.chapter_runtime_dir.mkdir(parents=True, exist_ok=True)
         else:
-            if not self.runtime_dir.exists():
-                os.makedirs(self.runtime_dir, exist_ok=True)
+            if not self.chapter_runtime_dir.exists():
+                os.makedirs(self.chapter_runtime_dir, exist_ok=True)
             else:
-                print(f"Runtime directory {self.runtime_dir} already exists. This run will not overwrite any already completed stages.")
-                # exit(1)
+                print(f"Runtime directory {self.chapter_runtime_dir} already exists. This run will not overwrite any already completed stages.")
                 
-        # Store state
-        self.existing_nodes: List[Tuple[str, str]] = []  # List of (node_name, node_type) pairs
-        self.new_nodes: List[Tuple[str, str]] = []
-        self.relations: List[Tuple[str, str]] = []
+        # Store state using pandas DataFrames
+        self.existing_nodes = self.load_existing_nodes()
+        self.new_nodes = pd.DataFrame(columns=["node_type", "node_name"])
+    
+    def load_existing_nodes(self) -> pd.DataFrame:
+        existing_nodes_path = os.path.join(self.runtime_dir, "existing_nodes.csv")
+        if os.path.exists(existing_nodes_path):
+            return pd.read_csv(existing_nodes_path)
+        return pd.DataFrame(columns=["node_type", "node_name"])
 
-    def make_llm_call(self, system_prompt: str, user_input: str) -> str:
+    def make_llm_call(self, system_prompt: str, user_input: str, response_format: dict = {"type":"text"}) -> str:
         """Make an API call to OpenAI"""
         try:
             response = client.chat.completions.create(
@@ -45,7 +54,8 @@ class KnowledgeGraphPipeline:
                 messages=[
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": user_input}
-                ]
+                ],
+                response_format=response_format
             )
             return response.choices[0].message.content
         except Exception as e:
@@ -54,7 +64,7 @@ class KnowledgeGraphPipeline:
 
     def save_output(self, stage_name: str, file_name: str, content: str):
         """Save LLM output to a file"""
-        stage_dir = os.path.join(self.runtime_dir, stage_name)
+        stage_dir = os.path.join(self.chapter_runtime_dir, stage_name)
         if not os.path.exists(stage_dir):
             os.makedirs(stage_dir, exist_ok=self.overwrite)
         
@@ -83,7 +93,7 @@ class KnowledgeGraphPipeline:
             print(f"Error: Chapter file not found at {self.chapter_path}")
             return None
     
-    def load_schemas(self) -> str:
+    def load_node_type_description(self) -> str:
         # inside node_schemas\README.md, after the line "# Description used in Prompting"
         schema_path = os.path.join('node_schemas', "README.md")
         with open(schema_path, "r", encoding="utf-8") as f:
@@ -93,30 +103,30 @@ class KnowledgeGraphPipeline:
         return schema
             
 
-    def stage1_generate_nodes_list(self) -> bool:
+    def stage1_generate_nodes_list(self) -> pd.DataFrame:
         """Stage 1: Generate list of new nodes"""
         print("\n=== Stage 1: Generating list of new nodes ===")
         
         # use existing nodes_list file if it exists and overwrite is False
-        nodes_list_path = os.path.join(self.runtime_dir, stage_names[0], "nodes_list.md")
-        if not self.overwrite and os.path.exists(nodes_list_path):
-            print(f"Nodes list already exists at {nodes_list_path}. Loading it...")
-            with open(nodes_list_path, "r", encoding="utf-8") as f:
-                self.new_nodes = [tuple(line.strip().split(":")) for line in f.readlines()]
+        chapter_nodes_list_path = os.path.join(self.chapter_runtime_dir, stage_names[0], "nodes_list.md")
+        if not self.overwrite and os.path.exists(chapter_nodes_list_path):
+            print(f"Nodes list already exists at {chapter_nodes_list_path}. Loading it...")
+            with open(chapter_nodes_list_path, "r", encoding="utf-8") as f:
+                chapter_nodes = [line.strip().split(":") for line in f.readlines()]
+                self.new_nodes = pd.DataFrame(chapter_nodes, columns=["node_type", "node_name"])
             return self.new_nodes
         
         # Load necessary resources
         prompt = self.load_prompt(f"{stage_names[0]}_prompt.md")
-        chapter_content = self.load_chapter_content()
         
-        if not prompt or not chapter_content:
+        if not prompt or not self.chapter_content:
             return False
         
         # Prepare input for LLM
         user_input = {
-            "chapter_content": chapter_content,
+            "chapter_content": self.chapter_content,
             "existing_nodes": self.existing_nodes,
-            "node_schemas": self.load_schemas()
+            "node_type_description": self.load_node_type_description()
         }
         
         # Make LLM call
@@ -135,47 +145,109 @@ class KnowledgeGraphPipeline:
                 print("Aborting pipeline execution after stage 1")
                 exit(1)
             elif proceed.upper() == 'Y':
-                # Load user updated node list, split it by line and then split each line by colon to get the tuple of (node_name, node_type)
+                # Load user updated node list into DataFrame
                 with open(output_path, "r", encoding="utf-8") as f:
-                    self.new_nodes = [tuple(line.strip().split(":")) for line in f.readlines()]
+                    chapter_nodes = [line.strip().split(":") for line in f.readlines()]
+                    self.new_nodes = pd.DataFrame(chapter_nodes, columns=["node_type", "node_name"])
+                
+                # Concatenate with existing nodes
+                self.existing_nodes = pd.concat([self.existing_nodes, self.new_nodes], ignore_index=True)
+                
+                # Save to runtime/existing_nodes.csv
+                self.existing_nodes.to_csv(os.path.join(self.chapter_runtime_dir, "existing_nodes.csv"), index=False)
+                
                 return self.new_nodes
-
+            
+    def load_node_type_schema(self, node_type:str, type:str) -> str:
+        schema_path = os.path.join(self.schema_dir, f"{node_type}_schema.{type}")
+        with open(schema_path, "r", encoding="utf-8") as f:
+            return f.read()
+        
+    def load_stage2_prompt(self, node_name:str, node_type:str) -> str:
+        system_prompt = self.load_prompt(f"{stage_names[1]}_prompt.md")
+        
+        input_format = system_prompt.split("Input will be provided in following format:")[1]
+        """
+        <div class="input">
+            <div class="existing-nodes">{existing_nodes}</div>
+            <div class="node-name">{node_name}</div>
+            <div class="node-type">{node_type}</div>
+            <div class="chapter-content">{chapter_content}</div>
+            <div class="additional-context">{additional_context}</div>
+            <div class="node-type-schema">{node_type_schema}</div>
+        </div>
+        """
+        formatted_input = input_format.format(
+            existing_nodes=self.existing_nodes,
+            node_name=node_name,
+            node_type=node_type,
+            chapter_content=self.chapter_content,
+            additional_context="",
+            node_type_schema=self.load_node_type_schema(node_type, "md")
+        )
+        return system_prompt, formatted_input
+        
     def stage2_generate_markdown_nodes(self) -> bool:
         """Stage 2: Generate markdown for each new node"""
         print("\n=== Stage 2: Generating markdown nodes ===")
         
-        prompt = self.load_prompt(f"{stage_names[1]}_prompt.md")
-        chapter_content = self.load_chapter_content()
+        # debug. load new_nodes from runtime/generate_nodes_list/nodes_list.md
+        self.new_nodes = pd.read_csv(os.path.join(self.chapter_runtime_dir, stage_names[0], "nodes_list.csv"), header=0)
         
-        if not prompt or not chapter_content:
-            return False
-        
-        for node_name, node_type in self.new_nodes:
+        for _, row in self.new_nodes.iterrows():
+            node_type = row['node_type']
+            node_name = row['node_name']
             print(f"\nProcessing node: ({node_type}) {node_name}")
             
-            # Prepare input for LLM
-            user_input = {
-                "chapter_content": chapter_content,
-                "node_name": node_name,
-                "node_type": node_type,
-                "existing_nodes": json.dumps(self.existing_nodes)
-            }
-            print(user_input)
+            system_prompt, user_input = self.load_stage2_prompt(node_name, node_type)
             
-            # # Make LLM call
-            # response = self.make_llm_call(prompt, json.dumps(user_input))
-            # if not response:
-            #     continue
-                
-            # # Save output
-            # output_path = self.save_output(stage_names[1], f"{node_type};{node_name}", response)
-            # print(f"Generated markdown saved to: {output_path}")
+            if not system_prompt or not user_input:
+                print("Error: Failed to load system prompt or formatted input")
+                return False
             
-            # # Wait for user verification
-            # proceed = input("\nReview the generated markdown. Enter 'Y' to continue: ")
-            # if proceed.upper() != 'Y':
-            #     return False
+            # Make LLM call
+            response = self.make_llm_call(system_prompt, user_input)
+            if not response:
+                continue
                 
+            # Save output
+            output_path = self.save_output(stage_names[1], f"{node_type};{node_name}", response)
+            print(f"Generated markdown saved to: {output_path}")
+            
+            # Wait for user verification
+            proceed = input("\nReview the generated markdown. Enter 'Y' to continue, and 'N' to abort: ")
+            if proceed.upper() != 'Y':
+                return False
+            else:
+                self.stage2_5_markdown_to_json(response, node_type, node_name)
+                
+        return True
+    
+    def stage2_5_markdown_to_json(self, markdown_content: str, node_type: str, node_name: str) -> bool:
+        """Stage 2.5: Convert markdown nodes to JSON"""
+        print("\n=== Stage 2.5: Converting markdown nodes to JSON ===")
+        
+        json_schema = self.load_node_type_schema(node_type, "json")
+        
+        system_prompt = """
+        You will be provided with a markdown node on a statistical knowledge, and a JSON schema for the respective node type. Your task is to convert the markdown node to a JSON object according to the schema.
+        """
+        
+        user_input = {
+            "markdown_node": markdown_content
+        }
+        
+        response_format = {
+            "type": "json_schema",
+            "schema": json_schema
+        }
+        
+        response = self.make_llm_call(system_prompt, json.dumps(user_input), response_format)
+        
+        # save to runtime/stage2/node_type;node_name.json
+        output_path = self.save_output(stage_names[2], f"{node_type};{node_name}", response)
+        print(f"Generated JSON saved to: {output_path}")
+        
         return True
 
     def stage3_generate_cypher(self) -> bool:
@@ -184,7 +256,7 @@ class KnowledgeGraphPipeline:
         
         prompt = self.load_prompt(f"{stage_names[2]}_prompt.md")
         
-        markdown_dir = self.runtime_dir / stage_names[1]
+        markdown_dir = self.chapter_runtime_dir / stage_names[1]
         if not markdown_dir.exists():
             print("Error: No markdown nodes found")
             return False
@@ -195,8 +267,8 @@ class KnowledgeGraphPipeline:
             output_file_name = f"cypher;{file_name}"
             
             # if output file already exists, and overwrite is false, skip.
-            if not self.overwrite and os.path.exists(os.path.join(self.runtime_dir, stage_names[2], f"{output_file_name}.md")):
-                print(f"Cypher script already exists at {os.path.join(self.runtime_dir, stage_names[2], f'{output_file_name}.md')}. Skipping...")
+            if not self.overwrite and os.path.exists(os.path.join(self.chapter_runtime_dir, stage_names[2], f"{output_file_name}.md")):
+                print(f"Cypher script already exists at {os.path.join(self.chapter_runtime_dir, stage_names[2], f'{output_file_name}.md')}. Skipping...")
                 continue
             
             # Read markdown content
@@ -234,15 +306,15 @@ def main():
     
     # Execute pipeline stages sequentially
     
-    print(f"\nExecuting Stage {1}...")
-    node_list = pipeline.stage1_generate_nodes_list()
-    print(node_list[:5])
+    # print(f"\nExecuting Stage {1}...")
+    # node_list = pipeline.stage1_generate_nodes_list()
+    # print(node_list[:5])
     
     print(f"\nExecuting Stage {2}...")
     pipeline.stage2_generate_markdown_nodes()
     
-    print(f"\nExecuting Stage {3}...")
-    pipeline.stage3_generate_cypher()
+    # print(f"\nExecuting Stage {3}...")
+    # pipeline.stage3_generate_cypher()
     
     print("\nPipeline execution completed")
 
