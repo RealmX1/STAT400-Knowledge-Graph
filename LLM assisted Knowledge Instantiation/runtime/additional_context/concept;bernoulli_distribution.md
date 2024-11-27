@@ -24,4 +24,3 @@ where:
 $X$ is a random variable following the Bernoulli distribution.
 $p$ is the probability of success ($0 \leq p \leq 1$). 
   - **Description**: A Bernoulli trial is a random experiment that has exactly two possible outcomes: "success" and "failure." Each trial is independent, meaning the outcome of one trial does not affect the outcome of another. The probability of success, denoted as $p$, which remains constant across all trials. From `Stat400 teaching material - Jonathan Fernandez`
-

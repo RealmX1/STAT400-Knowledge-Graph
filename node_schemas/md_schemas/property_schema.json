@@ -4,6 +4,10 @@
   "schema": {
     "type": "object",
     "properties": {
+      "node_type": {
+        "type": "string",
+        "enum": ["property"]
+      },
       "attributes": {
         "type": "object",
         "properties": {
@@ -137,7 +141,7 @@
         "additionalProperties": false
       }
     },
-    "required": ["attributes", "relationships"],
+    "required": ["node_type", "attributes", "relationships"],
     "additionalProperties": false
   }
 }

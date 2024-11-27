@@ -4,6 +4,10 @@
   "schema": {
     "type": "object",
     "properties": {
+      "node_type": {
+        "type": "string",
+        "enum": ["concept"]
+      },
       "attributes": {
         "type": "object",
         "properties": {
@@ -12,10 +16,7 @@
             "description": "Uniform discrete distribution"
           },
           "aliases": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": ["array", "null"],
             "items": {
               "type": "string"
             },
@@ -29,10 +30,7 @@
                 "description": "Symbols or mathematical notations associated with the concept in latex format"
               },
               "explanation": {
-                "type": [
-                  "array",
-                  "null"
-                ],
+                "type": ["array", "null"],
                 "items": {
                   "type": "object",
                   "properties": {
@@ -40,10 +38,7 @@
                       "type": "string"
                     },
                     "range": {
-                      "type": [
-                        "string",
-                        "null"
-                      ],
+                      "type": ["string", "null"],
                       "description": "The range of the respective part, if applicable"
                     },
                     "description": {
@@ -84,10 +79,7 @@
         "type": "object",
         "properties": {
           "related_to": {
-            "type": [
-              "object",
-              "null"
-            ],
+            "type": ["object", "null"],
             "properties": {
               "name": {
                 "type": "string",
@@ -104,10 +96,7 @@
             "description": "Most general (non-specific) relation type regarding other concepts."
           },
           "has_subconcept": {
-            "type": [
-              "object",
-              "null"
-            ],
+            "type": ["object", "null"],
             "properties": {
               "name": {
                 "type": "string",
@@ -124,10 +113,7 @@
             "description": "Points to more specific or narrower concepts derived from the current concept."
           },
           "is_prerequisite_of": {
-            "type": [
-              "object",
-              "null"
-            ],
+            "type": ["object", "null"],
             "properties": {
               "name": {
                 "type": "string",
@@ -149,6 +135,7 @@
       }
     },
     "required": [
+      "node_type",
       "attributes",
       "relationships"
     ],

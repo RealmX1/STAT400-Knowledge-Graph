@@ -5,7 +5,7 @@ from typing import List, Dict, Tuple
 import time
 from openai import OpenAI
 import pandas as pd
-
+from typing import Union
 client = OpenAI()
 from pathlib import Path
 
@@ -41,12 +41,17 @@ class KnowledgeGraphPipeline:
         self.new_nodes = pd.DataFrame(columns=["node_type", "node_name"])
     
     def load_existing_nodes(self) -> pd.DataFrame:
-        existing_nodes_path = os.path.join(self.runtime_dir, "existing_nodes.csv")
-        if os.path.exists(existing_nodes_path):
-            return pd.read_csv(existing_nodes_path)
-        return pd.DataFrame(columns=["node_type", "node_name"])
+        self.existing_nodes_path = os.path.join(self.runtime_dir, "existing_nodes.csv")
+        if os.path.exists(self.existing_nodes_path):
+            return pd.read_csv(self.existing_nodes_path)
+        else:
+            return pd.DataFrame(columns=["node_type", "node_name"])
 
     def make_llm_call(self, system_prompt: str, user_input: str, response_format: dict = {"type":"text"}) -> str:
+        # if response_format["type"] == "text":
+        #     llm_call = client.chat.completions.create
+        # elif response_format["type"] == "json_object" or response_format["type"] == "json_schema":
+        #     llm_call = client.beta.chat.completions.parse
         """Make an API call to OpenAI"""
         try:
             response = client.chat.completions.create(
@@ -55,23 +60,40 @@ class KnowledgeGraphPipeline:
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": user_input}
                 ],
-                response_format=response_format
+                response_format=response_format,
+                max_tokens=4096
             )
+            
+            print(f"Received response: {response.choices[0].message}")
             return response.choices[0].message.content
         except Exception as e:
             print(f"Error making LLM call: {e}")
             return None
 
-    def save_output(self, stage_name: str, file_name: str, content: str):
-        """Save LLM output to a file"""
+    def get_output_path(self, stage_name: str, file_name: str, file_type: str = "md"):
         stage_dir = os.path.join(self.chapter_runtime_dir, stage_name)
         if not os.path.exists(stage_dir):
             os.makedirs(stage_dir, exist_ok=self.overwrite)
         
-        output_path = os.path.join(stage_dir, f"{file_name}.md")
-        with open(output_path, "w", encoding="utf-8") as f:
-            f.write(content)
+        output_path = os.path.join(stage_dir, f"{file_name}.{file_type}")
         return output_path
+    
+    def check_overwrite(self, output_path: str):
+        if not self.overwrite and os.path.exists(output_path):
+            print(f"File already exists at {output_path}. Skipping...")
+            return False
+        return True
+
+    def save_output(self, output_path: str, content: Union[str, pd.DataFrame], file_type: str = "md"):
+        """Save output to a file"""
+        if isinstance(content, pd.DataFrame) and file_type == "csv":
+            content.to_csv(output_path, index=False)
+        else:
+            with open(output_path, "w", encoding="utf-8") as f:
+                if file_type == "json":
+                    json.dump(content, f, indent=4)
+                elif file_type == "md":
+                    f.write(content)
 
     def load_prompt(self, prompt_name: str) -> str:
         """Load a specific prompt template"""
@@ -106,15 +128,9 @@ class KnowledgeGraphPipeline:
     def stage1_generate_nodes_list(self) -> pd.DataFrame:
         """Stage 1: Generate list of new nodes"""
         print("\n=== Stage 1: Generating list of new nodes ===")
-        
-        # use existing nodes_list file if it exists and overwrite is False
-        chapter_nodes_list_path = os.path.join(self.chapter_runtime_dir, stage_names[0], "nodes_list.md")
-        if not self.overwrite and os.path.exists(chapter_nodes_list_path):
-            print(f"Nodes list already exists at {chapter_nodes_list_path}. Loading it...")
-            with open(chapter_nodes_list_path, "r", encoding="utf-8") as f:
-                chapter_nodes = [line.strip().split(":") for line in f.readlines()]
-                self.new_nodes = pd.DataFrame(chapter_nodes, columns=["node_type", "node_name"])
-            return self.new_nodes
+        output_path = self.get_output_path(stage_name=stage_names[0], file_name="nodes_list", file_type="csv")
+        if not self.check_overwrite(output_path):
+            return pd.read_csv(output_path)
         
         # Load necessary resources
         prompt = self.load_prompt(f"{stage_names[0]}_prompt.md")
@@ -125,43 +141,50 @@ class KnowledgeGraphPipeline:
         # Prepare input for LLM
         user_input = {
             "chapter_content": self.chapter_content,
-            "existing_nodes": self.existing_nodes,
+            "existing_nodes": self.existing_nodes.to_dict('records'),
             "node_type_description": self.load_node_type_description()
         }
         
-        # Make LLM call
-        response = self.make_llm_call(prompt, json.dumps(user_input))
+        # Make LLM call with JSON response format
+        response = self.make_llm_call(
+            prompt, 
+            json.dumps(user_input),
+            response_format={"type": "json_object"}
+        )
         if not response:
             return False
             
+        # Convert JSON response to DataFrame
+        nodes_data = json.loads(response)
+        self.new_nodes = pd.DataFrame(nodes_data['nodes'], columns=["node_type", "node_name"])
+        
         # Save output
-        output_path = self.save_output(stage_names[0], "nodes_list", response)
+        self.save_output(output_path=output_path, content=self.new_nodes, file_type="csv")
+        
         print(f"\nGenerated nodes list saved to: {output_path}")
         
         # Wait for user verification
         while True:
             proceed = input("\nReview the generated nodes list. Enter 'Y' to continue, or 'N' to abort: ")
             if proceed.upper() == 'N':
-                print("Aborting pipeline execution after stage 1")
+                print("Aborting pipeline execution after stage 1 without verifying nodes list.")
                 exit(1)
             elif proceed.upper() == 'Y':
-                # Load user updated node list into DataFrame
-                with open(output_path, "r", encoding="utf-8") as f:
-                    chapter_nodes = [line.strip().split(":") for line in f.readlines()]
-                    self.new_nodes = pd.DataFrame(chapter_nodes, columns=["node_type", "node_name"])
-                
                 # Concatenate with existing nodes
                 self.existing_nodes = pd.concat([self.existing_nodes, self.new_nodes], ignore_index=True)
                 
                 # Save to runtime/existing_nodes.csv
-                self.existing_nodes.to_csv(os.path.join(self.chapter_runtime_dir, "existing_nodes.csv"), index=False)
+                self.existing_nodes.to_csv(self.existing_nodes_path, index=False)
                 
                 return self.new_nodes
             
     def load_node_type_schema(self, node_type:str, type:str) -> str:
         schema_path = os.path.join(self.schema_dir, f"{node_type}_schema.{type}")
         with open(schema_path, "r", encoding="utf-8") as f:
-            return f.read()
+            if type == "json":
+                return json.load(f)
+            else:
+                return f.read()
         
     def load_stage2_prompt(self, node_name:str, node_type:str) -> str:
         system_prompt = self.load_prompt(f"{stage_names[1]}_prompt.md")
@@ -187,7 +210,7 @@ class KnowledgeGraphPipeline:
         )
         return system_prompt, formatted_input
         
-    def stage2_generate_markdown_nodes(self) -> bool:
+    def stage2_generate_markdown_nodes(self, ask_for_verification: bool = True) -> bool:
         """Stage 2: Generate markdown for each new node"""
         print("\n=== Stage 2: Generating markdown nodes ===")
         
@@ -197,6 +220,11 @@ class KnowledgeGraphPipeline:
         for _, row in self.new_nodes.iterrows():
             node_type = row['node_type']
             node_name = row['node_name']
+            
+            output_path = self.get_output_path(stage_names[1], f"{node_type};{node_name}", "md")
+            if not self.check_overwrite(output_path):
+                continue
+            
             print(f"\nProcessing node: ({node_type}) {node_name}")
             
             system_prompt, user_input = self.load_stage2_prompt(node_name, node_type)
@@ -211,44 +239,54 @@ class KnowledgeGraphPipeline:
                 continue
                 
             # Save output
-            output_path = self.save_output(stage_names[1], f"{node_type};{node_name}", response)
+            self.save_output(output_path, response, "md")
             print(f"Generated markdown saved to: {output_path}")
             
             # Wait for user verification
-            proceed = input("\nReview the generated markdown. Enter 'Y' to continue, and 'N' to abort: ")
-            if proceed.upper() != 'Y':
-                return False
-            else:
-                self.stage2_5_markdown_to_json(response, node_type, node_name)
+            if ask_for_verification:
+                proceed = input("\nReview the generated markdown. Enter 'Y' to continue, and 'N' to abort: ")
+                if proceed.upper() != 'Y':
+                    print(f"Aborting pipeline execution early after stage 2 without verifying {node_name}.")
+                    return False
                 
         return True
     
-    def stage2_5_markdown_to_json(self, markdown_content: str, node_type: str, node_name: str) -> bool:
-        """Stage 2.5: Convert markdown nodes to JSON"""
-        print("\n=== Stage 2.5: Converting markdown nodes to JSON ===")
+    def stage2_5_markdown_to_json(self) -> None:
+        # For each markdown node, convert it to JSON
+        markdown_dir = self.chapter_runtime_dir / stage_names[1]
         
-        json_schema = self.load_node_type_schema(node_type, "json")
+        for markdown_file in markdown_dir.glob("*.md"):
+            output_path = self.get_output_path(stage_names[1], f"{markdown_file.stem}", "json")
+            if not self.check_overwrite(output_path):
+                continue
+            
+            print(f"Turning {markdown_file.name} into JSON...")
+            file_name = markdown_file.stem
+            node_type, node_name = file_name.split(";")
+            markdown_content = markdown_file.read_text(encoding="utf-8")
+            
+            json_schema = self.load_node_type_schema(node_type, "json")
+            
+            system_prompt = """You will be provided with a markdown node on a statistical knowledge, and a JSON schema for the respective node type. Your task is to convert the markdown node to a JSON object according to the schema.
+Note that you should not change the content corresponding to each subsection in the markdown node; and you should use the formatting for latex in markdown, that is, using $...$ for inline math and $$...$$ for display math."""
+            
+            user_input = {
+                "markdown_node": markdown_content
+            }
+            
+            response_format = {
+                "type": "json_schema",
+                "json_schema": json_schema,
+            }
+            
+            response = self.make_llm_call(system_prompt, json.dumps(user_input), response_format)
+            data = json.loads(response)
+            
+            # save to runtime/stage2/node_type;node_name.json
+            self.save_output(output_path, data, "json")
+            print(f"Generated JSON saved to: {output_path}")
         
-        system_prompt = """
-        You will be provided with a markdown node on a statistical knowledge, and a JSON schema for the respective node type. Your task is to convert the markdown node to a JSON object according to the schema.
-        """
-        
-        user_input = {
-            "markdown_node": markdown_content
-        }
-        
-        response_format = {
-            "type": "json_schema",
-            "schema": json_schema
-        }
-        
-        response = self.make_llm_call(system_prompt, json.dumps(user_input), response_format)
-        
-        # save to runtime/stage2/node_type;node_name.json
-        output_path = self.save_output(stage_names[2], f"{node_type};{node_name}", response)
-        print(f"Generated JSON saved to: {output_path}")
-        
-        return True
+        # return True
 
     def stage3_generate_cypher(self) -> bool:
         """Stage 3: Convert markdown nodes to Cypher scripts"""
@@ -256,28 +294,32 @@ class KnowledgeGraphPipeline:
         
         prompt = self.load_prompt(f"{stage_names[2]}_prompt.md")
         
-        markdown_dir = self.chapter_runtime_dir / stage_names[1]
-        if not markdown_dir.exists():
+        input_dir = self.chapter_runtime_dir / stage_names[1]
+        if not input_dir.exists():
             print("Error: No markdown nodes found")
             return False
             
-        for markdown_file in markdown_dir.glob("*.md"):
-            print(f"\nProcessing markdown file: {markdown_file.name}")
-            file_name = markdown_file.stem
-            output_file_name = f"cypher;{file_name}"
-            
-            # if output file already exists, and overwrite is false, skip.
-            if not self.overwrite and os.path.exists(os.path.join(self.chapter_runtime_dir, stage_names[2], f"{output_file_name}.md")):
-                print(f"Cypher script already exists at {os.path.join(self.chapter_runtime_dir, stage_names[2], f'{output_file_name}.md')}. Skipping...")
+        for markdown_file in input_dir.glob("*.md"):
+            input_file_name = markdown_file.stem
+            output_file_name = f"cypher;{input_file_name}"
+            print(f"\nProcessing markdown file: {input_file_name}")
+            output_path = self.get_output_path(stage_names[2], output_file_name)
+            if not self.check_overwrite(output_path):
                 continue
             
-            # Read markdown content
-            with open(markdown_file, "r", encoding="utf-8") as f:
-                markdown_content = f.read()
+            # check load the json file with same name if it exists
+            json_file_path = self.get_output_path(stage_names[1], input_file_name, "json")
+            if os.path.exists(json_file_path):
+                print(f"JSON file already exists at {json_file_path}. loading it...")
+                input_content = json.load(json_file_path)
+            else:            
+                # Read markdown content
+                with open(markdown_file, "r", encoding="utf-8") as f:
+                    input_content = f.read()
             
             # Prepare input for LLM
             user_input = {
-                "markdown_node": markdown_content,
+                "node_to_add": input_content,
                 "existing_nodes": self.existing_nodes
             }
             
@@ -310,11 +352,14 @@ def main():
     # node_list = pipeline.stage1_generate_nodes_list()
     # print(node_list[:5])
     
-    print(f"\nExecuting Stage {2}...")
-    pipeline.stage2_generate_markdown_nodes()
+    # print(f"\nExecuting Stage {2}...")
+    # pipeline.stage2_generate_markdown_nodes()
     
-    # print(f"\nExecuting Stage {3}...")
-    # pipeline.stage3_generate_cypher()
+    # print(f"\nExecuting Stage {2.5}...")
+    # pipeline.stage2_5_markdown_to_json()
+    
+    print(f"\nExecuting Stage {3}...")
+    pipeline.stage3_generate_cypher()
     
     print("\nPipeline execution completed")
 

@@ -10,11 +10,13 @@ You will be provided with a markdown-formatted node, a list of existing `node ty
 
 
 **Output:**  
-A Cypher script that adds the given node to the Neo4j knowledge graph, together with a list of unmatched relations.
+A Cypher script that adds the given node to the Neo4j knowledge graph (just the node itself and its attributes, not including relationships), 
+Relations with end node matching existing nodes, together with cypher script to add such relation
+Relations without end node matching existing nodes
 
 Input will be provided in following format:
 **Input:**
 - **Markdown Node:**
-  `<node_markdown>{node_markdown}</node_markdown>`
+  `<node_to_add>{node_to_add}</node_to_add>`
 - **Existing `node type;node name` Pairs in the Graph:**
   `<existing_nodes>{existing_nodes}</existing_nodes>`
