@@ -1,12 +1,12 @@
 {
-  "name": "concept_node_schema",
+  "name": "application_example_node_schema",
   "strict": true,
   "schema": {
     "type": "object",
     "properties": {
       "node_type": {
         "type": "string",
-        "enum": ["concept"]
+        "enum": ["application_example"]
       },
       "attributes": {
         "type": "object",
@@ -16,80 +16,66 @@
             "properties": {
               "value": {
                 "type": "string",
-                "description": "Uniform discrete distribution"
+                "description": "The title or brief description of the application example."
               },
               "aliases": {
                 "type": ["array", "null"],
                 "items": {
                   "type": "string"
                 },
-                "description": "Synonyms or alternative names for the concept"
+                "description": "Alternative names or synonyms for the application example."
               }
             },
             "required": ["value", "aliases"],
             "additionalProperties": false
           },
-          "definition": {
+          "description": {
             "type": "object",
             "properties": {
-              "notation": {
+              "text": {
                 "type": "string",
-                "description": "Symbols or mathematical notations associated with the concept in latex format"
+                "description": "A detailed explanation of the scenario in which the concept/theorem/property is applied."
               },
-              "explanation": {
-                "type": ["array", "null"],
+              "mapping_from_scenario_to_notation": {
+                "type": "array",
                 "items": {
                   "type": "object",
                   "properties": {
-                    "part": {
-                      "type": "string"
-                    },
-                    "range": {
-                      "type": ["string", "null"],
-                      "description": "The range of the respective part, if applicable"
-                    },
-                    "description": {
+                    "scenario": {
                       "type": "string",
-                      "description": "Description of the respective part"
+                      "description": "Natural language description in the scenario."
+                    },
+                    "notation": {
+                      "type": "string",
+                      "description": "Corresponding mathematical notation."
                     }
                   },
-                  "required": [
-                    "part",
-                    "range",
-                    "description"
-                  ],
+                  "required": ["scenario", "notation"],
                   "additionalProperties": false
                 },
-                "description": "Dissects the notation and explains each part"
+                "description": "Formalizes the scenario by mapping from natural language to notation."
+              },
+              "deriving_the_result": {
+                "type": ["string", "null"],
+                "description": "Derive the result given the formalized information about the scenario."
               }
             },
-            "required": [
-              "notation",
-              "explanation"
-            ],
+            "required": ["text", "mapping_from_scenario_to_notation", "deriving_the_result"],
             "additionalProperties": false
-          },
-          "description": {
-            "type": "string",
-            "description": "Additional explanations, background information, or context about the concept"
           }
         },
-        "required": [
-          "name",
-          "definition",
-          "description"
-        ],
+        "required": ["name", "description"],
         "additionalProperties": false
       },
       "relationships": {
         "type": "object",
         "properties": {
-          "has_subconcept": {
+          "is_application_of": {
             "type": ["object", "null"],
             "properties": {
               "target_node_type": {
                 "type": "string",
-                "enum": ["concept"],
+                "enum": ["concept", "theorem", "property"],
                 "description": "Type of the end nodes at the other end of the relationship."
               },
               "target_nodes": {
@@ -97,7 +83,7 @@
                 "items": {
                   "$ref": "#/$defs/target_node"
                 },
-                "description": "Names of end nodes that this concept is related to."
+                "description": "Names of concepts, theorems, or properties that are applied in this example."
               },
               "direction": {
                 "type": "string",
@@ -107,14 +93,14 @@
             },
             "required": ["target_node_type", "target_nodes", "direction"],
             "additionalProperties": false,
-            "description": "Points to more specific or narrower concepts derived from the current concept."
+            "description": "Concepts, theorems, or properties that are applied in this example."
           },
-          "is_prerequisite_of": {
+          "involves": {
             "type": ["object", "null"],
             "properties": {
               "target_node_type": {
                 "type": "string",
-                "enum": ["concept"],
+                "enum": ["concept", "theorem", "property"],
                 "description": "Type of the end nodes at the other end of the relationship."
               },
               "target_nodes": {
@@ -122,7 +108,7 @@
                 "items": {
                   "$ref": "#/$defs/target_node"
                 },
-                "description": "Names of end nodes that this concept is related to."
+                "description": "Names of concepts that are involved in the application."
               },
               "direction": {
                 "type": "string",
@@ -132,24 +118,20 @@
             },
             "required": ["target_node_type", "target_nodes", "direction"],
             "additionalProperties": false,
-            "description": "Indicates prerequisite concepts required for understanding the current concept."
+            "description": "Concepts that are involved in the application."
           }
         },
-        "required": ["has_subconcept", "is_prerequisite_of"],
+        "required": ["is_application_of", "involves"],
         "additionalProperties": false
       }
     },
-    "$defs" : {
+    "$defs": {
       "target_node": {
         "type": "string",
-        "description": "Name of end node that this concept has the relationship with."
+        "description": "Name of end node that this application example has the relationship with."
       }
     },
-    "required": [
-      "node_type",
-      "attributes",
-      "relationships"
-    ],
+    "required": ["node_type", "attributes", "relationships"],
     "additionalProperties": false
   }
 }

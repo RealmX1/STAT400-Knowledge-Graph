@@ -1,0 +1,244 @@
+{
+  "name": "theorem_node_schema",
+  "strict": true,
+  "schema": {
+    "type": "object",
+    "properties": {
+      "node_type": {
+        "type": "string",
+        "enum": ["theorem"]
+      },
+      "attributes": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "description": "The official name of the theorem."
+              },
+              "aliases": {
+                "type": ["array", "null"],
+                "items": {
+                  "type": "string"
+                },
+                "description": "Alternative names or references for the theorem."
+              }
+            },
+            "required": ["value", "aliases"],
+            "additionalProperties": false
+          },
+          "statement": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "description": "The formal and precise statement of the theorem."
+              },
+              "axioms_premises": {
+                "type": ["array", "null"],
+                "items": {
+                  "type": "string"
+                },
+                "description": "Conditions or premises under which the theorem holds true."
+              },
+              "conclusion": {
+                "type": "string",
+                "description": "The result or conclusion of the theorem."
+              }
+            },
+            "required": ["value", "axioms_premises", "conclusion"],
+            "additionalProperties": false
+          },
+          "description": {
+            "type": "string",
+            "description": "Additional context, such as historical background or significance."
+          },
+          "proof": {
+            "type": "string",
+            "description": "A logical argument establishing the truth of the theorem from the hypotheses, including step-by-step deductions. May include text and LaTeX."
+          }
+        },
+        "required": ["name", "statement", "description", "proof"],
+        "additionalProperties": false
+      },
+      "relationships": {
+        "type": "object",
+        "properties": {
+          "involves_concept": {
+            "type": ["object", "null"],
+            "properties": {
+              "target_node_type": {
+                "type": "string",
+                "enum": ["concept"],
+                "description": "Type of the end nodes at the other end of the relationship."
+              },
+              "target_nodes": {
+                "type": ["array", "null"],
+                "items": {
+                  "$ref": "#/$defs/target_node"
+                },
+                "description": "Names of concepts that this theorem involves."
+              },
+              "direction": {
+                "type": "string",
+                "enum": ["from"],
+                "description": "Direction of the relationship."
+              }
+            },
+            "required": ["target_node_type", "target_nodes", "direction"],
+            "additionalProperties": false,
+            "description": "Concepts not part of hypothesis/assumption, but used in proof."
+          },
+          "depends_on": {
+            "type": ["object", "null"],
+            "properties": {
+              "target_node_type": {
+                "type": "string",
+                "enum": ["concept"],
+                "description": "Type of the end nodes at the other end of the relationship."
+              },
+              "target_nodes": {
+                "type": ["array", "null"],
+                "items": {
+                  "$ref": "#/$defs/target_node"
+                },
+                "description": "Concepts that the theorem depends on."
+              },
+              "direction": {
+                "type": "string",
+                "enum": ["from"],
+                "description": "Direction of the relationship."
+              }
+            },
+            "required": ["target_node_type", "target_nodes", "direction"],
+            "additionalProperties": false,
+            "description": "Prerequisite concepts required for understanding the theorem."
+          },
+          "needs_property": {
+            "type": ["object", "null"],
+            "properties": {
+              "target_node_type": {
+                "type": "string",
+                "enum": ["property"],
+                "description": "Type of the end nodes at the other end of the relationship."
+              },
+              "target_nodes": {
+                "type": ["array", "null"],
+                "items": {
+                  "$ref": "#/$defs/target_node"
+                },
+                "description": "Properties that are necessary for the theorem."
+              },
+              "direction": {
+                "type": "string",
+                "enum": ["from"],
+                "description": "Direction of the relationship."
+              }
+            },
+            "required": ["target_node_type", "target_nodes", "direction"],
+            "additionalProperties": false,
+            "description": "Properties necessary for the theorem that don't fit into concepts."
+          },
+          "uses_theorem": {
+            "type": ["object", "null"],
+            "properties": {
+              "target_node_type": {
+                "type": "string",
+                "enum": ["theorem"],
+                "description": "Type of the end nodes at the other end of the relationship."
+              },
+              "target_nodes": {
+                "type": ["array", "null"],
+                "items": {
+                  "$ref": "#/$defs/target_node"
+                },
+                "description": "Other theorems referenced or utilized within the proof."
+              },
+              "direction": {
+                "type": "string",
+                "enum": ["from"],
+                "description": "Direction of the relationship."
+              }
+            },
+            "required": ["target_node_type", "target_nodes", "direction"],
+            "additionalProperties": false,
+            "description": "Other theorems referenced or utilized within the proof, but not as part of hypothesis/assumption."
+          },
+          "is_corollary_of": {
+            "type": ["object", "null"],
+            "properties": {
+              "target_node_type": {
+                "type": "string",
+                "enum": ["theorem"],
+                "description": "Type of the end nodes at the other end of the relationship."
+              },
+              "target_nodes": {
+                "type": ["array", "null"],
+                "items": {
+                  "$ref": "#/$defs/target_node"
+                },
+                "description": "Theorems that this theorem is a corollary of."
+              },
+              "direction": {
+                "type": "string",
+                "enum": ["from"],
+                "description": "Direction of the relationship."
+              }
+            },
+            "required": ["target_node_type", "target_nodes", "direction"],
+            "additionalProperties": false,
+            "description": "Indicates if the theorem is a corollary derived from another theorem."
+          },
+          "concludes": {
+            "type": ["object", "null"],
+            "properties": {
+              "target_node_type": {
+                "type": "string",
+                "enum": ["concept", "property"],
+                "description": "Type of the end nodes at the other end of the relationship."
+              },
+              "target_nodes": {
+                "type": ["array", "null"],
+                "items": {
+                  "$ref": "#/$defs/target_node"
+                },
+                "description": "Concepts or properties that are derived from the theorem."
+              },
+              "direction": {
+                "type": "string",
+                "enum": ["to"],
+                "description": "Direction of the relationship."
+              }
+            },
+            "required": ["target_node_type", "target_nodes", "direction"],
+            "additionalProperties": false,
+            "description": "Concepts that are derived from the theorem."
+          }
+        },
+        "required": [
+          "involves_concept",
+          "depends_on",
+          "needs_property",
+          "uses_theorem",
+          "is_corollary_of",
+          "concludes"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "node_type",
+      "attributes",
+      "relationships"
+    ],
+    "additionalProperties": false,
+    "$defs": {
+      "target_node": {
+        "type": "string",
+        "description": "Name of end node that this theorem has the relationship with."
+      }
+    }
+  }
+}

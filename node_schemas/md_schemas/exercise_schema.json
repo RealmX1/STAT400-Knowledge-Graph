@@ -1,12 +1,12 @@
 {
-  "name": "property_node_schema",
+  "name": "exercise_node_schema",
   "strict": true,
   "schema": {
     "type": "object",
     "properties": {
       "node_type": {
         "type": "string",
-        "enum": ["property"]
+        "enum": ["exercise"]
       },
       "attributes": {
         "type": "object",
@@ -16,63 +16,92 @@
             "properties": {
               "value": {
                 "type": "string",
-                "description": "The official name of the property."
+                "description": "A brief title or identifier for the exercise."
+              }
+            },
+            "required": ["value"],
+            "additionalProperties": false
+          },
+          "problem_statement": {
+            "type": "object",
+            "properties": {
+              "text": {
+                "type": "string",
+                "description": "The text of the exercise or problem."
               },
-              "aliases": {
-                "type": ["array", "null"],
+              "notation": {
+                "type": "string",
+                "description": "Mathematical notation used in the problem."
+              },
+              "diagram": {
+                "type": ["string", "null"],
+                "description": "Any visual aids that accompany the problem."
+              }
+            },
+            "required": ["text", "notation", "diagram"],
+            "additionalProperties": false
+          },
+          "solution": {
+            "type": "object",
+            "properties": {
+              "text": {
+                "type": "string",
+                "description": "A detailed solution to the exercise."
+              },
+              "step_by_step_explanation": {
+                "type": "array",
                 "items": {
                   "type": "string"
                 },
-                "description": "Alternative names or synonyms for the property."
+                "description": "Detailed steps explaining how the solution is obtained."
               }
             },
-            "required": ["value", "aliases"],
+            "required": ["text", "step_by_step_explanation"],
             "additionalProperties": false
           },
-          "definition": {
-            "type": "object",
-            "properties": {
-              "notation": {
-                "type": "string",
-                "description": "Symbols or mathematical notation associated with the property."
-              },
-              "range": {
-                "type": ["string", "null"],
-                "description": "The range of the property."
-              }
+          "hints": {
+            "type": ["array", "null"],
+            "items": {
+              "type": "string"
             },
-            "required": ["notation", "range"],
-            "additionalProperties": false
+            "description": "Hints or guidance to help solve the exercise."
           },
-          "description": {
+          "difficulty_level": {
             "type": ["string", "null"],
-            "description": "Additional explanations, background information, or context about the property."
+            "description": "An indication of the difficulty level."
           },
-          "proof": {
+          "knowledge": {
             "type": ["string", "null"],
-            "description": "Step by step proof of the property."
+            "description": "Specific or rare knowledge about the exercise that doesn't fit into other sections."
           }
         },
-        "required": ["name", "definition", "description", "proof"],
+        "required": [
+          "name",
+          "problem_statement",
+          "solution",
+          "hints",
+          "difficulty_level",
+          "knowledge"
+        ],
         "additionalProperties": false
       },
       "relationships": {
         "type": "object",
         "properties": {
-          "is_property_of": {
-            "type": ["object", "null"],
+          "is_exercise_for": {
+            "type": "object",
             "properties": {
               "target_node_type": {
                 "type": "string",
-                "enum": ["concept", "theorem"],
+                "enum": ["concept", "theorem", "property", "application_example"],
                 "description": "Type of the end nodes at the other end of the relationship."
               },
               "target_nodes": {
-                "type": ["array", "null"],
+                "type": "array",
                 "items": {
                   "$ref": "#/$defs/target_node"
                 },
-                "description": "Names of end nodes that possess this property."
+                "description": "Names of nodes that the exercise is about."
               },
               "direction": {
                 "type": "string",
@@ -82,72 +111,22 @@
             },
             "required": ["target_node_type", "target_nodes", "direction"],
             "additionalProperties": false,
-            "description": "Concepts or theorems that possess this property."
+            "description": "Concepts, theorems, properties, or application examples that the exercise is about."
           },
-          "is_child_concept_of": {
-            "type": ["object", "null"],
+          "involves_concept": {
+            "type": "object",
             "properties": {
               "target_node_type": {
                 "type": "string",
-                "enum": ["concept"],
+                "enum": ["concept", "theorem", "property"],
                 "description": "Type of the end nodes at the other end of the relationship."
               },
               "target_nodes": {
-                "type": ["array", "null"],
+                "type": "array",
                 "items": {
                   "$ref": "#/$defs/target_node"
                 },
-                "description": "Names of end nodes that this property is a child concept of."
-              },
-              "direction": {
-                "type": "string",
-                "enum": ["from"],
-                "description": "Direction of the relationship."
-              }
-            },
-            "required": ["target_node_type", "target_nodes", "direction"],
-            "additionalProperties": false,
-            "description": "Properties that are derived from the concept."
-          },
-          "depends_on": {
-            "type": ["object", "null"],
-            "properties": {
-              "target_node_type": {
-                "type": "string",
-                "enum": ["property"],
-                "description": "Type of the end nodes at the other end of the relationship."
-              },
-              "target_nodes": {
-                "type": ["array", "null"],
-                "items": {
-                  "$ref": "#/$defs/target_node"
-                },
-                "description": "Names of properties that this property depends on."
-              },
-              "direction": {
-                "type": "string",
-                "enum": ["from"],
-                "description": "Direction of the relationship."
-              }
-            },
-            "required": ["target_node_type", "target_nodes", "direction"],
-            "additionalProperties": false,
-            "description": "Properties that are prerequisites for this property."
-          },
-          "has_subproperty": {
-            "type": ["object", "null"],
-            "properties": {
-              "target_node_type": {
-                "type": "string",
-                "enum": ["property"],
-                "description": "Type of the end nodes at the other end of the relationship."
-              },
-              "target_nodes": {
-                "type": ["array", "null"],
-                "items": {
-                  "$ref": "#/$defs/target_node"
-                },
-                "description": "Names of subproperties derived from this property."
+                "description": "Names of concepts, theorems, or properties involved in the exercise."
               },
               "direction": {
                 "type": "string",
@@ -157,17 +136,42 @@
             },
             "required": ["target_node_type", "target_nodes", "direction"],
             "additionalProperties": false,
-            "description": "More specific properties derived from the current property."
+            "description": "Involves concept/theorem/property, but not as the main focus of the exercise."
+          },
+          "related_to": {
+            "type": ["object", "null"],
+            "properties": {
+              "target_node_type": {
+                "type": "string",
+                "enum": ["exercise"],
+                "description": "Type of the end nodes at the other end of the relationship."
+              },
+              "target_nodes": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/target_node"
+                },
+                "description": "Other exercises that are related."
+              },
+              "direction": {
+                "type": "string",
+                "enum": ["bidirectional"],
+                "description": "Direction of the relationship."
+              }
+            },
+            "required": ["target_node_type", "target_nodes", "direction"],
+            "additionalProperties": false,
+            "description": "Other exercises that are related."
           }
         },
-        "required": ["is_property_of", "is_child_concept_of", "depends_on", "has_subproperty"],
+        "required": ["is_exercise_for", "involves_concept", "related_to"],
         "additionalProperties": false
       }
     },
     "$defs": {
       "target_node": {
         "type": "string",
-        "description": "Name of end node that this property has the relationship with."
+        "description": "Name of end node that this exercise has the relationship with."
       }
     },
     "required": ["node_type", "attributes", "relationships"],

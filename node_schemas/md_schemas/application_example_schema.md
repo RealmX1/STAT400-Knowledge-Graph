@@ -23,7 +23,6 @@
       - $P(Disease|Positive Test) = 0.95 * 0.01 / 0.0595$
       - $P(Disease|Positive Test) = 0.1597$
       - The probability that the patient actually has the disease given the test result is 15.97%."
-  > NEED TO mark SOURCE for the information used here. By default we will use `Stat400 teaching material - Jonathan Fernandez`
 
 ## Relationships (Edges)
 
@@ -35,6 +34,7 @@
   - Concepts that are involved in the application.
   - *Example*: "Conditional Probability", "Prior Probability"
 
+<ignore>
 > LOG IN THE OTHER SIDE OF ALL FOLLOWING RELATIONSHIPS
 - **has_exercise** → *Exercise* (the reverse of **is_exercise_for**)
   - Exercises derived from the application example.
@@ -43,3 +43,4 @@
 ## Information to be additionally Rendered When Student Zooms In on Node
 
 For the sake of maintaining only one copy of any information, info related to other nodes would be presented with a reference link that only gets rendered out when the user zooms in to the node in the interface.
+</ignore>

@@ -8,16 +8,16 @@
 
 - **Definition**:
   - **Notation**: $X \sim \text{Binomial}(n, p)$
-    - **Explanation**:
-      - $n$
-        - Range: $n \in \mathbb{N}$
-        - Description: Number of trials
-      - $p$
-        - Range: $p \in (0,1)$
-        - Description: Probability of success in each trial
+  - **Explanation**:
+    - $n$
+      - Range: $n \in \mathbb{N}$
+      - Description: Number of trials
+    - $p$
+      - Range: $p \in (0,1)$
+      - Description: Probability of success in each trial
 
-  - **Description**: 
-    The Binomial distribution models the number of successes in a fixed number of independent Bernoulli trials, each with the same probability of success. It is commonly used in situations where the outcomes of interest are categorical, typically with binary outcomes such as success/failure or yes/no.
+- **Description**: 
+  The Binomial distribution models the number of successes in a fixed number of independent Bernoulli trials, each with the same probability of success. It is commonly used in situations where the outcomes of interest are categorical, typically with binary outcomes such as success/failure or yes/no.
 
 ## Relationships
 

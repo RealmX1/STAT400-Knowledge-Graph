@@ -117,12 +117,12 @@ class KnowledgeGraphPipeline:
     
     def load_node_type_description(self) -> str:
         # inside node_schemas\README.md, after the line "# Description used in Prompting"
-        schema_path = os.path.join('node_schemas', "README.md")
-        with open(schema_path, "r", encoding="utf-8") as f:
-            schema = f.read()
+        node_description_path = os.path.join('node_schemas', "README.md")
+        with open(node_description_path, "r", encoding="utf-8") as f:
+            node_description = f.read()
         # remove the all lines before and including "# Description used in Prompting"
-        schema = schema.split("# Description used in Prompting")[1]
-        return schema
+        node_description = node_description.split("# Description used in Prompting")[1]
+        return node_description
             
 
     def stage1_generate_nodes_list(self) -> pd.DataFrame:
@@ -184,7 +184,12 @@ class KnowledgeGraphPipeline:
             if type == "json":
                 return json.load(f)
             else:
-                return f.read()
+                text = f.read()
+                # remove anything wrapped in ignore html tags
+                text = re.sub(r'<ignore>.*?</ignore>', '', text, flags=re.DOTALL)
+                # remove anything wrapped in "<!--" and "-->" (default comment in markdown)
+                text = re.sub(r'<!--.*?-->', '', text, flags=re.DOTALL)
+                return text
         
     def load_stage2_prompt(self, node_name:str, node_type:str) -> str:
         system_prompt = self.load_prompt(f"{stage_names[1]}_prompt.md")
@@ -311,16 +316,20 @@ Note that you should not change the content corresponding to each subsection in 
             json_file_path = self.get_output_path(stage_names[1], input_file_name, "json")
             if os.path.exists(json_file_path):
                 print(f"JSON file already exists at {json_file_path}. loading it...")
-                input_content = json.load(json_file_path)
+                with open(json_file_path, 'r', encoding='utf-8') as f:
+                    input_content = json.load(f)
             else:            
                 # Read markdown content
                 with open(markdown_file, "r", encoding="utf-8") as f:
                     input_content = f.read()
             
+            existing_nodes_list = self.existing_nodes.to_dict('records')
+            print(type(existing_nodes_list))
+            print(existing_nodes_list[0])
             # Prepare input for LLM
             user_input = {
                 "node_to_add": input_content,
-                "existing_nodes": self.existing_nodes
+                "existing_nodes": existing_nodes_list
             }
             
             # Make LLM call
@@ -329,7 +338,7 @@ Note that you should not change the content corresponding to each subsection in 
                 continue
                 
             # Save output
-            output_path = self.save_output(stage_names[2], output_file_name, response)
+            self.save_output(output_path, response)  # Fixed the save_output call
             print(f"Generated Cypher script saved to: {output_path}")
             
             # # Wait for user verification
