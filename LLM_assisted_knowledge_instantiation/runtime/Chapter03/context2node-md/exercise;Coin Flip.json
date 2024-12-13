@@ -1,0 +1,28 @@
+{
+    "relationships": {
+        "has_exercise": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Bernoulli Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "involved_in_exercise": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Discrete Random Variable"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "related_to": null
+    },
+    "attributes": "- **Name**: Coin Flip\n\n- **Problem Statement**: Consider a single flip of a fair coin. Determine the probability distribution of this experiment using a Bernoulli distribution. Calculate the expected value and variance for the distribution.\n\n  - **Notation**: \"$X \\sim \\text{Bernoulli}(p)$\" denotes the Bernoulli distribution, where $X$ represents the outcome of the coin flip.\n\n- **Solution**: \n\n  For a fair coin flip, the probability of getting heads (success) is $p = \\frac{1}{2}$. The Bernoulli distribution for this experiment is:\n\n  $$p_X(x) = \\begin{cases}\n      1-p = \\frac{1}{2} \\quad \\text{if $x=0$ (failure)}\\\\\n      p = \\frac{1}{2} \\quad \\text{if $x=1$ (success)}\n  \\end{cases}$$\n\n  Using the parameters associated with the Bernoulli distribution:\n\n  - **Expected Value**: The expected value $E(X)$ is given by $E(X) = p = \\frac{1}{2}$.\n\n  - **Variance**: The variance $V(X)$ is given by $V(X) = p(1-p) = \\frac{1}{2}(\\frac{1}{2}) = \\frac{1}{4}$.\n\n  - **Step-by-Step Explanation**:\n    - Step 1: Recognize the coin flip as a Bernoulli trial with $p = \\frac{1}{2}$.\n    - Step 2: Use the Bernoulli distribution probability mass function formula.\n    - Step 3: Calculate the expected value $E(X) = p$.\n    - Step 4: Calculate the variance $V(X) = p(1-p)$.\n\n- **Hints**:\n  - Recall that a fair coin implies that the probability of success and failure is equal.\n  - Use the Bernoulli distribution formula to determine the probability mass function.\n\n*Knowledge*: *Refer to Bernoulli Distribution section in discrete random variables.*\n\n**Difficulty Level**: Beginner"
+}

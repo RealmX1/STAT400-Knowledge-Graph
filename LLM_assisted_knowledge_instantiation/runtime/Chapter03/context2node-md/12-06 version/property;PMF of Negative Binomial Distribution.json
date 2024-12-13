@@ -1,0 +1,29 @@
+{
+    "relationships": {
+        "is_property_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Negative Binomial Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_child_concept_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Probability Mass Function (PMF)"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "depends_on": null,
+        "has_subproperty": null
+    },
+    "attributes": "- **Name**: PMF of Negative Binomial Distribution\n  - **Aliases**: [\"Probability Mass Function of Negative Binomial Distribution\"]\n\n- **Definition**: \n  - **Notation**: \n    - Rendered: $p_X(x) = \\binom{x+r-1}{x} p^r (1-p)^x$\n    - Latex: `p_X(x) = \\binom{x+r-1}{x} p^r (1-p)^x`\n  - **Range**: $p_X(x) \\in [0, 1]$ for $x \\in \\{0, 1, 2, 3, \\ldots\\}$\n\n- **Description**: \n  The probability mass function (PMF) of the Negative Binomial Distribution quantifies the likelihood of observing exactly \\(x\\) failures before achieving \\(r\\) successes in a series of independent Bernoulli trials, each with success probability \\(p\\).\n\n- **Proof**: \n  *The proof involves explicitly counting the outcomes in the set* $$\\{X = k\\} = \\{\\text{exactly } k \\text{ failures observed before the } r\\text{th success}\\}$$ *and using this to calculate the pmf of \\(X\\), and showing that it is the same as the pmf of the Negative Binomial distribution with parameters \\(r\\) and \\(p\\). We leave this as an exercise for the reader.*"
+}

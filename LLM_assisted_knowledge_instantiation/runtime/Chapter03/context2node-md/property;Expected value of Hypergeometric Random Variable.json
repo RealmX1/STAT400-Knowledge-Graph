@@ -1,0 +1,29 @@
+{
+    "relationships": {
+        "has_property": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Hypergeometric Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "has_subconcept": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Expected Value of Random Variable"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_prerequisite_of": null,
+        "has_subproperty": null
+    },
+    "attributes": "- **Name**: Expected Value of Hypergeometric Distribution\n  - **Aliases**: [\"Mean of Hypergeometric Distribution\"]\n\n- **Definition**: \n  Let $X \\sim \\text{Hyper}(N, M, n)$, where $N$ is the population size, $M$ is the number of successes in the population, and $n$ is the number of individuals chosen from the population.\n  - **Notation**: \n    - Raw LaTeX: `E[Hyper(N, M, n)] = n \\left(\\frac{M}{N}\\right)`\n    - Rendered: $E[Hyper(N, M, n)] = n \\left(\\frac{M}{N}\\right)$\n  - **Range**: \n    - Raw LaTeX: `E[Hyper(N, M, n)] \\in [0, min(n, M)]`\n    - Rendered: $E[Hyper(N, M, n)] \\in [0, \\min(n, M)]$\n\n- **Description**: \n  The expected value of the Hypergeometric Distribution is the average number of successes observed when $n$ individuals are chosen from a population of size $N$ containing $M$ successes without replacement. It captures the average outcome in terms of success count in simple random sampling from a finite population.\n\n- **Proof**: \n  > NEED TO mark SOURCE for the information used here. By default we will use `Stat400 teaching material - Jonathan Fernandez`\n  *Proof*: \n  The expectation of a Hypergeometric random variable can be derived using the linearity of expectation and considering it as a sum of indicators for success in each of the $n$ draws. Each draw has a probability of success $\\frac{M}{N}$. Hence, the expected number of successes is the product of the number of draws and the probability of success in each draw: \n  \\[\n  E(X) = n \\cdot \\frac{M}{N}\n  \\]"
+}

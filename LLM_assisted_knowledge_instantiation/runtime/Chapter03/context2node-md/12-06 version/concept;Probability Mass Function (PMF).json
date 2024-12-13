@@ -1,0 +1,33 @@
+{
+    "relationships": {
+        "is_subconcept_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Discrete Random Variable"
+                    }
+                }
+            ],
+            "direction": "to"
+        },
+        "is_prerequisite_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Expected Value of Distribution"
+                    }
+                },
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Variance of Distribution"
+                    }
+                }
+            ],
+            "direction": "to"
+        }
+    },
+    "attributes": "- **Name**: Probability Mass Function (PMF)\n  - **Aliases**: \n    - PMF\n    - Probability Mass Function\n\n- **Definition**:\n  - **Notation**: $p_X(x)$\n    - **Explanation**:\n      - $X$\n        - Description: A discrete random variable.\n      - $x$\n        - Description: Values that the random variable $X$ can assume.\n      - Probability\n        - Description: Probability value of the random variable taking a specific value.\n  - **Example**:\n    - $$p_X(x) = \\begin{cases}\n        1-p \\quad \\text{if $x=0$}\\\\\n        p \\quad \\text{if $x=1$}\n    \\end{cases}$$ (this example is for the concept node \"Probability Mass Function (PMF)\"; using bernoulli distribution as an example)\n      - Description: Represents a discrete random variable, which is a function that maps each outcome of a random experiment to a real number.\n\n- **Description**: \n  - A probability mass function (PMF) gives the probability of discrete random variables exactly equaling some value. It is used to define discrete random variables, where the set of possible outcomes is discrete as opposed to continuous."
+}

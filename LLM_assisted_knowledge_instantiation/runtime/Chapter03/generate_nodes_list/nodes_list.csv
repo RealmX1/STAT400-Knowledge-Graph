@@ -1,0 +1,40 @@
+node_type,node_name
+concept,Probability Distribution
+concept,Discrete Distribution
+concept,Random Variable
+concept,Discrete Random Variable
+concept,Probability Mass Function (PMF)
+concept,Discrete Uniform Distribution
+concept,Bernoulli Trial
+concept,Bernoulli Distribution
+concept,Binomial Distribution
+concept,Expected Value of Random Variable
+concept,Variance of Random Variable
+concept,Hypergeometric Distribution
+concept,Geometric Distribution
+concept,Negative Binomial Distribution
+concept,Poisson Distribution
+property,Expected value of Discrete Uniform Random Variable
+property,Variance of Discrete Uniform Random Variable
+property,PMF of Discrete Uniform Random Variable
+property,Expected value of Bernoulli Random Variable
+property,Variance of Bernoulli Random Variable
+property,PMF of Bernoulli Random Variable
+property,Expected value of Binomial Random Variable
+property,Variance of Binomial Random Variable
+property,PMF of Binomial Random Variable
+property,Expected value of Hypergeometric Random Variable
+property,Variance of Hypergeometric Random Variable
+property,PMF of Hypergeometric Random Variable
+property,Expected value of Geometric Random Variable
+property,Variance of Geometric Random Variable
+property,PMF of Geometric Random Variable
+property,Expected value of Negative Binomial Random Variable
+property,Variance of Negative Binomial Random Variable
+property,PMF of Negative Binomial Random Variable
+property,PMF of Poisson Random Variable
+property,Expected value of Poisson Random Variable
+property,Variance of Poisson Random Variable
+exercise,Coin Flip
+exercise,Fair Die Toss
+exercise,Defective Widgets from Production Line

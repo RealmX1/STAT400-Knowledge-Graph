@@ -1,0 +1,17 @@
+{
+    "relationships": {
+        "has_subconcept": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Discrete Distribution",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_prerequisite_of": null
+    },
+    "attributes": "- **Name**: Hypergeometric Distribution\n  - **Aliases**: \n    - Hyper Dist\n\n- **Definition**:\n  - **Notation**: \n    - Raw LaTeX: `X \\sim \\text{Hyper}(N, M, n)`\n    - Rendered: $X \\sim \\text{Hyper}(N, M, n)$\n  - **Explanation**:\n    - $N$\n      - Range: $N \\in \\mathbb{N}$\n      - Description: Total population size\n    - $M$\n      - Range: $M \\in \\mathbb{N}$\n      - Description: Number of successes in the population\n    - $n$\n      - Range: $n \\in \\mathbb{N}$\n      - Description: Number of individuals chosen from the population\n  - **Example**:\n    - $$p_X(x) = \\frac{{M \\choose x} {N-M \\choose n-x}}{{N \\choose n}}$$\n      - Description: The pmf describes the probability of finding exactly $x$ successes in the sample when sampling without replacement.\n\n- **Description**: \n  - The Hypergeometric Distribution models the number of successes in a sequence of $n$ draws from a finite population of size $N$ containing exactly $M$ successes, without replacement."
+}

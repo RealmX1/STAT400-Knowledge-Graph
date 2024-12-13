@@ -1,0 +1,7 @@
+{
+    "relationships": {
+        "has_subconcept": null,
+        "is_prerequisite_of": null
+    },
+    "attributes": "- **Name**: Bernoulli Trial\n  - **Aliases**: \n    - Bernoulli Experiment\n    - Binary Experiment\n\n- **Definition**:\n  - **Notation**: \n    - Latex: `BerExp(\\text{Success}, \\text{Failure})`\n    - Rendered: $BerExp(\\text{Success}, \\text{Failure})$\n  - **Explanation**: \n    - $\\text{Success}$\n      - Description: Outcome labeled as success in the experiment.\n    - $\\text{Failure}$\n      - Description: Outcome labeled as failure in the experiment.\n\n  - **Example**:\n    - $$p_X(x) = \\begin{cases}\n        1-p \\quad \\text{if $x=0$}\\\\\n        p \\quad \\text{if $x=1$}\n      \\end{cases}$$\n      - Description: Each trial results in either success or failure.\n\n- **Description**: \n  A Bernoulli trial is a random experiment where there are exactly two possible outcomes, usually labeled \"success\" and \"failure\". The trial is named after Jacob Bernoulli, a Swiss mathematician. Bernoulli trials are the building blocks for more complex distributions like the Binomial distribution."
+}

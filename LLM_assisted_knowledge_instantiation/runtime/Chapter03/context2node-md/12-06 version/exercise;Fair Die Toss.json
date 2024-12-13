@@ -1,0 +1,21 @@
+{
+    "relationships": {
+        "is_exercise_for": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Uniform Discrete Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "involves_concept": {
+            "target_nodes": null,
+            "direction": "to"
+        },
+        "related_to": null
+    },
+    "attributes": "- **Name**: Fair Die Toss\n\n- **Problem Statement**:\nFind PMF of a fair six-sided die.\n  - **Notation**: PMF\n\n- **Solution**:\n  Consider a fair six-sided die. When rolling the die, each side (1, 2, 3, 4, 5, and 6) has an equal probability of occurring. Since the die is fair, the probability of rolling any specific number is uniform. \n\n  The probability mass function for this uniform discrete distribution can be defined as:\n  $\n  P(X = x) = \\frac{1}{6}, \\quad \\text{where } x \\in \\{1, 2, 3, 4, 5, 6\\}.\n  $\n\n  In this example, each number from 1 to 6 is equally likely, so the distribution of outcomes follows a discrete uniform distribution.\n\n- **Difficulty Level**: 1/5\n\n> From `Stat400 teaching material - Jonathan Fernandez`"
+}

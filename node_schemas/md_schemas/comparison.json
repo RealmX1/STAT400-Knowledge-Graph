@@ -1,0 +1,36 @@
+"is_exercise_for": {
+  "type": "object",
+  "properties": {
+    "target_nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "target_node": {
+          "type": "object",
+          "properties": {
+            "target_node_type": {
+              "type": "string",
+              "enum": ["concept", "theorem", "property", "application_example"],
+              "description": "Type of the end nodes at the other end of the relationship."
+            },
+            "target_node_name": {
+              "type": "string",
+              "description": "Name of the end node that this exercise is related to."
+            }
+          },
+          "required": ["target_node_type", "target_node_name"],
+          "additionalProperties": false
+        }
+      },
+      "description": "Names of nodes that the exercise is about."
+    },
+    "direction": {
+      "type": "string",
+      "enum": ["from"],
+      "description": "Direction of the relationship."
+    }
+  },
+  "required": ["target_nodes", "direction"],
+  "additionalProperties": false,
+  "description": "Concepts, theorems, properties, or application examples that the exercise is about."
+},

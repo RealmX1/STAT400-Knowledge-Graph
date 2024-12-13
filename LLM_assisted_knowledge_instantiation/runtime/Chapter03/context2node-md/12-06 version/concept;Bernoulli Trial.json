@@ -1,0 +1,45 @@
+{
+    "relationships": {
+        "is_subconcept_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Discrete Distribution",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "to"
+        },
+        "is_prerequisite_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Bernoulli Distribution",
+                        "target_node_type": "concept"
+                    }
+                },
+                {
+                    "target_node": {
+                        "target_node_name": "Binomial Distribution",
+                        "target_node_type": "concept"
+                    }
+                },
+                {
+                    "target_node": {
+                        "target_node_name": "Geometric Distribution",
+                        "target_node_type": "concept"
+                    }
+                },
+                {
+                    "target_node": {
+                        "target_node_name": "Negative Binomial Distribution",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "to"
+        }
+    },
+    "attributes": "## Concept Node: Bernoulli Trial\n\n### Attributes\n\n- **Name**: *Bernoulli Trial*\n  - **Aliases**: \n    - Bernoulli experiment\n    - Binary trial\n\n- **Definition**:\n  - **Notation**: \n  - **Explanation**: \n    - A Bernoulli trial is an experiment that results in exactly one of two positive outcomes, \"success\" or \"failure.\"\n  - **Example**:\n    - *Example 1*: Flipping a coin is a classic example where the outcomes are \"heads\" (success) or \"tails\" (failure).\n    - *Example 2*: Checking if a light bulb works (success) or does not work (failure), where the success probability is denoted by \\( p \\) and failure by \\( 1-p \\).\n  \n- **Description**: \n  - A Bernoulli trial is the simplest type of random experiment. It serves as a foundational concept for several discrete distributions\u2014including the Bernoulli distribution and the Binomial distribution\u2014by modeling binary outcomes.\n\n#"
+}

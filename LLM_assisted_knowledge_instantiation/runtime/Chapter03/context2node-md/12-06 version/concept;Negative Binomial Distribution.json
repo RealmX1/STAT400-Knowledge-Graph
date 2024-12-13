@@ -1,0 +1,27 @@
+{
+    "relationships": {
+        "is_subconcept_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Discrete Distribution",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "to"
+        },
+        "is_prerequisite_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Bernoulli Trial",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "to"
+        }
+    },
+    "attributes": "- **Name**: Negative Binomial Distribution\n  - **Aliases**: \n    - *No specific aliases noted for Negative Binomial Distribution in the context.*\n\n- **Definition**:\n  - **Notation**: $NegBinom(r, p)$\n  - **Explanation**:\n    - $r$ \n      - Range: $r \\in \\mathbb{N}$\n      - Description: Number of successes we are waiting for.\n    - $p$\n      - Range: $p\\in (0,1)$\n      - Description: Probability of a success.\n    - $p_X(x) = {x+r-1 \\choose x}p^r(1-p)^x$\n      - Description: Probability mass function for a negative binomial distribution representing the probability of $x$ failures before $r$ successes.\n  - **Example**:\n    - $$X \\sim NegBinom(r, p)$$\n      - Description: Denotes a random variable $X$ following a negative binomial distribution with $r$ successes and probability $p$ for a success.\n\n- **Description**: \n  - The Negative Binomial Distribution models phenomena where the outcome is the number of failures before a specified number of successes in a series of independent Bernoulli trials. This distribution is applicable in scenarios involving waiting for a predetermined number of successes."
+}

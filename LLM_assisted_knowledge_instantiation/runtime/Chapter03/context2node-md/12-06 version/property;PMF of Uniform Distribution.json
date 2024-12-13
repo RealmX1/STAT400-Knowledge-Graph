@@ -1,0 +1,29 @@
+{
+    "relationships": {
+        "is_property_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Uniform Discrete Distribution Parameter"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_child_concept_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Probability Mass Function (PMF)"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "depends_on": null,
+        "has_subproperty": null
+    },
+    "attributes": "- **Name**: PMF of Uniform Distribution\n\n- **Definition**: \n  - **Notation**: \n    - \\( p_X(x) = \\frac{1}{N} \\quad \\forall x \\in \\mathcal{X} \\)\n    - $p_X(x) = \\frac{1}{N} \\quad \\forall x \\in \\mathcal{X}$\n    - **Range**: \\( N \\in \\mathbb{N} \\)\n\n- **Description**: \n  - The probability mass function (PMF) of a uniform discrete distribution describes a scenario where each of the possible outcomes is equally likely. The range of the variable \\( X \\) with a uniform discrete distribution is a finite set defined as \\(\\{1, 2, 3, \\ldots, N\\}\\), and each outcome has a probability of \\(\\frac{1}{N}\\).\n\n- **Proof**: \n  - In this context, the PMF is verified by considering the definition of a discrete uniform distribution where each outcome in the sample space \\(\\{1, 2, 3, \\ldots, N\\}\\) has an equal probability of being realized, computed as \\(\\frac{1}{N}\\). \n  > SOURCE: Stat400 teaching material - Jonathan Fernandez"
+}

@@ -1,0 +1,17 @@
+{
+    "relationships": {
+        "has_subconcept": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Discrete Distribution",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_prerequisite_of": null
+    },
+    "attributes": "- **Name**: Discrete Uniform Distribution\n  - **Aliases**:\n    - Uniform Discrete Distribution\n\n- **Definition**:\n  - **Notation**: `X \\sim \\text{Uniform}(\\{1, 2, \\ldots, N\\})`\n    - Rendered: \\( X \\sim \\text{Uniform}(\\{1, 2, \\ldots, N\\}) \\)\n  - **Explanation**:\n    - \\( X \\)\n      - Description: Represents a random variable with a discrete uniform distribution.\n    - \\( N \\)\n      - Range: \\( N \\in \\mathbb{N} \\)\n      - Description: Number of distinct outcomes in the discrete set \\(\\{1, 2, \\ldots, N\\}\\).\n    - Other:\n      - Range: \\( x \\in \\{1, 2, \\ldots, N\\} \\)\n      - Description: Denotes the individual values that \\( X \\) can take.\n  - **Example**:\n    - $$p_X(x) = P(X=x) = \\frac{1}{N} \\quad \\quad \\text{for all } x \\in \\{1, 2, \\ldots, N\\}$$\n      - Description: This represents the Probability Mass Function (PMF) of the discrete uniform distribution, where each outcome has an equal probability.\n\n- **Description**: \n  - The discrete uniform distribution describes a situation where a discrete random variable equitably divides probabilities across all possible outcomes. This distribution is characterized by all outcomes being equally likely within its finite set of possibilities."
+}

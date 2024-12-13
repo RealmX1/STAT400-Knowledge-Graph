@@ -1,0 +1,17 @@
+{
+    "relationships": {
+        "has_subconcept": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Random Variable",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_prerequisite_of": null
+    },
+    "attributes": "- **Name**: Expected Value of Random Variable\n\n- **Definition**:\n  - **Notation**: `E(X)`\n    - Rendered: $E(X)$\n  - **Explanation**:\n    - $E$: \n      - Description: Represents the expected value operator, which calculates the mean or average value of the distribution.\n    - $X$:\n      - Description: Represents the random variable whose expected value is to be calculated.\n\n- **Description**: \n  - The expected value of a distribution provides a measure of the central tendency or average of a random variable, giving insight into the typical value of the variable in a probability distribution. For a discrete random variable, it is calculated by summing the products of possible values and their probabilities. This concept is fundamental in probability theory and statistics, allowing for predictions based on probability distributions."
+}

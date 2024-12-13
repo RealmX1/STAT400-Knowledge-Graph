@@ -1,0 +1,29 @@
+{
+    "relationships": {
+        "has_property": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Poisson Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "has_subconcept": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Probability Mass Function (PMF)"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_prerequisite_of": null,
+        "has_subproperty": null
+    },
+    "attributes": "- **Name**: PMF of Poisson Distribution\n  - **Aliases**: [\"Probability Mass Function of Poisson Distribution\"]\n\n- **Definition**: \n  - **Notation**: \n    - LaTeX: `p_X(x) = e^{-\\lambda} \\frac{\\lambda^k}{k!}` \n    - Rendered: $p_X(x) = e^{-\\lambda} \\frac{\\lambda^k}{k!}$\n    - **Range**: $p_X(x) \\in [0, 1]$ for $x \\in \\mathbb{N}$ or $x = 0, 1, 2, \\dots$\n\n- **Description**: The Probability Mass Function (PMF) of the Poisson Distribution gives the probability of observing exactly $k$ events in an interval, given the average or expected number of event occurrences $\\lambda$.\n\n- **Proof**: *The validation of this as a probability mass function can be seen via the series expansion of the exponential function:*\n\n  $$e^\\lambda = \\sum_{k=0}^\\infty \\frac{\\lambda^k}{k!}$$\n\n  *Thus, the sum of probabilities over all possible $k$ equals 1.*"
+}

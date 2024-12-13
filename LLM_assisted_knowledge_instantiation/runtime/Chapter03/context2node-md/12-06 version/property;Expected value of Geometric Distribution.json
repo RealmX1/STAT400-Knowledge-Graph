@@ -1,0 +1,29 @@
+{
+    "relationships": {
+        "is_property_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Geometric Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_child_concept_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Expected Value of Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "depends_on": null,
+        "has_subproperty": null
+    },
+    "attributes": "- **Name**: Expected value of Geometric Distribution\n  - **Aliases**: [\"Mean of Geometric Distribution\", \"Expectation of Geometric Distribution\"]\n\n- **Definition**: \n  - **Notation**:\n    - Latex: `E[Geom(p)] = \\frac{1}{p}` \n    - Rendered: $E[Geom(p)] = \\frac{1}{p}$\n    - **Range**: $(0, \\infty)$\n\n- **Description**: \n  The expected value of a Geometric Distribution represents the average number of trials required to achieve the first success in a sequence of independent Bernoulli trials, where each trial has a success probability of $p$.\n\n- **Proof**: \n  *The proof is based on the calculation of the infinite series for the expectation of geometric random variables, which converges to 1/p. The summary of steps include showing the series derivation and its convergence.*"
+}

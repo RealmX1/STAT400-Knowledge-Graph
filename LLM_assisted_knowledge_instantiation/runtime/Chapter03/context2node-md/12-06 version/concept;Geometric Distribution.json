@@ -1,0 +1,27 @@
+{
+    "relationships": {
+        "is_subconcept_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Discrete Distribution",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "to"
+        },
+        "is_prerequisite_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Bernoulli Distribution",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "to"
+        }
+    },
+    "attributes": "- **Name**: Geometric Distribution\n  - **Aliases**: \n    - *Geometric Random Variable*\n\n- **Definition**:\n  - **Notation**: $Geom(p)$\n  - **Explanation**: \n    - $p$\n      - Range: $p \\in (0, 1)$\n      - Description: Represents the probability of success in a Bernoulli trial.\n\n  - **Example**:\n    - $$p_X(x) = p^x(1-p)^{(x-1)} \\quad \\quad x \\in \\{1, 2, 3, \\dots \\}$$\n      - Description: This is the probability mass function for a Geometric distribution, modeling the probability of $x$ number of trials to get the first success.\n\n- **Description**: \n  - The Geometric Distribution is a discrete probability distribution that models the number of trials needed to achieve the first success in a sequence of independent and identically distributed Bernoulli trials. The trials continue until the first success is observed."
+}

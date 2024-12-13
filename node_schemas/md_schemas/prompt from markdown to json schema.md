@@ -1,5 +1,5 @@
 create json schema from the following markdown. The schema will be used as schema for GPT4-o's formated output. Each bold section represent a new entry in the schema. Carefully encode the indentation as hiearchy in json.
-In relation section, '←' or '<-' means the relation has this node as the target and the node following the symbol as source; '→' or '->' means the relation has this node as the source and the node following it is the target; '↔' or '<->' means the relation is bidirectional; '=' or '-' or '--' means the relation is undirected. So the direction of each type of relation should be one of ['to', 'from', 'bidirectional', 'undirected'].
+In relation section, '←' or '<-' means the relation has this node as the target and the node following the symbol as source; '→' or '->' means the relation has this node as the source and the node following it is the target; '↔' or '<->' means the relation is bidirectional. So the direction of each type of relation should be one of ['to', 'from', 'bidirectional'].
 Note that all fields must be required (and the model will return a value for each parameter)
 emulate an optional parameter by using a union type with null: 
 "unit": {

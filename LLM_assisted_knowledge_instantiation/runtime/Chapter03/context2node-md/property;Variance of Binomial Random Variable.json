@@ -1,0 +1,29 @@
+{
+    "relationships": {
+        "has_property": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Binomial Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "has_subconcept": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Variance of Random Variable"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_prerequisite_of": null,
+        "has_subproperty": null
+    },
+    "attributes": "- **Name**: Variance of Binomial Random Variable\n  - **Aliases**: [\"Variance of Binomial Distribution\", \"Var(Binomial)\"]\n\n- **Definition**:\n  - **Notation**: \n    - Latex: `V(Binom(n, p)) = np(1-p)`\n    - Rendered: $V(Binom(n, p)) = np(1-p)$\n    - **Range**: $V(Binom(n, p)) \\in [0, n]$\n\n- **Description**: \n  The variance of a binomial random variable expresses the spread or variability of the number of successes in a fixed number of Bernoulli trials. It is a measure of how much the number of successes deviates from the expected value over repeated experiments.\n\n- **Proof**: \n  The variance of a binomial distribution can be derived by using the formula for variance of a sum of independent random variables. Each trial in the binomial distribution is independent, and the trials can be considered as Bernoulli trials with variance $p(1-p)$. The variance of the binomial distribution is $np(1-p)$ since it is the sum of variances from these $n$ independent trials.\n  > NEED TO mark SOURCE for the information used here. By default we will use `Stat400 teaching material - Jonathan Fernandez`"
+}

@@ -1,0 +1,27 @@
+{
+    "relationships": {
+        "is_subconcept_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Probability Distribution",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "to"
+        },
+        "is_prerequisite_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Expected Value of Distribution",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "to"
+        }
+    },
+    "attributes": "- **Name**: Variance of Distribution\n  - **Aliases**: *List of Strings*\n    - Variance\n  \n- **Definition**:\n  - **Notation**: $V(X)$\n  - **Explanation**: \n    - $X$ \n      - Description: Represents the random variable associated with the distribution.\n  - **Example**:\n    - $V(X) = \\frac{(N+1)(N-1)}{12}$ (for Uniform Distribution)\n      - Description: The variance formula for a Uniform Distribution over a discrete space $\\{1, 2, \\ldots, N\\}$.\n    - $V(X) = p(1-p)$ (for Bernoulli Distribution)\n      - Description: The variance formula for a Bernoulli Distribution, where $p$ is the probability of success.\n    - $V(X) = np(1-p)$ (for Binomial Distribution)\n      - Description: The variance formula for a Binomial Distribution with $n$ trials and probability of success $p$.\n    - $V(X) = \\left(\\frac{N-n}{N-1} \\right)\\cdot n\\cdot \\left(\\frac{M}{N}\\right)\\cdot \\left(1-\\frac{M}{N} \\right)$ (for Hypergeometric Distribution)\n      - Description: The variance formula for a Hypergeometric Distribution with parameters $N$, $M$, and $n$.\n    - $V(X) = \\frac{1-p}{p^2}$ (for Geometric Distribution)\n      - Description: The variance formula for a Geometric Distribution where $p$ is the probability of success.\n    - $V(X) = \\frac{r(1-p)}{p^2}$ (for Negative Binomial Distribution)\n      - Description: The variance formula for a Negative Binomial Distribution with $r$ successes and probability of success $p$.\n    - $V(X) = \\lambda$ (for Poisson Distribution)\n      - Description: The variance formula for a Poisson Distribution with rate parameter $\\lambda$.\n  \n- **Description**: Variance of a distribution quantifies its spread or dispersion, indicating how much the values of the random variable deviate from the expected value on average."
+}

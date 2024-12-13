@@ -1,0 +1,29 @@
+{
+    "relationships": {
+        "has_property": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Negative Binomial Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "has_subconcept": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Expected Value of Random Variable"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_prerequisite_of": null,
+        "has_subproperty": null
+    },
+    "attributes": "- **Name**: Expected Value of Negative Binomial Distribution\n\n- **Definition**: \n  - **Notation**: \n    - Latex: `E[NegBinom(r, p)] = \\frac{r(1-p)}{p}`\n    - Rendered: $E[NegBinom(r, p)] = \\frac{r(1-p)}{p}$\n  - **Range**: \n    - \\(E[NegBinom(r, p)] \\in \\mathbb{R}_{+}\\)\n\n- **Description**: \n  - The expected value of the Negative Binomial Distribution represents the average number of failures before observing the r-th success in a sequence of independent Bernoulli trials, each with a probability of success \\(p\\).\n\n- **Proof**: \n  > NEED TO mark SOURCE for the information used here. By default, we will use `Stat400 teaching material - Jonathan Fernandez`"
+}

@@ -1,0 +1,29 @@
+{
+    "relationships": {
+        "is_property_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Uniform Discrete Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_child_concept_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Expected Value of Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "depends_on": null,
+        "has_subproperty": null
+    },
+    "attributes": "- **Name**: Expected value of Uniform Distribution\n  - **Aliases**: [\"Expected Value\", \"Mean of Uniform Distribution\"]\n\n- **Definition**: \n  - **Notation**: \n    - LaTeX code: `E(X) = \\frac{N+1}{2}` \n    - Rendered: \\(E(X) = \\frac{N+1}{2}\\)\n    - **Range**: \\(E(X) \\in \\mathbb{R}\\) (*since it is calculated over the natural numbers from 1 to N*)\n\n- **Description**: \n  - The Expected value of a Uniform Discrete Distribution is the central measure representing the average or mean of all possible outcomes for a discrete uniform distribution when each outcome is equally likely. For a Uniform distribution over a range {1, 2, ..., N}, the expected value can be interpreted graphically as the midpoint of this range.\n\n- **Proof**: *Source: Stat400 teaching material - Jonathan Fernandez*\n  - When \\(X\\) is uniformly distributed on {1, 2, ..., N}, the expected value is derived by summing all values in the range and dividing by the number of values. Calculating \\(E(X) = \\frac{1 + 2 + ... + N}{N}\\), we can use the formula for the sum of the first N natural numbers: \\(\\frac{N(N+1)}{2}\\). This gives us \\(\\frac{N+1}{2}\\)."
+}

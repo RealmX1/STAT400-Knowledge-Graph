@@ -1,0 +1,81 @@
+{
+    "relationships": {
+        "is_subconcept_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Probability",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "to"
+        },
+        "is_prerequisite_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Discrete Distribution",
+                        "target_node_type": "concept"
+                    }
+                },
+                {
+                    "target_node": {
+                        "target_node_name": "Bernoulli Distribution",
+                        "target_node_type": "concept"
+                    }
+                },
+                {
+                    "target_node": {
+                        "target_node_name": "Binomial Distribution",
+                        "target_node_type": "concept"
+                    }
+                },
+                {
+                    "target_node": {
+                        "target_node_name": "Hypergeometric Distribution",
+                        "target_node_type": "concept"
+                    }
+                },
+                {
+                    "target_node": {
+                        "target_node_name": "Geometric Distribution",
+                        "target_node_type": "concept"
+                    }
+                },
+                {
+                    "target_node": {
+                        "target_node_name": "Negative Binomial Distribution",
+                        "target_node_type": "concept"
+                    }
+                },
+                {
+                    "target_node": {
+                        "target_node_name": "Poisson Distribution",
+                        "target_node_type": "concept"
+                    }
+                },
+                {
+                    "target_node": {
+                        "target_node_name": "Probability Mass Function (PMF)",
+                        "target_node_type": "concept"
+                    }
+                },
+                {
+                    "target_node": {
+                        "target_node_name": "Expected Value of Distribution",
+                        "target_node_type": "concept"
+                    }
+                },
+                {
+                    "target_node": {
+                        "target_node_name": "Variance of Distribution",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "to"
+        }
+    },
+    "attributes": "- **Name**: Probability Distribution\n  - **Aliases**: \n    - Distribution\n    - Discrete Distribution\n  \n- **Description**: \n  - A probability distribution is a statistical function that describes all the possible values and likelihoods that a random variable can take within a given range. This concept includes various specific types like Bernoulli, Binomial, Poisson, and more. Discrete probability distributions apply to scenarios where the set of possible outcomes is discrete, meaning each possible outcome can be distinctly separated."
+}

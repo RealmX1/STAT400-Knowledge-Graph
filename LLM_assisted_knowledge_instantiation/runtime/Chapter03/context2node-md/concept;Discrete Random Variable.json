@@ -1,0 +1,23 @@
+{
+    "relationships": {
+        "has_subconcept": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Discrete Distribution",
+                        "target_node_type": "concept"
+                    }
+                },
+                {
+                    "target_node": {
+                        "target_node_name": "Random Variable",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_prerequisite_of": null
+    },
+    "attributes": "- **Name**: Discrete Random Variable\n  - **Aliases**: \n    - None\n\n- **Definition**:\n  - **Notation**: `X`\n    - Rendered: $X$\n  - **Explanation**:\n    - $\\mathcal{X}$:\n      - Range: $\\mathcal{X}$ is a discrete subset of $\\mathbb{R}$\n      - Description: Set of all possible discrete values that the random variable can take.\n    - $F_X$:\n      - Description: The cumulative distribution function, which is a step function for discrete random variables.\n\n- **Example**:\n    - $$p_X(x)=P(X=x)=\\frac{1}{N} \\quad \\quad \\text{for all $x\\in \\mathcal{X}$}$$\n      - Description: Example of a probability mass function for a uniform discrete random variable.\n\n- **Description**: \n  - A discrete random variable $X$ is one that has a countable number of possible values. This means that its cumulative distribution function is a step function, indicating that the set of values attainable by $X$ is discrete. Common examples include integers or a finite set of possible outcomes, typically observed in experiments or scenarios with countable outcomes like die tosses."
+}

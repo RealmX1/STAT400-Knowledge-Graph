@@ -11,11 +11,13 @@
 
 - **Definition**: *Text*
   - **Notation**: *String/Text* (LaTeX)
-    - Symbols or mathematical notation associated with the property. Show LaTeX code and rendered LaTeX side by side.
-    - *Example*: "\lambda" $\lambda$
+    - Symbols or mathematical notations associated with the property in latex format. First present raw latex code, then present the rendered latex code.
+    - *Example*: 
+      - Rendered: $E[Pois(\lambda)] = \lambda$
+      - Latex: `E[Pois(\lambda)] = \lambda` 
     - **Range**: *String/Text* (LaTeX) (?)
       - The range of the property.
-      - *Example*: $\lambda \in \{0, \infty\}$
+      - *Example*: $E[Pois(\lambda)] \in \{0, \infty\}$
 <ignore>
 A Type property under notation maybe should be taken into consideration.
     - **Type**: *Enum*
@@ -34,18 +36,18 @@ A Type property under notation maybe should be taken into consideration.
   
 ## Relationships
 
-- **is_property_of** ← *Concept*/*Theorem* (the reverse of **has_property**)
+- **has_property** <= (i.e. **is_property_of** =>) *Concept* MUST
   - Concepts or theorems that possess this property.
-  - *Example*: "Expected Value of Poisson Distribution" is a property of "Poisson Distribution"
-- **is_child_concept_of** ← *Concept* (the reverse of **is_parent_concept_of**)
-  - Properties that are derived from the concept.
-  - *Example*: "Variance of Poisson Distribution" is a child concept of "Variance of random variable"
-- **depends_on** ← *Property* (the reverse of **is_prerequisite_of**)
+  - *Example*: Current Property "Expected Value of Poisson Distribution" is a property of "Poisson Distribution"; "Poisson Distribution" has_property current property.
+- **has_subconcept** <= (i.e. **is_subconcept_of** =>) *Concept* MUST
+  - The concept that this property is derived from/is a subset of.
+  - *Example*: Current Property "Variance of Poisson Distribution" is a child concept of "Variance of random variable"; "Variance of Random Variable" has_subconcept current property.
+- **has_subproperty** => (i.e. **is_subproperty_of** <=) *Property*
+  - More specific properties derived from the current property. The target property (subproperty) implies the current property.
+  - *Example*: "Strict Positivity" (current property) has "Non-negativity" (target property) as a subproperty
+- **is_prerequisite_of** <= (i.e. **depends_on** =>) *Property*
   - Properties that are prerequisites for this property.
-  - *Example*: "Variance of Poisson Distribution" depends on "Expected Value of Poisson Distribution"
-- **has_subproperty** → *Property* (the reverse of **is_subproperty_of**) (likely won't encounter, optional)
-  - More specific properties derived from the current property. SAME AS IMPLIES.
-  - *Example*: "Strict Positivity" has "Non-negativity" as a subproperty
+  - *Example*: Current Property "Variance of Poisson Distribution" depends on "Expected Value of Poisson Distribution"; "Expected Value of Poisson Distribution" is a prerequisite of current property.
 
 <ignore>
 <deprecated>

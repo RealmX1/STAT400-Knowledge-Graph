@@ -1,0 +1,29 @@
+{
+    "relationships": {
+        "is_property_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Bernoulli Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_child_concept_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Expected Value of Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "depends_on": null,
+        "has_subproperty": null
+    },
+    "attributes": "- **Name**: \"Expected value of Bernoulli Distribution\"\n  - **Aliases**: [\"Expected Value\", \"Mean of Bernoulli Distribution\"]\n\n- **Definition**: \n  - **Notation**: \n    - Symbols or mathematical notation associated with the property: \n      - \"\\(E(X) = p\\)\" \\(E(X) = p\\)\n  - **Range**: \n    - The range of the property:\n      - \\(p \\in (0, 1)\\)\n\n- **Description**: \n  The expected value of a Bernoulli distribution is the probability \\(p\\) of success in a Bernoulli trial. The Bernoulli distribution is a discrete distribution with only two possible outcomes, usually termed \"success\" and \"failure\". This value represents the average outcome, which in the case of a Bernoulli distribution corresponds directly to the probability of success.\n\n- **Proof**: \n  The expected value of a Bernoulli distribution, \\(E(X)\\), can be derived as follows:\n  - Given the Bernoulli random variable \\(X\\) with \\(P(X=1) = p\\) and \\(P(X=0) = 1-p\\),\n  - The expected value is calculated as: \n    \\[\n    E(X) = 0 \\cdot (1-p) + 1 \\cdot p = p.\n    \\]\n\n > NEED TO mark SOURCE for the information used here. By default we will use `Stat400 teaching material - Jonathan Fernandez`"
+}

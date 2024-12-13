@@ -1,0 +1,29 @@
+{
+    "relationships": {
+        "has_property": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Binomial Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "has_subconcept": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Expected Value of Random Variable"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_prerequisite_of": null,
+        "has_subproperty": null
+    },
+    "attributes": "- **Name**: Expected value of Binomial Random Variable\n  - **Aliases**: [\"Expected Value\", \"Mean of Binomial Distribution\"]\n\n- **Definition**: The expected value of a Binomial random variable quantifies the average number of successful outcomes for a given number of trials.\n  - **Notation**: \n    - Latex: `E[X] = np` \n    - Rendered: $E[X] = np$\n    - **Range**: $E[X] \\in \\{0, n\\}$\n\n- **Description**: The expected value for a Binomial random variable $X$, which is represented as $X \\sim \\text{Binomial}(n, p)$, is determined by multiplying the number of trials $n$ by the probability $p$ of success in each trial. It represents the average number of successes in $n$ trials when each trial has an identical probability of success.\n\n- **Proof**: The expectation of a Binomial Random Variable $X \\sim \\text{Binomial}(n, p)$ can be derived using the linearity of expectation. For each of the $n$ trials, the expected value of getting a success is $p$, hence the total expectation across all trials is $n \\cdot p$.\n  > SOURCE: Stat400 teaching material - Jonathan Fernandez"
+}

@@ -1,0 +1,39 @@
+{
+    "relationships": {
+        "has_property": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Geometric Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "has_subconcept": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Variance of Random Variable"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_prerequisite_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "property",
+                        "target_node_name": "Expected Value of Geometric Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "has_subproperty": null
+    },
+    "attributes": "- **Name**: Variance of Geometric Distribution\n\n- **Definition**: \n  - **Notation**: \n    - Latex: `V(X) = \\frac{1-p}{p^2}`\n    - Rendered: $V(X) = \\frac{1-p}{p^2}$\n    - **Range**: $V(X) \\geq 0$\n\n- **Description**: This property describes the variance of a geometric distribution, which represents the variability or spread in the number of trials needed to get the first success, with each trial being independent and having a probability of success $p$.\n\n- **Proof**: *Step by step proof of this property would involve calculating $V(X) = E(X^2) - [E(X)]^2$, starting by deriving expressions for $E(X)$ and $E(X^2)$ for the geometric distribution.*"
+}

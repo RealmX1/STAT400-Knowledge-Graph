@@ -1,0 +1,40 @@
+{
+    "relationships": {
+        "has_exercise": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Binomial Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "involved_in_exercise": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Probability Mass Function"
+                    }
+                },
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Expected Value"
+                    }
+                },
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Variance"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "related_to": null
+    },
+    "attributes": "- **Name**: Defective Widgets from Production Line\n\n- **Problem Statement**: \n  A production line produces widgets. The probability of a widget being defective is 0.05. Assuming independence, and that 20 widgets are checked, what is the probability that exactly 2 widgets are defective? What is the variance and expected value of the number of defective widgets?\n\n  - **Notation**:\n    - \"Probability of a widget being defective: \\( p = 0.05 \\)\"\n    - \"Number of widgets checked: \\( n = 20 \\)\"\n    - \"Probability of exactly 2 defective widgets, \\( P(X = 2) \\), where \\( X \\sim \\text{Binomial}(n = 20, p = 0.05) \\)\"\n    - \"Expected value, \\( E(X) = np \\)\"\n    - \"Variance, \\( V(X) = np(1-p) \\)\"\n\n- **Solution**: \n  To solve this problem, we model the situation using the Binomial distribution with parameters \\( n = 20 \\) and \\( p = 0.05 \\).\n\n  **Step-by-Step Explanation**:\n  1. Identify the distribution parameters: \\( n = 20 \\), \\( p = 0.05 \\).\n  2. Calculate the probability of exactly 2 defective widgets using the binomial probability mass function:\n     \\[\n     P(X = 2) = \\binom{20}{2} (0.05)^2 (0.95)^{18}\n     \\]\n  3. Compute the expected value and variance:\n     \\[\n     E(X) = np = 20 \\times 0.05 = 1\n     \\]\n     \\[\n     V(X) = np(1-p) = 20 \\times 0.05 \\times 0.95 = 0.95\n     \\]\n\n- **Hints**:\n  - Recall the Binomial distribution formula \\( P(X = k) = \\binom{n}{k} p^k (1-p)^{n-k} \\).\n  - The expected value of a binomially distributed variable is \\( E(X) = np \\).\n  - The variance of a binomially distributed variable is \\( V(X) = np(1-p) \\).\n\n- **Difficulty Level**: Beginner"
+}

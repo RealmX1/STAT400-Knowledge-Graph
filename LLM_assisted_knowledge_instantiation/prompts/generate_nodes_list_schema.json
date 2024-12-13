@@ -1,0 +1,35 @@
+{
+  "name": "node_array",
+  "strict": true,
+  "schema": {
+    "type": "object",
+    "properties": {
+      "nodes": {
+        "type": "array",
+        "description": "An array of new nodes.",
+        "items": {
+          "type": "object",
+          "properties": {
+            "node_type": {
+              "type": "string",
+              "description": "The type of the node."
+            },
+            "node_name": {
+              "type": "string",
+              "description": "The name of the node."
+            }
+          },
+          "required": [
+            "node_type",
+            "node_name"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "nodes"
+    ],
+    "additionalProperties": false
+  }
+}

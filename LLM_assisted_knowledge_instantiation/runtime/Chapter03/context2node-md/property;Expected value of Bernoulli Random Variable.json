@@ -1,0 +1,29 @@
+{
+    "relationships": {
+        "has_property": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Bernoulli Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "has_subconcept": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Expected Value of Random Variable"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_prerequisite_of": null,
+        "has_subproperty": null
+    },
+    "attributes": "## Name\n\nExpected value of Bernoulli Random Variable\n\n## Aliases\n\n- Mean of Bernoulli Random Variable\n- Expected Value\n\n## Definition\n\n- **Notation**: \n  - Raw LaTeX: `E(\\text{Bernoulli}(p)) = p`\n  - Rendered: $E(\\text{Bernoulli}(p)) = p$\n- **Range**: \n  - Raw LaTeX: `E(\\text{Bernoulli}(p)) \\in [0, 1]`\n  - Rendered: $E(\\text{Bernoulli}(p)) \\in [0, 1]$\n\n## Description\n\nThe Expected Value of a Bernoulli Random Variable is simply the probability of success in a Bernoulli trial. It represents the average result of the random variable over a large number of trials. The expected value is the same as the parameter \\( p \\) of the Bernoulli distribution, reflecting the likelihood of success on each trial.\n\n## Proof\n\nConsidering a Bernoulli random variable \\( X \\) with \\( X \\sim \\text{Bernoulli}(p) \\), the expected value is calculated as follows:\n\n1. \\( X \\) takes the value 1 with probability \\( p \\) and value 0 with probability \\( 1 - p \\).\n2. Therefore, the expected value \\( E(X) \\) can be calculated as:\n   \n   \\[\n   E(X) = 1 \\cdot p + 0 \\cdot (1-p) = p\n   \\]\n\n> NEED TO mark SOURCE for the information used here. By default we will use `Stat400 teaching material - Jonathan Fernandez`"
+}

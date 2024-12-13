@@ -1,0 +1,39 @@
+{
+    "relationships": {
+        "is_property_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Bernoulli Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_child_concept_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Variance of a distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "depends_on": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "property",
+                        "target_node_name": "Expected value of Bernoulli Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "has_subproperty": null
+    },
+    "attributes": "- **Name**: Variance of Bernoulli Distribution\n  - **Aliases**: [\"Variance of Bernoulli Random Variable\", \"Bernoulli Variability\"]\n\n- **Definition**: \n  The variance of a Bernoulli distribution is a measure of the dispersion of the distribution around its mean.\n  - **Notation**: \n    - LaTeX: \"$V(X) = p(1-p)$\"\n    - Rendered: $V(X) = p(1-p)$\n  - **Range**: $0 \\leq V(X) \\leq \\frac{1}{4}$\n\n- **Description**: \n  The variance of a Bernoulli distribution describes how spread out the successes and failures (0 and 1) are around the expected value. It indicates the degree of uncertainty in predicting the outcome of a Bernoulli trial.\n\n- **Proof**: \n  - Source: Stat400 teaching material - Jonathan Fernandez\n  The variance of a Bernoulli random variable $X \\sim \\text{Bernoulli}(p)$ is calculated as follows:\n  \n  Given: \n  \\[ E(X) = p \\]\n  \n  The variance $V(X)$ for a Bernoulli distribution is:\n  \\[ V(X) = E(X^2) - (E(X))^2 \\]\n  \n  Since $X^2 = X$ for a Bernoulli random variable (as $X$ is either 0 or 1), we get:\n  \\[ V(X) = E(X) - p^2 = p - p^2 = p(1-p) \\]"
+}

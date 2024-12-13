@@ -1,0 +1,40 @@
+node_type,node_name
+concept,Probability Distribution
+concept,Discrete Distribution
+concept,Discrete Random Variable
+concept,Probability Mass Function (PMF)
+concept,Uniform Discrete Distribution
+concept,Bernoulli Trial
+concept,Bernoulli Distribution
+concept,Binomial Distribution
+concept,Hypergeometric Distribution
+concept,Geometric Distribution
+concept,Negative Binomial Distribution
+concept,Poisson Distribution
+concept,Expected Value of Distribution
+concept,Variance of Distribution
+property,Expected value of Uniform Distribution
+property,Variance of Uniform Distribution
+property,PMF of Uniform Distribution
+property,Expected value of Bernoulli Distribution
+property,Variance of Bernoulli Distribution
+property,PMF of Bernoulli Distribution
+property,Expected value of Binomial Distribution
+property,Variance of Binomial Distribution
+property,PMF of Binomial Distribution
+property,Expected value of Hypergeometric Distribution
+property,Variance of Hypergeometric Distribution
+property,PMF of Hypergeometric Distribution
+property,Expected value of Geometric Distribution
+property,Variance of Geometric Distribution
+property,PMF of Geometric Distribution
+property,Expected value of Negative Binomial Distribution
+property,Variance of Negative Binomial Distribution
+property,PMF of Negative Binomial Distribution
+property,PMF of Poisson Distribution
+property,Expected value of Poisson Distribution
+property,Variance of Poisson Distribution
+exercise,Coin Flip
+exercise,Multi-round Coin Flip
+exercise,Fair Die Toss
+exercise,Defective Widgets from Production Line

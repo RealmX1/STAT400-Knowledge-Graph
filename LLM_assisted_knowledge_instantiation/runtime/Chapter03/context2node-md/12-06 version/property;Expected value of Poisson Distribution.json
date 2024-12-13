@@ -1,0 +1,29 @@
+{
+    "relationships": {
+        "is_property_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Poisson Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_child_concept_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Expected Value of Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "depends_on": null,
+        "has_subproperty": null
+    },
+    "attributes": "- **Name**: Expected Value of Poisson Distribution\n  - **Aliases**: [\"Expected Value\", \"Mean of Poisson Distribution\"]\n\n- **Definition**: \n  - **Notation**: \n    - Rendered: $E[X] = \\lambda$\n    - Latex: `E[X] = \\lambda`\n  - **Range**: \n    - Rendered: $E[X] \\in \\{0, \\infty\\}$\n    - Latex: `E[X] \\in \\{0, \\infty\\}`\n\n- **Description**: Expected Value of Poisson Distribution is the average number of occurrences of an event in a fixed interval of time or space. It is equal to the rate parameter $\\lambda$ of the Poisson Distribution."
+}

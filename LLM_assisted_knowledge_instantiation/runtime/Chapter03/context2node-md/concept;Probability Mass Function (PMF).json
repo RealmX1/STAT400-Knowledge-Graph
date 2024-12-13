@@ -1,0 +1,17 @@
+{
+    "relationships": {
+        "has_subconcept": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Discrete Random Variable",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_prerequisite_of": null
+    },
+    "attributes": "- **Name**: Probability Mass Function (PMF)\n- **Aliases**: \n  - *None defined in the context*\n\n- **Definition**:\n  - **Notation**: \n    - Latex: `p_X(x)`\n    - Rendered: $p_X(x)$\n  - **Explanation**:\n    - $X$: \n      - Description: Denotes the random variable for which the probability is assigned.\n    - $x$: \n      - Description: Represents a specific value that the discrete random variable $X$ can take.\n    - $p_X(x)$:\n      - Description: The probability that the discrete random variable $X$ takes the value $x$.\n  - **Example**:\n    - $$p_X(x) = \\begin{cases}\n        1-p \\quad \\text{if $x=0$}\\\\\n        p \\quad \\text{if $x=1$}\n    \\end{cases}$$\n      - Description: This example uses the Bernoulli random variable to illustrate the specific probabilities assigned to the possible values of a discrete random variable.\n\n- **Description**: \n  - The Probability Mass Function (PMF) is a function that provides the probability that a discrete random variable is exactly equal to some value. It serves as a foundation for working with discrete random variables by associating probabilities with individual outcomes within a discrete sample space."
+}

@@ -1,0 +1,29 @@
+{
+    "relationships": {
+        "is_property_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Uniform Discrete Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_child_concept_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Variance of Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "depends_on": null,
+        "has_subproperty": null
+    },
+    "attributes": "- **Name**: Variance of Uniform Distribution\n  - **Aliases**: [\"Variance\", \"Spread of Uniform Distribution\"]\n\n- **Definition**: \n  - **Notation**: \n    - LaTeX: `V(X) = \\frac{(N+1)(N-1)}{12}`\n    - Rendered: \\(V(X) = \\frac{(N+1)(N-1)}{12}\\)\n\n- **Description**: \n  - The variance of a Uniform Discrete Distribution on the set \\(\\{1, 2, 3, \\dots, N\\}\\) measures the dispersion of the possible values around the mean. It quantifies how much the values differ from the expected value.\n  \n- **Proof**: \n  - Source: Stat400 teaching material - Jonathan Fernandez\n  - *Provide proof using typical methods for calculating variance of uniform discrete distributions over integer ranges.*"
+}

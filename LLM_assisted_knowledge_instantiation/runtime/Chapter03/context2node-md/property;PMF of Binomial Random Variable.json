@@ -1,0 +1,29 @@
+{
+    "relationships": {
+        "has_property": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Binomial Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "has_subconcept": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Probability Mass Function (PMF)"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_prerequisite_of": null,
+        "has_subproperty": null
+    },
+    "attributes": "- **Name**: PMF of Binomial Random Variable\n  - **Aliases**: [\"Probability Mass Function of Binomial Distribution\", \"Binomial PMF\"]\n\n- **Definition**: \n  - **Notation**: \n    - Latex: `p_X(x) = {n \\choose x} p^x(1-p)^{(n-x)}`\n    - Rendered: $p_X(x) = {n \\choose x} p^x(1-p)^{(n-x)}$\n    - **Range**: Dual interpretation as it covers $x \\in \\{0, 1, 2, \\dots, n\\}$.\n\n- **Description**: \n  The probability mass function (PMF) of a Binomial random variable, $X \\sim \\text{Binomial}(n, p)$, gives the probability of obtaining exactly $x$ successes in $n$ independent Bernoulli trials, each with a probability of success $p$.\n\n- **Proof**: \n  The proof involves explicitly calculating the PMF of $X$ by considering all possible sequences of successes and failures and summing their respective probabilities."
+}

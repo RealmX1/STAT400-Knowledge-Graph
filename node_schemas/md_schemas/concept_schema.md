@@ -9,15 +9,24 @@
     - *Example*: Poisson Distribution
 - **Definition**:
   - **Notation**: *String* (Latex)
-    - Symbols or mathematical notations associated with the concept in latex format.
+    - Symbols or mathematical notations associated with the concept. First present raw latex code, then present the rendered latex code.
     - *Example*: 
-      - Pois(\lambda)
+      - Rendered: $Pois(\lambda)$
+      - Latex: `Pois(\lambda)` 
   - **Explanation**: *List of Objects*
     - Disect the notation and explain each part. Should have range (if applicable) and description for each respective part.
     - *Example*:
       - $\lambda$ 
         - Range: $\lambda \in \{0, \infty\}$
         - Description:represent average rate or mean number of occurrences of the event being modeled. 
+      - $other$
+        - Description: More information parts of the notation that need explanation if necessary.
+  - **Example**:
+    - $$p_X(x) = \begin{cases}
+      1-p \quad \text{if $x=0$}\\
+      p \quad \text{if $x=1$}
+  \end{cases}$$ (this example is for the concept node "Probability Mass Function (PMF)"; using bernoulli distribution as an example)
+      - Description: Represents a discrete random variable, which is a function that maps each outcome of a random experiment to a real number.
 - **Description**: *Text*
   - Additional explanations, background information, or context about the concept.
   - *Example*: "Poisson Distribution is a discrete probability distribution that describes the number of times an event occurs within a fixed interval of time or space. It assumes that events occur with a constant mean rate and are independent of the time since the last event."
@@ -25,17 +34,18 @@
 
 
 ## Relationships
-### Relation regarding concept
 
-- **has_subconcept** → *Concept* [list of concept names] (the reverse of **is_subconcept_of** ←)
-  - Points to more specific or narrower concepts derived from the current concept.
-  - *Example*: "Conditional Probability" has subconcepts like "Conditional Density Function"
+- **is_subconcept_of** => (i.e. **has_subconcept** <=) *Concept* [parent concept name] 
+  - A parent concept has current concept as a subconcept.
+  - *Example*: "Poisson Distribution" should log relation "has_subconcept" from "Discrete Distribution"; i.e., "Discrete Distribution" has_subconcept "Poisson Distribution"
 
-- **is_prerequisite_of** → *Concept* [list of concept names] (the reverse of **depends_on** ←)
-  - Indicates prerequisite concepts required for understanding the current concept. (not as strong as "subconcept of")
-  - *Example*: "Time" is a prerequisite of "Speed".
 
 <ignore>
+
+- **is_prerequisite_of** <= (i.e. **depends_on** =>) *Concept* [list of concept names] 
+  - Indicates prerequisite concepts required for understanding the current concept. (not as strong as "subconcept of"; if a concept has the current concept as a subconcept, it should not be logged to have "is_prerequisite_of" relation to the current concept)
+  - *Example*: "Time" is a prerequisite of "Speed".
+> Maybe this relation should just be a "quick access" type of relation.
 <!-- Information in ignore tag should not be taken into consideration by LLM -->
 <depricated>
 - **related_to** -- *Concept* (the reverse of **is_related_to**) (VERY OPTIONAL)

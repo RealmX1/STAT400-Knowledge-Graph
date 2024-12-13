@@ -1,0 +1,39 @@
+{
+    "relationships": {
+        "is_property_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Poisson Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_child_concept_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Variance of Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "depends_on": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "property",
+                        "target_node_name": "Expected value of Poisson Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "has_subproperty": null
+    },
+    "attributes": "- **Name**: Variance of Poisson Distribution\n  - **Aliases**: [\"Variance\", \"Variance in Poisson Distribution\"]\n\n- **Definition**: \n  - **Notation**: \n    - Rendered: $V(Pois(\\lambda)) = \\lambda$\n    - Latex: `V(Pois(\\lambda)) = \\lambda`\n  - **Range**: \n    - Rendered: $V(Pois(\\lambda)) \\in \\{0, \\infty\\}$\n    - Latex: `V(Pois(\\lambda)) \\in \\\\{0, \\infty\\\\}`\n\n- **Description**: \n  - Variance of Poisson Distribution measures the degree of spread in the number of times an event occurs in a fixed interval. It is equal to the rate parameter, lambda, which is also the mean of the Poisson distribution.\n\n- **Proof**: *The variance of the Poisson distribution, being the same as its mean ($\\lambda$), can be derived using the relation between cumulative properties of a Poisson process.*\n\n> NEED TO mark SOURCE for the information used here. By default we will use `Stat400 teaching material - Jonathan Fernandez`"
+}

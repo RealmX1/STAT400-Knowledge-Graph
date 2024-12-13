@@ -1,0 +1,33 @@
+{
+    "relationships": {
+        "is_subconcept_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "ProbabilityDistribution",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "to"
+        },
+        "is_prerequisite_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Variance of Distribution",
+                        "target_node_type": "concept"
+                    }
+                },
+                {
+                    "target_node": {
+                        "target_node_name": "Probability Mass Function (PMF)",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "to"
+        }
+    },
+    "attributes": "- **Name**: Expected Value of Distribution\n  - **Aliases**: \n    - Mean of Distribution\n    - Average Value of Distribution\n\n- **Definition**:\n  - **Notation**: $E(X)$\n  - **Explanation**:\n    - $E(X)$\n      - Description: Represents the expected value or mean of a random variable $X$. It is the long-run average value of repetitions of the experiment it represents.\n  - **Example**:\n    - $$E(X) = \\frac{N+1}{2}$$\n      - Description: This is the expected value for a Uniform Discrete Distribution on the set $\\{1, 2, \\ldots, N\\}$.\n\n- **Description**: \n  - The expected value, often called the mean, of a distribution is a measure of the \"center\" of the probability distribution. For discrete random variables, it is calculated as the sum of the products of the probabilities and their corresponding values."
+}

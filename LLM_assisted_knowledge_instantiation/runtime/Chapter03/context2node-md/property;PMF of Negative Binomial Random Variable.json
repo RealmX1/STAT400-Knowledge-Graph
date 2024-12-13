@@ -1,0 +1,29 @@
+{
+    "relationships": {
+        "has_property": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Negative Binomial Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "has_subconcept": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Probability Mass Function (PMF)"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_prerequisite_of": null,
+        "has_subproperty": null
+    },
+    "attributes": "- **Name**: PMF of Negative Binomial Distribution\n  - **Aliases**: [\"Probability Mass Function of Negative Binomial Distribution\"]\n\n- **Definition**: The PMF of the Negative Binomial Distribution, typically denoted by $X \\sim \\text{NegBinom}(r, p)$ is given by the formula:\n  - **Notation**:\n    - Latex: `p_X(x) = {x+r-1 \\choose x}p^r(1-p)^x` \n    - Rendered: $p_X(x) = {x+r-1 \\choose x}p^r(1-p)^x$\n    - **Range**: $x\\in \\{0,1, 2, 3, \\dots \\}$\n  \n- **Description**: The probability mass function for a Negative Binomial distribution gives the probability of $X$ number of failures before achieving $r$ successes in a series of independent Bernoulli trials, where each trial has a probability $p$ of success.\n\n- **Proof**:\n  To determine the PMF, consider the sample space consisting of all possible sequences of failures and successes, stopping at exactly the $r$th success. The binomial coefficient counts the number of ways to arrange $x$ failures among the trials needed to achieve $r$ successes. This PMF thus embodies both the sequence's ordering and the fixed number of successes needed.\n  > *SOURCE: Stat400 teaching material - Jonathan Fernandez*"
+}

@@ -1,0 +1,29 @@
+{
+    "relationships": {
+        "has_property": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Discrete Uniform Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "has_subconcept": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Variance of Random Variable"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_prerequisite_of": null,
+        "has_subproperty": null
+    },
+    "attributes": "- **Name**: Variance of Uniform Random Variable\n  - **Aliases**: [\"Variance of Uniform Distribution\"]\n\n- **Definition**: \n  - **Notation**: \n    - Latex: `V(X) = \\frac{(N+1)(N-1)}{12}`\n    - Rendered: $V(X) = \\frac{(N+1)(N-1)}{12}$\n    - **Range**: $V(X) \\in \\mathbb{R}_{+}$\n\n- **Description**: \n  - The variance of a uniform discrete random variable $X$ supported on $\\{1, 2, \\ldots, N\\}$ indicates how spread out the values of $X$ are around the mean. It is calculated based on the parameter $N$, and quantifies the degree of variation or dispersion among the values that $X$ can take. A larger variance implies a wider spread of potential outcomes."
+}

@@ -1,0 +1,138 @@
+[
+    {
+        "node_type": "concept",
+        "node_name": "Discrete Random Variable"
+    },
+    {
+        "node_type": "concept",
+        "node_name": "Uniform Discrete Distribution"
+    },
+    {
+        "node_type": "concept",
+        "node_name": "Bernoulli Distribution"
+    },
+    {
+        "node_type": "concept",
+        "node_name": "Binomial Distribution"
+    },
+    {
+        "node_type": "concept",
+        "node_name": "Hypergeometric Distribution"
+    },
+    {
+        "node_type": "concept",
+        "node_name": "Geometric Distribution"
+    },
+    {
+        "node_type": "concept",
+        "node_name": "Negative Binomial Distribution"
+    },
+    {
+        "node_type": "concept",
+        "node_name": "Probability Mass Function (PMF)"
+    },
+    {
+        "node_type": "concept",
+        "node_name": "Expected Value of Distribution"
+    },
+    {
+        "node_type": "concept",
+        "node_name": "Variance of Distribution"
+    },
+    {
+        "node_type": "concept",
+        "node_name": "Poisson Distribution"
+    },
+    {
+        "node_type": "concept",
+        "node_name": "Uniform Distribution Parameter"
+    },
+    {
+        "node_type": "property",
+        "node_name": "Expected value of Uniform Distribution"
+    },
+    {
+        "node_type": "property",
+        "node_name": "Variance of Uniform Distribution"
+    },
+    {
+        "node_type": "property",
+        "node_name": "PMF of Uniform Distribution"
+    },
+    {
+        "node_type": "concept",
+        "node_name": "Bernoulli Trial"
+    },
+    {
+        "node_type": "property",
+        "node_name": "Expected value of Bernoulli Distribution"
+    },
+    {
+        "node_type": "property",
+        "node_name": "Variance of Bernoulli Distribution"
+    },
+    {
+        "node_type": "property",
+        "node_name": "PMF of Bernoulli Distribution"
+    },
+    {
+        "node_type": "property",
+        "node_name": "Expected value of Binomial Distribution"
+    },
+    {
+        "node_type": "property",
+        "node_name": "Variance of Binomial Distribution"
+    },
+    {
+        "node_type": "property",
+        "node_name": "PMF of Binomial Distribution"
+    },
+    {
+        "node_type": "property",
+        "node_name": "Expected value of Hypergeometric Distribution"
+    },
+    {
+        "node_type": "property",
+        "node_name": "Variance of Hypergeometric Distribution"
+    },
+    {
+        "node_type": "property",
+        "node_name": "PMF of Hypergeometric Distribution"
+    },
+    {
+        "node_type": "property",
+        "node_name": "Expected value of Geometric Distribution"
+    },
+    {
+        "node_type": "property",
+        "node_name": "Variance of Geometric Distribution"
+    },
+    {
+        "node_type": "property",
+        "node_name": "PMF of Geometric Distribution"
+    },
+    {
+        "node_type": "property",
+        "node_name": "Expected value of Negative Binomial Distribution"
+    },
+    {
+        "node_type": "property",
+        "node_name": "Variance of Negative Binomial Distribution"
+    },
+    {
+        "node_type": "property",
+        "node_name": "PMF of Negative Binomial Distribution"
+    },
+    {
+        "node_type": "property",
+        "node_name": "PMF of Poisson Distribution"
+    },
+    {
+        "node_type": "property",
+        "node_name": "Expected value of Poisson Distribution"
+    },
+    {
+        "node_type": "property",
+        "node_name": "Variance of Poisson Distribution"
+    }
+]

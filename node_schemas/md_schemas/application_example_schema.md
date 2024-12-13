@@ -26,11 +26,11 @@
 
 ## Relationships (Edges)
 
-- **is_application_of** → *Concept*/*Theorem*/*Property* (the reverse of **has_application**)
+- **has_application** <= (i.e. **is_application_of** =>) *Concept*/*Theorem*/*Property* 
   - Concepts, theorems, or properties that are applied in this example.
   - *Example*: "Bayes' Theorem"
 
-- **involves** → *Concept*/*Theorem*/*Property* (the reverse of **involved_in_application**)
+- **involved_in_application** <= (i.e. **involves_xxx** =>) *Concept*/*Theorem*/*Property*
   - Concepts that are involved in the application.
   - *Example*: "Conditional Probability", "Prior Probability"
 

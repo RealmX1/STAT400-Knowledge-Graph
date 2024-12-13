@@ -1,0 +1,29 @@
+{
+    "relationships": {
+        "is_property_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Binomial Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_child_concept_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Variance of Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "depends_on": null,
+        "has_subproperty": null
+    },
+    "attributes": "- **Name**: Variance of Binomial Distribution\n  - **Aliases**: [\"Variance of Binomial\", \"Binomial Variance\"]\n\n- **Definition**: The variance of a binomial distribution is a measure of the dispersion or spread of the probability distribution. It quantifies how much the outcomes differ from the expected value on average.\n  - **Notation**: \n    - Rendered: $V(X) = np(1-p)$\n    - Latex: `V(X) = np(1-p)`\n  - **Range**: $V(X) \\in \\{0, np\\}$\n\n- **Description**: The variance of the Binomial Distribution shows how spread out the number of successful events is across numerous trials. For a given number of trials $n$ and probability of success $p$, the variance measures the average squared deviation of the number of successes from their mean value $np$.\n\n- **Proof**: \n  - The proof involves applying the formula for the variance of a sum of independent random variables (each representing a Bernoulli trial) and using the properties of independent Bernoulli variables.\n  - *Proof Source*: Stat400 teaching material - Jonathan Fernandez"
+}

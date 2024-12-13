@@ -1,0 +1,29 @@
+{
+    "relationships": {
+        "has_property": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Discrete Uniform Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "has_subconcept": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Expected Value of Random Variable"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_prerequisite_of": null,
+        "has_subproperty": null
+    },
+    "attributes": "## Property Node: Expected value of Discrete Uniform Random Variable\n\n### Attributes\n\n- **Name**: Expected value of Discrete Uniform Random Variable\n  - **Aliases**: [\"Mean of Discrete Uniform Distribution\", \"Expected Value of Discrete Uniform Distribution\"]\n\n- **Definition**:\n  - **Notation**:\n    - Latex: `E(\\text{Uniform}(N)) = \\frac{N+1}{2}`\n    - Rendered: $E(\\text{Uniform}(N)) = \\frac{N+1}{2}$\n  - **Range**: $E(\\text{Uniform}(N)) \\in \\{1, N\\}$\n\n- **Description**: \n  - The expected value of a Discrete Uniform distribution on $\\{1, 2, 3, \\dots, N\\}$ signifies the average or mean value of the random variable, calculated as the middle point of its range.\n\n- **Proof**: \n  - The expected value of a discrete uniform random variable is derived by taking the average of all possible values. Given a uniform distribution over $\\{1, 2, \\dots, N\\}$, each value has a probability of $1/N$. Therefore, the expected value is calculated as:\n  \n    - $$E(X) = \\sum_{x=1}^{N} x \\cdot \\frac{1}{N} = \\frac{1}{N} \\sum_{x=1}^{N} x = \\frac{1}{N} \\cdot \\frac{N(N+1)}{2} = \\frac{N+1}{2}$$\n\n  - *Source*: Stat400 teaching material - Jonathan Fernandez\n\n\n#"
+}

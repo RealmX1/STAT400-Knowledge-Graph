@@ -1,0 +1,29 @@
+{
+    "relationships": {
+        "is_property_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Geometric Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_child_concept_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Probability Mass Function (PMF)"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "depends_on": null,
+        "has_subproperty": null
+    },
+    "attributes": "- **Name**: PMF of Geometric Distribution\n  - **Aliases**: \n    - Probability Mass Function of Geometric Distribution\n\n- **Definition**: \n  - **Notation**: \n    - Latex: `p_X(x) = p^x(1-p)^{(x-1)}`\n    - Rendered: $p_X(x) = p^x(1-p)^{(x-1)}$\n  - **Range**: $x \\in \\{1, 2, 3, \\dots\\} = \\mathbb{N}$\n\n- **Description**: \n  - The probability mass function (PMF) of a Geometric Distribution describes the probability of a successful trial occurring on the $x^{th}$ attempt in a sequence of independent trials, where each trial has the same probability of success $p$. \n  - It is used in scenarios where the number of trials is counted until the first success is observed."
+}

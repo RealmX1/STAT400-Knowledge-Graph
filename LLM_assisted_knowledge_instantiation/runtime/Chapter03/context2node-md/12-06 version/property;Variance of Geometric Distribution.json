@@ -1,0 +1,39 @@
+{
+    "relationships": {
+        "is_property_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Geometric Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_child_concept_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Variance of Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "depends_on": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "property",
+                        "target_node_name": "Expected Value of Geometric Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "has_subproperty": null
+    },
+    "attributes": "- **Name**: Variance of Geometric Distribution\n  - **Aliases**: [\"Variance\", \"Variance of Geom(p) distribution\"]\n\n- **Definition**:\n  - **Notation**: \n    - Rendered: $V(X) = \\frac{1-p}{p^2}$\n    - Latex: `V(X) = \\frac{1-p}{p^2}`\n  - **Range**: $V(X) \\in [0, \\infty)$\n\n- **Description**: \n  The variance of a geometric distribution with parameter $p$, denoted as $X \\sim \\text{Geom}(p)$, measures the dispersion of trials it takes to achieve the first success. The variance formula $\\frac{1-p}{p^2}$ reflects the spread of the distribution around its mean.\n\n- **Proof**: \n  Check the detailed proof in Stat400 teaching material by Jonathan Fernandez which involves computing $E[X^2]$ and using $V(X) = E[X^2] - (E[X])^2$ with $E[X] = \\frac{1}{p}$."
+}

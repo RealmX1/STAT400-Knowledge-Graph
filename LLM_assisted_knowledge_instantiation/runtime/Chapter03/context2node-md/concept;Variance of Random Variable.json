@@ -1,0 +1,17 @@
+{
+    "relationships": {
+        "has_subconcept": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Random Variable",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_prerequisite_of": null
+    },
+    "attributes": "- **Name**: Variance of Random Variable\n  - **Aliases**: \n    - None\n- **Definition**:\n  - **Notation**:\n    - Rendered: $V(X)$\n    - Latex: `V(X)`\n  - **Explanation**:\n    - $X$\n      - Description: Represents a random variable.\n    - $V(X)$\n      - Description: Represents the variance of the random variable $X$.\n- **Example**:\n  - $$V(X) = \\frac{(N+1)(N-1)}{12}$$ for a uniform discrete random variable $X$ on $\\{1, 2, \\ldots, N\\}$.\n    - Description: For a random variable $X$ with a uniform discrete distribution, the variance can be calculated according to the given expression. \n- **Description**:\n  - Variance measures the spread or variability of a random variable around its expected value (mean). It is a crucial component in statistics to understand the distribution characteristics of a random variable, particularly how dispersed the outcomes are likely to be."
+}

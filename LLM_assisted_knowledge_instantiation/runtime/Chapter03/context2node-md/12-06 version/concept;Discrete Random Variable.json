@@ -1,0 +1,63 @@
+{
+    "relationships": {
+        "is_subconcept_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Probability",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "to"
+        },
+        "is_prerequisite_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Uniform Discrete Distribution",
+                        "target_node_type": "concept"
+                    }
+                },
+                {
+                    "target_node": {
+                        "target_node_name": "Bernoulli Distribution",
+                        "target_node_type": "concept"
+                    }
+                },
+                {
+                    "target_node": {
+                        "target_node_name": "Binomial Distribution",
+                        "target_node_type": "concept"
+                    }
+                },
+                {
+                    "target_node": {
+                        "target_node_name": "Hypergeometric Distribution",
+                        "target_node_type": "concept"
+                    }
+                },
+                {
+                    "target_node": {
+                        "target_node_name": "Geometric Distribution",
+                        "target_node_type": "concept"
+                    }
+                },
+                {
+                    "target_node": {
+                        "target_node_name": "Negative Binomial Distribution",
+                        "target_node_type": "concept"
+                    }
+                },
+                {
+                    "target_node": {
+                        "target_node_name": "Poisson Distribution",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "to"
+        }
+    },
+    "attributes": "- **Name**: Discrete Random Variable\n  - **Aliases**: \n    - Discrete RV\n\n- **Definition**:\n  - **Notation**: $X$\n  - **Explanation**:\n    - $X$:\n      - Description: Represents a discrete random variable , which is a function that maps each outcome of a random experiment to a real number.\n\n- **Description**: \n  - A discrete random variable is defined by the property that its cumulative distribution function is a step function. This means the set of possible values it can take, or its support, is a discrete subset of the real numbers (a set with no limit points)."
+}

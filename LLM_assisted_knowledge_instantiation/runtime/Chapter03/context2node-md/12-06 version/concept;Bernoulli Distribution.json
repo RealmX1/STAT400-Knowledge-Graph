@@ -1,0 +1,39 @@
+{
+    "relationships": {
+        "is_subconcept_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Discrete Distribution",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "to"
+        },
+        "is_prerequisite_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Binomial Distribution",
+                        "target_node_type": "concept"
+                    }
+                },
+                {
+                    "target_node": {
+                        "target_node_name": "Geometric Distribution",
+                        "target_node_type": "concept"
+                    }
+                },
+                {
+                    "target_node": {
+                        "target_node_name": "Negative Binomial Distribution",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "to"
+        }
+    },
+    "attributes": "- **Name**: Bernoulli Distribution\n  - **Aliases**:\n    - Bernoulli trial distribution\n\n- **Definition**:\n  - **Notation**: $X \\sim \\text{Bernoulli}(p)$\n  - **Explanation**:\n    - $X$\n      - Description: Random variable representing the outcome of a single Bernoulli trial.\n    - $p$\n      - Range: $p \\in (0,1)$\n      - Description: The probability of a success in a Bernoulli trial.\n  - **Example**:\n    - $$p_X(x) = \\begin{cases}\n        1-p \\quad \\text{if $x=0$}\\\\\n        p \\quad \\text{if $x=1$}\n    \\end{cases}$$\n      - Description: The probability mass function (PMF) for a Bernoulli distribution representing the probabilities of a single trial resulting in success or failure.\n\n- **Description**: \n  The Bernoulli distribution simulates a single \"trial\" with two possible outcomes: success or failure. The Bernoulli distribution is characterized by the parameter $p$, which represents the probability of success. It is the simplest form of a discrete probability distribution and a foundational building block for other distributions, such as the Binomial distribution."
+}

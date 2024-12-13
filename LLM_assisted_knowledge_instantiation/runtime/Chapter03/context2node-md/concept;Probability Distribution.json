@@ -1,0 +1,7 @@
+{
+    "relationships": {
+        "has_subconcept": null,
+        "is_prerequisite_of": null
+    },
+    "attributes": "- **Name**: Probability Distribution\n  - **Aliases**: \n    - Distribution Function\n    - Distribution Function of a Random Variable\n\n- **Definition**:\n  - **Notation**: $P(X=x)$\n    - Symbols or mathematical notations associated with the concept. First present raw latex code, then present the rendered latex code.\n    - Latex: `P(X=x)`\n    - Rendered: $P(X=x)$\n  - **Explanation**:\n    - $X$\n      - Description: Represents a random variable.\n    - $x$\n      - Description: Represents a particular value that a random variable $X$ can take on.\n    - $P(X=x)$\n      - Description: Represents the probability that the random variable $X$ takes the value $x$.\n  - **Example**:\n    - $$p_X(x) = P(X=x)$$\n      - Description: An example of a probability distribution, showing how probability is assigned to values of a random variable.\n\n- **Description**: \n  - Probability distribution describes how probabilities are assigned to values of a random variable. It is a fundamental concept in statistics and is used to model the behavior of random phenomena."
+}

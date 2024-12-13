@@ -1,0 +1,29 @@
+{
+    "relationships": {
+        "has_property": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Hypergeometric Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "has_subconcept": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Variance of random variable"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_prerequisite_of": null,
+        "has_subproperty": null
+    },
+    "attributes": "- **Name**: Variance of Hypergeometric Distribution\n\n- **Definition**: For a hypergeometric random variable $X \\sim \\text{Hyper}(N, M, n)$.\n  - **Notation**: \n    - Latex: `V[X] = \\left(\\frac{N-n}{N-1} \\right)\\cdot n\\cdot \\left(\\frac{M}{N}\\right)\\cdot \\left(1-\\frac{M}{N} \\right)`\n    - Rendered: $V[X] = \\left(\\frac{N-n}{N-1} \\right)\\cdot n\\cdot \\left(\\frac{M}{N}\\right)\\cdot \\left(1-\\frac{M}{N} \\right)$\n    - **Range**: \\(V[X] \\geq 0\\)\n\n- **Description**: Variance of the Hypergeometric Distribution measures the spread of the number of successes in the sampled group compared to what is expected on average. This is impacted by the distribution of successes in the overall population, the population size, and the sample size.\n\n- **Proof**: *The variance is derived using the formula for variance of a discrete random variable.*"
+}

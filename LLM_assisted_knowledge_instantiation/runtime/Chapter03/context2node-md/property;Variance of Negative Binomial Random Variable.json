@@ -1,0 +1,29 @@
+{
+    "relationships": {
+        "has_property": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Negative Binomial Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "has_subconcept": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Variance of random variable"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_prerequisite_of": null,
+        "has_subproperty": null
+    },
+    "attributes": "- **Name**: Variance of Negative Binomial Distribution\n  - **Aliases**: [\"Second Moment of Negative Binomial Distribution\"]\n\n- **Definition**: \n  - **Notation**: \n    - Latex: `V(X) = \\frac{r(1-p)}{p^2}`\n    - Rendered: $V(X) = \\frac{r(1-p)}{p^2}$\n\n- **Description**: \n  - In the context of the Negative Binomial Distribution, the variance indicates the variability in the number of failures before achieving a predetermined number of successes. This measure informs about how dispersed the trial failures are in different sample scenarios.\n\n- **Proof**:\n  - *Proof involves deriving the variance using the properties of the Negative Binomial distribution and known results for variance calculations in negative binomial settings.*\n  - *Observe: Variance results from calculating the squared deviation of the number of failures from the mean number of failures before the r-th success.*"
+}

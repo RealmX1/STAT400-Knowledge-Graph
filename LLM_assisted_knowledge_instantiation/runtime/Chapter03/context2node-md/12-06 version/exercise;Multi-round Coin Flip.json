@@ -1,0 +1,21 @@
+{
+    "relationships": {
+        "is_exercise_for": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Binomial Distribution",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "involves_concept": {
+            "target_nodes": null,
+            "direction": "to"
+        },
+        "related_to": null
+    },
+    "attributes": "- **Name**: Multi-round Coin Flip\n\n- **Problem Statement**:\n  5 coins are tossed, each with a probability of heads of $\\frac{1}{2}$. Assume outcomes are independent, find the PMF of the number of heads.\n  - **Notation**: PMF\n\n- **Solution**:\n  Let $X$ denote the number of heads obtained. Then $X$ is a binomial random variable with parameter $(5, \\frac{1}{2})$.\n\n  $\n  p(0) = \\binom{5}{0} \\left(\\frac{1}{2}\\right)^0 \\left(\\frac{1}{2}\\right)^{5 - 0} = \\frac{1}{32}\n  $\n\n  $\n  p(1) = \\binom{5}{1} \\left(\\frac{1}{2}\\right)^1 \\left(\\frac{1}{2}\\right)^{5 - 1} = \\frac{5}{32}\n  $\n\n  $\n  p(2) = \\binom{5}{2} \\left(\\frac{1}{2}\\right)^2 \\left(\\frac{1}{2}\\right)^{5 - 2} = \\frac{10}{32}\n  $\n\n  $\n  p(3) = \\binom{5}{3} \\left(\\frac{1}{2}\\right)^3 \\left(\\frac{1}{2}\\right)^{5 - 3} = \\frac{10}{32}\n  $\n\n  $\n  p(4) = \\binom{5}{4} \\left(\\frac{1}{2}\\right)^4 \\left(\\frac{1}{2}\\right)^{5 - 4} = \\frac{5}{32}\n  $\n\n  $\n  p(5) = \\binom{5}{5} \\left(\\frac{1}{2}\\right)^5 \\left(\\frac{1}{2}\\right)^{5 - 5} = \\frac{1}{32}\n  $\n\n- **Difficulty Level**: 1/5\n\n> From `Stat400 teaching material - Jonathan Fernandez`"
+}

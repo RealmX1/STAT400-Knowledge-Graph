@@ -1,0 +1,29 @@
+{
+    "relationships": {
+        "has_property": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Bernoulli Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "has_subconcept": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Probability Mass Function (PMF)"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_prerequisite_of": null,
+        "has_subproperty": null
+    },
+    "attributes": "- **Name**: PMF of Bernoulli Random Variable\n  - **Aliases**: [\"Probability Mass Function of Bernoulli Distribution\"]\n\n- **Definition**: The probability mass function (PMF) of a Bernoulli random variable $X$ with parameter $p\\in (0,1)$ is defined as:\n  - **Notation**: \n    - Latex: \n      ```latex\n      p_X(x) = \\begin{cases}\n        1-p \\quad \\text{if $x=0$}\\\\\n        p \\quad \\text{if $x=1$}\n      \\end{cases}\n      ```\n      Rendered: \n      $$p_X(x) = \\begin{cases}\n        1-p \\quad \\text{if $x=0$}\\\\\n        p \\quad \\text{if $x=1$}\n      \\end{cases}$$\n  - Another equivalent form of the PMF is:\n    - Latex: \n      ```latex\n      p_X(x) = p^x(1-p)^{(1-x)} \\quad \\quad x \\in \\{0, 1\\}\n      ```\n      Rendered: \n      $$p_X(x) = p^x(1-p)^{(1-x)} \\quad \\quad x \\in \\{0, 1\\}$$\n\n- **Description**: The probability mass function for a Bernoulli random variable represents the probability of achieving either a success or a failure in a Bernoulli trial, which consists of a single experiment with two possible outcomes."
+}

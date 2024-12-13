@@ -1,0 +1,29 @@
+{
+    "relationships": {
+        "is_property_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Negative Binomial Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_child_concept_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Expected Value of Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "depends_on": null,
+        "has_subproperty": null
+    },
+    "attributes": "- **Name**: Expected value of Negative Binomial Distribution\n  - **Aliases**: [\"Mean of Negative Binomial Distribution\", \"Expected Value\"]\n\n- **Definition**: \n  - **Notation**: \n    - Latex: `E[NegBinom(r, p)] = \\frac{r(1-p)}{p}`\n    - Rendered: $E[NegBinom(r, p)] = \\frac{r(1-p)}{p}$\n    - **Range**: N/A\n\n- **Description**: The expected value of a Negative Binomial Distribution represents the average number of failures before achieving the $r^{th}$ success in a sequence of independent Bernoulli trials, where each trial has a probability $p$ of success.\n\n- **Proof**: *The proof involves demonstrating that the expected number of failures before $r$ successes in a sequence of Bernoulli trials can be modeled with the given formula. This typically involves techniques such as generating functions or using properties of expectation derived from simpler distributions. Source: Stat400 teaching material - Jonathan Fernandez.*"
+}

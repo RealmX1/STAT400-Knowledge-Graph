@@ -88,18 +88,29 @@
       "relationships": {
         "type": "object",
         "properties": {
-          "is_exercise_for": {
+          "has_exercise": {
             "type": "object",
             "properties": {
-              "target_node_type": {
-                "type": "string",
-                "enum": ["concept", "theorem", "property", "application_example"],
-                "description": "Type of the end nodes at the other end of the relationship."
-              },
               "target_nodes": {
-                "type": "array",
+                "type": ["array", "null"],
                 "items": {
-                  "$ref": "#/$defs/target_node"
+                  "type": "object",
+                  "target_node": {
+                    "type": "object",
+                    "properties": {
+                      "target_node_type": {
+                        "type": "string",
+                        "enum": ["concept", "theorem", "property", "application_example"],
+                        "description": "Type of the end nodes at the other end of the relationship."
+                      },
+                      "target_node_name": {
+                        "type": "string",
+                        "description": "Name of the end node that this exercise is related to."
+                      }
+                    },
+                    "required": ["target_node_type", "target_node_name"],
+                    "additionalProperties": false
+                  }
                 },
                 "description": "Names of nodes that the exercise is about."
               },
@@ -109,69 +120,85 @@
                 "description": "Direction of the relationship."
               }
             },
-            "required": ["target_node_type", "target_nodes", "direction"],
+            "required": ["target_nodes", "direction"],
             "additionalProperties": false,
             "description": "Concepts, theorems, properties, or application examples that the exercise is about."
           },
-          "involves_concept": {
+          "involved_in_exercise": {
             "type": "object",
             "properties": {
-              "target_node_type": {
-                "type": "string",
-                "enum": ["concept", "theorem", "property"],
-                "description": "Type of the end nodes at the other end of the relationship."
-              },
               "target_nodes": {
-                "type": "array",
+                "type": ["array", "null"],
                 "items": {
-                  "$ref": "#/$defs/target_node"
+                  "type": "object",
+                  "target_node": {
+                    "type": "object",
+                    "properties": {
+                      "target_node_type": {
+                        "type": "string",
+                        "enum": ["concept", "theorem", "property"],
+                        "description": "Type of the end nodes at the other end of the relationship."
+                      },
+                      "target_node_name": {
+                        "type": "string",
+                        "description": "Name of the end node that this exercise involves."
+                      }
+                    },
+                    "required": ["target_node_type", "target_node_name"],
+                    "additionalProperties": false
+                  }
                 },
                 "description": "Names of concepts, theorems, or properties involved in the exercise."
               },
               "direction": {
                 "type": "string",
-                "enum": ["to"],
+                "enum": ["from"],
                 "description": "Direction of the relationship."
               }
             },
-            "required": ["target_node_type", "target_nodes", "direction"],
+            "required": ["target_nodes", "direction"],
             "additionalProperties": false,
             "description": "Involves concept/theorem/property, but not as the main focus of the exercise."
           },
           "related_to": {
             "type": ["object", "null"],
             "properties": {
-              "target_node_type": {
-                "type": "string",
-                "enum": ["exercise"],
-                "description": "Type of the end nodes at the other end of the relationship."
-              },
               "target_nodes": {
-                "type": "array",
+                "type": ["array", "null"],
                 "items": {
-                  "$ref": "#/$defs/target_node"
+                  "type": "object",
+                  "target_node": {
+                    "type": "object",
+                    "properties": {
+                      "target_node_type": {
+                        "type": "string",
+                        "enum": ["exercise"],
+                        "description": "Type of the end nodes at the other end of the relationship."
+                      },
+                      "target_node_name": {
+                        "type": "string",
+                        "description": "Name of the end node that this exercise is related to."
+                      }
+                    },
+                    "required": ["target_node_type", "target_node_name"],
+                    "additionalProperties": false
+                  }
                 },
                 "description": "Other exercises that are related."
               },
               "direction": {
                 "type": "string",
                 "enum": ["bidirectional"],
-                "description": "Direction of the relationship."
+                "description": "Direction of the relationship. If any other more specific relationship with the target node exists, this relationship should be omitted."
               }
             },
-            "required": ["target_node_type", "target_nodes", "direction"],
+            "required": ["target_nodes", "direction"],
             "additionalProperties": false,
             "description": "Other exercises that are related."
           }
         },
-        "required": ["is_exercise_for", "involves_concept", "related_to"],
+        "required": ["has_exercise", "involved_in_exercise", "related_to"],
         "additionalProperties": false
-      }
-    },
-    "$defs": {
-      "target_node": {
-        "type": "string",
-        "description": "Name of end node that this exercise has the relationship with."
       }
     },
     "required": ["node_type", "attributes", "relationships"],

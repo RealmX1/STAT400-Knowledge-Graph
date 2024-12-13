@@ -1,0 +1,29 @@
+{
+    "relationships": {
+        "is_property_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Bernoulli Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_child_concept_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Probability Mass Function (PMF)"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "depends_on": null,
+        "has_subproperty": null
+    },
+    "attributes": "- **Name**: PMF of Bernoulli Distribution\n  - **Aliases**: [\"Probability Mass Function of Bernoulli Distribution\", \"PMF\", \"Probability Distribution\"]\n\n- **Definition**: \n  - **Notation**: \n    - Latex: `p_X(x) = \\begin{cases} 1-p & \\text{if } x=0\\\\ p & \\text{if } x=1 \\end{cases}`\n    - Rendered: \n      $$\n      p_X(x) = \\begin{cases} \n        1-p & \\text{if } x=0\\\\ \n        p & \\text{if } x=1 \n      \\end{cases}\n      $$\n\n    - Latex: `p_X(x) = p^x(1-p)^{(1-x)}`\n    - Rendered:\n      $$\n      p_X(x) = p^x(1-p)^{(1-x)},\\ x \\in \\{0,1\\}\n      $$\n\n    - **Range**: $p_X(x) \\in [0, 1]$\n\n- **Description**: \n  - \"The probability mass function of the Bernoulli Distribution specifies the probabilities of observing a success (1) or a failure (0) in a single trial that involves a binary outcome.\""
+}

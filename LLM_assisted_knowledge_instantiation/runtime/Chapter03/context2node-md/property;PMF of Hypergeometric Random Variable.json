@@ -1,0 +1,29 @@
+{
+    "relationships": {
+        "has_property": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Hypergeometric Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "has_subconcept": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Probability Mass Function (PMF)"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_prerequisite_of": null,
+        "has_subproperty": null
+    },
+    "attributes": "- **Name**: PMF of Hypergeometric Distribution\n  - **Aliases**: Probability Mass Function of Hypergeometric Distribution\n\n- **Definition**: \n  - **Notation**: \n    - Rendered: \\( p_X(x) = \\frac{{N \\choose x} {N-M \\choose n-x}}{{N \\choose n}} \\)\n    - Latex: `p_X(x) = \\frac{{N \\choose x} {N-M \\choose n-x}}{{N \\choose n}}` \n    - **Range**: \\( x \\in \\{0, 1, 2, \\dots, \\min(n, M)\\} \\)\n\n- **Description**: \n  The probability mass function (PMF) of the Hypergeometric Distribution gives the probability of observing exactly \\(x\\) successes in \\(n\\) draws from a population of size \\(N\\) containing exactly \\(M\\) successes, where the draws are made without replacement.\n\n- **Proof**: \n  Refer to `Stat400 teaching material - Jonathan Fernandez`. Proof involves understanding the calculation of combinations for successful and unsuccessful outcomes, dividing by the total combinations for drawing \\(n\\) items from \\(N\\)."
+}

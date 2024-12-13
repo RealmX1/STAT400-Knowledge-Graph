@@ -1,0 +1,17 @@
+{
+    "relationships": {
+        "has_subconcept": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Probability Distribution",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_prerequisite_of": null
+    },
+    "attributes": "- **Name**: Discrete Distribution\n- **Aliases**: \n  - None\n\n- **Definition**:\n  - **Notation**: \n    - None\n  - **Explanation**: \n    - None\n  - **Example**:\n    - None\n- **Description**: \n  - A discrete distribution represents a type of probability distribution where the set of possible outcomes is discrete, or countable. In other words, the random variable associated with a discrete distribution can take on a finite or countably infinite set of values. Discrete distributions are characterized by a probability mass function, which assigns a probability to each potential outcome."
+}

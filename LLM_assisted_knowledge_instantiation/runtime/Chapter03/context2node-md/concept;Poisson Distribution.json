@@ -1,0 +1,17 @@
+{
+    "relationships": {
+        "has_subconcept": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Discrete Distribution",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_prerequisite_of": null
+    },
+    "attributes": "- **Name**: Poisson Distribution\n\n- **Definition**:\n  - **Notation**: \n    - Latex: `Pois(\\lambda)`\n    - Rendered: $Pois(\\lambda)$\n  - **Explanation**: \n    - $\\lambda$\n      - Range: $\\lambda \\in \\mathbb{R}_{+}$\n      - Description: Represents the rate parameter, average rate, or mean number of occurrences of the event per unit time.\n\n  - **Example**:\n    - $$p_X(x) = e^{-\\lambda} \\frac{\\lambda^x}{x!}$$\n      - Description: The probability mass function (PMF) provides the probability that a given number of events occurs in a fixed interval of time or space.\n\n- **Description**: \n  - Poisson Distribution is a discrete probability distribution that describes the number of events occurring within a fixed interval of time or space. It is applicable when events occur independently, with a known constant mean rate."
+}

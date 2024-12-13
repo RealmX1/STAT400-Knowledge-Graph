@@ -59,18 +59,29 @@
       "relationships": {
         "type": "object",
         "properties": {
-          "is_property_of": {
-            "type": ["object", "null"],
+          "has_property": {
+            "type": "object",
             "properties": {
-              "target_node_type": {
-                "type": "string",
-                "enum": ["concept", "theorem"],
-                "description": "Type of the end nodes at the other end of the relationship."
-              },
               "target_nodes": {
                 "type": ["array", "null"],
                 "items": {
-                  "$ref": "#/$defs/target_node"
+                  "type": "object",
+                  "target_node": {
+                    "type": "object",
+                    "properties": {
+                      "target_node_type": {
+                        "type": "string",
+                        "enum": ["concept"],
+                        "description": "Type of the end nodes at the other end of the relationship."
+                      },
+                      "target_node_name": {
+                        "type": "string",
+                        "description": "Name of the end node that this property belongs to."
+                      }
+                    },
+                    "required": ["target_node_type", "target_node_name"],
+                    "additionalProperties": false
+                  }
                 },
                 "description": "Names of end nodes that possess this property."
               },
@@ -80,22 +91,33 @@
                 "description": "Direction of the relationship."
               }
             },
-            "required": ["target_node_type", "target_nodes", "direction"],
+            "required": ["target_nodes", "direction"],
             "additionalProperties": false,
             "description": "Concepts or theorems that possess this property."
           },
-          "is_child_concept_of": {
-            "type": ["object", "null"],
+          "has_subconcept": {
+            "type": "object",
             "properties": {
-              "target_node_type": {
-                "type": "string",
-                "enum": ["concept"],
-                "description": "Type of the end nodes at the other end of the relationship."
-              },
               "target_nodes": {
                 "type": ["array", "null"],
                 "items": {
-                  "$ref": "#/$defs/target_node"
+                  "type": "object",
+                  "target_node": {
+                    "type": "object",
+                    "properties": {
+                      "target_node_type": {
+                        "type": "string",
+                        "enum": ["concept"],
+                        "description": "Type of the end nodes at the other end of the relationship."
+                      },
+                      "target_node_name": {
+                        "type": "string",
+                        "description": "Name of the end node that this property is derived from."
+                      }
+                    },
+                    "required": ["target_node_type", "target_node_name"],
+                    "additionalProperties": false
+                  }
                 },
                 "description": "Names of end nodes that this property is a child concept of."
               },
@@ -105,24 +127,35 @@
                 "description": "Direction of the relationship."
               }
             },
-            "required": ["target_node_type", "target_nodes", "direction"],
+            "required": ["target_nodes", "direction"],
             "additionalProperties": false,
             "description": "Properties that are derived from the concept."
           },
-          "depends_on": {
+          "is_prerequisite_of": {
             "type": ["object", "null"],
             "properties": {
-              "target_node_type": {
-                "type": "string",
-                "enum": ["property"],
-                "description": "Type of the end nodes at the other end of the relationship."
-              },
               "target_nodes": {
                 "type": ["array", "null"],
                 "items": {
-                  "$ref": "#/$defs/target_node"
+                  "type": "object",
+                  "target_node": {
+                    "type": "object",
+                    "properties": {
+                      "target_node_type": {
+                        "type": "string",
+                        "enum": ["property"],
+                        "description": "Type of the end nodes at the other end of the relationship."
+                      },
+                      "target_node_name": {
+                        "type": "string",
+                        "description": "Name of the end node that this property depends on."
+                      }
+                    },
+                    "required": ["target_node_type", "target_node_name"],
+                    "additionalProperties": false
+                  }
                 },
-                "description": "Names of properties that this property depends on."
+                "description": "Name&type of properties that this property depends on."
               },
               "direction": {
                 "type": "string",
@@ -130,22 +163,33 @@
                 "description": "Direction of the relationship."
               }
             },
-            "required": ["target_node_type", "target_nodes", "direction"],
+            "required": ["target_nodes", "direction"],
             "additionalProperties": false,
             "description": "Properties that are prerequisites for this property."
           },
           "has_subproperty": {
             "type": ["object", "null"],
             "properties": {
-              "target_node_type": {
-                "type": "string",
-                "enum": ["property"],
-                "description": "Type of the end nodes at the other end of the relationship."
-              },
               "target_nodes": {
                 "type": ["array", "null"],
                 "items": {
-                  "$ref": "#/$defs/target_node"
+                  "type": "object",
+                  "target_node": {
+                    "type": "object",
+                    "properties": {
+                      "target_node_type": {
+                        "type": "string",
+                        "enum": ["property"],
+                        "description": "Type of the end nodes at the other end of the relationship."
+                      },
+                      "target_node_name": {
+                        "type": "string",
+                        "description": "Name of the end node that is derived from this property."
+                      }
+                    },
+                    "required": ["target_node_type", "target_node_name"],
+                    "additionalProperties": false
+                  }
                 },
                 "description": "Names of subproperties derived from this property."
               },
@@ -155,19 +199,13 @@
                 "description": "Direction of the relationship."
               }
             },
-            "required": ["target_node_type", "target_nodes", "direction"],
+            "required": ["target_nodes", "direction"],
             "additionalProperties": false,
             "description": "More specific properties derived from the current property."
           }
         },
-        "required": ["is_property_of", "is_child_concept_of", "depends_on", "has_subproperty"],
+        "required": ["has_property", "has_subconcept", "is_prerequisite_of", "has_subproperty"],
         "additionalProperties": false
-      }
-    },
-    "$defs": {
-      "target_node": {
-        "type": "string",
-        "description": "Name of end node that this property has the relationship with."
       }
     },
     "required": ["node_type", "attributes", "relationships"],

@@ -1,0 +1,17 @@
+{
+    "relationships": {
+        "has_subconcept": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Discrete Distribution",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_prerequisite_of": null
+    },
+    "attributes": "- **Name**: Negative Binomial Distribution\n\n- **Aliases**: \n  - NegBinom Distribution\n  - Pascal Distribution\n\n- **Definition**:\n  - **Notation**: \n    - Latex: `NegBinom(r, p)` \n    - Rendered: $X \\sim \\text{NegBinom}(r, p)$\n  - **Explanation**: \n    - $r$\n      - Range: $r \\in \\mathbb{N}$\n      - Description: The number of successes we are waiting for.\n    - $p$\n      - Range: $p \\in (0, 1)$\n      - Description: The probability of a success in each trial.\n  - **Example**:\n    - $$p_X(x) = {x+r-1 \\choose x}p^r(1-p)^x\\quad \\quad x\\in \\{0,1, 2, 3, \\dots, \\}$$\n      - Description: The probability mass function (pmf) of the negative binomial distribution, representing the probability of observing $x$ failures before achieving $r$ successes.\n\n- **Description**: \n  - The Negative Binomial Distribution models phenomena that involve \"waiting\" for a specified number of successes in a sequence of independent and identically distributed Bernoulli trials. It calculates probabilities in terms of counting the number of failures preceding these successes."
+}

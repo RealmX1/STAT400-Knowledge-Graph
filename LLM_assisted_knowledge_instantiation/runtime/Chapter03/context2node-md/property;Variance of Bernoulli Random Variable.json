@@ -1,0 +1,29 @@
+{
+    "relationships": {
+        "has_property": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Bernoulli Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "has_subconcept": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Variance of Random Variable"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_prerequisite_of": null,
+        "has_subproperty": null
+    },
+    "attributes": "- **Name**: Variance of Bernoulli Random Variable\n\n- **Definition**: \n  - **Notation**: \n    - Latex: `V(X) = p(1-p)`\n    - Rendered: $V(X) = p(1-p)$\n    - **Range**: $V(X) \\in [0, \\frac{1}{4}]$\n\n- **Description**: \n  - The variance of a Bernoulli random variable quantifies the spread of the possible outcomes around the expected value. It reflects the uncertainty or variability in the outcome when the probability of success ($p$) changes. \n\n- **Proof**: \n  > **SOURCE**: Stat400 teaching material - Jonathan Fernandez\n  - To calculate the variance of a Bernoulli random variable $X$, consider that $X$ takes values 0 or 1 with probabilities $1-p$ and $p$, respectively. The variance is calculated as:\n  \\[\n  V(X) = E(X^2) - (E(X))^2\n  \\]\n  Since $X^2 = X$ for a Bernoulli variable:\n  \\[\n  E(X^2) = E(X) = p\n  \\]\n  Thus:\n  \\[\n  V(X) = p - p^2 = p(1-p)\n  \\]"
+}

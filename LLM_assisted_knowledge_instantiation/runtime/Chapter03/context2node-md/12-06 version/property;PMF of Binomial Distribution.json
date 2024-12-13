@@ -1,0 +1,29 @@
+{
+    "relationships": {
+        "is_property_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Binomial Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_child_concept_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Probability Mass Function (PMF)"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "depends_on": null,
+        "has_subproperty": null
+    },
+    "attributes": "- **Name**: PMF of Binomial Distribution\n  - **Aliases**: [\"Probability Mass Function of Binomial Distribution\"]\n\n- **Definition**: \n  - **Notation**: \n    - Latex: `p_X(x) = {n \\choose x} p^x(1-p)^{(n-x)}` \n    - Rendered: $p_X(x) = {n \\choose x} p^x(1-p)^{(n-x)}$\n    - **Range**: \n      - Latex: `p_X(x) \\in [0,1]`\n      - Rendered: $p_X(x) \\in [0,1]$\n\n- **Description**: \n  The Probability Mass Function (PMF) of the Binomial Distribution gives the probability of obtaining exactly $x$ successes in $n$ independent Bernoulli trials, each with a success probability $p$.\n\n- **Proof**: \n  Not explicitly provided in the source. The proof involves calculating the PMF of $X$ and demonstrating its equivalence to the PMF of the Binomial distribution using combinatorial arguments."
+}

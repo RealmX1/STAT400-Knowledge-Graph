@@ -1,0 +1,27 @@
+{
+    "relationships": {
+        "is_subconcept_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Discrete Distribution",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "to"
+        },
+        "is_prerequisite_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Binomial Distribution",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "to"
+        }
+    },
+    "attributes": "- **Name**: Hypergeometric Distribution\n  - **Aliases**: \n    - Hypergeometric distribution\n\n- **Definition**:\n  - **Notation**: $X \\sim \\text{Hyper}(N, M, n)$\n  - **Explanation**: \n    - $N$\n      - Range: $N \\in \\mathbb{N}$\n      - Description: represents the population size.\n    - $M$\n      - Range: $M \\in \\mathbb{N}$\n      - Description: represents the number of successes in the population.\n    - $n$\n      - Range: $n \\in \\mathbb{N}$\n      - Description: represents the number of individuals chosen from the population.\n\n  - **Example**:\n    - $$p_X(x) = \\frac{{N \\choose x} {N-M \\choose n-x}}{{N \\choose n}}\\quad \\quad x\\in \\{0,1, 2, 3, \\dots, \\min(n, M)\\}$$\n      - Description: Represents the probability mass function of the hypergeometric distribution.\n\n- **Description**: \n  - The hypergeometric distribution models the probability of obtaining a certain number of successes in a sequence of draws from a finite population without replacement. This distribution is useful in situations where each draw significantly changes the composition of the population, distinguishing it from the binomial distribution."
+}

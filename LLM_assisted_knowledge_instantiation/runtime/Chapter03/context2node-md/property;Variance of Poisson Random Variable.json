@@ -1,0 +1,39 @@
+{
+    "relationships": {
+        "has_property": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Poisson Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "has_subconcept": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Variance of Random Variable"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_prerequisite_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "property",
+                        "target_node_name": "Expected Value of Poisson Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "has_subproperty": null
+    },
+    "attributes": "- **Name**: Variance of Poisson Random Variable\n\n- **Definition**: The variance of a Poisson random variable is the same as its rate parameter.\n  - **Notation**: \n    - Rendered: $V[X \\sim \\text{Pois}(\\lambda)] = \\lambda$\n    - LaTeX: `V[X \\sim \\text{Pois}(\\lambda)] = \\lambda`\n    - **Range**: $V[X \\sim \\text{Pois}(\\lambda)] \\in \\mathbb{R}_{0+}$\n\n- **Description**: \n  - \"Variance of Poisson Random Variable quantifies the spread or dispersion of a Poisson-distributed data set. In the Poisson distribution, this value is equal to the expected rate or the lambda parameter.\"\n\n- **Proof**: \n  To prove that the variance of a Poisson random variable $X \\sim \\text{Pois}(\\lambda)$ is $\\lambda$, we can use the definition of variance, $V(X) = E[X^2] - (E[X])^2$. Since $E[X] = \\lambda$ for a Poisson distribution, we need to derive $E[X^2]$. By utilizing moment generating functions or using the law of total probability with the fact that $X$ is equal to its expected value, $E[X^2] = \\lambda^2 + \\lambda$ can be calculated."
+}

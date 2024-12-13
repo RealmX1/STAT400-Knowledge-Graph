@@ -1,0 +1,33 @@
+{
+    "relationships": {
+        "is_subconcept_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Discrete Distribution",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "to"
+        },
+        "is_prerequisite_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Discrete Random Variable",
+                        "target_node_type": "concept"
+                    }
+                },
+                {
+                    "target_node": {
+                        "target_node_name": "Probability Mass Function (PMF)",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "to"
+        }
+    },
+    "attributes": "- **Name**: Uniform Discrete Distribution\n  - **Aliases**: \n    - Uniform Distribution\n\n- **Definition**:\n  - **Notation**: $X \\sim \\text{Uniform}(N)$\n  - **Explanation**:\n    - $X$\n      - Description: Represents the random variable.\n    - $N$\n      - Range: $N \\in \\mathbb{N}$\n      - Description: Represents the maximum value of the discrete set $\\{1, 2, 3, \\dots, N\\}$ on which the uniform distribution is defined.\n\n  - **Example**:\n    - $p_X(x) = \\frac{1}{N} \\quad \\text{for all } x \\in \\X = \\{1, 2, 3, \\dots, N\\}$\n      - Description: The probability mass function of a uniform discrete distribution where each value in the set has an equal probability of $\\frac{1}{N}$.\n\n- **Description**: \n  - \"A uniform discrete distribution is a probability distribution that has constant probability. It is defined over a discrete set of equally-likely values such as $\\{1, 2, 3, \\cdots, N\\}$.\""
+}

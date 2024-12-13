@@ -1,0 +1,69 @@
+{
+    "relationships": {
+        "is_subconcept_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Probability",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "to"
+        },
+        "is_prerequisite_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Discrete Random Variable",
+                        "target_node_type": "concept"
+                    }
+                },
+                {
+                    "target_node": {
+                        "target_node_name": "Uniform Discrete Distribution",
+                        "target_node_type": "concept"
+                    }
+                },
+                {
+                    "target_node": {
+                        "target_node_name": "Bernoulli Distribution",
+                        "target_node_type": "concept"
+                    }
+                },
+                {
+                    "target_node": {
+                        "target_node_name": "Binomial Distribution",
+                        "target_node_type": "concept"
+                    }
+                },
+                {
+                    "target_node": {
+                        "target_node_name": "Hypergeometric Distribution",
+                        "target_node_type": "concept"
+                    }
+                },
+                {
+                    "target_node": {
+                        "target_node_name": "Geometric Distribution",
+                        "target_node_type": "concept"
+                    }
+                },
+                {
+                    "target_node": {
+                        "target_node_name": "Negative Binomial Distribution",
+                        "target_node_type": "concept"
+                    }
+                },
+                {
+                    "target_node": {
+                        "target_node_name": "Poisson Distribution",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "to"
+        }
+    },
+    "attributes": "- **Name**: Discrete Distribution\n  - **Aliases**: \n    - Discrete Probability Distribution\n\n- **Description**: \n  - A discrete distribution is a probability distribution that can take on a countable number of values. In the case of a discrete random variable, the set of values $X$ can take, denoted as $\\mathcal{X}$, is a discrete subset of the real numbers $\\mathbb{R}$ without limit points (a **limit point** within a topological space is a point \\( x \\) such that every neighborhood around \\( x \\) contains at least one point from \\( S \\) distinct from \\( x \\) itself. This means that points from \\( S \\) can be found arbitrarily close to \\( x \\), regardless of whether \\( x \\) is an element of \\( S \\)). Discrete distributions have a probability mass function (PMF) assigning probabilities to each possible value."
+}

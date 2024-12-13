@@ -1,0 +1,29 @@
+{
+    "relationships": {
+        "has_property": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Geometric Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "has_subconcept": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Probability Mass Function (PMF)"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_prerequisite_of": null,
+        "has_subproperty": null
+    },
+    "attributes": "- **Name**: PMF of Geometric Distribution\n  - **Aliases**: Probability Mass Function of Geometric Distribution\n\n- **Definition**: \n  - **Notation**:\n    - Latex: `p_X(x) = p^x(1-p)^{(x-1)}`\n    - Rendered: $p_X(x) = p^x(1-p)^{(x-1)}$\n    - **Range**: $x \\in \\{1, 2, 3, \\dots\\}$\n\n- **Description**: \n  The PMF of a Geometric distribution represents the probability of observing the first success on the $x$th trial in a series of independent Bernoulli trials, each of which has a probability of success $p$. The distribution models waiting times until the first success.\n\n- **Proof**: \n  The proof involves calculating the probability that the first $x-1$ trials are failures and the $x$-th trial is a success. Hence, the probability is given by $p_X(x) = (1-p)^{x-1}p$. This can be shown by considering the sample space for the geometric experiment, which involves independent Bernoulli trials, with trials succeeding after $x-1$ failures. \n  > SOURCE: Stat400 teaching material - Jonathan Fernandez"
+}

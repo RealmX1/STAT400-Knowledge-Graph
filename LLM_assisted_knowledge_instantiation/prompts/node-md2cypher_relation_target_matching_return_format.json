@@ -1,0 +1,39 @@
+{
+  "name": "MatchedRelations",
+  "strict": true, 
+  "schema": {
+    "type": ["array", "null"],
+    "description": "List of successfully matched relations.",
+    "items": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the relation"
+        },
+        "target_nodes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+            "node_type": {
+              "type": "string",
+              "enum": ["concept", "theorem", "property", "application example", "exercise"],
+              "description": "Type of the target node."
+            },
+            "node_name": {
+              "type": "string",
+              "description": "Name of the node that is on the other end of the relation."
+              }
+            },
+            "required": ["node_type", "node_name"],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": ["name", "target_nodes"],
+      "additionalProperties": false
+    },
+    "additionalProperties": false
+  }
+}

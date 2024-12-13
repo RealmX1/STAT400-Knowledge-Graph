@@ -32,28 +32,39 @@
 
 ## Relationships (Edges)
 
-- **involves_concept** ← *Concept* {concept_name} (the reverse of **involved_in_theorem**)
-  - Concepts not part of hypothesis/assumption, but used in proof.
-  - *Example*: Links to "Conditional Probability", "Marginal Probability"
 ### Inbound Relations/Prerequisites
-- **depends_on** ← *Concept* {concept_name} (the reverse of **is_prerequisite_of**)
-- **needs_property** ← *Property* {property_name} (the reverse of **has_property**)
-  - Properties that are necessary for the theorem which doesn't fit in any concept involved in the theorem.
-  - *Example*: (?) may not be necessary. can't quite think of any examples yet.
-
-- **uses_theorem** ← *Theorem* {theorem_name} (the reverse of **used_to_prove**)
-  - Other theorems referenced or utilized within the proof, but not as part of hypothesis/assumption.
-  - *Example*: 
-- **is_corollary_of** ← *Theorem* {theorem_name} (the reverse of **is_basis_for**, more specific than **uses_theorem**)
-  - Indicates if the theorem is a corollary derived from another theorem.
-  - *Example*: "Bayes' Theorem" is a corollary of "conditional Probability"
+- **is_prerequisite_of** <= (i.e. **depends_on** =>) *Concept/Theorem/Property* {concept_name/theorem_name/property_name}
+  - Concepts/Theorems/Properties that are used in proving this theorem.
+  - *Example*: "Conditional Probability" (concept) is a prerequisite of "Bayes' Theorem" (theorem); is a prerequisite of theory of "theory of large 
 
 ### Outbound Relations/Results
-- **concludes** → *List of Properties/Concepts* {property_name/concept_name} (the reverse of **derived_from(theorem)**)
-  - Concepts that are derived from the theorem.
+- **concludes** => (i.e. **derived_from(theorem)** <=) *List of Properties/Concepts* {property_name/concept_name}
+  - Concepts/Properties that are derived from the theorem.
   - *Example*: "Negative Binomial Distribution"
 
 <ignore>
+!!! separate "used to prove" and "used to setup"? NO! a theorem isn't necessarily going from a set of fixed input to a set of fixed output.
+Two types of theorems: One that is an equivalence that doens't have direction, and the other is a directional derivation;
+Even for the directional derivation, the theorem doesn't necessarily have to have fixed input; input can be a mixture of different level in a proof; as long as the "tree" of theorem lead to the output.
+"atomize" all theorems, where any more complex theorem should conditionally be atomized into sub theorems that have naive input and output;
+"collectivize" some theorems for efficient query... need more discussion on this.
+
+Proving of theorem vs. usage of theorem. The usage of theorem 
+!!! **There should not be a single outbound; instead, the outbound should be the graph of theorem that is used in run-time.**
+
+
+### Other Relations
+- **is_corollary_of** ← *Theorem* {theorem_name} (the reverse of **is_basis_for**, more specific than **uses_theorem**)
+  - Indicates if the current theorem is a corollary derived from another theorem.
+  - *Example*: "Bayes' Theorem" is a corollary of "conditional Probability"
+
+- **involved_in_theorem** ← *Concept* {concept_name} (the reverse of **involves_concept**)
+  - Concepts not part of hypothesis/assumption, but used in proof.
+  - *Example*: Links to "Conditional Probability", "Marginal Probability"
+
+
+
+
 > LOG IN THE OTHER SIDE OF ALL FOLLOWING RELATIONSHIPS
 
 - **has_application** → *Application Example* {application_name} (the reverse of **is_application_of**)

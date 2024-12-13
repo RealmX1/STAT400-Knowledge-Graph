@@ -1,0 +1,19 @@
+{
+    "relationships": {
+        "is_property_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Hypergeometric Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_child_concept_of": null,
+        "depends_on": null,
+        "has_subproperty": null
+    },
+    "attributes": "- **Name**: Expected value of Hypergeometric Distribution\n  - **Aliases**: [\"Expected Value\", \"Mean of Hypergeometric Distribution\"]\n\n- **Definition**: \n  - **Notation**: \n    - Latex: `E[Hyper(N, M, n)] = \\frac{nM}{N}`\n    - Rendered: $E[Hyper(N, M, n)] = \\frac{nM}{N}$\n\n    - **Range**: \n      - Latex: `E[Hyper(N, M, n)] \\in \\{0, n\\}`\n      - Rendered: $E[Hyper(N, M, n)] \\in \\{0, n\\}$\n\n- **Description**: Expected value of Hypergeometric Distribution represents the average number of successes in a fixed number of draws without replacement. It is determined by the ratio of total successes in the population and the population size, multiplied by the number of draws.\n\n- **Proof**: \n  *source*: Stat400 teaching material - Jonathan Fernandez"
+}

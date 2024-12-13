@@ -1,0 +1,29 @@
+{
+    "relationships": {
+        "is_property_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Hypergeometric Distribution",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_child_concept_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Variance of random variable",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "depends_on": null,
+        "has_subproperty": null
+    },
+    "attributes": "- **Name**: Variance of Hypergeometric Distribution\n  - **Aliases**: [\"Hypergeometric Variance\", \"Variance\"]\n\n- **Definition**: \n  - **Notation**: \n    - Latex: `V(X) = \\left(\\frac{N-n}{N-1} \\right)\\cdot n\\cdot \\left(\\frac{M}{N}\\right)\\cdot \\left(1-\\frac{M}{N} \\right)`\n    - Rendered: $V(X) = \\left(\\frac{N-n}{N-1} \\right)\\cdot n\\cdot \\left(\\frac{M}{N}\\right)\\cdot \\left(1-\\frac{M}{N} \\right)$\n\n- **Description**: \n  - The variance of the Hypergeometric Distribution describes the spread of the number of successes in $n$ draws, out of a population of $N$, where $M$ are successes. The formula accounts for the lack of replacement in sampling, differentiating it from the binomial distribution.\n\n- **Proof**: *The variance calculation involves counting the outcomes and considering the non-independence of selection due to lack of replacement. This uses combinatorial analysis and properties of expectation.*\n\n> SOURCE: Stat400 teaching material - Jonathan Fernandez"
+}

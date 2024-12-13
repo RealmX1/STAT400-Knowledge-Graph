@@ -1,0 +1,29 @@
+{
+    "relationships": {
+        "has_property": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Geometric Distribution"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "has_subconcept": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_type": "concept",
+                        "target_node_name": "Expected Value of Random Variable"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_prerequisite_of": null,
+        "has_subproperty": null
+    },
+    "attributes": "- **Name**: Expected Value of Geometric Distribution\n  - **Aliases**: [\"Mean of Geometric Distribution\"]\n\n- **Definition**: \n  - **Notation**: \n    - Latex: `E[Geom(p)] = \\frac{1}{p}`\n    - Rendered: \\(E[Geom(p)] = \\frac{1}{p}\\)\n    - **Range**: \n      - Latex: `E[Geom(p)] \\in [1, \\infty)`\n      - Rendered: \\(E[Geom(p)] \\in [1, \\infty)\\)\n\n- **Description**: \n  The expected value of a geometric distribution represents the average number of trials needed to obtain the first success in a series of Bernoulli trials. It depends on the probability of success \\(p\\).\n\n- **Proof**: \n  To find the expected value, consider the series of Bernoulli trials where the first success comes with probability \\(p\\) on the \\(k\\)-th trial. Therefore, the probability of failure in the previous trials is \\((1-p)^{k-1}\\).\n  Using the equation for expected value of a random variable, and solving the geometric series, we obtain the expected value as \\(\\frac{1}{p}\\)."
+}

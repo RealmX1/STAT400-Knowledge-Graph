@@ -1,0 +1,17 @@
+{
+    "relationships": {
+        "has_subconcept": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Discrete Distribution",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_prerequisite_of": null
+    },
+    "attributes": "- **Name**: Geometric Distribution\n\n- **Definition**:\n  - **Notation**: \n    - Latex: `Geom(p)`\n    - Rendered: $Geom(p)$\n  - **Explanation**:\n    - $p$\n      - Range: $p \\in (0, 1)$\n      - Description: Represents the probability of success in a Bernoulli trial.\n\n  - **Example**:\n    - $p_X(x) = p^x(1-p)^{(x-1)} \\quad \\quad x\\in \\{1, 2, 3, \\dots, \\}$\n    - Description: This is the probability mass function for the Geometric distribution, which describes the probability of observing the first success on the $x$-th trial.\n\n- **Description**: The geometric distribution models phenomena involving \"waiting\" for the first success in a sequence of independent Bernoulli trials. It is the discrete probability distribution of the number of trials needed to get one success. The geometric distribution assumes that each trial is an independent Bernoulli trial with the same probability of success."
+}

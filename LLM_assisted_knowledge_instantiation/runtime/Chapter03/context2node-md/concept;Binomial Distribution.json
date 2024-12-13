@@ -1,0 +1,17 @@
+{
+    "relationships": {
+        "has_subconcept": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Discrete Distribution",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "from"
+        },
+        "is_prerequisite_of": null
+    },
+    "attributes": "- **Name**: Binomial Distribution\n  - **Aliases**: \n    - *None*\n\n- **Definition**:\n  - **Notation**: \n    - Rendered: $X \\sim \\text{Binomial}(n, p)$\n    - Latex: `X \\sim \\text{Binomial}(n, p)` \n  - **Explanation**:\n    - $n$\n      - Range: $n \\in \\mathbb{N}$\n      - Description: The number of trials.\n    - $p$\n      - Range: $p \\in (0,1)$\n      - Description: The probability of success in each trial.\n  - **Example**:\n    - $$p_X(x) = {n \\choose x} p^x(1-p)^{(n-x)}$$\n      - Description: Represents the probability of having exactly $x$ successes in $n$ independent $\\text{Bernoulli}(p)$ trials.\n\n- **Description**: \n  - The Binomial Distribution models the number of successes in a fixed number of independent trials of a binary experiment. Each trial is assumed to have the same probability of success. It is used to solve problems involving scenarios with a fixed number of trials or observations and binary outcomes."
+}

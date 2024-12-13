@@ -70,65 +70,81 @@
       "relationships": {
         "type": "object",
         "properties": {
-          "is_application_of": {
+          "has_application": {
             "type": ["object", "null"],
             "properties": {
-              "target_node_type": {
-                "type": "string",
-                "enum": ["concept", "theorem", "property"],
-                "description": "Type of the end nodes at the other end of the relationship."
-              },
               "target_nodes": {
                 "type": ["array", "null"],
                 "items": {
-                  "$ref": "#/$defs/target_node"
+                  "type": "object",
+                  "target_node": {
+                    "type": "object",
+                    "properties": {
+                      "target_node_type": {
+                        "type": "string",
+                        "enum": ["concept", "theorem", "property"],
+                        "description": "Type of the end nodes at the other end of the relationship."
+                      },
+                      "target_node_name": {
+                        "type": "string",
+                        "description": "Name of the end node that this application example applies."
+                      }
+                    },
+                    "required": ["target_node_type", "target_node_name"],
+                    "additionalProperties": false
+                  }
                 },
                 "description": "Names of concepts, theorems, or properties that are applied in this example."
               },
               "direction": {
                 "type": "string",
-                "enum": ["to"],
+                "enum": ["from"],
                 "description": "Direction of the relationship."
               }
             },
-            "required": ["target_node_type", "target_nodes", "direction"],
+            "required": ["target_nodes", "direction"],
             "additionalProperties": false,
             "description": "Concepts, theorems, or properties that are applied in this example."
           },
-          "involves": {
+          "involved_in_application": {
             "type": ["object", "null"],
             "properties": {
-              "target_node_type": {
-                "type": "string",
-                "enum": ["concept", "theorem", "property"],
-                "description": "Type of the end nodes at the other end of the relationship."
-              },
               "target_nodes": {
                 "type": ["array", "null"],
                 "items": {
-                  "$ref": "#/$defs/target_node"
+                  "type": "object",
+                  "target_node": {
+                    "type": "object",
+                    "properties": {
+                      "target_node_type": {
+                        "type": "string",
+                        "enum": ["concept", "theorem", "property"],
+                        "description": "Type of the end nodes at the other end of the relationship."
+                      },
+                      "target_node_name": {
+                        "type": "string",
+                        "description": "Name of the end node that this application example involves."
+                      }
+                    },
+                    "required": ["target_node_type", "target_node_name"],
+                    "additionalProperties": false
+                  }
                 },
                 "description": "Names of concepts that are involved in the application."
               },
               "direction": {
                 "type": "string",
-                "enum": ["to"],
+                "enum": ["from"],
                 "description": "Direction of the relationship."
               }
             },
-            "required": ["target_node_type", "target_nodes", "direction"],
+            "required": ["target_nodes", "direction"],
             "additionalProperties": false,
             "description": "Concepts that are involved in the application."
           }
         },
-        "required": ["is_application_of", "involves"],
+        "required": ["has_application", "involved_in_application"],
         "additionalProperties": false
-      }
-    },
-    "$defs": {
-      "target_node": {
-        "type": "string",
-        "description": "Name of end node that this application example has the relationship with."
       }
     },
     "required": ["node_type", "attributes", "relationships"],

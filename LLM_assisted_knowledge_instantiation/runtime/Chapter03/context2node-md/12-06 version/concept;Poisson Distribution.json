@@ -1,0 +1,17 @@
+{
+    "relationships": {
+        "is_subconcept_of": {
+            "target_nodes": [
+                {
+                    "target_node": {
+                        "target_node_name": "Discrete Distribution",
+                        "target_node_type": "concept"
+                    }
+                }
+            ],
+            "direction": "to"
+        },
+        "is_prerequisite_of": null
+    },
+    "attributes": "- **Name**: Poisson Distribution\n  - **Aliases**: \n    - Poisson Process\n\n- **Definition**:\n  - **Notation**: $X \\sim \\text{Pois}(\\lambda)$\n  - **Explanation**:\n    - $\\lambda$\n      - Range: $\\lambda \\in \\mathbb{R}_{+}$\n      - Description: Represents the average rate or mean number of occurrences of the event being modeled.\n  - **Example**:\n    - $$p_X(x) = e^{-\\lambda} \\frac{\\lambda^x}{x!}$$\n      - Description: The probability mass function of the Poisson distribution, which gives the probability of a given number of events happening in a fixed interval of time or space.\n\n- **Description**: \n  - The Poisson distribution provides a model for events that occur independently in a given time interval or space area with a known constant mean rate. It is especially useful for modeling rare events and is related to the Poisson process."
+}

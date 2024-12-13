@@ -61,11 +61,16 @@
                   "additionalProperties": false
                 },
                 "description": "Dissects the notation and explains each part"
+              },
+              "example": {
+                "type": "string",
+                "description": "An markdown string of the concept in active use"
               }
             },
             "required": [
               "notation",
-              "explanation"
+              "explanation",
+              "example"
             ],
             "additionalProperties": false
           },
@@ -87,62 +92,78 @@
           "has_subconcept": {
             "type": ["object", "null"],
             "properties": {
-              "target_node_type": {
-                "type": "string",
-                "enum": ["concept"],
-                "description": "Type of the end nodes at the other end of the relationship."
-              },
               "target_nodes": {
                 "type": ["array", "null"],
                 "items": {
-                  "$ref": "#/$defs/target_node"
+                  "type": "object",
+                  "target_node": {
+                    "type": "object",
+                    "properties": {
+                      "target_node_name": {
+                        "type": "string",
+                        "description": "Name of the end node that this concept is related to."
+                      },
+                      "target_node_type": {
+                        "type": "string",
+                        "enum": ["concept"],
+                        "description": "Type of the end nodes at the other end of the relationship."
+                      }
+                    },
+                    "required": ["target_node_type", "target_node_name"],
+                    "additionalProperties": false
+                  }
                 },
                 "description": "Names of end nodes that this concept is related to."
               },
               "direction": {
                 "type": "string",
-                "enum": ["to"],
+                "enum": ["from"],
                 "description": "Direction of the relationship."
               }
             },
-            "required": ["target_node_type", "target_nodes", "direction"],
+            "required": ["target_nodes", "direction"],
             "additionalProperties": false,
-            "description": "Points to more specific or narrower concepts derived from the current concept."
+            "description": "Relation between current concept and its parent concept (which is more general)."
           },
           "is_prerequisite_of": {
             "type": ["object", "null"],
             "properties": {
-              "target_node_type": {
-                "type": "string",
-                "enum": ["concept"],
-                "description": "Type of the end nodes at the other end of the relationship."
-              },
               "target_nodes": {
                 "type": ["array", "null"],
                 "items": {
-                  "$ref": "#/$defs/target_node"
+                  "type": "object",
+                  "target_node": {
+                    "type": "object",
+                    "properties": {
+                      "target_node_type": {
+                        "type": "string",
+                        "enum": ["concept"],
+                        "description": "Type of the end nodes at the other end of the relationship."
+                      },
+                      "target_node_name": {
+                        "type": "string",
+                        "description": "Name of the end node that this concept is related to."
+                      }
+                    },
+                    "required": ["target_node_type", "target_node_name"],
+                    "additionalProperties": false
+                  }
                 },
                 "description": "Names of end nodes that this concept is related to."
               },
               "direction": {
                 "type": "string",
-                "enum": ["to"],
+                "enum": ["from"],
                 "description": "Direction of the relationship."
               }
             },
-            "required": ["target_node_type", "target_nodes", "direction"],
+            "required": ["target_nodes", "direction"],
             "additionalProperties": false,
             "description": "Indicates prerequisite concepts required for understanding the current concept."
           }
         },
         "required": ["has_subconcept", "is_prerequisite_of"],
         "additionalProperties": false
-      }
-    },
-    "$defs" : {
-      "target_node": {
-        "type": "string",
-        "description": "Name of end node that this concept has the relationship with."
       }
     },
     "required": [
