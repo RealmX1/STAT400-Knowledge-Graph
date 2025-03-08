@@ -16,7 +16,7 @@
   - **Step-by-Step Explanation**:
     1. Identify the set of outcomes that are odd: \(\{1, 3, 5\}\).
     2. Count the number of favorable outcomes: 3.
-    3. Calculate probability: \( P(\text{odd}) = \frac{\text{Number of favorable outcomes}}{\text{Total number of outcomes}} = \frac{3}{6} = \frac{1}{2} \).
+    3. Calculate probability: \( P(\text{odd}) = \frac{\text{Number of favorable outcomes}}{\text{Total number of outcomes}} = \frac{3}{6} = \frac{1}{2} \). 
 
 - **Hints**: 
   - Recall that a fair die means all outcomes are equally likely.

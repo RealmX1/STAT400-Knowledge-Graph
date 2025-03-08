@@ -1,60 +1,50 @@
-input = r"""```markdown
-# Property Node
+import random
+import math
 
-## Attributes
-
-- **Name**: Expected value of Hypergeometric Distribution
-  - **Aliases**: ["Mean of Hypergeometric Distribution", "Expected Value"]
-
-- **Definition**:
-  - **Notation**:
-    - Latex: `E(X) = n \left(\frac{M}{N}\right)`
-    - Rendered: $E(X) = n \left(\frac{M}{N}\right)$
-    - **Range**: The expected value $E(X)$ is not necessarily a whole number; it takes a value based on $N$, $M$, and $n$ within the defined bounds.
-
-- **Description**:
-  - The expected value of a Hypergeometric Distribution, which describes the mean or average outcome when randomly drawing $n$ items without replacement from a finite population of size $N$ containing exactly $M$ successes.
-
-- **Proof**:
-  - To determine the expected value of a hypergeometric random variable $X \sim \text{Hyper}(N, M, n)$, consider the indicator random variable $I_i$ which is 1 if the $i$-th draw is a success and 0 otherwise. Thus, $X = I_1 + I_2 + \cdots + I_n$. By the linearity of expectation, we have $E(X) = E(I_1) + E(I_2) + \cdots + E(I_n)$. Since the probability of each draw being a success is $\frac{M}{N}$, we find $E(X) = n \frac{M}{N}$.
-
-## Relationships
-
-- **is_property_of** ← Hypergeometric Distribution
-- **is_child_concept_of** ← Expected Value of Distribution
-
-```"""
-
-
-def extract_markdown_content(response: str) -> str:
-    # Find the outermost markdown block
-    start = response.find("```markdown")
-    if start == -1:
-        return response
-        
-    # Find the matching closing block by counting nested blocks
-    content_start = start + len("```markdown")
-    count = 1
-    current_pos = content_start
+def levenshtein_distance(seq1, seq2):
+    """
+    Compute the Levenshtein (edit) distance between two sequences seq1 and seq2.
+    Allowed operations: insert, delete, substitute.
+    """
+    n, m = len(seq1), len(seq2)
+    # dp[i][j] = edit distance between seq1[:i] and seq2[:j]
+    dp = [[0]*(m+1) for _ in range(n+1)]
     
-    while count > 0 and current_pos < len(response):
-        next_triple = response.find("```", current_pos)
-        if next_triple == -1:
-            break
-            
-        # Move position past the triple backticks
-        current_pos = next_triple + 3
-        
-        # Check if there's content after the backticks and if it starts with a letter
-        remaining = response[current_pos:].lstrip()
-        if remaining and remaining[0].isalpha():
-            count += 1
-        else:
-            count -= 1
+    for i in range(n+1):
+        dp[i][0] = i  # cost of deleting i elements
+    for j in range(m+1):
+        dp[0][j] = j  # cost of inserting j elements
     
-    if count == 0:
-        return response[content_start:current_pos-3].strip()
-    
-    return response[content_start:].strip()
+    for i in range(1, n+1):
+        for j in range(1, m+1):
+            cost = 0 if seq1[i-1] == seq2[j-1] else 1
+            dp[i][j] = min(dp[i-1][j] + 1,      # deletion
+                           dp[i][j-1] + 1,      # insertion
+                           dp[i-1][j-1] + cost) # substitution (cost=0 if same, else 1)
+    return dp[n][m]
 
-print(extract_markdown_content(input))
+def random_permutation(n):
+    """Return a random permutation of [0, 1, 2, ..., n-1]."""
+    arr = list(range(n))
+    random.shuffle(arr)
+    return arr
+
+def experiment_average_edit_distance(n, num_samples=10_000):
+    """
+    1. Generate num_samples pairs of permutations of length n.
+    2. Compute their edit distances.
+    3. Return the average distance.
+    """
+    total_dist = 0
+    for _ in range(num_samples):
+        perm1 = random_permutation(n)
+        perm2 = random_permutation(n)
+        dist = levenshtein_distance(perm1, perm2)
+        total_dist += dist
+    return total_dist / num_samples
+
+if __name__ == "__main__":
+    N = 4         # length of each permutation
+    SAMPLES = 5000 # number of pairs to sample
+    avg_dist = experiment_average_edit_distance(N, SAMPLES)
+    print(f"For N={N} over {SAMPLES} random pairs, average edit distance = {avg_dist:.3f}")
